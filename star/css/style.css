@@ -1,0 +1,14 @@
+.a{
+    margin:  100px auto;
+    text-align: center;
+    height: 32px;
+    width: 160px;
+}
+.a li{
+    list-style: none;
+    float: left;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url(star.png) no-repeat;
+}

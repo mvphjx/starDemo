@@ -21,6 +21,7 @@ $(function(){
          reSet(this);  
     }); 
     function reSet(_this){
+        //设置iframe大小
                 var height = $(_this).contents().find("body").outerHeight(true) + 10; 
                 var width =$(_this).contents().find("body").outerWidth(true)+10;
                 $(_this).height( height);  

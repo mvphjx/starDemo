@@ -6,25 +6,27 @@
     <link rel="stylesheet" type="text/css" href="star/css/style.css">
         <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 </head>
-<script type="text/javascript">
-	
-$(function(){  
-    $('iframe').load(function(){       
-        reSet();  
-	function reSet(){
-    		var height = $(this).contents().find("body").outerHeight(true) + 10; 
-        	var width =$(this).contents().find("body").outerWidth(true)+10;
-        	$(this).height( height);  
-        	$(this).width(width);
-    	}
-    });  
-      
-});  
-</script>
+
 
 <body>
 <iframe src="star/star.html" id="star" ></iframe>
 <iframe src="rose/rose.html" id="rose" ></iframe>
 
 </body>
+<script type="text/javascript">
+    
+$(function(){  
+
+    $('iframe').bind("load",function(){
+         reSet(this);  
+    }); 
+    function reSet(_this){
+                var height = $(_this).contents().find("body").outerHeight(true) + 10; 
+                var width =$(_this).contents().find("body").outerWidth(true)+10;
+                $(_this).height( height);  
+                $(_this).width(width);
+                
+    }
+});  
+</script>
 </html>

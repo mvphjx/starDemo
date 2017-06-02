@@ -8,13 +8,15 @@
 </head>
 <script type="text/javascript">
 	
-	$(function(){  
-    $("#star").load(function(){       
-        var height = $(this).contents().find("body").outerHeight(true) + 40;  
-		//这样给以一个最小高度  
-		//$(".Body").outerWidth(true)
-		//$(".Body").outerHeight(true);
-        $(this).height( height < 400 ? 400 : height );  
+$(function(){  
+    $('iframe').load(function(){       
+        reSet();  
+	function reSet(){
+    		var height = $(this).contents().find("body").outerHeight(true) + 10; 
+        	var width =$(this).contents().find("body").outerWidth(true)+10;
+        	$(this).height( height);  
+        	$(this).width(width);
+    	}
     });  
       
 });  

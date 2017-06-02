@@ -5,12 +5,14 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="star/css/style.css">
         <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+        <style type="text/css">
+            
+        </style>
 </head>
 
-
 <body>
-<iframe src="star/star.html" id="star" ></iframe>
-<iframe src="rose/rose.html" id="rose" ></iframe>
+<iframe src="star/star.html" id="star" marginwidth=0 marginheight=0 frameborder=0 scrolling=no></iframe>
+<iframe src="rose/rose.html" id="rose" marginwidth=0 marginheight=0 frameborder=0 scrolling=auto></iframe>
 
 </body>
 <script type="text/javascript">
@@ -24,8 +26,12 @@ $(function(){
         //设置iframe大小
                 var height = $(_this).contents().find("body").outerHeight(true) + 10; 
                 var width =$(_this).contents().find("body").outerWidth(true)+10;
-                $(_this).height( height);  
-                $(_this).width(width);
+
+                var height2 = $(_this).contents().find("body")[0].scrollHeight;
+                var width2 = $(_this).contents().find("body")[0].scrollWidth;
+                 
+                $(_this).height( height>height2?height:height2);  
+                $(_this).width(height>width2?height:width2);
                 
     }
 });  

@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="star/css/style.css">
+        <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+	
+	$(function(){  
+    $("#star").load(function(){       
+        var height = $(this).contents().find("body").outerHeight(true) + 40;  
+		//这样给以一个最小高度  
+		//$(".Body").outerWidth(true)
+		//$(".Body").outerHeight(true);
+        $(this).height( height < 400 ? 400 : height );  
+    });  
+      
+});  
+</script>
 
 <body>
-<iframe src="star/star.html" id=star style="height:535px;"></iframe>
+<iframe src="star/star.html" id=star ></iframe>
 <iframe src="rose/rose.html" id=rose style="width:535px;height:535px;"></iframe>
 
 </body>

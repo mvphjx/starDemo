@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei";
+}
+.controller{
+    width:600px;
+    margin:auto;
+}
+.controller>ul{
+    list-style-type: none;
+    margin-top: 20px;
+}
+.controller>ul:after{
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.controller>ul>li{
+    float:left;
+    margin-left:10px;
+}
+.btn{
+    width: 30px;
+    height:30px;
+    border-radius: 5px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.red{
+    background-color: red;
+}
+.black{
+    background-color: black;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.purple{
+    background-color: purple;
+}
+.controller button[class="clear"]{
+    float: right;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top:-32px;
+}
+.controller button[class="clear"]:hover{
+    cursor: pointer;
+}
+h1{
+    font-size:50px;
+    color:red;
+    position: absolute;
+}
+#canvas{
+    border:10px solid rgb(230,11,9);
+}

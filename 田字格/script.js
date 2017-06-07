@@ -54,7 +54,7 @@ var pen=canvas.getContext("2d");
                 var v=s/t;
                 var max = 20;
                 var min = 5;
-                var maxspeed = 5;
+                var maxspeed = 2;
                 var minspeed = 0.1;
                 console.log(v);
                 var lineWidth = 1;

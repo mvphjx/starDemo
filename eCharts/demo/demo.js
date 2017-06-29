@@ -5,7 +5,7 @@
 // 基于准备好的dom，初始化echarts实例
 var myChart = echarts.init(document.getElementById('main'));
 
-var base = +new Date(2017, 6, 24);
+var base = +new Date(2017, 5, 24);
 var oneDay = 24 * 3600 * 1000;
 var date = [];
 var data = [Math.random() * 300];
@@ -15,7 +15,7 @@ for (var i = 1; i < 60; i++) {
 	    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
 	    data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
 }
-console.log(data);
+//console.log(data);
 var	option = {
 	    tooltip: {
 	        trigger: 'axis',

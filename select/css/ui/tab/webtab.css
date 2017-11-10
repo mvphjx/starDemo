@@ -1,0 +1,46 @@
+.WebTab					{overflow:hidden;height: 31px; background: url(../../../image/ui/tab/tab.png) 0px 0px repeat-x; }
+.Tab 					{float:left;list-style:none;background: url(../../../image/ui/tab/tab.png) 0px 0px repeat-x; height: 31px; padding: 0px;margin:0px;}
+.Tab li 				{float:left;margin-left:5px;width:100px;height:31px;line-height:31px;background: url(../../../image/ui/tab/tab.png) 0px -34px no-repeat;cursor:pointer;}
+.Tab li div 			{display:block;text-align:center;font-size:14px;width:100%;line-height:24px;height:24px;padding:0px 0px;margin-top:3px;color:white;}
+.Tab li.mouseout 		{width:100px;height:31px;background: url(../../../image/ui/tab/tab.png) 0px -34px no-repeat;}
+.Tab li.mouseover 		{width:100px;height:31px;background: url(../../../image/ui/tab/tab.png) 0px -68px no-repeat;}
+.Tab li.selected 		{width:100px;height:31px;background: url(../../../image/ui/tab/tab.png) 0px -102px no-repeat;}
+.TabTool				{overflow:hidden;height:31px;margin-top: 0px;margin-right: 10px;}
+
+
+.Tab2 li {
+    float: left;
+    margin-right: 5px;
+    border-radius: 3px 3px 0 0;
+    line-height: 40px;
+    text-align: center;
+    width: 140px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #4d555d;
+    list-style: none;
+}
+.Tab2 li div {
+    color: white;
+}
+/*默认*/
+.Tab2 li.mouseout {
+    background-color: #4d555d;
+    color: #fff;
+    list-style: none;
+}
+/*悬浮*/
+.Tab2 li.mouseover {
+    background-color: #767676;
+    color: white;
+}
+/*选中*/
+.Tab2 li.selected {
+    background-color: white;
+    color: #333;
+    list-style:none;
+}
+.Tab2 li.selected  div {
+    color: #333;
+}

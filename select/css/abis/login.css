@@ -1,0 +1,58 @@
+﻿div{overflow: hidden}
+#loginup
+{
+	width:1250px;	
+	background: url(../../image/abis/login/loginup.png) repeat-y;
+}
+#logindown
+{
+	width:1250px;	
+	background: url(../../image/abis/login/logindown.png) repeat-y;
+}
+#logincenter
+{
+	width:1250px;
+	height:720px;	
+	margin: 0px auto;
+	background: url(../../image/abis/login/logincenter.png) no-repeat;
+}
+.login
+{
+	width: 650px;	
+	height:710px;	
+	margin: 0px auto;
+	margin-top:145px;		
+}
+.loginlogo
+{
+	width: 650px;
+	height: 151px;	
+	margin: 0px auto;		
+	background: url(../../image/abis/login/loginlogo2.png) no-repeat;
+}
+.loginform
+{
+	width: 650px;	
+	height: 302px;
+	margin: 0px auto;
+	background: url(../../image/abis/login/loginform.png) no-repeat;	
+}
+.userloginlogo
+{	
+	width: 100px;
+	height: 100px;
+	background: url(../../image/abis/login/newuserloginlogo.png) no-repeat;
+}
+.userlogintxt
+{
+	padding-left:15px;
+	font-family:Microsoft YaHei;
+	font-weight: 600;
+	color: #122e86;
+	font-size: 17px;
+}
+.labelfield
+{
+	color: #000000;
+}
+.warminfo{color: red;width: 100%}

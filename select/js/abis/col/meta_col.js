@@ -1,0 +1,81 @@
+
+var  ColumnCatlogsCol = 
+{
+   ID : "ID",
+   TABLE_NAME : "TABLE_NAME",
+   COLUMN_NAME : "COLUMN_NAME",
+   COL_DISP_NAME : "COL_DISP_NAME",
+   COL_DISP_WIDTH : "COL_DISP_WIDTH",
+   INPUT_CODE : "INPUT_CODE",
+   ENTITY_ATTR_TYPE : "ENTITY_ATTR_TYPE",
+   DESCRIPTION : "DESCRIPTION",
+   CODE_TABLE_NAME : "CODE_TABLE_NAME",
+   STORAGE_FMT : "STORAGE_FMT",
+   DATA_TYPE : "DATA_TYPE",
+   DATA_FMT : "DATA_FMT",
+   CODE_FMT : "CODE_FMT",
+   CP_CODE_COL : "CP_CODE_COL",
+   CODE_DISP_STYLE : "CODE_DISP_STYLE"
+}
+
+var  DBCatlogCol = 
+{
+
+   DBID : "DBID",
+   DB_NAME : "DB_NAME",
+   DBID_MASK : "DBID_MASK",
+   DB_UUID : "DB_UUID",
+   DISP_NAME : "DISP_NAME",
+   DESCRIPTION : "DESCRIPTION",
+   CREATE_TIME : "CREATE_TIME",
+   CREATE_USER : "CREATE_USER",
+   CREATE_UNIT_CODE : "CREATE_UNIT_CODE",
+   UPDATE_TIME : "UPDATE_TIME",
+   UPDATE_USER : "UPDATE_USER",
+   UPDATE_UNIT_CODE : "UPDATE_UNIT_CODE",
+   DB_PURPOSE : "DB_PURPOSE",
+   DB_TYPE : "DB_TYPE"
+}
+
+var  DBDefaultCprCfgCol = 
+{
+   ID : "ID",
+   DBID : "DBID",
+   PRINT_TYPE : "PRINT_TYPE",
+   BTY : "BTY",
+   DEFAULT_CPR_METHOD_ID : "DEFAULT_CPR_METHOD_ID",
+   DEFAULT_CPR_RATIO : "DEFAULT_CPR_RATIO",
+   DESCRIPTION : "DESCRIPTION"
+}
+
+
+var  DBDefaultGrpCfgCol = 
+{
+   PRINT_TYPE : "PRINT_TYPE",
+   BTY : "BTY",
+   DEFAULT_GID : "DEFAULT_GID"
+}
+
+var  DBSupportedBfvcCfgCol = 
+{
+   ID : "ID",
+//   DBID : "DBID",
+   PRINT_TYPE : "PRINT_TYPE",
+   BTY : "BTY",
+   FGP : "FGP",
+   VID : "VID",
+   CID : "CID",
+   NAME : "NAME"
+}
+
+var  DBTPSupportedFvsCol = 
+{
+	
+   ID : "ID",
+   DBID : "DBID",
+   BTY : "BTY",
+   FGP : "FGP",
+   VID : "VID",
+   WHC : "WHC"
+}
+

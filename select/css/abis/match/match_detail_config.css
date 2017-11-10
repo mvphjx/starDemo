@@ -1,0 +1,583 @@
+/* 通用清理样式 */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+}
+.add-button{height: 40px; margin:0 15px;}
+.add-button button{float: right; margin-right: 10px; width: 89px; height: 27px; background: url(../../../image/abis/search/button2.png) 0 0 no-repeat; color: #fff; padding-left:20px; font-size: 12px; margin-top: 6px; cursor: pointer;}
+.add-button button:hover{opacity: 0.8;}
+.edit {
+	margin: 0 15px 20px 15px;
+	background: #f0f3f6;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	padding: 10px 25px 180px 25px;
+}
+
+.edit h4 {
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #0168AC;
+	clear: both;
+}
+
+.edit .form {
+	float: left;
+	width: 45%;
+	margin-right: 5%;
+	margin-bottom: 20px;
+	height: 32px;
+	line-height: 32px;
+	white-space: nowrap;
+}
+.edit .form-ex{width: 95%;}
+
+.edit .form label {
+	width: 33%;
+	height: 32px;
+	color: #666;
+	position: relative;
+	float: left;
+}
+
+.edit .form-ex label{width: 15.5%;}
+
+.edit .form label span {
+	position: absolute;
+	left: -12px;
+	top: 2px;
+	color: red;
+	font-size: 16px;
+}
+
+.edit .form input {
+	width: 66%;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 30px;
+	font-size:1em;
+}
+
+/* .edit .form select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	padding-right: 32px;
+	border: 1px solid #ccc;
+	height: 32px;
+	padding-left: 10px;
+	background: #fff url(../../../image/abis/search/select-xl.png) right center no-repeat;
+	width: 66%;
+}
+
+select::-ms-expand {
+	display: none;
+} */
+
+.edit .form.whole {
+	width: 95%;
+	height: auto;
+}
+
+.edit .form.whole label {
+	width: 15.5%;
+}
+
+.edit .form.whole input {
+	width: 84%;
+}
+
+.edit .form.whole span {
+	width: 15.5%;
+	color: #666;
+	float: left;
+}
+
+.edit .form.whole textarea {
+	width: 84%;
+	border: 1px solid #ccc;
+}
+
+.divider {
+	clear: both;
+}
+
+.edit .other {
+	clear: both; margin-top: 40px;
+}
+
+.edit .other>div {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.edit .other h5 {
+	background: #535353;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.edit .other h5 button {
+	float: right;
+	width: 15px;
+	height: 14px;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+
+.edit .other h5 button:hover {
+	opacity: 0.8;
+}
+
+.edit .other h5 .add1 {
+	background: url(../../../image/abis/search/add1.png) 0 0 no-repeat;
+}
+
+.edit .other h5 .edit1 {
+	background: url(../../../image/abis/search/edit1.png) 0 0 no-repeat;
+}
+
+.edit .other h5 .delete1 {
+	background: url(../../../image/abis/search/delete1.png) 0 0 no-repeat;
+}
+
+.edit .other table {
+	width: 100%;
+	border: 1px solid #ccc;
+	width: 100%;
+	max-width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	white-space: nowrap;
+}
+
+.edit .other table th {
+	height: 32px;
+	background: #f9f9f9;
+	color: #666;
+	font-weight: normal;
+	border: 1px solid #ddd;
+	text-align: left;
+	padding: 0 10px;
+}
+
+.edit .other table td {
+	height: 32px;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+}
+.edit .other table tr{background: #fff;}
+
+.edit .other table .rowdown,.edit .other table .rowhover{background: #ebf6ff;}
+/* 动态生成之后修改样式 */
+
+.edit .form>div {
+	width: 66%;
+	float: left;
+	height: 32px;
+}
+
+.edit .form-ex > div{width: 84%;}
+.edit .form>div .combolist input {
+	height: 30px!important;
+	width: 100%!important;
+}
+
+.edit .form>div .combolist .combo_bnt {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+}
+
+.edit .form>div .combolist .combo_bnt_hover {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist .combo_bnt_down {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist>div {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: -12px;
+	top: 0;
+}
+
+.edit .form>div .combolist>div:hover {
+	display: visible!important;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist {
+	position: relative;
+	overflow: visible;
+}
+
+.edit .form .Field_Body input {
+	width: 100%;
+}
+.edit .remarks{width: 95%;}
+.edit .remarks label{width: 16%;}
+.edit .remarks > div{width: 84%; margin-left: -3px;}
+.edit .form .Field_Body textarea {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 25px;
+	min-height: 60px;
+	white-space:normal;
+}
+
+.edit .form .Field_Body {
+	position: relative;
+}
+
+.edit .form .Field_Body .Field_Image {
+	position: absolute;
+	top: -2px;
+	right: -30px;
+}
+
+.edit .form .twoinput {}
+
+.edit .form .twoinput .First_Input {
+	width: 40%;
+	padding-left: 5px;
+	border-right: none;
+	background: #f8f8f8;
+}
+
+.edit .form .twoinput .Last_Input {
+	width: 60%;
+	padding-left: 5px;
+}
+
+
+/*Required*/
+
+.Field_Image {
+	float: left;
+	width: 14px;
+	height: 24px;
+}
+
+.Field_Up_Image {
+	width: 12px;
+	margin-left: 2px;
+	height: 12px;
+	cursor: default;
+}
+
+.Field_Down_Image {
+	width: 12px;
+	margin-left: 2px;
+	height: 12px;
+	line-height: 12px;
+	cursor: default;
+}
+
+.Required_Image {
+	background: url(../../../image/abis/search/ui/common/required.png) no-repeat;
+}
+
+/*弹出框*/
+.edit2 .form {
+	width: 430px;
+	margin-bottom: 20px;
+	height: 32px;
+	line-height: 32px;
+	white-space: normal;
+	margin:15px 50px;
+	clear: both;
+}
+
+.edit2 .form label {
+	width: 33%;
+	height: 32px;
+	color: #666;
+	position: relative;
+	float: left;
+}
+
+.edit2 .form label span {
+	position: absolute;
+	left: -12px;
+	top: 2px;
+	color: red;
+	font-size: 16px;
+}
+
+.edit2 .form input {
+	width: 66%;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 30px;
+	font-size: 1em;
+}
+
+.edit2 .form.whole {
+	width: 95%;
+	height: auto;
+}
+
+.edit2 .form.whole label {
+	width: 15.5%;
+}
+
+.edit2 .form.whole input {
+	width: 84%;
+}
+
+.edit2 .form.whole span {
+	width: 15.5%;
+	color: #666;
+	float: left;
+}
+
+.edit2 .form.whole textarea {
+	width: 84%;
+	border: 1px solid #ccc;
+}
+
+.edit2 .other {
+	clear: both; margin-top: 40px;
+}
+
+.edit2 .other>div {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.edit2 .other h5 {
+	background: #535353;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.edit2 .other h5 button {
+	float: right;
+	width: 15px;
+	height: 14px;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+
+.edit2 .other h5 button:hover {
+	opacity: 0.8;
+}
+
+
+/* 动态生成之后修改样式 */
+
+.edit2 .form>div {
+	width: 66%;
+	float: left;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist input {
+	height: 30px!important;
+	width: 100%!important;
+}
+
+.edit2 .form>div .combolist .combo_bnt {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist .combo_bnt_hover {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist .combo_bnt_down {
+	background: url(../../../image/abis/search/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist>div {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: -12px;
+	top: 0;
+}
+
+.edit2 .form>div .combolist>div:hover {
+	display: visible!important;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist {
+	position: relative;
+	overflow: visible;
+}
+
+.edit2 .form .Field_Body input {
+	width: 100%;
+}
+.edit2 .remarks{width: 95%;}
+.edit2 .remarks label{width: 16%;}
+.edit2 .remarks > div{width: 84%; margin-left: -3px;}
+.edit2 .form .Field_Body textarea {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 25px;
+	min-height: 60px;
+	white-space:normal;
+}
+
+.edit2 .form .Field_Body {
+	position: relative;
+}
+
+.edit2 .form .Field_Body .Field_Image {
+	position: absolute;
+	top: -2px;
+	right: -30px;
+}
+
+.edit2 .form .twoinput {position: relative;}
+
+.edit2 .form .twoinput .First_Input {
+	width: 114px;
+	padding-left: 5px;
+	border-right: none;
+	background: #f8f8f8;
+}
+
+.edit2 .form .twoinput .Last_Input {
+	width: 170px;
+	padding-left: 5px;
+	position: absolute;
+	top:0;
+	_top:2px;
+	left: 119px;
+}
+.Field_Disable	{background-color:#f8f8f8;color:black;}
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: 0.8em/1.5 "微软雅黑";
+	color: #333;
+}
+
+/*通用清理样式*/
+html{}
+body{margin:0; padding:0; border:0; font:12px/1.5 "微软雅黑"; color:#333;}
+*{margin:0; padding:0; border:0; list-style:none;}
+a{text-decoration: none;}
+button{cursor: pointer;}
+button:hover{opacity: 0.8;}
+/* 弹出窗口 0*/
+.hide{display: none;}
+.general-search-dialog{width: 720px; height: 100%; background: #fff; border: 1px solid #535353; margin: 0 auto;}
+.general-search-dialog .general-search-header{height: 35px; line-height: 35px; background: #535353; color: #fff; padding: 0 10px; font-size: 14px;}
+.general-search-header .close{background: transparent; float: right; color: #fff; font-size: 24px; height: 35px; line-height: 35px;}
+.general-search-dialog .general-search-footer{height: 40px; background: #f0f0f0; border-top: 1px solid #ccc;}
+.general-search-dialog .general-search-footer .bigbtn{float: right; width: 80px; height: 24px; margin:8px 8px 0 0; color: #fff; text-align: center; line-height: 24px; background: url(../../../image/abis/search/btnbg-black.png) 0 0 no-repeat;}
+.general-search-dialog .general-search-body{height: 100%;}
+.general-search-body .top-btngroup{height: 20px; border-bottom: 1px solid #ccc; background-color: #f8fafb; padding: 10px 25px;}
+.top-btngroup .smallbtn{height: 20px;padding-left: 25px; float: left; line-height: 20px; margin-right: 20px; cursor: pointer; color: #666;}
+.top-btngroup .smallbtn:hover{color: #333;}
+.top-btngroup .customtem{background: url(../../../image/abis/search/customtem.png) 0 2px no-repeat; position: relative;}
+.top-btngroup .customtem ul{position: absolute; left: 15px; top:25px; border: 1px solid #ddd; background-color: #fff; z-index: 9999; min-width: 110px;}
+.top-btngroup .customtem li{height: 30px; line-height: 30px; padding:0 10px; white-space: nowrap;}
+.top-btngroup .customtem li:hover{background-color: #dceefe;}
+.top-btngroup .savetem{background: url(../../../image/abis/search/savetem.png) 0 2px no-repeat;}
+.top-btngroup .addcondi{background: url(../../../image/abis/search/addcon.png) 0 2px no-repeat;}
+.top-btngroup .deletecondi{background: url(../../../image/abis/search/deletecon.png) 0 2px no-repeat;}
+.top-btngroup .clearcon{background: url(../../../image/abis/search/clearcon.png) 0 2px no-repeat;}
+.top-btngroup .sorticon{background: url(../../../image/abis/search/sorticon.png) 0 2px no-repeat;}
+.general-search-body .generalsearch-body-content{height: 464px;}
+.generalsearch-body-content .left{width: 220px; height: 100%; border-right: 1px solid #ccc; float: left; background-color: #f8fafb;}
+.generalsearch-body-content .left .search-condition{width: 192px; height: 28px; margin:12px 0 10px 20px; position: relative;}
+.left .search-condition input{width: 150px; height: 26px; line-height: 26px; padding:0 30px 0 10px; border: 1px solid #ccc;}
+.left .search-condition .clear-text{width: 24px; height: 24px; background: url(../../../image/abis/search/clearsearch.png) 0 0 no-repeat; position: absolute; top:2px; right: 5px;}
+/*.generalsearch-body-content .left ul{height: 414px; overflow-y:auto;}*/
+/*.generalsearch-body-content .left ul li{height: 30px; line-height: 30px; padding-left: 20px; color: #666; white-space: nowrap;}*/
+/*.generalsearch-body-content .left ul li:hover{background-color: #dceefe;}*/
+.generalsearch-body-content .right{padding-left: 240px; height: 100%;}
+.generalsearch-body-content .right-content{ height: 100%; overflow-y:auto; width: 480px;}
+.generalsearch-body-content .right-content .help-text{width: 460px; overflow: hidden; margin: 12px 0;}
+.right-content .help-text img{float: left; margin-right: 5px;}
+.right-content .help-text p{width:390px;line-height: 24px; color: #999; background-color: #edf9f0; border: 1px solid #dcf3e2; float: left; padding: 0 10px;}
+.right-content .search-item{ margin-bottom: 10px;}
+.right-content .search-item .item-title{float: left; width: 120px; height: 28px; line-height: 28px; color: #333;} 
+.right-content .search-item .logic-choose{float: left; width: 28px; height: 28px; margin:0 10px; position: relative;}
+.right-content .search-item .logic-choose .choose-current{margin:2px; cursor: pointer; width: 24px; height: 24px;}
+.right-content .search-item .equal{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
+.right-content .search-item .unequal{background-image: url(../../../image/abis/search/unequal.png); background-repeat:no-repeat;}
+.right-content .search-item .inlimit{background-image: url(../../../image/abis/search/inlimit.png); background-repeat:no-repeat;}
+.right-content .search-item .outlimit{background-image: url(../../../image/abis/search/outlimit.png); background-repeat:no-repeat;}
+.right-content .search-item .greater{background-image: url(../../../image/abis/search/greater.png); background-repeat:no-repeat;}
+.right-content .search-item .less{background-image: url(../../../image/abis/search/less.png); background-repeat:no-repeat;}
+.right-content .search-item .greater-equal{background-image: url(../../../image/abis/search/greater-equal.png); background-repeat:no-repeat;}
+.right-content .search-item .less-equal{background-image:url(../../../image/abis/search/less-equal.png); background-repeat:no-repeat;}
+.right-content .search-item .empty{background-image: url(../../../image/abis/search/empty.png); background-repeat:no-repeat;}
+.right-content .search-item .notempty{background-image: url(../../../image/abis/search/notempty.png); background-repeat:no-repeat;}
+.right-content .search-item .match{background-image: url(../../../image/abis/search/match.png); background-repeat:no-repeat;}
+.right-content .search-item .nomatch{background-image: url(../../../image/abis/search/nomatch.png); background-repeat:no-repeat;}
+.right-content .search-item .macros{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
+.right-content .search-item .logic-choose ul{position: absolute; left: 0; top:28px; border: 1px solid #ddd; background-color: #f8fafb; z-index: 999; width: 150px;}
+.right-content .search-item .logic-choose li{height: 30px; line-height: 30px; cursor: pointer; padding-left: 35px; background-position: 3px 3px;}
+.right-content .search-item .logic-choose li:hover{background-color: #dceefe;}
+.right-content .search-item .logic-choose li img{float: left; margin:3px 10px 0 5px;}
+.right-content .search-item .textinput{float: left; width: 250px; height: 26px; border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
+.right-content .search-item .range-wrap{width: 293px;float: left; } /*width: 290px;margin-bottom: 5px */
+.right-content .search-item .range-wrap .rangetext{width: 83px; padding: 0 10px; float: left; height: 26px; line-height: 26px; border: 1px solid #ccc;}
+.right-content .search-item .range-wrap .to{float: left; width: 40px; height: 28px; line-height: 28px; text-align: center;}
+.right-content .search-item .readonly{background-color: #f8f8f8; color: #999;}
+.right-content .search-item .filter{width: 272px; height: 28px; float: left; position: relative;}
+.right-content .search-item .filter input{width: 223px; height: 26px; float: left;border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
+.right-content .search-item .filter .select-arrow{width: 28px; height: 28px; background: url(../../../image/abis/search/select-arrow.png) 0 0 no-repeat; float: left; margin-left: -1px; cursor: pointer;}
+.right-content .search-item .filter .option-wrap{width: 270px; border: 1px solid #ddd; position: absolute; top:28px; left: 0; z-index: 1000; background-color: #fff;}
+.right-content .search-item .filter .option-wrap li{padding-left: 10px; height: 30px; line-height: 30px; color: #666;}
+.right-content .search-item .filter .option-wrap li:hover{background-color: #dceefe;}
+.search-item .filter .option-wrap .opration-btngrp{height: 38px; border-top: 1px solid #ccc; background-color: #f8fafb;}
+.filter .option-wrap .opration-btngrp button{width: 56px; height: 26px; margin:6px; text-align: center; line-height: 26px; background: url(../../../image/abis/search/btnlittle.png) 0 0 no-repeat; float: right; font-size: 12px;}
+
+
+
+.search-item .Field_Input{float: left; width: 200px; height: 26px; border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
+.search-item .range-wrap .rangetext{width: 50px; padding: 0 10px; float: left; line-height: 26px; border: 1px solid #ccc;}
+.search-item .range-wrap .Field_Body{width: 220px;float: left}
+.newMenu {position:inherit}
+
+.group{width:100%!important;;border-bottom:1px solid #ddd;padding-bottom:2px;} 
+.right-content .search-item .range-wrap .first-control {min-width:40px;display:inline-block;margin-right:5px;float: left;width: 130px}
+.right-content .search-item .range-wrap .second-control {min-width:40px;display:inline-block;margin-left:5px;float: left;width: 130px}
+.right-content .search-item .range-wrap .between-control{display:inline-block;top:50%;*top:40%;float: left;}
+.search-item .range-wrap .first-control .Field_Body{width: 105px;float: left}
+.search-item .range-wrap .second-control .Field_Body{width: 105px;float: left}
+.clear{clear:both;} /* 清除空白盒子的所有浮动 */
+/*浮动按钮布局*/
+.left-button{float:left;margin:10px}
+
+

@@ -1,0 +1,95 @@
+.section
+{
+	width:125px;
+	height:auto;
+}
+.sectionline
+{
+	background: url(../../../image/subtitle/title_line_1.png) repeat-x;
+	width:81%;
+    height:31px;
+    float: right;
+}
+.sectioncontent
+{
+	padding:5px;
+	padding-left:5px;
+}
+.sectionlist
+{
+	padding:5px;
+	padding-left:20px;
+}
+.columnname
+{
+	font-size:13px;
+	color: #234a76;
+	height:22px;
+	font-weight: 500;
+	width: 110px;	
+	text-align: right;
+	padding: 3px;
+}
+
+.columnvalue
+{
+	font-size:14px;
+	color: #234a76;
+	height:22px;
+	font-weight: 500;	
+	text-align: right;
+	padding: 3px;
+}
+
+.comments
+{
+	font-size:14px;
+	color: #234a76;
+	height:260px;
+	font-weight: 500;	
+	text-align: right;
+	padding: 3px;
+	width:110px;
+}
+
+.commentsvalue
+{
+	font-size:14px;
+	color: #234a76;
+	height:260px;
+	font-weight: 500;	
+	text-align: right;
+	padding: 3px;
+	width:100%;
+}
+
+.sub_title
+{
+	padding:0px;
+	text-indent:10px;
+	color:#214878;
+	height:28px;
+	line-height:28px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.sub_title_line
+{
+	border:0;
+	border-top: 1px solid #6c829d;
+	border-bottom: 1px solid #d6d9dd;
+}
+.sectionbg1
+{
+	background-color: #edf4fa;
+}
+.sectionbg2
+{
+	background-color: #f6fcfe;
+}
+.floatleft
+{
+	float: left;
+}
+#left{float: left;width: 10%}
+#right{float: right;width: 90%}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+
+<div id="app"></div>
+<script>
+    new Vue({
+        el: '#app',
+        render: function () {
+            with (this) {
+                __h__('div',
+                    {staticAttrs:{"id":"app"}},
+                    [("\n  Hello "+__toString__(who)+"\n")],
+                    ''
+                )
+            }
+        },
+        data: {who: 'Vue'}
+    })
+</script>
+</body>
+</html>

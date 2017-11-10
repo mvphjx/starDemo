@@ -1,0 +1,14 @@
+
+.StatTable 				{width:100%;border: 1px solid #8AB6EB;border-collapse: collapse;}
+.StatTable th			{height:28px;line-height:28px;background-color:  #D4E7FF;border:1px solid #8AB6EB;border-top:0px;}
+.StatTable tr			{height:28px;line-height:28px;}
+.StatTable tr td		{text-align: center; border-bottom: 1px solid #8AB6EB;background-color: #F6FCD5;overflow: hidden;}
+.StatTable tr .header	{text-indent:10px;text-align:left;border-right:1px solid #8AB6EB;background-color:#E5F1FF;color: #154075;font-weight:600;}
+
+.StatTable tr td .wait	{margin:0 auto;overflow: hidden;}
+.StatTable tr td .icon	{float:left;width:22px;height:22px;background:url(../../../images/icon/wait.gif) no-repeat;}
+.StatTable tr td .text	{float:left;margin-left:5px;height:22px;line-height:22px;}
+
+.StatTable tr .Total	{color:#AE4032;border-right:1px solid #8AB6EB;background-color:#E5F1FF;font-weight:600;}
+.StatTable tr .VTotal	{border-left:1px solid #8AB6EB; background-color:#FBF2CA;}
+.StatTable tr .HTotal	{background-color: #ECFDE5;font-weight:bold;}

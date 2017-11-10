@@ -1,0 +1,23 @@
+body
+{
+	margin:0 0;
+	padding:0px;
+}
+	
+.ztree
+{
+	font-family:'微软雅黑';
+}
+.ztree li a					{color: white;}
+.ztree li a.curSelectedNode {background-color:#dff7d9;border:1px solid #a6eba2; color: #fd8402;}
+
+.NaviTreePanel
+{
+	margin:0px;
+	padding:0px;
+	height:278px;
+	overflow-y: auto;
+	background-color:#5c646c;
+	z-index:1000;
+	border:1px solid #454d56;
+}

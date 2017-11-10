@@ -1,0 +1,86 @@
+.addYFP
+{
+	background:url(../../../image/abis/icon/add.png) no-repeat;
+	height: 15px;
+	width: 15px;
+	border: 1px;
+	margin-top: 5px;
+}
+.delBtn		
+{
+	background: url(../../../image/abis/icon/delete.png) repeat-x;
+	height: 15px;
+	width: 15px;
+	border: 1px;
+	margin-top: 5px;
+}
+.ypfText
+{
+	margin-bottom: 15px;
+	font-size: 13px;
+	font-family: '微软雅黑';
+	width: 400px;
+}
+.divback
+{
+	background-color: #dfffff;
+	min-height: 550px;
+}
+.tablediv
+{
+	margin-top: 10px;
+}
+
+.fu_list 
+{
+	width:800px;
+	background:#ebebeb;
+	font-size:12px;
+}
+.fu_list td 
+{
+	padding:5px;
+	line-height:20px;
+	background-color:#fff;
+}
+.fu_list table 
+{
+	width:100%;
+	border:1px solid #ebebeb;
+}
+.fu_list thead td 
+{
+	background-color:#f4f4f4;
+}
+.fu_list b 
+{
+	font-size:14px;
+}
+a.files 
+{
+	width:90px;
+	height:30px;
+	overflow:hidden;
+	display:block;
+	border:1px solid #BEBEBE;
+	background:url(img/fu_btn.gif) left top no-repeat;
+	text-decoration:none;
+}
+a.files:hover 
+{
+	background-color:#FFFFEE;
+	background-position:0 -30px;
+}
+a.files input 
+{
+	margin-left:-350px;
+	font-size:30px;
+	cursor:pointer;
+	filter:alpha(opacity=0);
+	opacity:0;
+}
+a.files, a.files input 
+{
+	outline:none;
+	hide-focus:expression(this.hideFocus=true);
+}

@@ -1,0 +1,76 @@
+
+.subwork	
+{
+	background:url(../../../image/abis/icon/addfpt.png) no-repeat;
+	background-position : 2 2;
+	border: 1px;
+	margin-top: 5px;
+	background-color:#364947;
+	color:#ffffff;
+	width: 90px;
+	height:25px;
+}
+.logdiv
+{
+	text-align: center;
+}
+.divCss 
+{
+	text-align:center;
+}
+.sectionT 
+{
+	border: 0;
+	border-bottom: 0px solid #c6d3e4;
+	padding-left: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 15px;
+	margin-left: 30%;
+	height:30px;
+}
+
+.sp
+{
+	color: #000000;
+	font: 15px "微软雅黑";
+	font-weight: 20;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 26px;
+}
+
+.worktype 
+{
+	padding-top: 5px;
+	line-height: 25px;
+	margin-top: 5px;
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+.worktypediv 
+{
+	margin-left:127px;
+	width: 180px;
+	height: 30px;
+	display: block;
+	float: left;
+}
+
+.userType 
+{
+	margin-left: 20px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.sectionT line 
+{
+	width: 700px;
+}
+
+.point 
+{
+	cursor: pointer;
+}

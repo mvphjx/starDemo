@@ -1,0 +1,167 @@
+
+.hsabisControlTab
+{
+	font-size: 12px;
+	color:black;
+	vertical-align: middle;
+}
+.hsabisControlTab tr
+{
+ 	height: 28px;
+}
+
+#rightbuttontab
+{
+	width:100px;
+	margin-left: 950px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+#rightbuttontab tr
+{
+	height: 28px;
+}
+.longWh
+{
+	height:22px;
+	width: 200px;
+}
+.shortWh
+{
+	width:92px;
+	height:22px;
+}
+.btnWh
+{
+	width:100px;
+}
+.btnTd
+{
+	padding-left:20px;
+	font-size:12px;
+	font-family:verdana,arial;
+	font-weight:bolder;
+	text-align:right;
+}
+.tdPos
+{
+	text-indent: 15px;
+	text-align: left;
+	width: 100px; 
+	min-width: 100px;
+}
+.colName
+{
+	text-indent: 11px;
+	text-align: right;
+	width: 140px;
+	padding-right: 8px;
+}
+.divCon
+{
+	padding-bottom	: 0px;
+	width			: 100%;
+	overflow		: hidden;
+	padding 		: 0px;
+	margin-top 		: 2px;
+	border-top		: 0px;
+}
+
+.fdivC
+{
+	display:none;
+	position: absolute;
+	z-index:10;
+	background-color: #fdebd0;
+	border: 1px solid #96989b;
+	border-top:0px;
+}
+
+.colsd
+{
+	width:500px;
+	height:330px;
+	background-color: #FFFFFF;
+	display:none;
+}
+	
+.leftlab		
+{
+	margin-left: 90px;
+}
+.conColor		
+{
+	background: #00000;
+	border: 0px solid #B9C2D0;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	margin-top: 5px;
+	font-size:13px;
+	width:480px;
+	height:300px;
+	border: 1px solid #6DAED7;
+	overflow: auto; 
+	overflow-y:auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+.seawh
+{
+	background: #00000;
+	border: 1px solid #B9C2D0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	overflow: hidden;
+}
+.checkBtn		
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.xdiv
+{
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+select 
+{ 
+	width:100%; 
+	height:100%;
+}
+button 
+{ 
+	width: 100px; 
+	height:26px; 
+	margin-bottom:10px 
+}
+.searchtext
+{
+	background:url(../../../image/abis/linkbnt/look.png) no-repeat; 
+	background-position: 1px 2px;  
+	border:0px solid #b5cbdc;  
+	height:26px; 
+	text-indent:22px; 
+	width:24px;
+}
+.colSelect 
+{ 
+	width:720px; 
+	clear:both; 
+}
+.colSelect div 
+{ 
+	float:left; 
+	text-align:center; 
+	vertical-align:middle; 
+}
+.longDiv
+{
+	width: 202px;
+}
+.longDivCombo
+{
+	width: 200px;
+}

@@ -1,0 +1,21 @@
+.dialog 
+{
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	z-index: 99999;
+	left: 0px;
+	top: 0px;
+	box-shadow: 0 0 6px #222;
+}
+
+#DialogShadow 
+{
+	z-index: 99999;
+	position: absolute;
+	background: #303030;
+   	opacity: 0.01;
+   	filter:Alpha(opacity=20);
+  	width: 100%;
+   	height: 100%;
+}

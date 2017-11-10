@@ -1,0 +1,86 @@
+body
+{
+	margin:0 0;
+	padding:0px;
+}
+
+.imgIdList
+{
+	width: 118px;
+	border: 1px solid #404951;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1000;
+}
+
+.gidList
+{
+	width: 100%;
+	border: 1px solid #404951;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1000;
+}
+
+.layoutList
+{
+	width: 118px;
+	border: 1px solid #404951;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1000;
+}
+
+.bvfList
+{
+	width: 78px;
+	border-top: none;
+	border-left: 1px solid #404951;
+	border-right: 1px solid #404951;
+	border-bottom: 1px solid #404951;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1000;
+}
+
+.btyHeight		{height:99px;}
+.vidHeight		{height:59px;}
+.fgpHeight		{height:229px;}
+.cidHeight		{height:99px;}
+.imgIdHeight	{height:119px;}
+.gidHeight		{height:99px;}
+.layoutHeight	{height:59px;}
+
+
+
+.list			{background-color:#4d555d;}
+
+span
+{
+	font-size: 12px;
+	margin: 0px;
+	padding: 3px;
+	padding-left: 5px;
+	color: #c7c9cb;
+	text-decoration: none;
+	cursor: default;
+	display: block;
+	white-space: inherit;
+}
+.select 
+{
+	color: #FFFFFF;
+	background-color: #636d77;
+}

@@ -1,0 +1,67 @@
+﻿
+
+.textw
+{
+	height:22px;
+	width: 200px;
+}
+
+.stable
+{
+	background-color: #f6fcfe;
+	width: 100%;
+	border: 1px solid #96989b;
+	margin-bottom: 10px;
+}
+
+.delBtn
+{
+	background:url(../../../image/abis/icon/addfpt.png) no-repeat;
+	background-position : 2 2;
+	border: 1px;
+	margin-top: 0px;
+	background-color:#364947;
+	color:#ffffff;
+	width: 80px;
+	height:22px;
+}
+.saveBtn
+{
+	background:url(../../../image/abis/icon/addfpt.png) no-repeat;
+	background-position : 2 2;
+	border: 1px;
+	margin-top: 0px;
+	background-color:#364947;
+	color:#ffffff;
+	width: 100px;
+	height:22px;
+}
+.delBtntn	
+{
+	background: url(../../../image/abis/icon/delete.png) repeat-x;
+	height: 15px;
+	width: 15px;
+	border: 1px;
+	margin-top: 0px;
+}
+
+.ldtd
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left:2px;
+	text-align: right;
+}
+
+.rdtd
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left:2px;
+	text-align: left;
+}
+

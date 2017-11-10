@@ -1,0 +1,395 @@
+
+body					{background-color: #ffffff;}
+
+.View					{border:1px solid #69737e;background-color:#fefefe;overflow:hidden;}
+.View .Title			{height:27px;line-height:27px;overflow: hidden;}
+.View .TitleDesc		{float:left;margin-right:-180px;font-size:14px;width:180px;height:27px;line-height:27px;color:white;text-indent:5px;background:url(../../image/ui/view/header.png) no-repeat;}
+.View .TitleBar			{margin-left:180px;height:27px;line-height:27px;background:url(../../image/ui/view/footer.png) repeat-x;overflow: hidden;}
+.View .ViewBntNormal	{float:right;margin-top:3px;width:20px;height:20px;line-height:20px;margin-right:3px;}
+.View .ViewBntDown		{float:right;margin-top:3px;width:20px;height:20px;line-height:20px;margin-right:3px;background:url(../../image/ui/common/view_bnt_down.png);}
+.View .ViewBntHover		{float:right;margin-top:3px;width:20px;height:20px;line-height:20px;margin-right:3px;background:url(../../image/ui/common/view_bnt_hover.png);}
+.View .ViewBnt 			{float:left;margin-left:2px;margin-top:2px;width:16px;height:16px;}
+
+.View .BgColor			{background-color: #faf9f9;}
+
+.TableHeader			{height:28px;line-height:28px;overflow:hidden;}
+.TableHeader .Header	{float:left;height:28px;width:700px;margin-right:-700px;background:url(../../images/tab/tab.gif) no-repeat;color:#54585C;font-size:14px;text-indent:5px;font-weight:600;}
+.TableHeader .Tool		{margin-left:700px;height:28px;overflow:hidden;background:url(../../images/tab/tab.gif) repeat-x;}
+
+.Input_Focus			{background-color:#FCFCD8;}
+.Input_Blur				{background-color:white;}
+
+.Composite_Input		{float:left;overflow:hidden;height:22px;line-height:22px;}
+.First_Input			{float:left;width:200px;height:22px;line-height:22px;ime-mode:disabled;border:0px;border-right:1px solid #6DAED7;background-color:#E2F3FE;}
+.Last_Input				{float:left;border:0px;height:22px;line-height:22px;}
+
+.Text_Input 			{border:1px solid #6f7780;}
+.Not_Text				{line-height:24px;font-size:14px;font-weight:600;height:24px;color:#2762AE;}
+.WebTextField			{width:200px;height:22px;font-size:13px;}
+.WebShortTextField		{width:100px;height:22px;font-size:13px;}
+.WebTextArea			{width:260px;height:85px;font-size:13px;}
+.WebTextArea_60			{width:260px;height:60px;font-size:13px;}
+.WebTextArea_W200		{width:200px;height:80px;font-size:13px;}
+.WebTextArea_Auto		{width:95%;height:85px;font-size:13px;}
+
+.ListBorder				{border:1px solid #69737e;}
+.SpaceLine				{height:1px;line-height:1px;background-color: #c0c5c9;}
+.BgColor				{background-color: #c0c5c9;}
+.List					{overflow:auto;border:1px solid #69737e;}
+.Align_Left				{float:left;}
+.Align_Right			{float:right;}
+.Hide					{display:none;}
+.Show					{display:"";}
+.Wait					{cursor:wait;}
+.OverHidden				{overflow:hidden;}
+.Auto					{overflow:auto;}
+.Auto_X					{overflow-x:auto;}
+.Auto_Y					{overflow-y:auto;}
+.Unit					{font-size:13px;color:#2A6208;height:24px;line-height:24px;}
+.FillWidth				{width:100%;}
+.FillHeight				{height:100%;}
+
+.Label_Input            {height:24px;line-height:24px;}
+.Field_Body				{overflow:hidden;}
+.Field_Input			{float:left;}
+.Field_Image			{float:left;width:14px;height:24px;}
+.Field_Up_Image			{width:12px;margin-left:2px;height:12px;cursor:default;}
+.Field_Down_Image		{width:12px;margin-left:2px;height:12px;line-height:12px;cursor:default;}
+.Required_Image			{background:url(../../image/ui/common/required.png) no-repeat;}
+.Field_Disable			{background-color:#e9e9e9;color:black;}
+.Required_Input_Tip		{border:1px solid #FB8903;border-radius: 2px;text-indent:2px;}
+.Error_Field_Tip		{border:1px solid red;text-indent:2px;}
+
+
+.Color_Red				{color: red;}
+.Color_Blue				{color: blue;}
+.Color_Green			{color: green;}
+
+
+/** 超链接按钮相关样式 */
+.LinkButton					{height:22px;ling-height:22px;cursor:pointer;overflow: hidden;}
+.LinkButton .Image			{width:22px;height:22px;cursor:pointer;float:left;}
+.LinkButton .Text			{height:22px;line-height:22px;cursor:pointer;float:left;color: #eee;}
+.LinkButton .Hover_Text		{font-weight:500;text-decoration: underline;}
+.LinkButton .Text_Disable	{color:#5E6064;}
+
+.LinkBnt_28_Right			{float:right;margin-top:3px;margin-right:5px;}
+
+
+.Group						{border:1px solid #3B74B9;}
+.Group legend				{margin-left:5px;font-size:14px;}
+
+/** 表格标题 */
+.TableTitle					{height:28px;line-height:28px;overflow:hidden;}
+.TableTitle .Header			{float:left;margin-right:-240px;height:30px;width:240px;background:url(../../image/ui/tabletitle/left.png) no-repeat;color:#EEEEEE;font-size:14px;text-indent:5px;font-weight:600;}
+.TableTitle .Footer			{float:right;margin-left:-5px;height:30px;width:5px;background:url(../../image/ui/tabletitle/right.png) repeat-x;}
+.TableTitle .Tool			{margin-left:240px;margin-right:5px;height:30px;overflow:hidden;background:url(../../image/ui/tabletitle/center.png) repeat-x;}
+
+.WebTool					{height:34px;overflow: hidden;}
+.WebTool .LeftB				{float:left;margin-right:-5px;width:5px;height:34px;background:url(../../image/ui/toolbar/34_bar.png) no-repeat;}
+.WebTool .RightB			{float:right;margin-left:-5px;width:5px;height:34px;background:url(../../image/ui/toolbar/34_bar.png) no-repeat;}
+.WebTool .BodyC				{margin-left:5px;margin-right:5px;height:34px;background:url(../../image/ui/toolbar/34_bar.png) repeat-x;}
+.WebTool .BodyC	.Button24	{float:right;margin-right:3px;margin-top:2px;}
+.WebTool .BodyC	.Button28	{float:right;margin-right:3px;margin-top:4px;}
+
+/** 系统工具栏样式 */
+.WebTool_32					{height:32px;overflow: hidden;}
+.WebTool_32 .L_Border		{float:left;margin-right:-309px;width:309px;height:32px;background:url(../../image/tool/32_left.png) no-repeat;}
+.WebTool_32 .R_Border		{float:right;margin-left:-11px;width:11px;height:32px;background:url(../../image/tool/32_right.png) no-repeat;}
+.WebTool_32 .Body_Center	{margin-left:309px;margin-right:11px;height:32px;background:url(../../image/tool/32_center.png) repeat-x;}
+
+.WebTool_34							{height:34px;overflow: hidden;}
+.WebTool_34 .L_Border				{float:left;margin-right:-8px;width:8px;height:34px;background:url(../../image/tool/34_left.png) no-repeat;}
+.WebTool_34 .R_Border				{float:right;margin-left:-7px;width:7px;height:34px;background:url(../../image/tool/34_right.png) no-repeat;}
+.WebTool_34 .Body_Center			{margin-left:8px;margin-right:7px;height:34px;background:url(../../image/tool/34_content.png) repeat-x;}
+.WebTool_34 .Body_Center .Bnt24		{float:right;margin-right:3px;margin-top:2px;}
+.WebTool_34 .Body_Center .Bnt28		{float:right;margin-right:3px;margin-top:4px;}
+
+.WebTool_28					{height:28px;overflow: hidden;}
+.WebTool_28 .L_Border		{float:left;margin-right:-10px;width:10px;height:28px;background:url(../../image/tool/28_left.png) no-repeat;}
+.WebTool_28 .R_Border		{float:right;margin-left:-10px;width:10px;height:28px;background:url(../../image/tool/28_right.png) no-repeat;}
+.WebTool_28 .Body_Center	{margin-left:10px;margin-right:10px;height:28px;background:url(../../image/tool/28_content.png) repeat-x;}
+
+/** 图像操作工具栏样式 */
+.ImgOper					{display:inline-block;margin-left:0px;margin-top:3px;height:28px;}
+.RightImgOper				{float:right;margin-left:0px;margin-top:3px;height:28px;}
+.RightImgOper .TxtBnt		{margin-top:3px;padding:3px;cursor:pointer;color:#eabc51}
+.RightImgOper .TxtBntHover	{margin-top:3px;padding:2px;border:1px solid #aaadb0;color: black;background-color: #d6d8db;cursor:pointer;}
+.RightImgOper .TxtBntDown	{margin-top:3px;padding:2px;border:1px solid #96989b;color: black;background-color: #babdc0;cursor:pointer;}
+
+
+/** 工具栏 */
+.ToolBar				{display:inline-block;margin-left:0px;margin-top:3px;height:28px;}
+.ToolBntNormal			{display:inline-block;margin-left:2px;width:28px;height:28px;}
+.ToolBntDown			{display:inline-block;margin-left:2px;width:28px;height:28px;background:url(../../image/ui/common/button_down.png);}
+.ToolBntHover			{display:inline-block;margin-left:2px;width:28px;height:28px;background:url(../../image/ui/common/button_hover.png);}
+.ToolBnt				{display:inline-block;margin-left:2px;margin-top:2px;width:24px;height:24px;}
+
+
+.WebButton_LOGIN		{width:204px;height:24px;line-height:24px;text-align:center;cursor:default;color:white;}
+.WebButton_LOGIN_N		{background:url(../../image/ui/button/newlogin.png) no-repeat;}
+.WebButton_LOGIN_H		{background:url(../../image/ui/button/newlogin_1.png) no-repeat;}
+.WebButton_LOGIN_D		{background:url(../../image/ui/button/newlogin_2.png) no-repeat;}
+.WebButton_LOGIN_U		{background:url(../../image/ui/button/newlogin-u.png) no-repeat;}
+
+.WebButton_40_24		{width:40px;height:24px;line-height:24px;text-align:center;cursor:pointer;color:white;}
+.WebButton_40_24_N		{background:url(../../image/ui/button/40_24.png) no-repeat;}
+.WebButton_40_24_H		{background:url(../../image/ui/button/40_24_1.png) no-repeat;}
+.WebButton_40_24_D		{background:url(../../image/ui/button/40_24_2.png) no-repeat;}
+.WebButton_40_24_U		{background:url(../../image/ui/button/40_24_3.png) no-repeat;}
+
+.WebButton_60_24		{width:60px;height:24px;line-height:24px;text-align:center;cursor:pointer;color:white;}
+.WebButton_60_24_N		{background:url(../../image/ui/button/60_24.png) no-repeat;}
+.WebButton_60_24_H		{background:url(../../image/ui/button/60_24_1.png) no-repeat;}
+.WebButton_60_24_D		{background:url(../../image/ui/button/60_24_2.png) no-repeat;}
+.WebButton_60_24_U		{background:url(../../image/ui/button/60_24_3.png) no-repeat;}
+
+.WebButton_80_24		{width:80px;height:24px;line-height:24px;text-align:center;cursor:pointer;color:white;}
+.WebButton_80_24_N		{background:url(../../image/ui/button/80_24.png) no-repeat;}
+.WebButton_80_24_H		{background:url(../../image/ui/button/80_24_1.png) no-repeat;}
+.WebButton_80_24_D		{background:url(../../image/ui/button/80_24_2.png) no-repeat;}
+.WebButton_80_24_U		{background:url(../../image/ui/button/80_24_3.png) no-repeat;}
+
+.WebButton_80_25		{width:80px;height:24px;line-height:24px;text-align:center;cursor:pointer;color:white;}
+.WebButton_80_25_N		{background:url(../../image/ui/button/80_24.png) no-repeat;position: absolute;right: 20px;top: 90px;}
+.WebButton_80_25_H		{background:url(../../image/ui/button/80_24_1.png) no-repeat;position: absolute;right: 20px;top: 90px;}
+.WebButton_80_25_D		{background:url(../../image/ui/button/80_24_2.png) no-repeat;position: absolute;right: 20px;top: 90px;}
+.WebButton_80_25_U		{background:url(../../image/ui/button/80_24_3.png) no-repeat;position: absolute;right: 20px;top: 90px;}
+
+.WebButton_100_24		{color:white;width:100px;height:24px;line-height:24px;text-align:center;cursor:pointer;}
+.WebButton_100_24_N		{background:url(../../image/ui/button/100_24.png) no-repeat;}
+.WebButton_100_24_H		{background:url(../../image/ui/button/100_24_1.png) no-repeat;}
+.WebButton_100_24_D		{background:url(../../image/ui/button/100_24_2.png) no-repeat;}
+.WebButton_100_24_U		{background:url(../../image/ui/button/100_24_3.png) no-repeat;}
+
+.WebButton_120_24		{width:120px;height:24px;line-height:24px;text-align:center;cursor:pointer;color:white;}
+.WebButton_120_24_N		{background:url(../../image/ui/button/120_24.png) no-repeat;}
+.WebButton_120_24_H		{background:url(../../image/ui/button/120_24_1.png) no-repeat;}
+.WebButton_120_24_D		{background:url(../../image/ui/button/120_24_2.png) no-repeat;}
+.WebButton_120_24_U		{background:url(../../image/ui/button/120_24_3.png) no-repeat;}
+
+.WebButton_40_28		{width:40px;height:28px;line-height:28px;text-align:center;cursor:pointer;color:white;}
+.WebButton_40_28_N		{background:url(../../image/ui/button/40_28.png) no-repeat;}
+.WebButton_40_28_H		{background:url(../../image/ui/button/40_28_1.png) no-repeat;}
+.WebButton_40_28_D		{background:url(../../image/ui/button/40_28_2.png) no-repeat;}
+.WebButton_40_28_U		{background:url(../../image/ui/button/40_28_3.png) no-repeat;}
+
+.WebButton_60_28		{width:60px;height:28px;line-height:28px;text-align:center;cursor:default;color:white;}
+.WebButton_60_28_N		{background:url(../../image/ui/button/60_28.png) no-repeat;}
+.WebButton_60_28_H		{background:url(../../image/ui/button/60_28_1.png) no-repeat;}
+.WebButton_60_28_D		{background:url(../../image/ui/button/60_28_2.png) no-repeat;}
+.WebButton_60_28_U		{background:url(../../image/ui/button/60_28_3.png) no-repeat;}
+
+.WebButton_80_28		{width:80px;height:28px;line-height:28px;text-align:center;cursor:default;color:white;}
+.WebButton_80_28_N		{background:url(../../image/ui/button/80_28.png) no-repeat;}
+.WebButton_80_28_H		{background:url(../../image/ui/button/80_28_1.png) no-repeat;}
+.WebButton_80_28_D		{background:url(../../image/ui/button/80_28_2.png) no-repeat;}
+.WebButton_80_28_U		{background:url(../../image/ui/button/80_28_3.png) no-repeat;}
+
+.WebButton_100_28		{width:100px;height:28px;line-height:28px;text-align:center;cursor:default;color:white;}
+.WebButton_100_28_N		{background:url(../../image/ui/button/100_28.png) no-repeat;}
+.WebButton_100_28_H		{background:url(../../image/ui/button/100_28_1.png) no-repeat;}
+.WebButton_100_28_D		{background:url(../../image/ui/button/100_28_2.png) no-repeat;}
+.WebButton_100_28_U		{background:url(../../image/ui/button/100_28_3.png) no-repeat;}
+
+.WebButton_120_28		{width:120px;height:28px;line-height:28px;text-align:center;cursor:pointer;color:white;}
+.WebButton_120_28_N		{background:url(../../image/ui/button/120_28.png) no-repeat;}
+.WebButton_120_28_H		{background:url(../../image/ui/button/120_28_1.png) no-repeat;}
+.WebButton_120_28_D		{background:url(../../image/ui/button/120_28_2.png) no-repeat;}
+.WebButton_120_28_U		{background:url(../../image/ui/button/120_28_3.png) no-repeat;}
+
+.WebButton_40_32		{width:40px;height:32px;line-height:32px;text-align:center;cursor:pointer;color:white;}
+.WebButton_40_32_N		{background:url(../../image/ui/button/40_32.png) no-repeat;}
+.WebButton_40_32_H		{background:url(../../image/ui/button/40_32_1.png) no-repeat;}
+.WebButton_40_32_D		{background:url(../../image/ui/button/40_32_2.png) no-repeat;}
+.WebButton_40_32_U		{background:url(../../image/ui/button/40_32_3.png) no-repeat;}
+
+.WebButton_60_32		{width:60px;height:32px;line-height:32px;text-align:center;cursor:pointer;color:white;}
+.WebButton_60_32_N		{background:url(../../image/ui/button/60_32.png) no-repeat;}
+.WebButton_60_32_H		{background:url(../../image/ui/button/60_32_1.png) no-repeat;}
+.WebButton_60_32_D		{background:url(../../image/ui/button/60_32_2.png) no-repeat;}
+.WebButton_60_32_U		{background:url(../../image/ui/button/60_32_3.png) no-repeat;}
+
+.WebButton_80_32		{width:80px;height:32px;line-height:32px;text-align:center;cursor:pointer;color:white;}
+.WebButton_80_32_N		{background:url(../../image/ui/button/80_32.png) no-repeat;}
+.WebButton_80_32_H		{background:url(../../image/ui/button/80_32_1.png) no-repeat;}
+.WebButton_80_32_D		{background:url(../../image/ui/button/80_32_2.png) no-repeat;}
+.WebButton_80_32_U		{background:url(../../image/ui/button/80_32_3.png) no-repeat;}
+
+.WebButton_100_32		{width:100px;height:32px;line-height:32px;text-align:center;cursor:pointer;color:white;}
+.WebButton_100_32_N		{background:url(../../image/ui/button/100_32.png) no-repeat;}
+.WebButton_100_32_H		{background:url(../../image/ui/button/100_32_1.png) no-repeat;}
+.WebButton_100_32_D		{background:url(../../image/ui/button/100_32_2.png) no-repeat;}
+.WebButton_100_32_U		{background:url(../../image/ui/button/100_32_3.png) no-repeat;}
+
+.WebButton_120_32		{width:120px;height:32px;line-height:32px;text-align:center;cursor:pointer;color:white;}
+.WebButton_120_32_N		{background:url(../../image/ui/button/120_32.png) no-repeat;}
+.WebButton_120_32_H		{background:url(../../image/ui/button/120_32_1.png) no-repeat;}
+.WebButton_120_32_D		{background:url(../../image/ui/button/120_32_2.png) no-repeat;}
+.WebButton_120_32_U		{background:url(../../image/ui/button/120_32_3.png) no-repeat;}
+
+.W_100				{width:100px;}
+.W_200				{width:200px;}
+.W_300				{width:300px;}
+.W_400				{width:400px;}
+.W_500				{width:500px;}
+.W_600				{width:600px;}
+.W_700				{width:700px;}
+.W_800				{width:800px;}
+.W_900				{width:900px;}
+.W_1000				{width:1000px;}
+
+.M_1				{margin:1px;}
+.M_2				{margin:2px;}
+.M_3				{margin:3px;}
+.M_4				{margin:4px;}
+.M_5				{margin:5px;}
+
+.M_Top_1			{margin-top:1px;}
+.M_Top_2			{margin-top:2px;}
+.M_Top_3			{margin-top:3px;}
+.M_Top_4			{margin-top:4px;}
+.M_Top_5			{margin-top:5px;}
+.M_Top_6			{margin-top:6px;}
+.M_Top_7			{margin-top:7px;}
+.M_Top_8			{margin-top:8px;}
+.M_Top_9			{margin-top:9px;}
+.M_Top_10			{margin-top:10px;}
+.M_Top_15			{margin-top:10px;}
+.M_Top_20			{margin-top:20px;}
+.M_Top_25			{margin-top:25px;}
+.M_Top_30			{margin-top:30px;}
+.M_Top_35			{margin-top:35px;}
+.M_Top_40			{margin-top:40px;}
+.M_Top_45			{margin-top:45px;}
+.M_Top_50			{margin-top:50px;}
+.M_Top_55			{margin-top:55px;}
+.M_Top_60			{margin-top:60px;}
+.M_Top_65			{margin-top:65px;}
+.M_Top_70			{margin-top:70px;}
+.M_Top_75			{margin-top:75px;}
+.M_Top_80			{margin-top:80px;}
+.M_Top_85			{margin-top:85px;}
+.M_Top_90			{margin-top:90px;}
+.M_Top_95			{margin-top:95px;}
+.M_Top_100			{margin-top:100px;}
+
+.M_Left_Top_1		{margin-left:1px;margin-top:1px}
+.M_Left_Top_2		{margin-left:2px;margin-top:2px}
+.M_Left_Top_3		{margin-left:3px;margin-top:3px}
+.M_Left_Top_4		{margin-left:4px;margin-top:4px}
+.M_Left_Top_5		{margin-left:5px;margin-top:5px}
+
+.M_Left_1			{margin-left:1px;}
+.M_Left_2			{margin-left:2px;}
+.M_Left_3			{margin-left:3px;}
+.M_Left_4			{margin-left:4px;}
+.M_Left_5			{margin-left:5px;}
+.M_Left_6			{margin-left:6px;}
+.M_Left_7			{margin-left:7px;}
+.M_Left_8			{margin-left:8px;}
+.M_Left_9			{margin-left:9px;}
+.M_Left_10			{margin-left:10px;}
+.M_Left_15			{margin-left:15px;}
+.M_Left_20			{margin-left:20px;}
+.M_Left_30			{margin-left:30px;}
+
+.M_Right_1			{margin-right:1px;}
+.M_Right_2			{margin-right:2px;}
+.M_Right_3			{margin-right:3px;}
+.M_Right_4			{margin-right:4px;}
+.M_Right_5			{margin-right:5px;}
+.M_Right_10			{margin-right:10px;}
+.M_Right_15			{margin-right:15px;}
+.M_Right_20			{margin-right:20px;}
+.M_Right_30			{margin-right:30px;}
+
+.M_Bottom_1			{margin-bottom:1px;}
+.M_Bottom_2			{margin-bottom:2px;}
+.M_Bottom_3			{margin-bottom:3px;}
+.M_Bottom_4			{margin-bottom:4px;}
+.M_Bottom_5			{margin-bottom:5px;}
+.M_Bottom_10		{margin-bottom:10px;}
+.M_Bottom_15		{margin-bottom:15px;}
+.M_Bottom_20		{margin-bottom:20px;}
+
+.M_Left_Right_1		{margin-left:1px;margin-right:1px;}
+.M_Left_Right_2		{margin-left:2px;margin-right:2px;}
+.M_Left_Right_3		{margin-left:3px;margin-right:3px;}
+.M_Left_Right_4		{margin-left:4px;margin-right:4px;}
+.M_Left_Right_5		{margin-left:5px;margin-right:5px;}
+.M_Left_Right_10	{margin-left:10px;margin-right:10px;}
+.M_Left_Right_15	{margin-left:15px;margin-right:15px;}
+.M_Left_Right_20	{margin-left:20px;margin-right:20px;}
+
+.P_1				{padding:1px;}
+.P_2				{padding:2px;}
+.P_3				{padding:3px;}
+.P_4				{padding:4px;}
+.P_5				{padding:5px;}
+.P_10				{padding:10px;}
+.P_15				{padding:15px;}
+.P_20				{padding:20px;}
+
+.P_Left_Right_5		{padding-left:5px;padding-right:5px;}
+.P_Left_Right_10	{padding-left:10px;padding-right:10px;}
+.P_Left_Right_15	{padding-left:15px;padding-right:15px;}
+.P_Left_Right_20	{padding-left:20px;padding-right:20px;}
+
+.P_Top_Bottom_5		{padding-top:5px;padding-bottom:5px;}
+.P_Top_Bottom_10	{padding-top:10px;padding-bottom:10px;}
+.P_Top_Bottom_15	{padding-top:15px;padding-bottom:15px;}
+.P_Top_Bottom_20	{padding-top:20px;padding-bottom:20px;}
+
+
+.Border_1			{border:1px;}
+.Border_2			{border:2px;}
+.Border_3			{border:3px;}
+.Border_4			{border:4px;}
+.Border_5			{border:5px;}
+
+/** 提示区域样式 */
+.DispArea				{display:none;margin:0 auto;padding:5px 10px;text-align:left;margin-top:5px;margin-bottom:5px;width:95%;background-color:#FFF5EB;border:1px solid #FDBA79;border-radius:5px;box-shadow: 0 0 8px #FAC99A;}
+.DispArea .DescArea		{margin-right:24px;margin-left:0px;overflow: hidden;}
+.DispArea .CloseBnt		{float:right;width:24px;height:24px;margin-left:-24px;margin-right:5px;display:block;background:url(../images/icon/close_20_20.png) no-repeat;cursor: pointer;}
+.DispArea .RowMsg		{height:22px;line-height:22px;overflow: hidden;}
+.DispArea .IConInfo		{float:left;width:18px;height:18px;margin-top:2px;background:url(../images/icon/tip_img.png) no-repeat;}
+.DispArea .Txt			{float:left;text-indent:5px;}
+
+/** 副标题样式 */
+.SubTitle				{overflow: hidden;height:32px;line-height:32px;}
+.SubTitle .HeaderImg	{float:left;background: url(../../image/ui/subtitle/title_1.png) no-repeat;width:220px;margin-right:-220px;height:32px;line-height:32px;}
+.SubTitle .FooterImg	{background: url(../../image/ui/subtitle/title_line_1.png) repeat-x;margin-left:220px;height:32px;line-height:32px;}
+.SubTitle .HeaderImg .SubTitleLab {font-size:15px;font-weight:600;text-indent:20px;}
+
+
+.OpenImg				{background:url(../../image/abis/common/open_24.png);}
+.OpenDisableImg			{background:url(../../image/abis/common/open_24_d.png);}
+.OpenLeftFileImg        {background:url(../../image/abis/common/openleft.png);}
+.SaveImg				{background:url(../../image/abis/common/save_24.png);}
+.SaveDisableImg			{background:url(../../image/abis/common/save_d_24.png);}
+.SelectDBImg			{background:url(../../image/abis/common/selectdb_24.png);}
+.ImportImg				{background:url(../../image/abis/common/import_img.png);}
+.ImportDisableImg		{background:url(../../image/abis/common/import_img_d.png);}
+.Scan					{background:url(../../image/abis/common/scan.png);}
+.ScanDisable			{background:url(../../image/abis/common/scan_d.png);}
+.SelectScan     		{background:url(../../image/abis/common/selectscan.png);}
+.AutoSplit     		{background:url(../../image/abis/common/AutoSplit_24px.png);}
+.AutoSplitDisableImg     		{background:url(../../image/abis/common/AutoSplit_24px_d.png);}
+.VideoScan     		    {background:url(../../image/abis/common/videoscan.png) no-repeat;}
+.VideoSnap     		    {background:url(../../image/abis/common/videosnap.png) no-repeat;}
+.cont_title         {height:25px;background-color: #727a81;}
+.baseTable          {width:100%;}.baseTable .tdcolumn div {
+    font-size: 14px;
+    color: #234a76;
+    height: 30px;
+    font-weight: 500;
+    min-width: 120px;
+    text-align: right;
+    padding-right: 5px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+.baseTable .columnvalue .Text_Input,.baseTable .columnvalue .combolist{
+     border: 1px solid #6f7780;
+}

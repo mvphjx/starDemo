@@ -1,0 +1,13 @@
+
+.PopMenuBnt				{width:18px;height:22px;background:url(../images/widget/popmenu/menu_bnt.png) no-repeat;cursor:pointer;}
+.PopMenuBntHover		{width:18px;height:22px;background:url(../images/widget/popmenu/menu_bnt_hover.png) no-repeat;cursor:pointer;}
+.PopMenuBntDown			{width:18px;height:22px;background:url(../images/widget/popmenu/menu_bnt_down.png) no-repeat;cursor:pointer;}
+
+.PopMenu				{position:absolute;width:181px;background:url(../images/widget/popmenu/menu_item.png) repeat-y;}
+.PopMenu .Border		{width:181px;height:1px;line-height:1px;font-size:0px;background-color:#B5CAE5;}
+.PopMenu .Item			{width:181px;height:24px;line-height:24px;overflow:hidden;}
+.PopMenu .ItemNormal	{background:url(../images/widget/popmenu/menu_item.png) no-repeat;}
+.PopMenu .ItemHover		{background:url(../images/widget/popmenu/menu_item_hover.png) no-repeat;}
+.PopMenu .Item .Img		{float:left;margin-top:4px;margin-left:7px;margin-right:-30px;width:16px;height:16px;cursor:pointer;}
+.PopMenu .Item .Txt		{text-indent:3px;margin-left:30px;height:24px;line-height:24px;font-size:13px;cursor:pointer;}
+.PopMenu .Separator		{width:181px;height:2px;line-height:2px;font-size:0px;background:url(../images/widget/popmenu/separator.png) no-repeat;}

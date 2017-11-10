@@ -1,0 +1,99 @@
+
+
+ImgTool
+{
+	margin:0px;
+	padding:0px;
+	overflow: hidden;
+	height:273;
+	position:relative;
+}
+
+.ImgTool .Title
+{
+	clear:both;
+	margin:2px;
+	font:12px /20px;
+	height:20px;
+	line-height:20px;
+	background-color:#C3E5FB;
+	text-indent:5px;
+	color:blue;
+	cursor:default;
+}
+
+.ImgTool .Row
+{
+	margin:5px;
+	overflow: hidden;
+}
+
+.ImgTool .Row .Label
+{
+	font:14px / 24px "微软雅黑";
+	float:left;
+	width:75px;
+	margin-right:-75px;
+	color:#42589F;
+	height:24px;
+	line-height:24px;
+	cursor:default;
+}
+.ImgTool .Row .SliderCell
+{
+	margin-left:75px;
+	height:24px;
+	line-height:24px;
+	overflow: hidden;
+}
+
+.ImgTool .BntTool
+{
+	width:100%;
+	margin:0px;
+	padding:0px;	
+}
+
+.ImgTool .BntTool .Bnt
+{
+	margin-left:2px;
+	float:left;
+	width:80px;
+	height:50px;
+	overflow: hidden;
+}
+
+.ImgTool .BntTool .BntHover
+{
+	background:url(../../../image/ui/button/80_50_hover.png) no-repeat;	
+}
+
+.ImgTool .BntTool .BntDown
+{
+	background:url(../../../image/ui/button/80_50_down.png) no-repeat;	
+}
+
+.ImgLabel
+{
+	margin:0 auto;
+	margin-top:2px;
+	width:24px;
+	height:24px;	
+	line-height:24px;
+	cursor:default;
+}
+
+.TxtLabel
+{
+	font:13px / 24px '微软雅黑';
+	text-align:center;
+	cursor:default;
+}
+
+.Origintal		{background:url(../../../image/abis/ui/imgprocess/origintal.png) no-repeat;	}
+.Equalization	{background:url(../../../image/abis/ui/imgprocess/equalization.png) no-repeat;}
+.Sharp			{background:url(../../../image/abis/ui/imgprocess/sharpen.png) no-repeat;}
+.Histogram		{background:url(../../../image/abis/ui/imgprocess/histogram_stretch.png) no-repeat;}
+.G1				{background:url(../../../image/abis/ui/imgprocess/gabor1.png) no-repeat;}
+.G2				{background:url(../../../image/abis/ui/imgprocess/gabor2.png) no-repeat;}
+.Invert			{background:url(../../../image/abis/ui/imgprocess/inverse.png) no-repeat;}

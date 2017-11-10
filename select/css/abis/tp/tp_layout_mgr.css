@@ -1,0 +1,25 @@
+.bty_panel				{margin: 0px auto; margin-top:2px;width:1248px;}
+.bty_title				{text-indent:5px; height: 24px;line-height: 24px;color: #FFFFFF;font-size: 14px; font-weight:600;background-color: #727a81;cursor: pointer; }
+.bty_div				{}
+.bty_table				{margin-left:2px;}
+.bty_table td 			{padding:2px;}
+.ocx_panel				{border: 1px solid #787e88;}
+.ocx_panel_select		{border: 1px solid #c1300e;}
+
+.ocx_face				{width: 150px; height:200px;}
+.ocx_finger				{width: 243px; height:243px;}
+.ocx_palm				{width: 615px; height:615px;}
+.ocx_palm_four			{width: 450px; height:450px;}
+.ocx_palm_rl_thurm		{width: 320px; height:200px;}
+
+.ocx_panel .wait_panel	{width: 100%;height: 100%;}
+.ocx_panel .wait		{margin:0px auto;width: 32px;height: 32px;}
+.ocx_panel .notFpt		{margin:0px auto;width: 25px;height: 32px;}
+.ocx_panel .notFpt .txt	{color: #1f1ca4;}
+.ocx_panel a			{height: 20px; line-height: 20px;}
+.ocx_panel span			{height: 20px; line-height: 20px;}
+.txtpanel				{width: 100%;}
+.txtpanel .fgp_txt		{height:24px;line-height:24px;text-align: center; color: #204289;font-size:14px;background-color: #f8fbfe;border:1px solid #787e88;border-top:none;}
+.txtpanel .fgp_txt_select{border:1px solid #c1300e;border-top:none;background-color: #fbfcf5;}
+
+.ocx_shoes				{width: 615px; height:615px;}

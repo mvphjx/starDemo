@@ -1,0 +1,61 @@
+.tableStat	
+{
+	border: 2px solid black;
+	margin-bottom: 10px;
+	text-align :center;
+}
+
+.titS
+{
+	text-align :center;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 40px;
+	width: 100px;
+}
+
+.titSR
+{
+	text-align :center;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	color: red;
+}
+
+.titR
+{
+	background:#CCCCFF;
+}
+
+.titN
+{
+	text-align :center;
+	border-right: 1px solid black;
+	border-bottom: 2px solid black;
+	width : 35px;
+}
+
+
+.titX
+{
+	text-align :center;
+	border-right: 1px solid black;
+	border-bottom: 2px solid black;
+	height: 40px;
+	width: 100px;
+}
+
+.titT
+{
+	margin-top:10px;
+	mso-style-parent:style0;
+	color:red;
+	font-size:20.0pt;
+	font-weight:700;
+	font-family:黑体, monospace;
+	mso-font-charset:134;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+}
+

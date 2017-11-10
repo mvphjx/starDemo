@@ -1,0 +1,50 @@
+.AbisHeader							{height:70px;}
+.AbisHeader .Left					{float:left;margin-right:-300px;margin-top:0px;width:300px;height:100%;background: url(../../../../image/abis/layoutpage/topleft.png) no-repeat;}
+.AbisHeader .Left	.logo_l			{float:left;margin-top:7px;margin-left:10px;width:48px;height:48px; background: url(../../../../image/abis/icon/hisign_logo.png)}
+.AbisHeader .Left	.logo_r			{margin-left:5px;float:left;}
+.AbisHeader .Left	.logo_r .title	{margin-top:10px;font-size:22px;color:#EEE;}
+.AbisHeader .Left	.logo_r .sysname{margin-top:1px;margin-left:2px;color: #cec991;font-size: 12px;}
+
+
+.Center .Search						{margin:0px auto;width:360px;overflow:hidden;}
+.Search .SearchText					{float:left; margin-top:25px; height:100%;}
+.Search .SearchInput				{width:250px; height:25px;}
+.Search .SearchButton				{cursor:pointer;float:left; margin-left:5px;margin-top:25px;height:28px;width:100px;background: url(../../../../image/abis/layoutpage/fullsearchButton.png) no-repeat;}
+.Search .SearchButtonDown			{cursor:pointer;float:left; margin-left:5px;margin-top:25px;height:28px;width:100px;background: url(../../../../image/abis/layoutpage/fullsearchButtonDown.png) no-repeat;}
+.Search .SearchButtonHover			{cursor:pointer;float:left; margin-left:5px;margin-top:25px;height:28px;width:100px;background: url(../../../../image/abis/layoutpage/fullsearchButtonHover.png) no-repeat;}
+.Search .SearchBnt					{margin-left:30px;margin-top:5px; height:100%;color: #ffffff;font-size: 14px;}
+
+.system_name						{margin-top:15px;margin-left:2px;color: #ffffff;font-size: 17px;}
+
+.UserInfo							{display: none;position:absolute;z-index:999;width:200px; border:1px solid #272d33;background-color:#ecedef;padding: 10px;}
+.UserInfo .Item						{width: 100%;height: 25px;}
+.UserInfo .ItemName					{color: #2b2b2b;font-size: 12px;width: 40%;height: 25px;float: left;}
+.UserInfo .ItemValue				{color: #2b2b2b;font-size: 13px;width: 60%;height: 25px;float: right}
+.UserInfo .Item	.LogOut				{float: left;margin-left: 0px;}
+.UserInfo .Item	.ModifyPw			{float: left;margin-left: 10px;}
+
+.AbisHeader .Center					{margin-left:280px;margin-right:300px;height:100%;background: url(../../../../image/abis/layoutpage/topcenter.png) repeat-x;}
+
+
+.AbisHeader .Right					{float:right;margin-left:-300px;margin-top:0px;width:300px;height:100%;background: url(../../../../image/abis/layoutpage/topright.png) no-repeat;}
+.AbisHeader .Right .Company			{float:left;width:200px;height:100%;overflow: hidden;} 
+.AbisHeader .Right .Company .logo	{float:left;height:58px;width:58px; margin-top:8px; background: url(../../../../image/abis/layoutpage/logo.png) no-repeat;}
+.AbisHeader .Right .Company .name	{float:left;margin-left:5px;margin-top:20px;font-size:22px;color:#EEE;}
+
+.AbisHeader .Right .Icon						{float:right;width:200px;height:100%;}
+.AbisHeader .Right .Icon .language				{float:right;margin-right:5px;height:20px;line-height:20px;}
+.AbisHeader .Right .Icon .language  a			{color:white;}
+.AbisHeader .Right .Icon .language .separator_v	{color:white;}
+
+.AbisHeader .Right .Icon .Tool				{margin-top:44px;height:24px;line-height:24px;}
+.AbisHeader .Right .Icon .Tool	.user		{float:right;cursor:pointer; margin-right:5px;width:24px;height:24px;background: url(../../../../image/abis/header/user.png);}
+.AbisHeader .Right .Icon .Tool	.user_h		{float:right;cursor:pointer; margin-right:5px;width:24px;height:24px;background: url(../../../../image/abis/header/user_hover.png);}
+.AbisHeader .Right .Icon .Tool	.msg		{float:right;cursor:pointer; margin-right:5px;width:24px;height:24px;background: url(../../../../image/abis/header/hasmsg.png);}
+.AbisHeader .Right .Icon .Tool	.msg_h		{float:right;cursor:pointer; margin-right:5px;width:24px;height:24px;background: url(../../../../image/abis/header/msg_loop.gif);}
+.AbisHeader .Right .Icon .Tool	.msg_tip	{position: absolute; font-size:11px; background-color: #fffea5; color:red; height:18px;line-height:18px;display:none;}
+.AbisHeader .Right .Icon .Tool	.homepage 	{float:right;height:24px;line-height:24px;margin-right:5px;}
+.AbisHeader .Right .Icon .Tool	.homepage a	{color: #dd6699;font-size:12px;font-weight:600px;text-decoration: underline;}
+
+
+.AbisMenu							{height:28px;background-color:#387FBB;}
+

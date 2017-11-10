@@ -1,0 +1,42 @@
+.section{display: none;}
+.parttitle{width: 100%;font-size: 15px;font-weight: 800;height: 30px;}
+.theader td{height: 30px;font-size: 14px;font-weight: 600;border-bottom: 1px solid gray;text-align: left}
+.tdcolumn
+{
+	font-size:14px;
+	color: #234a76;
+	height:30px;
+	font-weight: 500;
+	width: 150px;
+	min-width: 150px;
+	text-align: right;
+	padding-right: 5px;
+	line-height:30px;
+	
+}
+.Address
+{
+	width: 345px;
+	height: 22px;
+	font-size:14px;
+	text-indent:2px;
+}
+.columnvalue
+{
+	font-size:15px;
+	color:#1c1c1c;
+	height:30px;
+	font-weight: 500;
+	width: 300px;
+	min-width: 300px;
+	text-align: left;
+	line-height:30px;
+}
+.trcol1
+{
+	background-color: #edf4fa;
+}
+.trcol2
+{
+	background-color: #f6fcfe;
+}

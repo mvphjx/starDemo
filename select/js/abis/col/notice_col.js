@@ -1,0 +1,81 @@
+
+var  NoticeLogCfgCol = 
+{
+   ID : "ID",
+   EVENT_OBJ_ID : "EVENT_OBJ_ID",
+   EVENT_TYPE : "EVENT_TYPE",
+   PRIORITY : "PRIORITY",
+   NOTIFY_DISABLED : "NOTIFY_DISABLED",
+   NOTIFY_FILTER : "NOTIFY_FILTER",
+   CREATE_TIME : "CREATE_TIME",
+   CREATE_USER : "CREATE_USER",
+   UPDATE_TIME : "UPDATE_TIME",
+   UPDATE_USER : "UPDATE_USER"
+}
+
+var  NoticeLogMainCol = 
+{
+   ID : "ID",
+   EVENT_OBJ_ID : "EVENT_OBJ_ID",
+   EVENT_TYPE : "EVENT_TYPE",
+   EVENT_TIME : "EVENT_TIME",
+   EVENT_TRIGGER : "EVENT_TRIGGER",
+   CREATE_TIME : "CREATE_TIME",
+   EVENT_SRC : "EVENT_SRC",
+   COMMENTS : "COMMENTS",
+   NOTICE_INFO : "NOTICE_INFO",
+   NOTICE_INFO_TYPE : "NOTICE_INFO_TYPE"
+}
+
+var  NoticeNotifiedUserCol = 
+{
+   ID : "ID",
+   NOTICE_ID : "NOTICE_ID",
+   USER_ID : "USER_ID",
+   STATUS : "STATUS",
+   PRIORITY : "PRIORITY"
+}
+
+var  NoticeReadLogCol = 
+{
+   ID : "ID",
+   NOTICE_ID : "NOTICE_ID",
+   USER_ID : "USER_ID",
+   STATUS : "STATUS",
+   READ_TIME : "READ_TIME",
+   READ_RESULT : "READ_RESULT"
+}
+
+var  NoticeSmsQueueCol = 
+{
+   ID : "ID",
+   STATUS : "STATUS",
+   USER_ID : "USER_ID",
+   PHONE_NUM : "PHONE_NUM",
+   EVENT_TIME : "EVENT_TIME",
+   SMS_CONTENT : "SMS_CONTENT"
+}
+
+var  NoticeSmsSentLogCol = 
+{
+   ID : "ID",
+   STATUS : "STATUS",
+   USER_ID : "USER_ID",
+   PHONE_NUM : "PHONE_NUM",
+   EVENT_TIME : "EVENT_TIME",
+   SENT_TIME : "SENT_TIME",
+   SMS_CONTENT : "SMS_CONTENT"
+}
+
+var  NoticeSubscriberCfgCol = 
+{
+   ID : "ID",
+   CFG_ID : "CFG_ID",
+   USER_ID : "USER_ID",
+   CREATE_DATE : "CREATE_DATE",
+   CREATE_USER : "CREATE_USER",
+   WILL_LOG_NOTICE : "WILL_LOG_NOTICE",
+   WILL_SEND_SMS : "WILL_SEND_SMS",
+   SMS_PHONE_NUM : "SMS_PHONE_NUM"
+}
+

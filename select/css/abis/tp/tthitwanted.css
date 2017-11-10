@@ -1,0 +1,18 @@
+.content_items				{}
+.hitinfo					{border:1px solid #e4e5e6;border-top:0px;overflow:hidden;}
+
+.bg							{background-color:#f4f8fb;}
+.select_bg					{background-color:#fdf9ee;}
+
+
+.hitinfo .tbl				{border:0px;}
+.hitinfo .tbl td			{padding:5px;}
+.hitinfo .tbl .lab			{padding-left:5px;padding-right:5px;min-width: 100px;}
+.hitinfo .tbl .txt1			{min-width:200px;}
+.hitinfo .tbl .txt2			{min-width:200px;}
+.hitinfo .tbl .txt3			{min-width:200px;}
+.hitinfo .tbl .txt4			{min-width:200px;}
+
+.hitinfo .tbl	a			{color: #074bf7;text-decoration: none;}
+
+.nothing_item				{border:1px solid #9ac4eb;border-top:0px;height:30px;line-height:30px;text-indent:5px; color: #686a6b;}

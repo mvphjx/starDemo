@@ -1,0 +1,96 @@
+*								{margin:0px;padding:0px;}
+
+.tool 							{margin: 0px auto; width:515px;padding: 0px; height: 32px; text-align: left; vertical-align: middle;}
+
+.logo 							{float: left;margin-left: 5px;margin-top: 5px;width:22px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -823px no-repeat;}
+.logohover 						{float: left;margin-left: 5px;margin-top: 5px;width:22px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) -25px -823px no-repeat;}
+.logodown 						{float: left;margin-left: 5px;margin-top: 5px;width:22px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) -50px -823px no-repeat;}
+
+.fiveElock						{background-color:#333539;}
+
+.dropdown 						{margin-top: 4px;margin-left: 5px;float: left;width: 80px;}
+.dropdown .up 					{margin: 0 0px;	padding: 0px;width: 80x;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px 0px no-repeat;}
+.dropdown .uphover 				{margin: 0px;padding: 0px;width: 80x;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -25px no-repeat;}
+.dropdown .updown 				{margin: 0px;padding: 0px;width: 80x;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -50px no-repeat;}
+
+.dropdown .bty					{height: 100px;}
+.dropdown .vid					{height: 60px;}
+.dropdown .fgp					{height: 230px;}
+.dropdown .cid					{height: 100px;}
+.dropdown .content 				{width: 80px;margin: 0px;padding: 0px;background-color: red;position: absolute;z-index:1000;display:none;}
+.dropdown .text_width			{width: 60px;}
+
+.extbar							{float:left;margin-left:4px;margin-top: 0px;}
+.extbar .bnt					{float:left;margin-left:3px;margin-top:5px;}
+
+.extbar .imgid_bnt				{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -873px no-repeat;}
+.extbar .imgid_bnt_hover		{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -25px -873px no-repeat;}
+.extbar .imgid_bnt_down			{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -50px -873px no-repeat;}
+
+.extbar .gid_bnt				{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -848px no-repeat;}
+.extbar .gid_bnt_hover			{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -25px -848px no-repeat;}
+.extbar .gid_bnt_down			{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -50px -848px no-repeat;}
+
+.extbar .layout_bnt				{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -873px no-repeat;}
+.extbar .layout_bnt_hover		{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -25px -873px no-repeat;}
+.extbar .layout_bnt_down			{width:22px; height:22px;background:url(../../../../image/abis/ui/switchcontrol/switcher.png) -50px -873px no-repeat;}
+
+.extbar .mnt_id_list 			{width: 100%;max-width:166px;margin: 0px;padding: 0px;position: absolute;z-index:1000;display:none;height:100px;}
+.extbar .img_show_list 			{width: 120px;margin: 0px;padding: 0px;position: absolute;z-index:1000;display:none;height:120px;}
+.extbar .layout_list 			{width: 120px; margin: 0px;padding: 0px;position: absolute;z-index:1000;display:none;height:60px;}
+
+
+.downList 						{margin-top: 4px;margin-left: 5px;float: left;width: 120px;}
+.downList .up 					{margin: 0 0px;	padding: 0px;width: 120px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -563px no-repeat;}
+.downList .uphover 				{margin: 0px;padding: 0px;width: 120px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -588px no-repeat;}
+.downList .updown 				{margin: 0px;padding: 0px;width: 120px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -613px no-repeat;}
+.downList .content	 			{width: 120px;margin: 0px;padding: 0px;position: absolute;z-index:1000;display:none;}
+.downList .imgId				{height: 120px;}
+.downList .mntId				{height: 100px;}
+.downList .text_width			{width: 100px;}
+
+.text 
+{
+	float: left;
+	margin: 2px 2px 2px 2px;
+	padding: 0px;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	text-indent: 5px;
+	font-family: "微软雅黑", Tahoma, Arial;
+	font-size: 12px;
+	color:white;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	cursor: default;
+	overflow: hidden;
+}
+
+.dropbnt 				{float: left;margin: 0px;padding: 0px;width: 15px;height: 22px}
+
+.prev_navi 				{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -688px no-repeat;}
+.prev_navi_hover 		{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -663px no-repeat;}
+.prev_navi_down 		{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -763px no-repeat;}
+.next_navi 				{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -713px no-repeat;}
+.next_navi_hover 		{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -638px no-repeat;}
+.next_navi_down 		{margin-top: 4px;margin-left: 4px;float: left;width: 27px;height: 22px;background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0 -738px no-repeat;}
+
+.ztree					{font-family:"微软雅黑", "宋体", Tahoma, Arial;}
+
+.tree_panel
+{
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	z-index:1000;
+	width:250px;
+	height:280px;
+	display:none;
+}
+
+.switcherBg			{margin:0px;padding:0px;width:100%;}
+.left_background	{float:left;margin-right:-4px;width:4px;height:32px; background: url(../../../../image/abis/ui/switchcontrol/switcher.png) 0px -788px no-repeat;}
+.right_background	{float:right;margin-left:-4px;width:4px;height:32px; background: url(../../../../image/abis/ui/switchcontrol/switcher.png) -488px -788px no-repeat;}
+.body_background	{margin:0 4px;background: url(../../../../image/abis/ui/switchcontrol/switch_bg.png) 0px 0px repeat-x;}

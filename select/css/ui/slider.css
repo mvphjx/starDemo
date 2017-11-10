@@ -1,0 +1,42 @@
+.SliderGround
+{
+	height:10px;
+	margin-top:10px;
+	background:url(../../image/ui/slider/center.png) repeat-x;
+	cursor:pointer;
+	margin-right:38px;
+	overflow: hidden;
+}
+.SliderGround .left		{float:left;margin-right:-10px;width:10px;height:10px;background:url(../../image/ui/slider/left.png) no-repeat;}
+.SliderGround .right	{float:right;margin-left:-5px;width:5px;height:10px;background:url(../../image/ui/slider/right.png) no-repeat;}
+.SliderGround .center	{height:10px;margin-left:10px;margin-right:5px;background:url(../../image/ui/slider/center.png) no-repeat;}
+
+.Slider
+{
+	width:20px;
+	height:20px;
+	background:url(../../image/ui/slider/slider.png) repeat-x;
+	cursor:pointer;
+	position:absolute;
+	top:4px;
+}
+.SliderTxt
+{
+	width:30px;
+	height:20px;
+	margin-top:2px;
+	float:right;
+	margin-left:-30px;
+	border:1px solid #7AB4E4;
+	background-color:#E0F2FA;
+	text-align:center;
+	color:#8C17BD;
+}
+.FouceTxt
+{
+	background-color:#F3FCE2;	
+}
+.SliderCell
+{
+	position: relative;
+}

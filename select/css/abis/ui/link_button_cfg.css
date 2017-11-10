@@ -1,0 +1,160 @@
+/** 链接按钮  */
+.LinkButton .Add					{background:url(../../../image/abis/linkbnt/add.png) no-repeat;}
+.LinkButton .Add_Large				{background:url(../../../image/abis/linkbnt/add_large.png) no-repeat;}
+
+.LinkButton .Action					{background:url(../../../image/abis/linkbnt/action.png) no-repeat;}
+.LinkButton .Action_Large			{background:url(../../../image/abis/linkbnt/action_large.png) no-repeat;}
+
+.LinkButton .AddForbid				{background:url(../../../image/abis/linkbnt/addForbid.png) no-repeat;}
+.LinkButton .AddForbid_Large		{background:url(../../../image/abis/linkbnt/addForbid_large.png) no-repeat;}
+
+.LinkButton .AddPermit				{background:url(../../../image/abis/linkbnt/addPermit.png) no-repeat;}
+.LinkButton .AddPermit_Large		{background:url(../../../image/abis/linkbnt/addPermit_large.png) no-repeat;}
+
+.LinkButton .Audit					{background:url(../../../image/abis/linkbnt/audit.png) no-repeat;}
+.LinkButton .Audit_Large			{background:url(../../../image/abis/linkbnt/audit_large.png) no-repeat;}
+.LinkButton .Audit_Disable			{background:url(../../../image/abis/linkbnt/audit_disable.png) no-repeat;}
+
+.LinkButton .BatchAdd				{background:url(../../../image/abis/linkbnt/batchadd.png) no-repeat;}
+.LinkButton .BatchAdd_Large			{background:url(../../../image/abis/linkbnt/batchadd_large.png) no-repeat;}
+
+.LinkButton .Cancelled				{background:url(../../../image/abis/linkbnt/cancel.png) no-repeat;}
+.LinkButton .Cancelled_Large		{background:url(../../../image/abis/linkbnt/cancel_large.png) no-repeat;}
+
+.LinkButton .Coll					{background:url(../../../image/abis/linkbnt/coll.png) no-repeat;}
+.LinkButton .Coll_Large				{background:url(../../../image/abis/linkbnt/coll_large.png) no-repeat;}
+
+.LinkButton .Cfg					{background:url(../../../image/abis/linkbnt/cfg.png) no-repeat;}
+.LinkButton .Cfg_Large				{background:url(../../../image/abis/linkbnt/cfg_large.png) no-repeat;}
+
+.LinkButton .ChangePriority			{background:url(../../../image/abis/linkbnt/editor.png) no-repeat;}
+.LinkButton .ChangePriority_Large	{background:url(../../../image/abis/linkbnt/editor_large.png) no-repeat;}
+
+.LinkButton .Del					{background:url(../../../image/abis/linkbnt/del.png) no-repeat;}
+.LinkButton .Del_Large				{background:url(../../../image/abis/linkbnt/del_large.png) no-repeat;}
+.LinkButton .Del_Disable			{background:url(../../../image/abis/linkbnt/del_disable.png) no-repeat;}
+
+.LinkButton .Download				{background:url(../../../image/abis/linkbnt/download.png) no-repeat;}
+.LinkButton .Download_Large			{background:url(../../../image/abis/linkbnt/download_large.png) no-repeat;}
+
+.LinkButton .Detail					{background:url(../../../image/abis/linkbnt/detail.png) no-repeat;}
+.LinkButton .Detail_Large			{background:url(../../../image/abis/linkbnt/detail_large.png) no-repeat;}
+
+.LinkButton .Editor					{background:url(../../../image/abis/linkbnt/editor.png) no-repeat;}
+.LinkButton .Editor_Large			{background:url(../../../image/abis/linkbnt/editor_large.png) no-repeat;}
+
+.LinkButton .Clean					{background:url(../../../image/abis/linkbnt/clean.png) no-repeat;}
+.LinkButton .Clean_Large			{background:url(../../../image/abis/linkbnt/clean_large.png) no-repeat;}
+
+.LinkButton .Check					{background:url(../../../image/abis/linkbnt/check.png) no-repeat;}
+.LinkButton .Check_Large			{background:url(../../../image/abis/linkbnt/check_large.png) no-repeat;}
+.LinkButton .Check_Disable			{background:url(../../../image/abis/linkbnt/check_disable.png) no-repeat;}
+
+.LinkButton .Compare				{background:url(../../../image/abis/linkbnt/compare.png) no-repeat;}
+.LinkButton .Compare_Large			{background:url(../../../image/abis/linkbnt/compare_large.png) no-repeat;}
+
+.LinkButton .Disable				{background:url(../../../image/abis/linkbnt/disable.png) no-repeat;}
+.LinkButton .Disable_Large			{background:url(../../../image/abis/linkbnt/disable_large.png) no-repeat;}
+
+.LinkButton .ExpExcel				{background:url(../../../image/abis/linkbnt/exp_excel.png) no-repeat;}
+.LinkButton .ExpExcel_Large			{background:url(../../../image/abis/linkbnt/exp_excel_large.png) no-repeat;}
+
+.LinkButton .Enable					{background:url(../../../image/abis/linkbnt/enabled.png) no-repeat;}
+.LinkButton .Enable_Large			{background:url(../../../image/abis/linkbnt/enabled_large.png) no-repeat;}
+
+.LinkButton .ExpYpf					{background:url(../../../image/abis/linkbnt/exp_ypf.png) no-repeat;}
+.LinkButton .ExpYpf_Large			{background:url(../../../image/abis/linkbnt/exp_ypf_large.png) no-repeat;}
+
+.LinkButton .ExpFpt					{background:url(../../../image/abis/linkbnt/exp_fpt.png) no-repeat;}
+.LinkButton .ExpFpt_Large			{background:url(../../../image/abis/linkbnt/exp_fpt_large.png) no-repeat;}
+
+.LinkButton .Exp					{background:url(../../../image/abis/linkbnt/exp.png) no-repeat;}
+.LinkButton .Exp_Large				{background:url(../../../image/abis/linkbnt/exp_large.png) no-repeat;}
+
+.LinkButton .Forbid2Permit		   	{background:url(../../../image/abis/linkbnt/forbid2permit.png) no-repeat;}
+.LinkButton .Forbid2Permit_Large	{background:url(../../../image/abis/linkbnt/forbid2permit_large.png) no-repeat;}
+
+.LinkButton .Find					{background:url(../../../image/abis/linkbnt/look.png) no-repeat;}
+.LinkButton .Find_Large				{background:url(../../../image/abis/linkbnt/look_large.png) no-repeat;}
+
+.LinkButton .Look					{background:url(../../../image/abis/linkbnt/look.png) no-repeat;}
+.LinkButton .Look_Large				{background:url(../../../image/abis/linkbnt/look_large.png) no-repeat;}
+
+.LinkButton .Permit2Forbid			{background:url(../../../image/abis/linkbnt/permit2forbid.png) no-repeat;}
+.LinkButton .Permit2Forbid_Large	{background:url(../../../image/abis/linkbnt/permit2forbid_large.png) no-repeat;}
+
+.LinkButton .Printer				{background:url(../../../image/abis/linkbnt/print.png) no-repeat;}
+.LinkButton .Printer_Large			{background:url(../../../image/abis/linkbnt/print_large.png) no-repeat;}
+
+.LinkButton .Que					{background:url(../../../image/abis/linkbnt/que.png) no-repeat;}
+.LinkButton .Que_Large				{background:url(../../../image/abis/linkbnt/que_large.png) no-repeat;}
+
+.LinkButton .Qry					{background:url(../../../image/abis/linkbnt/qry.png) no-repeat;}
+.LinkButton .Qry_Large				{background:url(../../../image/abis/linkbnt/qry_large.png) no-repeat;}
+
+.LinkButton .Refresh				{background:url(../../../image/abis/linkbnt/refresh.png) no-repeat;}
+.LinkButton .Refresh_Large			{background:url(../../../image/abis/linkbnt/refresh_large.png) no-repeat;}
+
+.LinkButton .Send					{background:url(../../../image/abis/linkbnt/send.png) no-repeat;}
+.LinkButton .Send_Large				{background:url(../../../image/abis/linkbnt/send_large.png) no-repeat;}
+
+.LinkButton .Search					{background:url(../../../image/abis/linkbnt/qry.png) no-repeat;}
+.LinkButton .Search_Large			{background:url(../../../image/abis/linkbnt/qry_large.png) no-repeat;}
+
+.LinkButton .SupFix					{background:url(../../../image/abis/linkbnt/supFix.png) no-repeat;}
+.LinkButton .SupFix_Large			{background:url(../../../image/abis/linkbnt/supFix_large.png) no-repeat;}
+
+.LinkButton .SelectAll				{background:url(../../../image/abis/linkbnt/selectall.png) no-repeat;}
+.LinkButton .SelectAll_Large		{background:url(../../../image/abis/linkbnt/selectall_large.png) no-repeat;}
+
+.LinkButton .SelectNone				{background:url(../../../image/abis/linkbnt/selectnone.png) no-repeat;}
+.LinkButton .SelectNone_Large		{background:url(../../../image/abis/linkbnt/selectnone_large.png) no-repeat;}
+
+.LinkButton .SelectInverse			{background:url(../../../image/abis/linkbnt/selectinverse.png) no-repeat;}
+.LinkButton .SelectInverse_Large	{background:url(../../../image/abis/linkbnt/selectinverse_large.png) no-repeat;}
+
+.LinkButton .StorageSucc			{background:url(../../../image/abis/linkbnt/storage_succ.png) no-repeat;}
+.LinkButton .StorageSucc_Large		{background:url(../../../image/abis/linkbnt/storage_succ_large.png) no-repeat;}
+
+.LinkButton .StorageFail			{background:url(../../../image/abis/linkbnt/storage_fail.png) no-repeat;}
+.LinkButton .StorageFail_Large		{background:url(../../../image/abis/linkbnt/storage_fail_large.png) no-repeat;}
+
+.LinkButton .StorageListSucc		{background:url(../../../image/abis/linkbnt/storagelist.png) no-repeat;}
+.LinkButton .StorageListSucc_Large	{background:url(../../../image/abis/linkbnt/storagelist_large.png) no-repeat;}
+
+.LinkButton .UpLoad					{background:url(../../../image/abis/linkbnt/up_load.png) no-repeat;}
+.LinkButton .UpLoad_Large			{background:url(../../../image/abis/linkbnt/up_load_large.png) no-repeat;}
+
+.LinkButton .UpDown					{background:url(../../../image/abis/linkbnt/updown.png) no-repeat;}
+.LinkButton .UpDown_Large			{background:url(../../../image/abis/linkbnt/updown_large.png) no-repeat;}
+
+.LinkButton .UpdatePass				{background:url(../../../image/abis/linkbnt/updatePass.png) no-repeat;}
+.LinkButton .UpdatePass_Large		{background:url(../../../image/abis/linkbnt/updatePass_large.png) no-repeat;}
+
+.LinkButton .Update					{background:url(../../../image/abis/linkbnt/update.png) no-repeat;}
+.LinkButton .Update_Large			{background:url(../../../image/abis/linkbnt/update_large.png) no-repeat;}
+.LinkButton .Update_Disable 		{background:url(../../../image/abis/linkbnt/update_disable.png) no-repeat;}
+
+.LinkButton .Transfer				{background:url(../../../image/abis/linkbnt/transfer.png) no-repeat;}
+.LinkButton .Transfer_Large			{background:url(../../../image/abis/linkbnt/transfer_large.png) no-repeat;}
+
+.LinkButton .CollListSucc			{background:url(../../../image/abis/linkbnt/storagelist.png) no-repeat;}
+.LinkButton .CollListSucc_Large		{background:url(../../../image/abis/linkbnt/storagelist_large.png) no-repeat;}
+
+.LinkButton .ReAssignTask				{background:url(../../../image/abis/linkbnt/add.png) no-repeat;}
+.LinkButton .ReAssignTask_Large			{background:url(../../../image/abis/linkbnt/add_large.png) no-repeat;}
+
+.LinkButton .File					{background:url(../../../image/abis/header/hasmsg.png) no-repeat;}
+.LinkButton .File_Large			    {background:url(../../../image/abis/header/msg_loop.gif) no-repeat;}
+
+.LinkButton .QueueTask					{background:url(../../../image/abis/linkbnt/add.png) no-repeat;}
+.LinkButton .QueueTask_Large				{background:url(../../../image/abis/linkbnt/add_large.png) no-repeat;}
+
+.LinkButton .SubDbConfig					{background:url(../../../image/abis/linkbnt/transfer.png) no-repeat;}
+.LinkButton .SubDbConfig_Large				{background:url(../../../image/abis/linkbnt/transfer_large.png) no-repeat;}
+
+.LinkButton .TransferDb					{background:url(../../../image/abis/linkbnt/transfer.png) no-repeat;}
+.LinkButton .TransferDb_Large				{background:url(../../../image/abis/linkbnt/transfer_large.png) no-repeat;}
+
+.LinkButton .Recovery					{background:url(../../../image/abis/linkbnt/recovery.png) no-repeat;}
+.LinkButton .Recovery_Large				{background:url(../../../image/abis/linkbnt/recovery_large.png) no-repeat;}

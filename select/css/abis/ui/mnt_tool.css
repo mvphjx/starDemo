@@ -1,0 +1,38 @@
+
+.MntTool		 			{background-color: white;height:100%;text-align:center;}
+.MntTool .select 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/select.png);}
+.MntTool .mntpoint 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/point.png);}
+.MntTool .core 				{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/core.png);}
+.MntTool .vcore 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/vicecore.png);}
+.MntTool .ldelta 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/left_delta.png);}
+.MntTool .rdelta 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/right_delta.png);}
+.MntTool .pixcle 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/pixel_line.png);}
+.MntTool .ridge 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/ridge.png);}
+.MntTool .mntridge 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/mnt_point_ridge.png);}
+.MntTool .dir 				{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/dir.png);}
+.MntTool .exactarea 		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/exact_area.png);}
+.MntTool .pcore 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/pattern_core.png);}
+.MntTool .pdelta 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/pattern_delta.png);}
+.MntTool .wdelta 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/wrist_delta.png);}
+.MntTool .baseline 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/base_line.png);}
+.MntTool .eye 				{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/eyes.png);}
+.MntTool .delete 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/delete.png);}
+.MntTool .mntposition 		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/position.png);}
+.MntTool .rootarea 			{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/position.png);}
+.MntTool .innerarea 		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/position.png);}
+.MntTool .outerarea 		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/position.png);}
+.MntTool .extractMnt 		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/mnt_position.png);}
+.MntTool .clearMnt   		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/delete.png);}
+.MntTool .ridgePattern   	{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/ridgePattern.png);}
+.MntTool .markPoint   	    {margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/mark_point_mnt.png);}
+.MntTool .unmatching   		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/unmatching.png);}
+.MntTool .matchmarkpoint   		{margin: 0 auto;margin-top: 4px;width: 36px;height: 36px;background:url(../../../image/abis/ui/mnttool/match_mark_point.png);}
+
+.mntbnt 					{float: left;margin: 2px 2px;width: 80px;height: 65px;}
+.mntbnthover				{float: left;margin: 2px 2px;width: 80px;height: 65px;background:url(../../../image/ui/button/80_65_hover.png);}
+.mntbntdown					{float: left;margin: 2px 2px;width: 80px;height: 65px;background:url(../../../image/ui/button/80_65_down.png);}
+.toolname 					{display: block;text-align: center;font-size: 14px;cursor:default;}
+
+.posMenu					{position:absolute;display:none;z-index:700;width:150px;border:1px solid #C4DCE8;background-color:#F0F8FC;padding:1px;box-shadow: 1 1 3px #666666;}
+.posMenu .item				{display:block;margin:1px 0px;width:148px;height:24px;line-height:24px;text-align:left;text-indent:10px; cursor:pointer; border-radius:3px;border:1px solid #EDFAFD;}
+.posMenu .itemhover			{display:block;margin:1px 0px;width:148px;height:24px;line-height:24px;text-align:left;text-indent:10px; cursor:pointer;border-radius:3px;background-color:#E3F4FC;border:1px solid #A6CEE1;}

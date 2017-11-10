@@ -1,0 +1,37 @@
+
+#TPEditTool				{margin-top:2px;background-color:#B5D4E8;height:36px;border-radius: 5px;}
+
+.PrevImg				{background:url(../../../image/abis/common/prev_24.png);}
+.NextImg				{background:url(../../../image/abis/common/next_24.png);}
+.PrevFgpDisableImg				{background:url(../../../image/abis/common/prev_24_d.png);}
+.NextFgpDisableImg				{background:url(../../../image/abis/common/next_24_d.png);}
+
+#LeftPart				{width:240px;float:left; margin-right:-265px;margin-left:1px; margin-top:0px; overflow: hidden;}
+
+#RightPart				{width:260px;float:right;margin-left:-305px; margin-right:1px;margin-top:0px; overflow: hidden;}
+
+#ContentPart			{margin-left:242px;margin-right:262px; margin-top:1px;}
+
+.EditToolLayer			{height:300px;overflow-y:auto;}
+#LeftUp					{width:100%;}
+#LeftUp .NaviTreeLayer	{height:390px;overflow-y: auto;}
+#LeftDown				{width:100%;margin-top:1px;}
+#LeftDown .FgpInfoFrame	{overflow-y:auto;}
+
+#RightUp				{width:100%;}
+#RightDown				{width:100%;margin-top:1px;}
+#RightDown .ImgProFrame {height:310px;overflow-y:auto;}
+.EditContent			{margin-top: 1px;background-color:white;}
+.TPTxtContainer			{padding:0px 0px;overflow:auto;}
+.SendMatchBnt			{float:right;margin-right:5px;margin-top:3px;font-size:13px;cursor:default;color:white;}
+.GetTaskImg				{background:url(../../../image/abis/common/get_task.png);}
+.FinishTaskImg			{background:url(../../../image/abis/common/finish_task.png);}
+.AbortTaskImg			{background:url(../../../image/abis/common/abort_task.png);}
+.PrevCardImg			{background:url(../../../image/abis/common/prev_card.png);}
+.NextCardImg			{background:url(../../../image/abis/common/next_card.png);}
+.WorkModeImg			{background:url(../../../image/abis/common/config.png);}
+.GetTaskDisableImg		{background:url(../../../image/abis/common/get_task_d.png);}
+.AbortTaskDisableImg	{background:url(../../../image/abis/common/abort_task_d.png);}
+.FinishTaskDisableImg	{background:url(../../../image/abis/common/finish_task_d.png);}
+.WorkModeDisableImg		{background:url(../../../image/abis/common/config_d.png);}
+

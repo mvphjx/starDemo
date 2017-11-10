@@ -1,0 +1,10 @@
+.MenuPanel 							{margin: 0px;padding: 0px;position: absolute;z-index: 999;box-shadow: 0 0 10px #313131s;}
+
+.WebMenu .Bar						{height:30px;margin-left:0px;margin-right:0px;background:url(../../../image/abis/layoutpage/menubg.png)  repeat-x;}
+
+.WebMenu .Bar .Tool					{list-style:none;text-align: center; height:30px;line-height:30px;overflow: hidden;}
+.WebMenu .Bar .Tool .Menu			{width:100px;height:30px;line-height:30px;display: inline-table;cursor:pointer;}
+.WebMenu .Bar .Tool .SelectMenu		{width:100px; background:url(../../../image/abis/layoutpage/menuselected.png)  no-repeat;}
+.WebMenu .Bar .Tool .Menu .txt		{display: table-row;width:100px;padding:2px 8px;height:30px;line-height:30px;color:white;font-size:14px}
+.WebMenu .Bar .Tool .Line			{height:13px;width:1px;display: inline-table;}
+

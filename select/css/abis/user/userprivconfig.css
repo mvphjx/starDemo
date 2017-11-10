@@ -1,0 +1,5 @@
+.privtableHeader{height: 25px;border-bottom: 1px solid #2762AE}
+.privtableTitle {font-size:14px;font-weight:600;color:#2762AE;}
+.privtableTitleFont {font-size:14px;font-weight:600;color:#2762AE;}
+#mainleft{float: left;width: 20%}
+#mainright{float: right;width: 80%}

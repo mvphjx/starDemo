@@ -1,0 +1,23 @@
+/*通用清理样式*/
+html{}
+body{margin:0; padding:0; border:0; font:14px/1.5 "微软雅黑"; color:#333;}
+*{margin:0; padding:0; border:0; list-style:none;}
+a{text-decoration: none;}
+button{cursor: pointer;}
+button:hover{opacity: 0.8;}
+.sendmessage h4{height: 40px; border-bottom: 1px solid #ddd; background: #f8f8f8; margin-bottom: 15px;}
+.sendmessage h4 div{font-size: 14px; max-width: 1000px; margin:0 auto; padding-left: 30px; background:  url(../img/sendicon.png) 0 15px no-repeat; line-height: 40px; height: 40px;}
+.sendmessage .content{width: 650px; margin:0 auto;}
+.sendmessage .content .senditem{overflow: hidden;}
+.sendmessage .content .senditem .leftitem{width: 120px; padding-right: 30px; color: #666; height: 40px; line-height: 40px; float: left; text-align: right;}
+.sendmessage .content .senditem .recipient{line-height: 40px; height: 40px; float: left; margin-right: 35px;}
+.content .senditem .choose-user{float: left;}
+.choose-user .btn-group{height: 40px; }
+.choose-user .LinkBnt_28_Right{float:left; margin-top:10px;}
+.choose-user .btn-group .add{background: url(../img/addnew.png) 0 0 no-repeat;}
+.content .senditem .choose-user ul{width: 314px; max-height: 150px; border: 1px solid #ddd; overflow-y:auto; min-height:230px;}
+.content .senditem .choose-user ul li{height: 30px; font-size: 12px; padding-left: 10px; line-height: 30px;}
+.content .senditem .choose-user ul li:hover{background: #DBEDFB;}
+.content .senditem textarea{width: 490px; float: left; border: 1px solid #ddd; margin-top: 15px;}
+.sendmessage .content .btnGroup{margin: 0 auto; width: 210px; height: 32px; margin-top: 30px;}
+.sendmessage .content .btnGroup button{width: 88px; height: 32px; float: left;}

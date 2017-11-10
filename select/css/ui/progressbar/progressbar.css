@@ -1,0 +1,15 @@
+.Progress		{overflow: hidden;height:23px;line-height:23px;}
+
+.LeftBorder		{float:left;margin-right:-3px;width:3px;height:23px;line-height:23px;background:url(../../../image/ui/progressbar/leftborder.png) no-repeat;}
+.RightBorder	{float:right;margin-left:-3px;width:3px;height:23px;line-height:23px;background:url(../../../image/ui/progressbar/rightborder.png) no-repeat;}
+.BarBody		{margin-left:3px;margin-right:3px;height:23px;line-height:23px;overflow:hidden;}
+
+.BodyUp			{width:0px;height:5px;line-height:5px;background:url(../../../image/ui/progressbar/up.png) repeat-x;}
+.BodyDown		{width:0px;height:5px;line-height:5px;background:url(../../../image/ui/progressbar/down.png) repeat-x;}
+.BodyCenter		{height:13px;line-height:13px;}
+
+.ProgressHeader	{float:left;margin-right:-10px;width:10px;height:13px;line-height:13px;background:url(../../../image/ui/progressbar/back_left.png) no-repeat;}
+.ProgressFooter	{float:right;margin-left:-10px;width:10px;height:13px;line-height:13px;background:url(../../../image/ui/progressbar/back_right.png) no-repeat;}
+.ProgressBody	{margin-left:10px;margin-right:10px;height:13px;line-height:13px;background:url(../../../image/ui/progressbar/back.png) repeat-x;}
+
+.CurProgressBar	{position:absolute;margin-left:1px;margin-right:1px;width:0px;height:13px;background:url(../../../image/ui/progressbar/bar.png) repeat-x;}

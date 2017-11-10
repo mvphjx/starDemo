@@ -1,0 +1,16 @@
+#AbisFooter
+{
+	width:100%;
+	height:70px;
+	background: url(../../../image/abis/layoutpage/hfooter.png) repeat-x;
+	overflow: hidden;	
+	visibility:hidden;
+}
+
+#AbisFooter .content
+{
+	color:#ecedef;
+	margin-top:10px;
+	font-size:12px;
+	text-align: center;
+}

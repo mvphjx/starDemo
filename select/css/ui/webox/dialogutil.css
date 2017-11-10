@@ -1,0 +1,42 @@
+.okdialog
+{
+	background:url(../../../image/ui/webox/ok.png) no-repeat;
+	width:10%;
+	height:40px;
+	margin-left: 35px;
+	padding-top: 15px;	
+	float:left;
+}
+.warndialog
+{
+	background:url(../../../image/ui/webox/warn.png) no-repeat;
+	width:10%;
+	height:40px;
+	margin-left: 35px;
+	padding-top: 15px;
+	float:left;
+}
+.errordialog
+{
+	background:url(../../../image/ui/webox/error.png) no-repeat;
+	width:10%;
+	height:40px;
+	margin-left: 35px;
+	padding-top: 15px;	
+	float:left;
+}
+.askdialog
+{
+	background:url(../../../image/ui/webox/ask.png) no-repeat;
+	width:28px;
+	height:28px;
+	margin-left: 35px;
+	padding-top: 15px;	
+	float:left;
+}
+.dialogtext
+{
+	float:right;
+	margin: 5px 0 0 20px;
+	width:300px;
+}

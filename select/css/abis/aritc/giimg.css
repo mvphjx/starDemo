@@ -1,0 +1,6 @@
+#giItemlist{width: 100%}
+.giItemtable{width: 100%}
+.giItemtable tr{height: 240px;display: none;}
+.giItemtable td{padding-left: 20px;width: 16%}
+.txtpanel{height: 40px;}
+.name_txt{font-size: 14px;font-weight: 500;color: #FF0000;}

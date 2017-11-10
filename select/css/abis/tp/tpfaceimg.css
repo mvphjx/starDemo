@@ -1,0 +1,7 @@
+#facelist{width: 100%}
+.facetable{width: 100%}
+.facetable tr{height: 240px;display: none;}
+.facetable td{padding-left: 20px;width: 16%}
+.txtpanel{height: 40px;}
+.name_txt{font-size: 14px;font-weight: 500;color: #FF0000;}
+.shenfen_txt a{font-size: 14px;font-weight: 500;color: #074BF7;text-decoration: none;}

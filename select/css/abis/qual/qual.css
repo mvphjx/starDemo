@@ -1,0 +1,41 @@
+.QualCheckC				{overflow:hidden;}
+
+.LeftP					{float:left;width:870px;}
+.RightP					{float:right;width:370px;}
+.ToolT					{margin-top:5px;}
+
+.TaskB					{float:right;margin-top:4px;margin-right:5px;}
+
+#HeaderL				{width:870px;}
+#HeaderL .Header 		{margin:0 auto;padding: 0px;margin-top:2px;width:800px;}
+
+#Info					{height:100%;width:368px;text-align:left;}
+#CInfo					{margin:0 auto;margin-left:3px;margin-top:3px;border:1px solid #3B74B9;height:280px;background-color:#E1F1FA;}
+#QualInfo				{margin:0 auto;margin-left:3px;margin-top:3px;border:1px solid #3B74B9;height:200px;background-color:#E1F1FA;}
+#ReSInfo				{margin:0 auto;margin-left:3px;margin-top:3px;border:1px solid #3B74B9;height:240px;background-color:#E1F1FA;}
+
+#OtherCLabel			{text-indent:10px;font-size:14px;color:#86331C;}
+#OtherCause				{margin-left:10px;margin-right:10px;margin-top:5px;}
+#OtherCause .enable		{width:100%;height:45px;overflow:auto; border:1px solid #4C76AB;background-color:#FFFFFF;}
+#OtherCause .unenable	{width:100%;height:45px;overflow:auto; border:1px solid #4C76AB;background-color:#E5E1E2;}
+
+.ProgressR				{margin-top:2px;height:24px;line-height:24px;clear:both;vertical-align: middle;}
+.ProgressR .label		{float:left;width:120px;height:20px;line-height:20px;text-indent:10px;}
+.ProgressBar			{float:left; width:180px;height:20px;line-height:20px;font-size:12px;font-weight:700;}
+.Condition				{font-size:14px;height:24px;ling-height:24px;}
+
+.DescT					{background-color:#6f7780;color:#FFFFFF;width:100%; height:24px;line-height:24px;text-align:left;text-indent:10px;font-size:16px;}
+.textF					{overflow: hidden;}
+.textF .label			{margin-top:10px;float:left;margin-left:5px;width:100px;height:20px;line-height:20px;text-indent:10px;}
+.textF .textField		{margin-top:25px;float:left;border-bottom:1px solid black;color:#701AD0;height:20px;line-height:20px;padding-top: 25px;}
+
+.ReScanBnt				{margin-left:10px}
+.ReScanCause			{margin-left:10px}
+
+.imgTool				{margin:0px auto;margin-top:3px;width: 798px;}
+.ImageQual 				{margin:0px auto;border:1px solid #4A89A9;width: 796px;height:640px;margin-top: 3px;}
+
+.CloseWindow			{width:100px;height:80px;position:absolute;top:50%;left:30%;margin-left:50px;margin-top:40px}
+#PlayAlarm				{width:300px;height:200px;background-color:#E1F1FA;}
+.PlayAlarmTip			{position:absolute;top:30px;left:20px;margin-left:5px;margin-top:10px}
+.Absolute-Center 		{position:absolute;top:100px;left:100px;margin-left:5px;margin-top:10px}

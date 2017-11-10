@@ -1,0 +1,38 @@
+body			{background-color: #b4bac0;}
+#LeftPart		{width:264px;float:left; margin-right:-270px;margin-left:1px; height:100%;}
+#RightPart		{width:324px;float:right;margin-left:-328px; margin-right:1px;height:100%;}
+#ContentPart	{margin-left:266px;margin-right:326px; margin-top:1px;}
+#LeftTop		{width:100%;margin-top:1px;}
+#LeftMiddle		{width:100%;margin-top:1px;}
+#LeftBottom		{width:100%;margin-top:1px;}
+#RightUp		{width:100%;margin-top:1px;}
+#RightDown		{width:100%;margin-top:1px;}
+#TPScanInfo		{height:350px;overflow-y:auto;}
+
+.ScanTool		{margin:0px 5px;}
+
+.BntTool		{margin-top:3px;margin-left:30px;height:50px;}
+.ApplyBnt		{float:left;margin-top:5px;margin-left:10px;font-size:15px;}
+
+.ScanItem		{margin-left:5px;margin-top:8px;overflow: hidden;}
+.label			{float:left;width:60px;height:22px;line-height:22px;}
+.text			{float:left;width:190px;height: 22px;}
+
+.ChooseBnt		{float:left;margin-left:5px;}
+
+.FeedBack		{height:325px;padding:0px 3px;overflow-y:auto;}
+
+.ScanObject		{height:278px;overflow-y:auto;}
+.ScanList		{height:150px;overflow-y:auto;}
+.Property		{height:240px;overflow-y:auto;}
+.Property .item {}
+.Property .item .t				{margin:5px 10px;border-bottom:1px solid #B4DBE6;color: #1f5b18;font-weight:600;padding:2px;}
+.Property .item .info			{margin-left:15px;margin-top:5px;overflow: hidden;}
+.Property .item .info .row 		{}
+.Property .item .info .row .lab{color: #15478c;text-align: left;width:60px;line-height:22px;heihgt:22px;}
+.Property .item .info .row .txt{width:60px;heihgt:22px;line-height:22px;font-weight:600;}
+
+.TxtPart	{padding:0px 0px;overflow:auto;position: relative;}
+.AddPage	{float:right;width: 16px; height: 16px; margin-top: 5px; margin-right: 3px; background:url(../../../image/abis/icon/add_16.png) no-repeat;}
+.DelPage	{float:right;width: 16px; height: 16px; margin-top: 5px; margin-right: 3px; background:url(../../../image/abis/icon/delete_16.png) no-repeat;}
+.ClearPage	{float:right;width: 16px; height: 16px; margin-top: 5px; margin-right: 3px; background:url(../../../image/abis/icon/clear_16.png) no-repeat;}

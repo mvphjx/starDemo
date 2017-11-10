@@ -1,0 +1,36 @@
+.combolist			{border:1px solid #6f7780;padding:0px;overflow: hidden;background-color:#FFFFFF}
+.requiredCombo		{border:1px solid #FB8903;padding:0px;border-radius: 2px;}
+.ErrorCombo			{border:1px solid red;padding:0px;border-radius: 2px;}
+.combotext			{float:left;border:0;font-size:13px;}
+  
+.combo_bnt			{float:right;background:url(../../../image/ui/combo/combo_bnt.png) no-repeat; width:18px; height:22px;}
+.combo_bnt_hover	{float:right;background:url(../../../image/ui/combo/combo_bnt_hover.png) no-repeat; width:18px; height:22px;}
+.combo_bnt_down		{float:right;background:url(../../../image/ui/combo/combo_bnt_down.png) no-repeat; width:18px; height:22px;}
+  
+.up_border			{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/up_border.png) repeat-y;float: right;}
+.up_border_hover	{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/up_border_hover.png) repeat-y;float: right;}
+.up_border_down		{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/up_border_down.png) repeat-y;float: right;}
+
+.bottom_border		{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/bottom_border.png) repeat-y;float: right;}
+.bottom_border_hover{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/bottom_border_hover.png) repeat-y;float: right;}
+.bottom_border_down	{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/bottom_border_down.png) repeat-y;float: right;}
+
+.fill				{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/fill.png) no-repeat;float: right;width:15px; height:2px;} 
+.fill_hover			{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/fill_hover.png) no-repeat;float: right;width:15px; height:2px;} 
+.fill_down			{border-left:1px solid #BDD6FA;background:url(../../../image/ui/combo/fill_down.png) no-repeat;float: right;width:15px; height:2px;}
+ 
+.newMenu			{position:absolute;z-index:999; display:none;max-height:250px; border:1px solid #535e69;border-top:none;background-color:#FFFFFF;overflow-x:auto;overflow-y:auto;}
+.select				{background-color:#BCDAF6;}
+.newMenu a			{color:#2E608E;font-size: 13px;}
+.liitemparent       {float:left;width:100%;}
+.lidiv				{float:left;padding:2px 2px;cursor:pointer;width:98%}
+.codediv			{width: 100px;float:left; margin-right:-60px;word-break:break-all;}
+.textdiv			{text-align:left;margin-left: 100px;}  
+.pinyindiv			{display: none}
+.labeltext			{color:#2E608E;font-size: 13px;}
+
+.selectedItem       {float:left;width:100%;border-bottom: 1px solid #BDD6FA;}
+.checkdiv           {float:left;padding-left:5px;min-width:320px;padding-bottom:3px;}
+.checkboxLabel      {text-align:left;margin-left: 20px;}
+.checkbox		    {width: 20px;float:left; margin-right:-20px;margin-top: 2px;}
+.hidetext			{display:none}

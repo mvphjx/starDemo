@@ -1,0 +1,23 @@
+div#rMenu
+{
+	    background-color:#555555;
+	    text-align: left;
+	    padding:2px;
+	    width:130px;
+	    position:absolute;
+	    display:none;
+}
+div#rMenu ul 
+{
+	    margin:1px 0;
+	    padding:0 5px;
+	    cursor: pointer;
+	    list-style: none outside none;
+	    background-color:#DFDFDF;
+	    display:none;
+	}
+div#rMenu ul li
+{
+	    margin:0;
+	    padding:2px 0;
+}

@@ -1,0 +1,71 @@
+#showTable {width: 85%;}
+#showTable .trcol1{width:100%;height: 22px;}
+#showTable .trcol2{width:100%;height: 22px;}
+#showTable .tdcolumn{width: 30%;}
+.subdb .tdcolumn,.subdb .tdcolumn div
+{
+    font-size: 14px;
+    color: #234a76;
+    height: 22px;
+    font-weight: 500;
+    width: 200px;
+    text-align: right;
+    padding-right: 5px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+.subdb .columnvalue {
+    font-size: 15px;
+    color: #1c1c1c;
+    height: 22px;
+    font-weight: 500;
+    width: 450px;
+    min-width: 300px;
+    text-align: left;
+    line-height: 30px;
+    padding:5px;
+}
+.subdb .trcol1
+{
+    background-color: #edf4fa;
+}
+.subdb .trcol2
+{
+    background-color: #f6fcfe;
+}
+.subdb .columnvalue input{width:300px;}
+.subdb .PageBar .TurnTxt{width:25px;}
+.subdb .columnvalue textarea{width:300px;}
+.subdb .radio{float: left;    width: 100px;}
+.subdb .radio input{width:20px;}
+.subdb .checkSubDb{ margin-left:10px;}
+.subdb .checkSubDb input{width:20px;}
+.subdb .checkOpType{ margin-left:10px;}
+.subdb .checkOpType input{width:20px;}
+.subdb .selSubdb {height: 150px;background: #f9fafc;border: solid 1px #dddddd;overflow: auto;}
+
+.logicdb .radio{float: left;    width: 100px;}
+.logicdb .radio input{width:20px;}
+.logicdb .tdcolumn,.logicdb .tdcolumn div
+{
+    font-size: 14px;
+    color: #234a76;
+    height: 22px;
+    font-weight: 500;
+    width: 200px;
+    text-align: right;
+    padding-right: 5px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+.logicdb .columnvalue {
+    font-size: 15px;
+    color: #1c1c1c;
+    height: 22px;
+    font-weight: 500;
+    width: 450px;
+    min-width: 300px;
+    text-align: left;
+    line-height: 30px;
+    padding:5px;
+}

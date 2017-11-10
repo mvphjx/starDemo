@@ -1,0 +1,6 @@
+.configtable  tr{height: 20px;}
+.configtable .selecttd{width:50px;}
+.configtable .nametd{width:150px;}
+.configtable .desctd{width:200px;}
+.dispparam {width:200px;height:22px;border-bottom: 1px solid #6F7780}
+.subtitle {font: 15px;font-weight: 600}

@@ -1,0 +1,45 @@
+.addtextfield
+ {
+    border:1px solid #6DAED7;
+	height:22px;
+	width:200px;
+	border-radius:2px;
+ }
+.addlabelfield
+ {
+ 	height:22px;
+ }
+.addcolumn
+ {
+ 	height:22px;
+ }
+.edittextfield  
+{
+    border:1px solid #6DAED7;
+	height:22px;
+	width:200px;
+	border-radius:2px;
+}
+.editlabelfield 
+{
+	height:22px;
+}
+.editcolumn 
+{
+	height:22px;
+}
+
+.showtextfield
+  {
+    border-width:0;
+	height:22px;
+	width: 200px;	
+  }
+.showlabelfield 
+{
+	height:22px;
+}
+.showcolumn 
+{
+	height:22px;
+}

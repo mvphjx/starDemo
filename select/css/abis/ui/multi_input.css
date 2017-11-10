@@ -1,0 +1,32 @@
+.mul-div ul li{
+            float: left;
+            list-style: none;
+            position: relative;
+            margin: 3px 5px 3px 0;
+            padding: 3px 20px 3px 5px;
+            border: 1px solid #aaa;
+            max-width: 100%;
+            border-radius: 3px;
+            background-color: #d6ebae;
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #ffffcc));
+            background-image: -webkit-linear-gradient(#e8efd1 20%, #d6ebae 50%, #b3f4d3 52%, #c3f0b4 100%);
+            background-image: -moz-linear-gradient(#e8efd1 20%, #d6ebae 50%, #b3f4d3 52%, #c3f0b4 100%);
+            background-image: -o-linear-gradient(#e8efd1 20%, #d6ebae 50%, #b3f4d3 52%, #c3f0b4 100%);
+            background-image: linear-gradient(#e8efd1 20%, #d6ebae 50%, #b3f4d3 52%, #c3f0b4 100%);
+            background-size: 100% 19px;
+            background-repeat: repeat-x;
+            background-clip: padding-box;
+            box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+            color: #333;
+            line-height: 13px;
+            cursor: default;}
+            
+.mul-div .search-choice-close{background: url(../../ui/combo/chosen/chosen-sprite.png) -42px 1px no-repeat;
+                position: absolute;
+                top: 4px;
+                right: 3px;
+                display: block;
+                width: 12px;
+                height: 12px;
+                }
+.mul-div .search-choice-close:hover{background-position: -42px -10px; }  

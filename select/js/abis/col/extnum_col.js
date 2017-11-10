@@ -1,0 +1,74 @@
+
+var  ExtConnNumLLHitlogCol = 
+{
+   HITLOG_ID : "HITLOG_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtConnNumLPCaseCol = 
+{
+   CASE_ID : "CASE_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtConnNumLTLHitlogCol = 
+{
+   HITLOG_ID : "HITLOG_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtConnNumPersonCol = 
+{
+   PERSON_ID : "PERSON_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtConnNumTTHitlogCol = 
+{
+   HITLOG_ID : "HITLOG_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtConnNumWantedCol = 
+{
+   WANTED_ID : "WANTED_ID",
+   NUM_DEF_ID : "NUM_DEF_ID",
+   CONNECT_NUM : "CONNECT_NUM"
+}
+
+var  ExtDataConnNumCFGCol = 
+{
+   DATA_OBJ_ID : "DATA_OBJ_ID",
+   NUM_DEF_ID : "NUM_DEF_ID"
+}
+
+var  ExtSystemCFGCol = 
+{
+   SYSTEM_ID : "SYSTEM_ID",
+   SYSTEM_TYPE : "SYSTEM_TYPE",
+   SYSTEM_BTY_FLAG : "SYSTEM_BTY_FLAG",
+   SYSTEM_NAME : "SYSTEM_NAME",
+   SYSTEM_DISP_NAME : "SYSTEM_DISP_NAME",
+   DESCRIPTION : "DESCRIPTION",
+   CREATE_TIME : "CREATE_TIME",
+   CREATE_USER : "CREATE_USER",
+   UPDATE_TIME : "UPDATE_TIME",
+   UPDATE_USER : "UPDATE_USER"
+}
+
+var  ExtSystemConnNumCFGCol = 
+{
+   ID : "ID",
+   SYSTEM_ID : "SYSTEM_ID",
+   DATA_TYPE : "DATA_TYPE",
+   CONNECT_NUM_TYPE : "CONNECT_NUM_TYPE",
+   CONNECT_NUM_NAME : "CONNECT_NUM_NAME",
+   CONNECT_NUM_DESC : "CONNECT_NUM_DESC",
+   COL_NAME : "COL_NAME"
+}
+

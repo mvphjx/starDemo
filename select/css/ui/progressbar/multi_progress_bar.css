@@ -1,0 +1,6 @@
+
+.MProgress							{height:22px;line-height:22px;overflow:hidden;border-top:1px solid #61A8F0;border:1px solid #61A8F0;}
+.MProgress .Site					{float:left;width:2px;height:22px;line-height:22px;background-color:#F97908;}
+.SProgress							{float:left;height:22px;line-height:22px;background-color:#FFFDCC;}
+.SProgress	.ValueBar				{width:0px;height:22px;line-height:22px;background-color:#6186DC;}
+.SProgress	.ValueBar .TxtBar		{height:22px;line-height:22px;font-size:12px;font-weight:600;color: #0B2775;text-align:center; cursor:pointer;}

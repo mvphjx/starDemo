@@ -12,7 +12,20 @@
 
 
 
-<div id="tab">
+<div id="tab" class="tab">
+    <ul class="tab-nav">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="tab-wrap">
+        <li class="tab-item active"></li>
+        <li class="tab-item"></li>
+        <li class="tab-item"></li>
+    </ul>
+</div>
+
+<div class="tab">
     <ul class="tab-nav">
         <li class="active">1</li>
         <li>2</li>
@@ -34,7 +47,7 @@
 
 
 <script type="text/javascript">
- var tabdemo=$("#tab").tab({
+ var tabdemo=$(".tab").tab({
         type:"mouseover",
         effect:"fade",
         show:2,

@@ -1,25 +1,45 @@
 ﻿<!DOCTYPE html>
 <script>
-	"use strict"
+    "use strict"
 
-	var x= [];
-	function createSomeNodes() {
-		var div,
-			i = 100,
-			frag = document.createDocumentFragment();
-		for(; i > 0; i--) {
-			div= document.createElement("div");
-			div.appendChild(document.createTextNode(i +" - " + new Date().toTimeString()));
-			frag.appendChild(div);
-		}
-		document.getElementById("nodes").appendChild(frag);
-	}
-	function grow() {
-		x.push(new Array(1000000).join('x'));
-		createSomeNodes();
-		setTimeout(grow, 5000);
-	}
+    function Person(name, age) {
+        Person.prototype.age = age;
+        this.name = name;
+    }
+    var obj1 = new Person("p1", 80);
+    var obj2 = new Person("p2", 20);
+    console.log("obj2*" + obj2.name + "-" + obj2.age)
+    console.log("obj1*" + obj1.name + "-" + obj1.age)
+    console.log("window" + window.name + " and " + name);
+    //Person("p3",86)
+    //console.log("window "+window.name+" and "+name)
+    //;(function(){alert(5)})();
+
+    var theThing
+        = null;
+
+    var replaceThing = function () {
+        var originalThing = theThing;
+        var unused = function () {
+            if (originalThing)
+                console.log("hi");
+        };
+        theThing = {
+            longStr: new Array(1000000).join('*'),
+            someMethod: function () {
+                console.log(someMessage);
+            }
+        };
+    };
+    setInterval(replaceThing, 1000);
 </script>
 <body>
-<div id=nodes></div>
+这段代码做了一件事：每次调用 replaceThing 时，theThing 都会得到新的包含一个大数组和新的闭包（someMethod）的对象。同时，没有用到的那个变量持有一个引用了 originalThing（replaceThing
+调用之前的 theThing）闭包。
+哈，是不是已经有点晕了？关键的问题是每当在同一个父作用域下创建闭包作用域的时候，这个作用域是被共享的。
+在这种情况下，someMethod 的闭包作用域和 unused 的作用域是共享的。
+unused持有一个 originalThing 的引用。尽管 unused 从来没有被使用过，someMethod 可以在 theThing 之外被访问。而且 someMethod 和 unused 共享了闭包作用域，即便 unused
+从来都没有被使用过，它对 originalThing 的引用还是强制它保持活跃状态（阻止它被回收）。当这段代码重复运行时，将可以观察到内存消耗稳定地上涨，并且不会因为
+GC 的存在而下降。本质上来讲，创建了一个闭包链表（根节点是 theThing 形式的变量），而且每个闭包作用域都持有一个对大数组的间接引用，这导致了一个巨大的内存泄露。
+
 </body>

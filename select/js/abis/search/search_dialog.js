@@ -798,6 +798,7 @@ function SearchItem(options,cfgs,parent,param){
 		this.$searchItem.children().filter('span').addClass('group')
 		this.$searchItem.children().filter('span').html(this.columnCatlog.columnName)
 	}
+	return {};
 }
 SearchItem.prototype = {
 		initData:function(){//组织数据格式

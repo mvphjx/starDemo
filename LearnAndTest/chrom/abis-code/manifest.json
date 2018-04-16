@@ -1,0 +1,29 @@
+//参考 https://github.com/sxei/chrome-plugin-demo
+{
+	"manifest_version": 2,
+	"name": "abis code helper",
+	"version": "1.0",
+	"description": "跨域加载代码表",
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"js": [
+				"js/content.js"
+			],
+			"matches": [
+				"http://127.0.0.1:8020/Rcp/cn/web/html/tp/tpcard/tpcardtxtedit/tpcardtxtedit*"
+				,"http://192.168.128.145:7950/abisweb/login"
+			]
+		}
+	],
+	"web_accessible_resources": ["js/inject.js"],
+	"permissions": [
+		"webRequest", // web请求
+		"http://192.168.128.145:7950/abisweb/*"
+	]
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en-US">
+		<meta charset="UTF-8">
+		<title>
+		</title>
+		<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+	<script>
+		var urlPost_CORS = "http://192.168.128.145:8000/cors/post";
+		var urlGet_CORS = "http://192.168.128.145:8000/cors/get";
+		var urlPost = "http://192.168.128.145:8000/nocors/post";
+		var urlGet = "http://192.168.128.145:8000/nocors/get";
+        var urlGet_JsonP = "http://192.168.128.145:8000/jsonp/get";
+		var data = {
+			userName: 'han',
+			password: '4690255'
+		};
+
+		function common_post_function() {
+			show("");
+			showerror("");
+			jQuery.ajax({
+				type: 'POST',
+				contentType: 'application/json',
+				url: urlPost,
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+					show(data)
+				},
+				error: function(e) {
+					showerror(e)
+					console.log(e)
+				}
+			});
+		}
+
+		function common_get_function() {
+            show("");
+            showerror("");
+            jQuery.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: urlGet,
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+                    show(data)
+                },
+                error: function(e) {
+                    showerror(e)
+                    console.log(e)
+                }
+            });
+		}
+
+		function cors_xhr_post_function() {
+			show("");
+			showerror("");
+			var request = createCORSRequest('post', urlPost_CORS);
+			if(request) {
+				request.setRequestHeader("Content-type", "application/json");
+				request.onload = function(data) {
+					show(data.target.responseText)
+				};
+				//data  JSON.stringify(data)
+				request.send(JSON.stringify(data));
+			}
+		}
+
+		function cors_ajax_post_function() {
+			show("");
+			showerror("");
+			jQuery.ajax({
+				type: 'POST',
+				contentType: 'application/json',
+				url: urlPost_CORS,
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+					show(data)
+				},
+				error: function(e) {
+					showerror(e);
+					console.log(e)
+				},
+				timeout:500
+			});
+		}
+        function cors_ajax_get_function() {
+            show("");
+            showerror("");
+            jQuery.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: urlGet_CORS,
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    show(data)
+                },
+                error: function(e) {
+                    showerror(e);
+                    console.log(e)
+                }
+            });
+        }
+		function jsonp_get_function() {
+            show("");
+            showerror("");
+            jQuery.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: urlGet_JsonP,
+                data: data,
+                dataType: 'jsonp',//数据类型为jsonp
+                jsonp: "callback",//服务端用于接收callback调用的function名的参数
+                success: function(data) {
+                    console.log(data);
+                    show(data)
+                },
+                error: function(e) {
+                    showerror(e);
+                    console.log(e)
+                }
+            });
+            function getMessage(jsonp){
+                alert("message:"+jsonp);
+            }
+		}
+
+		function show(data) {
+			if(typeof data === 'object') {
+				data = JSON.stringify(data)
+			}
+			$("#result").html(data);
+		}
+
+		function showerror(data) {
+			if(typeof data === 'object') {
+				data = JSON.stringify(data)
+			}
+			$("#errorInfo").html(data);
+		}
+
+		/**
+		 * 封装一个工具方法  发送支持跨域的请求
+.		 * @param {Object} method
+		 * @param {Object} url
+		 */
+		function createCORSRequest(method, url) {
+			var xhr = new XMLHttpRequest();
+			// 支持cors，检查xhr的withCredentials属性
+			if("withCredentials" in xhr) {
+				xhr.open(method, url, true);
+			}
+			// IE8
+			else if(typeof XDomainRequest != "undefined") {
+				xhr = new XDomainRequest();
+				xhr.open(method, url);
+			} else {
+				xhr = null;
+			}
+			return xhr;
+		}
+		/**
+		 * 发送跨域请求
+		 *  测试发现，与ajax缺省发送的请求 一样
+		 */
+		function sendCORSRequestDemo() {
+
+			var request = createCORSRequest('post', urlPost_CORS);
+			if(request) {
+				request.setRequestHeader("Content-type", "application/json");
+				request.onload = function(data) {
+					show(request.responseText)
+				};
+				//data  JSON.stringify(data)
+				request.send(JSON.stringify(data));
+			}
+		}
+	</script>
+
+	<body>
+		<div>结果反馈</div>
+		<div id="result"></div>
+		<div>错误信息</div>
+		<div id="errorInfo"></div>
+		<input type="button" value="common_post" onclick="common_post_function()" />
+		<input type="button" value="cors_xhr_post" onclick="cors_xhr_post_function()" />
+		<input type="button" value="cors_ajax_post" onclick="cors_ajax_post_function()" />
+		<input type="button" value="jsonp_get" onclick="jsonp_get_function()" />
+		<input type="button" value="common_get" onclick="common_get_function()" />
+		<input type="button" value="cors_get" onclick="cors_ajax_get_function()" />
+	<div>
+		<br/>
+		新版浏览器：
+		<br/>
+		AJAX进行跨域请求时的预检，需要向另外一个域名的资源发送一个HTTP OPTIONS请求头，用以判断实际发送的请求是否安全。
+		<br/>
+		只需要服务器支持跨域请求即可。
+		<br/><br/>
+		旧版浏览器：
+		<br/>
+		使用jsonp方式，服务器返回值封装进js代码中，经过解析可以获取到服务器数据
+	</div>
+
+	</body>
+
+</html>

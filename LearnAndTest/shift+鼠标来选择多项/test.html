@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>shift多选</title>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var rem = [];//记录鼠标选中元素
+        /**
+         * 多选
+         */
+        function shift_select() {
+            $(".box div").click(function (e) {
+                var index = $(".box div").index($(this));
+                if (e.shiftKey) {
+                    var iMin = Math.min(index, rem[rem.length - 1]);
+                    var iMax = Math.max(index, rem[rem.length - 1]);
+                    for (i = iMin; i <= iMax; i++) {
+                        $(".box div:eq(" + i + ") input[type=checkbox]").prop("checked", true);
+                    }
+
+                } else {
+                    if($.inArray(index,rem)>-1){
+                        rem.splice($.inArray(index,rem),1)
+                    }else{
+                        rem.push(index);
+                    }
+                    $(this).toggleClass("selected");
+                }
+            });
+        }
+
+        $(function () {
+            shift_select();
+        });
+
+        /**
+         * 多选时禁用选中，优化多选操作的样式
+         * @type {boolean} 是否按下了 shift
+         */
+        var isShiftKey = false;
+        $(document).bind("selectstart", function () {
+            return !isShiftKey
+        }).mousedown(function (e) {
+            isShiftKey = e.shiftKey
+        })
+
+    </script>
+    <style type="text/css">
+        .selected {
+            background: tan;
+        }
+
+        p {
+            cursor: pointer;
+            background: #f0f0f0
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+    <div><input type="checkbox" value="1"/>hello1</div>
+    <div><input type="checkbox" value="1"/>hello2</div>
+    <div><input type="checkbox" value="1"/>hello3</div>
+    <div><input type="checkbox" value="1"/>hello4</div>
+    <div><input type="checkbox" value="1"/>hello5</div>
+    <div><input type="checkbox" value="1"/>hello6</div>
+    <div><input type="checkbox" value="1"/>hello7</div>
+    <div><input type="checkbox" value="1"/>hello8</div>
+    <div><input type="checkbox" value="1"/>hello9</div>
+    <div><input type="checkbox" value="1"/>hello10</div>
+    <div><input type="checkbox" value="1"/>hello11</div>
+    <div><input type="checkbox" value="1"/>hello12</div>
+    <div><input type="checkbox" value="1"/>hello13</div>
+    <div><input type="checkbox" value="1"/>hello14</div>
+    <div><input type="checkbox" value="1"/>hello15</div>
+    <div><input type="checkbox" value="1"/>hello16</div>
+    <div><input type="checkbox" value="1"/>hello17</div>
+    <div><input type="checkbox" value="1"/>hello18</div>
+    <div><input type="checkbox" value="1"/>hello19</div>
+    <div><input type="checkbox" value="1"/>hello20</div>
+    <div><input type="checkbox" value="1"/>hello21</div>
+    <div><input type="checkbox" value="1"/>hello22</div>
+    <div><input type="checkbox" value="1"/>hello23</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>通用检索</title>
+
+    <link rel="stylesheet" type="text/css" href="css/ui/combo/chosen/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/ui/combo/chosen/prism.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/ui/combo/chosen/chosen.css"></link>
+    <link rel="stylesheet" href="css/abis/search/general-search.css" type="text/css"/>
+
+
+
+</head>
+<body>
+<div class="search-item"><span class="item-title group">检索分组</span>
+    <div class="logic-choose" style="display: none;">
+        <div class="choose-current equal"></div>
+        <ul class="hide" id="operation">
+            <li class="equal" operationtype="eq">等于</li>
+            <li class="unequal" operationtype="neq">不等于</li>
+            <li class="greater" operationtype="gt">大于</li>
+            <li class="less" operationtype="lt">小于</li>
+            <li class="match" operationtype="like">匹配</li>
+            <li class="nomatch" operationtype="notl">不匹配</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap" style="display: none;">
+        <div id="检索分组1514000349953315div">
+            <div class="Field_Body"><input id="检索分组1514000349953315" name="检索分组1514000349953315"
+                                           class="Text_Input Field_Input WebTextField" title=""></div>
+            <div class="Field_Body" style="display: none;">
+                <div id="检索分组1514000349953315__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                 tabindex="-1" style="display: none;"></select>
+                    <div class="chosen-container chosen-container-single chosen-container-single-nosearch"
+                         style="width: 100%;" title=""><a class="chosen-single chosen-default"><span>请选择</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" readonly="" tabindex="-1">
+                            </div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear" style="display: none;"></div>
+</div>
+<div class="search-item"><span class="item-title">生物特征标识</span>
+    <div class="logic-choose">
+        <div class="choose-current btia"></div>
+        <ul class="hide" id="operation">
+            <li class="btia" operationtype="btia">包含全部</li>
+            <li class="btio" operationtype="btio">包含任意</li>
+            <li class="btni" operationtype="btni">不包含</li>
+            <li class="equal" operationtype="in">等于</li>
+            <li class="unequal" operationtype="noti">不等于</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap">
+        <div id="BTY_MASK1514000349963801div">
+            <div class="Field_Body">
+                <div id="BTY_MASK1514000349963801"><select data-placeholder="" multiple="" class="chosen-select-width"
+                                                           tabindex="-1" style="display: none;">
+                    <option value="0">未知</option>
+                    <option value="1">指纹</option>
+                    <option value="128">伤疤</option>
+                    <option value="16">签名</option>
+                    <option value="2">掌纹</option>
+                    <option value="256">印记</option>
+                    <option value="3">指纹,掌纹</option>
+                    <option value="32">虹膜</option>
+                    <option value="33">指纹,虹膜</option>
+                    <option value="4">人像</option>
+                    <option value="5">指纹,人像</option>
+                    <option value="512">纹身</option>
+                    <option value="6">掌纹,人像</option>
+                    <option value="64">足印</option>
+                    <option value="65">指纹,足印</option>
+                    <option value="66">掌纹,足印</option>
+                    <option value="67">指纹,掌纹,足印</option>
+                    <option value="68">人像,足印</option>
+                    <option value="69">指纹,人像,足印</option>
+                    <option value="7">指纹,掌纹,人像</option>
+                    <option value="70">掌纹,人像,足印</option>
+                    <option value="8">声音</option>
+                </select>
+                    <div class="chosen-container chosen-container-multi" style="width: 100%;" title="">
+                        <ul class="chosen-choices">
+                            <li class="search-choice"><span>指纹</span><a class="search-choice-close"
+                                                                        data-option-array-index="1"></a></li>
+                            <li class="search-choice"><span>掌纹</span><a class="search-choice-close"
+                                                                        data-option-array-index="4"></a></li>
+                            <li class="search-field"><input type="text" value="请选择" class="default" autocomplete="off"
+                                                            style="width: 64px;" tabindex="-1"></li>
+                        </ul>
+                        <div class="chosen-drop">
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Field_Body" style="display: none;">
+                <div id="BTY_MASK1514000349963801__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                     tabindex="-1" style="display: none;"></select>
+                    <div class="chosen-container chosen-container-single chosen-container-single-nosearch"
+                         style="width: 100%;" title=""><a class="chosen-single chosen-default"><span>请选择</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" readonly="" tabindex="-1">
+                            </div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="search-item"><span class="item-title">数据库</span>
+    <div class="logic-choose">
+        <div class="choose-current equal"></div>
+        <ul class="hide" id="operation">
+            <li class="equal" operationtype="in">等于</li>
+            <li class="unequal" operationtype="noti">不等于</li>
+            <li class="match" operationtype="like">匹配</li>
+            <li class="nomatch" operationtype="notl">不匹配</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap">
+        <div id="DBID1514003603486574div">
+            <div class="Field_Body">
+                <div id="DBID1514003603486574"><select data-placeholder="" multiple="" class="chosen-select-width"
+                                                       tabindex="-1" style="display: none;">
+                    <option value="1">捺印库</option>
+                    <option value="101">远程捺印库</option>
+                    <option value="102">远程现场库</option>
+                    <option value="131">临时捺印库</option>
+                    <option value="132">临时现场库</option>
+                    <option value="133">测试用捺印库</option>
+                    <option value="134">zyh测试捺印库</option>
+                    <option value="2">现场库</option>
+                    <option value="20">比对库</option>
+                </select>
+                    <div class="chosen-container chosen-container-multi" style="width: 100%;" title="">
+                        <ul class="chosen-choices">
+                            <li class="search-choice"><span>捺印库</span><a class="search-choice-close"
+                                                                         data-option-array-index="0"></a></li>
+                            <li class="search-field"><input type="text" value="请选择" class="" autocomplete="off"
+                                                            style="width: 25px;" tabindex="-1"></li>
+                        </ul>
+                        <div class="chosen-drop">
+                            <ul class="chosen-results">
+                                <li class="result-selected" data-option-array-index="0" style="">捺印库</li>
+                                <li class="active-result" data-option-array-index="1" style="">远程捺印库</li>
+                                <li class="active-result" data-option-array-index="2" style="">远程现场库</li>
+                                <li class="active-result" data-option-array-index="3" style="">临时捺印库</li>
+                                <li class="active-result" data-option-array-index="4" style="">临时现场库</li>
+                                <li class="active-result" data-option-array-index="5" style="">测试用捺印库</li>
+                                <li class="active-result" data-option-array-index="6" style="">zyh测试捺印库</li>
+                                <li class="active-result" data-option-array-index="7" style="">现场库</li>
+                                <li class="active-result" data-option-array-index="8" style="">比对库</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Field_Body" style="display: none;">
+                <div id="DBID1514003603486574__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                 tabindex="-1" style="display: none;"></select>
+                    <div class="chosen-container chosen-container-single chosen-container-single-nosearch"
+                         style="width: 100%;" title=""><a class="chosen-single chosen-default"><span>请选择</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" readonly="" tabindex="-1">
+                            </div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="search-item"><span class="item-title">人员编号</span>
+    <div class="logic-choose">
+        <div class="choose-current equal"></div>
+        <ul class="hide" id="operation">
+            <li class="equal" operationtype="eq">等于</li>
+            <li class="unequal" operationtype="neq">不等于</li>
+            <li class="greater" operationtype="gt">大于</li>
+            <li class="less" operationtype="lt">小于</li>
+            <li class="match" operationtype="like">匹配</li>
+            <li class="nomatch" operationtype="notl">不匹配</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap">
+        <div id="PERSON_NUM1514003606854291div">
+            <div class="Field_Body"><input id="PERSON_NUM1514003606854291" name="PERSON_NUM1514003606854291"
+                                           class="Text_Input Field_Input WebTextField" title=""></div>
+            <div class="Field_Body" style="display: none;">
+                <div id="PERSON_NUM1514003606854291__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                       tabindex="-1" style="display: none;"></select>
+                    <div class="chosen-container chosen-container-single chosen-container-single-nosearch"
+                         style="width: 100%;" title=""><a class="chosen-single chosen-default"><span>请选择</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" readonly="" tabindex="-1">
+                            </div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="search-item"><span class="item-title">创建时间</span>
+    <div class="logic-choose">
+        <div class="choose-current equal"></div>
+        <ul class="hide" id="operation">
+            <li class="equal" operationtype="eq">等于</li>
+            <li class="unequal" operationtype="neq">不等于</li>
+            <li class="inlimit" operationtype="btwn">范围之内</li>
+            <li class="outlimit" operationtype="notb">范围之外</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap">
+        <div id="CREATE_TIME1514003609345955div">
+            <div class="Field_Body"><input id="CREATE_TIME1514003609345955" name="CREATE_TIME1514003609345955"
+                                           class="Text_Input Field_Input WebTextField Input_Blur" title=""
+                                           realvalue="2017-12-21 00:00:00"></div>
+            <div class="Field_Body" style="display: none;">
+                <div id="CREATE_TIME1514003609345955__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                        tabindex="-1" style="display: none;">
+                    <option value="$TODAY">今天</option>
+                    <option value="$YESTERDAY">昨天</option>
+                    <option value="$THIS_WEEK">本周</option>
+                    <option value="$LAST_WEEK">上周</option>
+                    <option value="$THIS_MONTH">本月</option>
+                    <option value="$LAST_MONTH">上个月</option>
+                    <option value="$THIS_QUARTER">本季度</option>
+                    <option value="$LAST_QUARTER">上季度</option>
+                    <option value="$THIS_YEAR">本年度</option>
+                </select>
+                    <div class="chosen-container chosen-container-single" style="width: 100%;" title=""><a
+                            class="chosen-single"><span>今天</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" tabindex="-1"></div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img width="24" height="24" title="宏切换" style="float: left;display: inline-block"
+                 src="/abisweb/image/abis/search/macros_change.png"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="search-item"><span class="item-title">更新人</span>
+    <div class="logic-choose">
+        <div class="choose-current equal"></div>
+        <ul class="hide" id="operation">
+            <li class="equal" operationtype="eq">等于</li>
+            <li class="unequal" operationtype="neq">不等于</li>
+            <li class="greater" operationtype="gt">大于</li>
+            <li class="less" operationtype="lt">小于</li>
+            <li class="match" operationtype="like">匹配</li>
+            <li class="nomatch" operationtype="notl">不匹配</li>
+            <li class="empty" operationtype="null">为空</li>
+            <li class="notempty" operationtype="notn">非空</li>
+        </ul>
+    </div>
+    <div id="control" class="range-wrap">
+        <div id="UPDATE_USER1514003616355324div">
+            <div class="Field_Body" style="display: none;"><input id="UPDATE_USER1514003616355324"
+                                                                  name="UPDATE_USER1514003616355324"
+                                                                  class="Text_Input Field_Input WebTextField" title="">
+            </div>
+            <div class="Field_Body" style="display: block;">
+                <div id="UPDATE_USER1514003616355324__Macros__"><select data-placeholder="" class="chosen-select-width"
+                                                                        tabindex="-1" style="display: none;">
+                    <option value="$CUR_USER_NAME">当前用户</option>
+                    <option value="$CUR_USER_ID">当前登录的用户的账号</option>
+                </select>
+                    <div class="chosen-container chosen-container-single" style="width: 100%;" title=""><a
+                            class="chosen-single"><span>当前用户</span>
+                        <div><b></b></div>
+                    </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" autocomplete="off" tabindex="-1"></div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img width="24" height="24" title="宏切换" style="float: left;display: inline-block"
+                 src="/abisweb/image/abis/search/macros_change.png"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+<body>
+
+</body>
+</html>

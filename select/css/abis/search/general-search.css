@@ -528,38 +528,38 @@ button:hover{opacity: 0.8;}
 .generalsearch-body-content .right-content .help-text{width: 460px; overflow: hidden; margin: 12px 0;}
 .right-content .help-text img{float: left; margin-right: 5px;}
 .right-content .help-text p{width:390px;line-height: 24px; color: #999; background-color: #edf9f0; border: 1px solid #dcf3e2; float: left; padding: 0 10px;}
-.right-content .search-item{ margin-bottom: 10px;}
-.right-content .search-item .item-title{float: left; width: 120px; height: 28px; line-height: 28px; color: #333;} 
-.right-content .search-item .logic-choose{float: left; width: 28px; height: 28px; margin:0 10px; position: relative;}
-.right-content .search-item .logic-choose .choose-current{margin:2px; cursor: pointer; width: 24px; height: 24px;}
-.right-content .search-item .equal{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
-.right-content .search-item .unequal{background-image: url(../../../image/abis/search/unequal.png); background-repeat:no-repeat;}
-.right-content .search-item .inlimit{background-image: url(../../../image/abis/search/inlimit.png); background-repeat:no-repeat;}
-.right-content .search-item .outlimit{background-image: url(../../../image/abis/search/outlimit.png); background-repeat:no-repeat;}
-.right-content .search-item .greater{background-image: url(../../../image/abis/search/greater.png); background-repeat:no-repeat;}
-.right-content .search-item .less{background-image: url(../../../image/abis/search/less.png); background-repeat:no-repeat;}
-.right-content .search-item .greater-equal{background-image: url(../../../image/abis/search/greater-equal.png); background-repeat:no-repeat;}
-.right-content .search-item .less-equal{background-image:url(../../../image/abis/search/less-equal.png); background-repeat:no-repeat;}
-.right-content .search-item .empty{background-image: url(../../../image/abis/search/empty.png); background-repeat:no-repeat;}
-.right-content .search-item .notempty{background-image: url(../../../image/abis/search/notempty.png); background-repeat:no-repeat;}
-.right-content .search-item .match{background-image: url(../../../image/abis/search/match.png); background-repeat:no-repeat;}
-.right-content .search-item .nomatch{background-image: url(../../../image/abis/search/nomatch.png); background-repeat:no-repeat;}
-.right-content .search-item .macros{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
-.right-content .search-item .logic-choose ul{position: absolute; left: 0; top:28px; border: 1px solid #ddd; background-color: #f8fafb; z-index: 999; width: 150px;}
-.right-content .search-item .logic-choose li{height: 30px; line-height: 30px; cursor: pointer; padding-left: 35px; background-position: 3px 3px;}
-.right-content .search-item .logic-choose li:hover{background-color: #dceefe;}
-.right-content .search-item .logic-choose li img{float: left; margin:3px 10px 0 5px;}
-.right-content .search-item .textinput{float: left; width: 250px; height: 26px; border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
-.right-content .search-item .range-wrap{width: 293px;float: left; } /*width: 290px;margin-bottom: 5px */
-.right-content .search-item .range-wrap .rangetext{width: 83px; padding: 0 10px; float: left; height: 26px; line-height: 26px; border: 1px solid #ccc;}
-.right-content .search-item .range-wrap .to{float: left; width: 40px; height: 28px; line-height: 28px; text-align: center;}
-.right-content .search-item .readonly{background-color: #f8f8f8; color: #999;}
-.right-content .search-item .filter{width: 272px; height: 28px; float: left; position: relative;}
-.right-content .search-item .filter input{width: 223px; height: 26px; float: left;border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
-.right-content .search-item .filter .select-arrow{width: 28px; height: 28px; background: url(../../../image/abis/search/select-arrow.png) 0 0 no-repeat; float: left; margin-left: -1px; cursor: pointer;}
-.right-content .search-item .filter .option-wrap{width: 270px; border: 1px solid #ddd; position: absolute; top:28px; left: 0; z-index: 1000; background-color: #fff;}
-.right-content .search-item .filter .option-wrap li{padding-left: 10px; height: 30px; line-height: 30px; color: #666;}
-.right-content .search-item .filter .option-wrap li:hover{background-color: #dceefe;}
+.search-item{ margin-bottom: 10px;}
+.search-item .item-title{float: left; width: 120px; height: 28px; line-height: 28px; color: #333;} 
+.search-item .logic-choose{float: left; width: 28px; height: 28px; margin:0 10px; position: relative;}
+.search-item .logic-choose .choose-current{margin:2px; cursor: pointer; width: 24px; height: 24px;}
+.search-item .equal{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
+.search-item .unequal{background-image: url(../../../image/abis/search/unequal.png); background-repeat:no-repeat;}
+.search-item .inlimit{background-image: url(../../../image/abis/search/inlimit.png); background-repeat:no-repeat;}
+.search-item .outlimit{background-image: url(../../../image/abis/search/outlimit.png); background-repeat:no-repeat;}
+.search-item .greater{background-image: url(../../../image/abis/search/greater.png); background-repeat:no-repeat;}
+.search-item .less{background-image: url(../../../image/abis/search/less.png); background-repeat:no-repeat;}
+.search-item .greater-equal{background-image: url(../../../image/abis/search/greater-equal.png); background-repeat:no-repeat;}
+.search-item .less-equal{background-image:url(../../../image/abis/search/less-equal.png); background-repeat:no-repeat;}
+.search-item .empty{background-image: url(../../../image/abis/search/empty.png); background-repeat:no-repeat;}
+.search-item .notempty{background-image: url(../../../image/abis/search/notempty.png); background-repeat:no-repeat;}
+.search-item .match{background-image: url(../../../image/abis/search/match.png); background-repeat:no-repeat;}
+.search-item .nomatch{background-image: url(../../../image/abis/search/nomatch.png); background-repeat:no-repeat;}
+.search-item .macros{background-image: url(../../../image/abis/search/equal.png); background-repeat:no-repeat;}
+.search-item .logic-choose ul{position: absolute; left: 0; top:28px; border: 1px solid #ddd; background-color: #f8fafb; z-index: 999; width: 150px;}
+.search-item .logic-choose li{height: 30px; line-height: 30px; cursor: pointer; padding-left: 35px; background-position: 3px 3px;}
+.search-item .logic-choose li:hover{background-color: #dceefe;}
+.search-item .logic-choose li img{float: left; margin:3px 10px 0 5px;}
+.search-item .textinput{float: left; width: 250px; height: 26px; border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
+.search-item .range-wrap{width: 293px;float: left; } /*width: 290px;margin-bottom: 5px */
+.search-item .range-wrap .rangetext{width: 83px; padding: 0 10px; float: left; height: 26px; line-height: 26px; border: 1px solid #ccc;}
+.search-item .range-wrap .to{float: left; width: 40px; height: 28px; line-height: 28px; text-align: center;}
+.search-item .readonly{background-color: #f8f8f8; color: #999;}
+.search-item .filter{width: 272px; height: 28px; float: left; position: relative;}
+.search-item .filter input{width: 223px; height: 26px; float: left;border: 1px solid #ccc; padding: 0 10px; line-height: 26px;}
+.search-item .filter .select-arrow{width: 28px; height: 28px; background: url(../../../image/abis/search/select-arrow.png) 0 0 no-repeat; float: left; margin-left: -1px; cursor: pointer;}
+.search-item .filter .option-wrap{width: 270px; border: 1px solid #ddd; position: absolute; top:28px; left: 0; z-index: 1000; background-color: #fff;}
+.search-item .filter .option-wrap li{padding-left: 10px; height: 30px; line-height: 30px; color: #666;}
+.search-item .filter .option-wrap li:hover{background-color: #dceefe;}
 .search-item .filter .option-wrap .opration-btngrp{height: 38px; border-top: 1px solid #ccc; background-color: #f8fafb;}
 .filter .option-wrap .opration-btngrp button{width: 56px; height: 26px; margin:6px; text-align: center; line-height: 26px; background: url(../../../image/abis/search/btnlittle.png) 0 0 no-repeat; float: right; font-size: 12px;}
 
@@ -571,9 +571,9 @@ button:hover{opacity: 0.8;}
 .newMenu {position:inherit}
 
 .group{width:100%!important;;border-bottom:1px solid #ddd;padding-bottom:2px;} 
-.right-content .search-item .range-wrap .first-control {min-width:40px;display:inline-block;margin-right:5px;float: left;width: 130px}
-.right-content .search-item .range-wrap .second-control {min-width:40px;display:inline-block;margin-left:5px;float: left;width: 130px}
-.right-content .search-item .range-wrap .between-control{display:inline-block;top:50%;*top:40%;float: left;}
+.search-item .range-wrap .first-control {min-width:40px;display:inline-block;margin-right:5px;float: left;width: 130px}
+.search-item .range-wrap .second-control {min-width:40px;display:inline-block;margin-left:5px;float: left;width: 130px}
+.search-item .range-wrap .between-control{display:inline-block;top:50%;*top:40%;float: left;}
 .search-item .range-wrap .first-control .Field_Body{width: 105px;float: left}
 .search-item .range-wrap .second-control .Field_Body{width: 105px;float: left}
 .clear{clear:both;} /* 清除空白盒子的所有浮动 */

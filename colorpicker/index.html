@@ -6,6 +6,7 @@
     <title>ColorPicker - jQuery plugin</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<!--<script type="text/javascript" src="js/eye.js"></script>-->
+	<script type="text/javascript" src="js/webutil.js"></script>
 	<script type="text/javascript" src="js/colorpicker.js"></script>
     <!--<script type="text/javascript" src="js/utils.js"></script>-->
     <!--<script type="text/javascript" src="js/layout.js?ver=1.0.2"></script>-->
@@ -28,15 +29,27 @@
 	}
 
 
+
 </style>
+
 <body>
     <div class="wrapper">
 		<div id="colorSelector22" class="colorSelector"><div style="background-color: #7c7ca6"></div></div>
 		<p>1111111111111111
-		<div id="colorSelector" class="colorSelector"><div style="background-color: #7c7ca6"></div></div>
+		<div id="colorSelector" class="colorSelector"></div>
 		</p>
-		<div id="colorSelector1" class="colorSelector"><div style="background-color: #7c7ca6"></div></div>
+		<div id="colorSelector2" class="colorSelector"></div>
 
 	</div>
 </body>
+<script>
+    var param =  {
+        'color':"7c7ca6" //缺省值
+    };
+    console.log(1);
+
+    var colorInput = new  WebColorPicker("colorSelector",param,1);
+    var colorInput2 = new  WebColorPicker("colorSelector2",param,2);
+
+</script>
 </html>

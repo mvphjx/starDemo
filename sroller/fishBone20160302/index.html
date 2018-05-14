@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/fishBone.css" />
+		<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="js/fishBone.js"></script>
+		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+		<script>
+            data = [{
+                '认定时间': '2014-12-20',
+				'比对类型':'倒查',
+                '人员编号': 'XXX',
+                '认定人': 'XXXXXXX法院',
+                '协查级别': 'XX',
+                '案件编号': '(2018)XXXXXX第XXXX号'
+            }, {
+                '认定时间': '2014-12-20',
+                '比对类型':'正查',
+                '人员编号': 'XXX',
+                '认定人': 'XXXXXXX法院',
+                '协查级别': 'XX',
+                '案件编号': '(2017)XXXXXX第XXXX号'
+            }, {
+                '认定时间': '2014-12-20',
+                '比对类型':'查重',
+                '源卡人员编号': 'XXX',
+                '认定人': 'XXXXXXX法院',
+                '目标卡人员编号': '(2016)XXXXXX第XXXX号'
+            },{
+                '认定时间': '2014-12-20',
+                '比对类型':'串查',
+                '源卡案件编号': 'XXX',
+                '认定人': 'XXXXXXX法院',
+                '案件状态': 'XX',
+                '目标卡案件编号': '(2015)XXXXXX第XXXX号'
+            }
+            ];
+			$(function() {
+				//创建案件历史
+				$(".fishBone").fishBone(data);
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="fishBone" />
+		</div>
+
+	</body>
+
+</html>

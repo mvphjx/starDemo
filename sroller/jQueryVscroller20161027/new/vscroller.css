@@ -9,7 +9,6 @@
 }
 .news-wrapper .news-contents-wrapper
 {
-	width: 400px;
 	margin: auto;
 	border-right: 1px dashed #6a6a6a;
 	border-left: 1px dashed #6a6a6a;
@@ -37,7 +36,7 @@
 	font-weight: bold;
 	font-size: 14px;
 	padding-top: 12px;
-	padding-left: 32px;
+	padding-left: 22px;
 }
 h1
 {
@@ -120,21 +119,24 @@ h1
 .history
 {
 	padding-top: 14px;
+	width: 75px;
+	padding-left: 10px;
 	float: left;
-	width: 26%;
-	padding-left: 32px;
+	display: inline-block;
 }
 .description
 {
-	float: left;
-	width: 64%;
+	width: 75%;
+	/*margin-left: 90px;*/
 	padding: 4px;
+	float: left;
 }
 .description .detail
 {
 	font-size: 12px;
 	overflow: hidden;
 	color:#B1B1B1;
+	text-overflow:ellipsis;
 }
 .elipses, .day, .month
 {

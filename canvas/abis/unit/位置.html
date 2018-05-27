@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中心上部</title>
+    <style>
+        .canvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(170, 170, 170);
+            cursor: pointer;
+        }
+
+  
+    </style>
+    <script src="../js/fabric.js"></script>
+</head>
+
+<body style="padding-left: 10px;">
+    <div>
+        <canvas id="freeCanvas" class="canvas"></canvas>
+    </div>
+
+    <script>
+        //变量声明
+        var mouseFrom = {},//起点
+            mouseTo = {},//终点
+            drawType = null,
+            canvasObjectIndex = 0,
+            textbox = null;
+        var zoom =  1;//放大倍数
+        var drawWidth = 2; //笔触宽度
+        var color = "#E34F51"; //画笔颜色
+        var drawingObject = null; //当前绘制对象
+        var moveCount = 1; //绘制移动计数器
+        var doDrawing = false; // 绘制状态
+
+        //初始化画板
+        var canvas = new fabric.Canvas("freeCanvas", {
+            // isDrawingMode: true,
+            // skipTargetFind: false,
+            // selectable: true,
+            // selection: false,
+            width: 800,
+            height: 500
+        });
+        //绑定画板事件  "rectangle" 长方形
+        canvas.on("mouse:down", function(options) {
+            if(canvas.getActiveObject()){
+                return;
+            }
+            var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+            mouseFrom.x = xy.x;
+            mouseFrom.y = xy.y;
+            doDrawing = true;
+        });
+        canvas.on("mouse:up", function(options) {
+            if(canvas.getActiveObject()){
+                return;
+            }
+            var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+            mouseTo.x = xy.x;
+            mouseTo.y = xy.y;
+            // drawing();
+            drawingObject = null;
+            moveCount = 1;
+            doDrawing = false;
+        });
+        canvas.on("mouse:move", function(options) {
+            if(canvas.getActiveObject()){
+                return;
+            }
+            if (moveCount % 2 && !doDrawing) {
+                //减少绘制频率
+                return;
+            }
+            moveCount++;
+            var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+            mouseTo.x = xy.x;
+            mouseTo.y = xy.y;
+            drawing();
+        });
+        //坐标转换
+        function transformMouse(mouseX, mouseY) {
+            return { x: mouseX / zoom, y: mouseY / zoom };
+        }
+
+        //绘画方法
+        function drawing() {
+            if (drawingObject) {
+                canvas.remove(drawingObject);
+            }
+            var canvasObject = null;
+            var path =
+                "M " +
+                mouseFrom.x +
+                " " +
+                mouseFrom.y +
+                " L " +
+                mouseTo.x +
+                " " +
+                mouseFrom.y +
+                " L " +
+                mouseTo.x +
+                " " +
+                mouseTo.y +
+                " L " +
+                mouseFrom.x +
+                " " +
+                mouseTo.y +
+                " L " +
+                mouseFrom.x +
+                " " +
+                mouseFrom.y +
+                " z";
+            //矩形
+            var rectangle = new fabric.Path(path, {
+                left: 0,
+                top: 0,
+                stroke: color,
+                strokeWidth: drawWidth,
+                fill: "rgba(255, 255, 255, 0)",
+                originX:'center',
+                originY:'center'
+            });
+            //绘制文本
+            var text = new fabric.Text('中心上部', {
+                fontSize:30,
+                originX:'center',
+                originY:'center'
+            });
+            //进行组合
+            canvasObject = new fabric.Group([rectangle, text], {
+                left: mouseFrom.x,
+                top: mouseFrom.y,
+                angle: 0
+            });
+            //也可以使用fabric.Rect
+
+            if (canvasObject) {
+                // canvasObject.index = getCanvasObjectIndex();
+                canvas.add(canvasObject); //.setActiveObject(canvasObject)
+                drawingObject = canvasObject;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

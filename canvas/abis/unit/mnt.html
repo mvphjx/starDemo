@@ -14,15 +14,13 @@
             cursor: pointer;
         }
 
-        .mgTop {
-            margin-top: 30px;
-        }
+
     </style>
-    <script src="https://cdn.bootcss.com/fabric.js/2.0.0-rc.4/fabric.js "></script>
+    <script src="../js/fabric.js"></script>
 </head>
 
 <body style="padding-left: 10px;">
-    <div class="mgTop">
+    <div>
         <canvas id="freeCanvas" class="canvas"></canvas>
     </div>
 
@@ -49,7 +47,7 @@
                 stroke: 'red',
                 fill: 'red',
                 selectable: false,
-                originX: 'center',
+                originX: 'center'
             });
             canvas.add(lineTriangle);
             equilateralTriangle = new fabric.Circle({

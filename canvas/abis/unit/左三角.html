@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>左三角</title>
+    <style>
+        .canvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(170, 170, 170);
+            cursor: pointer;
+        }
+
+  
+    </style>
+    <script src="../js/fabric.js"></script>
+</head>
+
+<body style="padding-left: 10px;">
+    <div>
+        <canvas id="freeCanvas" class="canvas"></canvas>
+    </div>
+
+    <script>
+        //初始化画板
+        var canvas = new fabric.Canvas("freeCanvas", {
+            width: 800,
+            height: 500
+        });
+        var radius = 50;//半径
+        var circle = new fabric.Circle( {
+            radius:radius,
+            stroke: 'red',
+            strokeWidth: 1,
+            fill: "rgba(255, 255, 255, 0)"
+        });
+        //通过画路径为形状 内接正三角
+        var top1=radius-radius*Math.cos(2*Math.PI / 360*30);
+        var left1 = radius*0.5;
+        var top2=radius+radius*Math.cos(2*Math.PI / 360*30);
+        var left2 = radius*0.5;
+        var top3=radius;
+        var left3 = radius*2;
+        var path = 'M '+left1+' '+top1+' L '+left2+' '+top2+' L '+left3+' '+top3+' z';
+        var triangle = new fabric.Path(path, {
+            stroke: 'green',
+            strokeWidth: 1,
+            fill: "rgba(255, 255, 255, 0)"
+
+        });
+        //十字
+        var length = 5;
+        //(radius-length, radius) (radius+length, radius)  (radius,radius+length) (radius,radius-length)
+        var path_cross = 'M '+(radius-length)+' '+radius+' L '+(radius+length)+' '+radius+' L '+radius+' '+radius+' L '+radius+' '+(radius+length)+' L '+radius+' '+(radius-length);
+        var cross = new fabric.Path(path_cross, {
+            stroke: 'blue',
+            strokeWidth: 1,
+            fill: "rgba(255, 255, 255, 0)"
+
+        });
+        //进行组合
+        canvasObject = new fabric.Group([triangle,circle,cross], {
+            hasBorders: false,
+            hasRotatingPoint: false,
+            left: 0,
+            top: 0,
+            angle: 0
+        });
+        //图像变换 控制
+        canvasObject.setControlVisible("ml",false);
+        canvasObject.setControlVisible("mt",false);
+        canvasObject.setControlVisible("mb",false);
+        canvasObject.setControlVisible("mr",false);
+        canvas.add(canvasObject);
+
+    </script>
+</body>
+
+</html>

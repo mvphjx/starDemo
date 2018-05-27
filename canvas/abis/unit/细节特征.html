@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>细节特征</title>
+    <style>
+        .canvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(170, 170, 170);
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="../js/fabric.js"></script>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+
+<body style="padding-left: 10px;">
+<div>
+    <canvas id="freeCanvas" class="canvas"></canvas>
+</div>
+<br/>
+<div>
+    <textarea style="width: 300px;height: 300px;" id="jsondata">
+
+
+    </textarea>
+    <input type="button" value="Serialize" id="Serialize"></input>
+    <input type="button" value="Deserialize" id="Deserialize"></input>
+</div>
+<script>
+    //变量声明
+    var mouseFrom = {},//起点
+        mouseTo = {},//终点
+        drawType = null,
+        canvasObjectIndex = 0,
+        textbox = null;
+    var zoom =  1;//放大倍数
+    var drawWidth = 2; //笔触宽度
+    var color = "#E34F51"; //画笔颜色
+    var drawingObject = null; //当前绘制对象
+    var moveCount = 1; //绘制移动计数器
+    var doDrawing = false; // 绘制状态
+
+
+    //You can increase the number of decimals to round:
+    fabric.Object.NUM_FRACTION_DIGITS = 10;
+    //初始化画板
+    var canvas = new fabric.Canvas("freeCanvas", {
+        isDrawingMode: false,
+        selection: false,
+        width: 800,
+        height: 500
+    });
+    //绑定画板事件  "rectangle" 长方形
+    canvas.on("mouse:down", function(options) {
+        if(canvas.getActiveObject()){
+            return;
+        }
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        mouseFrom.x = xy.x;
+        mouseFrom.y = xy.y;
+        doDrawing = true;
+    });
+    canvas.on("mouse:up", function(options) {
+        if(canvas.getActiveObject()){
+            return;
+        }
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        mouseTo.x = xy.x;
+        mouseTo.y = xy.y;
+        // drawing();
+        drawingObject = null;
+        moveCount = 1;
+        doDrawing = false;
+    });
+    canvas.on("mouse:move", function(options) {
+        if(canvas.getActiveObject()){
+            return;
+        }
+        if (moveCount % 2 && !doDrawing) {
+            //减少绘制频率
+            return;
+        }
+        moveCount++;
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        mouseTo.x = xy.x;
+        mouseTo.y = xy.y;
+        drawing();
+    });
+    // images
+    var top_img=0,left_img=0,scale_img =1;
+    var finger = new fabric.Image.fromURL('../img/指纹.jpg', function(image) {
+        //适应窗口显示
+        if(canvas.width/image.width >canvas.height/image.height){
+            scale_img=canvas.height/image.height;
+            // scale_img=scale_img.toFixed(2);
+            left_img = Math.abs((image.width*scale_img-canvas.width)/2)
+        }else{
+            scale_img=canvas.width/image.width;
+            // scale_img=scale_img.toFixed(2);
+            top = Math.abs((image.height*scale_img-canvas.height)/2)
+        }
+        image.set({//设置图片在canvas中的位置和样子
+            left: left_img,
+            top:top_img,
+            selectable: false,//不可操作
+            hoverCursor: 'default',
+            angle: 0
+        });
+        image.scale(scale_img).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+    });
+    //坐标转换
+    function transformMouse(mouseX, mouseY) {
+        return { x: mouseX / zoom, y: mouseY / zoom };
+    }
+
+    //绘画方法
+    function drawing() {
+        if (drawingObject) {
+            canvas.remove(drawingObject);
+        }
+        var canvasObject = null;
+        var line = new fabric.Rect({
+            left: 0,
+            top: 0,
+            strokeWidth: 1,
+            width: 2,
+            height: 2,
+            stroke: 'red',
+            fill: 'red',
+            selectable: false,
+            originX: 'center'
+        });
+        var circle = new fabric.Circle({
+            left: 0,
+            top: 0,
+            strokeWidth: 1,
+            width: 5,
+            height: 5,
+            stroke: 'yellow',
+            fill: 'yellow',
+            selectable: false,
+            originX: 'center',
+            originY: 'center',
+            radius:3
+        });
+        //进行组合
+        canvasObject = new fabric.Group([ line,circle], {
+            left: mouseFrom.x,
+            top: mouseFrom.y,
+            angle: 0
+        });
+        if (canvasObject) {
+            canvas.add(canvasObject); //.setActiveObject(canvasObject)
+            drawingObject = canvasObject;
+        }
+        var angle = getAngle(mouseFrom.x, mouseFrom.y, mouseTo.x, mouseTo.y)||0; //转换角度
+        var distance =  10;//line length is static .
+        canvasObject.item(0).set({ height: distance, angle: angle - 180 });
+        canvasObject.item(1).set({ left: canvasObject.item(0).left, top: canvasObject.item(0).top, angle: angle });
+        canvas.renderAll();
+    }
+
+    function getAngle(px, py, mx, my) {
+        //获得人物中心和鼠标坐标连线，与y轴正半轴之间的夹角
+        var x = Math.abs(px - mx);
+        var y = Math.abs(py - my);
+        var z = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+        var cos = y / z;
+        var radina = Math.acos(cos); //用反三角函数求弧度
+        var angle = Math.floor(180 / (Math.PI / radina)); //将弧度转换成角度
+
+        if (mx > px && my > py) {
+            //鼠标在第四象限
+            angle = 180 - angle;
+        }
+
+        if (mx == px && my > py) {
+            //鼠标在y轴负方向上
+            angle = 180;
+        }
+
+        if (mx > px && my == py) {
+            //鼠标在x轴正方向上
+            angle = 90;
+        }
+
+        if (mx < px && my > py) {
+            //鼠标在第三象限
+            angle = 180 + angle;
+        }
+
+        if (mx < px && my == py) {
+            //鼠标在x轴负方向
+            angle = 270;
+        }
+
+        if (mx < px && my < py) {
+            //鼠标在第二象限
+            angle = 360 - angle;
+        }
+        return angle;
+    }
+
+
+    //test
+    $("#Deserialize").click(function () {
+        canvas.loadFromJSON($("#jsondata").text());
+    });
+    $("#Serialize").click(function(){
+        //In order to export custom attributes, you have to specify them when casting canvas to JSON:
+        // canvas.toJSON([ 'selectable', '_controlsVisibility', 'code'])
+        $("#jsondata").text(JSON.stringify(canvas.toJSON([ 'selectable','hoverCursor'])))
+    });
+
+</script>
+</body>
+
+</html>

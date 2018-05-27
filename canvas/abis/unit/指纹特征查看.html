@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>指纹特征查看</title>
+    <style>
+        .canvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(170, 170, 170);
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="../js/fabric.js"></script>
+</head>
+
+<body style="padding-left: 10px;">
+    <div>
+        <canvas id="freeCanvas" class="canvas"></canvas>
+    </div>
+
+    <script>
+        var top_img=0,left_img=0,scale_img =1;
+        var canvas = new fabric.Canvas("freeCanvas", {
+            width: 700,
+            height: 600
+        });
+        // images
+        var finger = new fabric.Image.fromURL('../img/指纹.jpg', function(image) {
+            //适应窗口显示
+            if(canvas.width/image.width >canvas.height/image.height){
+                scale_img=canvas.height/image.height;
+                left_img = Math.abs((image.width*scale_img-canvas.width)/2)
+            }else{
+                scale_img=canvas.width/image.width;
+                top = Math.abs((image.height*scale_img-canvas.height)/2)
+            }
+            image.set({//设置图片在canvas中的位置和样子
+                left: left_img,
+                top:top_img,
+                selectable: false,//不可操作
+                hoverCursor: 'default',
+                angle: 0
+
+            });
+            image.scale(scale_img).setCoords();
+            canvas.add(image);
+            canvas.calcOffset();
+        });
+
+
+    </script>
+</body>
+
+</html>

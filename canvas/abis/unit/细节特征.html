@@ -31,8 +31,8 @@
 
 
     </textarea>
-    <input type="button" value="Serialize" id="Serialize"></input>
-    <input type="button" value="Deserialize" id="Deserialize"></input>
+    <input type="button" value="序列化" id="Serialize"></input>
+    <input type="button" value="反序列化" id="Deserialize"></input>
 </div>
 <script>
     //变量声明
@@ -41,7 +41,6 @@
         drawType = null,
         canvasObjectIndex = 0,
         textbox = null;
-    var zoom =  1;//放大倍数
     var drawWidth = 2; //笔触宽度
     var color = "#E34F51"; //画笔颜色
     var drawingObject = null; //当前绘制对象
@@ -95,32 +94,32 @@
         drawing();
     });
     // images
-    var top_img=0,left_img=0,scale_img =1;
+    var top_img=0,left_img=0,zoom =1;
     var finger = new fabric.Image.fromURL('../img/指纹.jpg', function(image) {
-        //适应窗口显示
         if(canvas.width/image.width >canvas.height/image.height){
-            scale_img=canvas.height/image.height;
-            // scale_img=scale_img.toFixed(2);
-            left_img = Math.abs((image.width*scale_img-canvas.width)/2)
+            zoom=canvas.height/image.height;
+            left_img = Math.abs((image.width*zoom-canvas.width)/2)
         }else{
-            scale_img=canvas.width/image.width;
-            // scale_img=scale_img.toFixed(2);
-            top = Math.abs((image.height*scale_img-canvas.height)/2)
+            zoom=canvas.width/image.width;
+            top = Math.abs((image.height*zoom-canvas.height)/2)
         }
         image.set({//设置图片在canvas中的位置和样子
-            left: left_img,
-            top:top_img,
+            left: 0,
+            top:0,
             selectable: false,//不可操作
             hoverCursor: 'default',
             angle: 0
         });
-        image.scale(scale_img).setCoords();
         canvas.add(image);
+        //适应窗口显示
+        canvas.setZoom(zoom);
         canvas.calcOffset();
+
+
     });
     //坐标转换
     function transformMouse(mouseX, mouseY) {
-        return { x: mouseX / zoom, y: mouseY / zoom };
+        return { x: mouseX / canvas.getZoom(), y: mouseY / canvas.getZoom() };
     }
 
     //绘画方法
@@ -214,12 +213,12 @@
 
     //test
     $("#Deserialize").click(function () {
-        canvas.loadFromJSON($("#jsondata").text());
+        canvas.loadFromJSON($("#jsondata").val());
     });
     $("#Serialize").click(function(){
         //In order to export custom attributes, you have to specify them when casting canvas to JSON:
         // canvas.toJSON([ 'selectable', '_controlsVisibility', 'code'])
-        $("#jsondata").text(JSON.stringify(canvas.toJSON([ 'selectable','hoverCursor'])))
+        $("#jsondata").val(JSON.stringify(canvas.toJSON([ 'selectable','hoverCursor','zoom'])))
     });
 
 </script>

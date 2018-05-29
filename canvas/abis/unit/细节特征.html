@@ -33,6 +33,7 @@
     </textarea>
     <input type="button" value="序列化" id="Serialize"></input>
     <input type="button" value="反序列化" id="Deserialize"></input>
+    <input type="button" value="隐藏细节特征" id="HideMnt"></input>
 </div>
 <script>
     //变量声明
@@ -220,6 +221,10 @@
         // canvas.toJSON([ 'selectable', '_controlsVisibility', 'code'])
         $("#jsondata").val(JSON.stringify(canvas.toJSON([ 'selectable','hoverCursor','zoom'])))
     });
+    $("#HideMnt").click(function () {
+        var groups= canvas.getObjects('group')
+    });
+
 
 </script>
 </body>

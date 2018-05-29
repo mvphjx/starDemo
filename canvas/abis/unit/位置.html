@@ -33,7 +33,7 @@
             textbox = null;
         var zoom =  1;//放大倍数
         var drawWidth = 2; //笔触宽度
-        var color = "#E34F51"; //画笔颜色
+        var color = "blue"; //画笔颜色
         var drawingObject = null; //当前绘制对象
         var moveCount = 1; //绘制移动计数器
         var doDrawing = false; // 绘制状态
@@ -120,7 +120,7 @@
             var rectangle = new fabric.Path(path, {
                 left: 0,
                 top: 0,
-                stroke: color,
+                stroke: "blue",
                 strokeWidth: drawWidth,
                 fill: "rgba(255, 255, 255, 0)",
                 originX:'center',
@@ -128,7 +128,7 @@
             });
             //绘制文本
             var text = new fabric.Text('中心上部', {
-                fontSize:30,
+                fontSize:20,
                 originX:'center',
                 originY:'center'
             });

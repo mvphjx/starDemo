@@ -250,6 +250,27 @@
      canvas.renderAll();
      canvas.getObjects("line")[0].set(angle:30)
      canvas.renderAll();
+
+
+     fabric.Image.fromURL(src, function(oImg) {
+    oImg.set({
+        width: 200,
+        height: 200,
+        originX:  'left',
+        originY: 'top',
+        selectable: false
+    });
+    canvas.add(oImg);
+    canvas.centerObject(oImg);
+    oImg.sendToBack();
+    canvas.renderAll();
+});
+
+     $("#rotate").click(function(){
+    var curAngle = canvas.item(0).getAngle();
+    canvas.item(0).setAngle(curAngle+15);
+    canvas.renderAll();
+});
      */
 </script>
 </body>

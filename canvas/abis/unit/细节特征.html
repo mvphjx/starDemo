@@ -128,13 +128,15 @@
         if (drawingObject) {
             canvas.remove(drawingObject);
         }
+        var width =20,height=20,radius=30;
+        var distance =  100;//line length is static .
         var canvasObject = null;
         var line = new fabric.Rect({
             left: 0,
             top: 0,
             strokeWidth: 1,
-            width: 2,
-            height: 2,
+            width: width,
+            height: height,
             stroke: 'red',
             fill: 'red',
             selectable: false,
@@ -144,19 +146,21 @@
             left: 0,
             top: 0,
             strokeWidth: 1,
-            width: 5,
-            height: 5,
             stroke: 'yellow',
             fill: 'yellow',
             selectable: false,
             originX: 'center',
             originY: 'center',
-            radius:3
+            radius:radius
         });
         //进行组合
         canvasObject = new fabric.Group([ line,circle], {
+            // left: mouseFrom.x-radius,
+            // top: mouseFrom.y-radius,
             left: mouseFrom.x,
             top: mouseFrom.y,
+            originX: 'center',
+            originY: 'center',
             angle: 0
         });
         if (canvasObject) {
@@ -164,7 +168,7 @@
             drawingObject = canvasObject;
         }
         var angle = getAngle(mouseFrom.x, mouseFrom.y, mouseTo.x, mouseTo.y)||0; //转换角度
-        var distance =  10;//line length is static .
+
         canvasObject.item(0).set({ height: distance, angle: angle - 180 });
         canvasObject.item(1).set({ left: canvasObject.item(0).left, top: canvasObject.item(0).top, angle: angle });
         canvas.renderAll();

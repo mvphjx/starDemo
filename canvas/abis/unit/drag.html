@@ -21,6 +21,8 @@
 <input type="button" value="goLeft" id="goLeft"></input>
 <input type="button" value="goUp" id="goUp"></input>
 <input type="button" value="goDown" id="goDown"></input>
+<input type="button" value="放大" onclick="zoom(0.05)"></input>
+<input type="button" value="缩小" onclick="zoom(-0.05)"></input>
 </body>
 <script src="../js/fabric.js"></script>
 <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
@@ -86,6 +88,10 @@
     //坐标转换
     function transformMouse(mouseX, mouseY) {
         return { x: mouseX / canvas.getZoom(), y: mouseY / canvas.getZoom() };
+    }
+
+    function zoom(value){
+        canvas.setZoom(canvas.getZoom()+value)
     }
 </script>
 </html>

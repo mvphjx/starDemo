@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>touch event</title>
+</head>
+<script src="../js/fabric_with_gestures.js"></script>
+
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<body>
+<div>
+    <canvas id="freeCanvas" class="canvas"></canvas>
+</div>
+</body>
+<script>
+    var canvas = new fabric.Canvas('freeCanvas',{
+            width: 500,
+            height: 500,
+    });
+    fabric.Image.fromURL('../img/demo.jpg', function(img) {
+        img.scale(0.5).set({
+            left: 150,
+            top: 150,
+            angle: -15
+        });
+        canvas.add(img).setActiveObject(img);
+    });
+    canvas.on({
+        'touch:drag': function (data) {
+            //a.e.type  touchstart
+            //type:"touchmove"
+            var eventType = data.e.type;
+            if(eventType==="touchstart"){
+
+            }else if(eventType==="touchmove"){
+
+            }else{
+
+            }
+        }
+    });
+
+</script>
+</html>

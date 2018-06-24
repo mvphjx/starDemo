@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,
+				initial-scale=1.0,
+				maximum-scale=1.0,
+				user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>细节特征</title>
     <style>
@@ -16,7 +20,8 @@
 
 
     </style>
-    <script src="../js/fabric.js"></script>
+    <script src="../js/fabric_with_gestures.js"></script>
+
     <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
@@ -28,7 +33,7 @@
 <br/>
 <div>
     <textarea style="width: 300px;height: 300px;" id="jsondata">
-
+{"version":"2.2.4","objects":[{"type":"image","version":"2.2.4","originX":"left","originY":"top","left":0,"top":0,"width":723,"height":720,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"selectable":false,"hoverCursor":"default","src":"http://localhost:63342/starDemo/canvas/abis/img/%E6%8C%87%E7%BA%B9.jpg","filters":[]},{"type":"group","version":"2.2.4","originX":"center","originY":"center","left":410.4,"top":446.4,"width":61,"height":61,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"selectable":true,"hoverCursor":null,"objects":[{"type":"rect","version":"2.2.4","originX":"center","originY":"top","left":0,"top":0,"width":20,"height":100,"fill":"red","stroke":"red","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":-104,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0,"selectable":false,"hoverCursor":null},{"type":"circle","version":"2.2.4","originX":"center","originY":"center","left":0,"top":0,"width":60,"height":60,"fill":"yellow","stroke":"yellow","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":76,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"radius":30,"startAngle":0,"endAngle":6.283185307179586,"selectable":false,"hoverCursor":null}]}],"hoverCursor":"move"}
 
     </textarea>
     <input type="button" value="序列化" id="Serialize"></input>
@@ -58,29 +63,36 @@
         width: 800,
         height: 500
     });
-    //绑定画板事件  "rectangle" 长方形
-    canvas.on("mouse:down", function(options) {
+    //监听触摸与鼠标事件
+    canvas.on({
+        'touch:drag': function (data) {
+            var eventType = data.e.type;
+            var point = {x:data.self.x,y:data.self.y};
+            switch (eventType){
+                case "touchstart":
+                case "mousedown":
+                    beginEvent(point);
+                    break;
+                case "touchmove":
+                case "mousemove":
+                    moveEvent(point);
+                    break;
+                case undefined:
+                    endEvent(point);
+            }
+        }
+    });
+
+    function beginEvent(point) {
         if(canvas.getActiveObject()){
             return;
         }
-        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        var xy = transformMouse(point.x, point.y);
         mouseFrom.x = xy.x;
         mouseFrom.y = xy.y;
         doDrawing = true;
-    });
-    canvas.on("mouse:up", function(options) {
-        if(canvas.getActiveObject()){
-            return;
-        }
-        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
-        mouseTo.x = xy.x;
-        mouseTo.y = xy.y;
-        // drawing();
-        drawingObject = null;
-        moveCount = 1;
-        doDrawing = false;
-    });
-    canvas.on("mouse:move", function(options) {
+    }
+    function moveEvent(point) {
         if(canvas.getActiveObject()){
             return;
         }
@@ -89,11 +101,23 @@
             return;
         }
         moveCount++;
-        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        var xy = transformMouse(point.x, point.y);
         mouseTo.x = xy.x;
         mouseTo.y = xy.y;
         drawing();
-    });
+    }
+    function endEvent(point) {
+        if(canvas.getActiveObject()){
+            return;
+        }
+        var xy = transformMouse(point.x, point.y);
+        mouseTo.x = xy.x;
+        mouseTo.y = xy.y;
+        // drawing();
+        drawingObject = null;
+        moveCount = 1;
+        doDrawing = false;
+    }
     // images
     var top_img=0,left_img=0,zoom =1;
     var finger = new fabric.Image.fromURL('../img/指纹.jpg', function(image) {

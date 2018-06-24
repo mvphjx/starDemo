@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .canvas {
+        width: 600px;
+        height: 600px;
+        border: 1px solid rgb(170, 170, 170);
+        cursor: pointer;
+    }
+
+</style>
+<body>
+<div>
+    <canvas id="freeCanvas" class="canvas"></canvas>
+</div>
+<input type="button" value="goRight" id="goRight"></input>
+<input type="button" value="goLeft" id="goLeft"></input>
+<input type="button" value="goUp" id="goUp"></input>
+<input type="button" value="goDown" id="goDown"></input>
+</body>
+<script src="../js/fabric.js"></script>
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var data = '{"version":"2.2.4","objects":[{"type":"image","version":"2.2.4","originX":"left","originY":"top","left":0,"top":0,"width":723,"height":720,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"selectable":false,"hoverCursor":"default","src":"http://localhost:63342/starDemo/canvas/abis/img/%E6%8C%87%E7%BA%B9.jpg","filters":[]},{"type":"group","hasControls":false,"version":"2.2.4","originX":"left","originY":"top","left":282.24,"top":482.4,"width":7,"height":7,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"selectable":true,"hoverCursor":null,"objects":[{"type":"rect","version":"2.2.4","originX":"center","originY":"top","left":0,"top":0,"width":2,"height":10,"fill":"red","stroke":"red","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":-112,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0,"selectable":false,"hoverCursor":null},{"type":"circle","version":"2.2.4","originX":"center","originY":"center","left":0,"top":0,"width":6,"height":6,"fill":"yellow","stroke":"yellow","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":68,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"radius":3,"startAngle":0,"endAngle":6.283185307179586,"selectable":false,"hoverCursor":null}]},{"type":"group","version":"2.2.4","originX":"left","originY":"top","left":489.6,"top":385.92,"width":7,"height":7,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"selectable":true,"hoverCursor":null,"objects":[{"type":"rect","version":"2.2.4","originX":"center","originY":"top","left":0,"top":0,"width":2,"height":10,"fill":"red","stroke":"red","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":-67,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0,"selectable":false,"hoverCursor":null},{"type":"circle","version":"2.2.4","originX":"center","originY":"center","left":0,"top":0,"width":6,"height":6,"fill":"yellow","stroke":"yellow","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":113,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"radius":3,"startAngle":0,"endAngle":6.283185307179586,"selectable":false,"hoverCursor":null}]},{"type":"group","version":"2.2.4","originX":"left","originY":"top","left":416.16,"top":452.16,"width":7,"height":7,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"selectable":true,"hoverCursor":null,"objects":[{"type":"rect","version":"2.2.4","originX":"center","originY":"top","left":0,"top":0,"width":2,"height":10,"fill":"red","stroke":"red","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":66,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0,"selectable":false,"hoverCursor":null},{"type":"circle","version":"2.2.4","originX":"center","originY":"center","left":0,"top":0,"width":6,"height":6,"fill":"yellow","stroke":"yellow","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":246,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"radius":3,"startAngle":0,"endAngle":6.283185307179586,"selectable":false,"hoverCursor":null}]}],"hoverCursor":"move"}';
+
+
+    //初始化画板
+    var canvas = new fabric.Canvas("freeCanvas", {
+        isDrawingMode: false,
+        selection: false,
+        width: $(".canvas").width(),
+        height: $(".canvas").height(),
+    });
+    canvas.loadFromJSON(data);
+    //canvas.item(0).hasControls = false;
+    $('#goRight').click(function(){
+        var units = 10 ;
+        var delta = new fabric.Point(units,0) ;
+        canvas.relativePan(delta) ;
+    }) ;
+
+    $('#goLeft').click(function(){
+        var units = 10 ;
+        var delta = new fabric.Point(-units,0) ;
+        canvas.relativePan(delta) ;
+    }) ;
+    $('#goUp').click(function(){
+        var units = 10 ;
+        var delta = new fabric.Point(0,-units) ;
+        canvas.relativePan(delta) ;
+    }) ;
+
+    $('#goDown').click(function(){
+        var units = 10 ;
+        var delta = new fabric.Point(0,units) ;
+        canvas.relativePan(delta) ;
+    });
+    var mouseFrom={},mouseTo={},doDrawing;
+    canvas.on("mouse:down", function(options) {
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        mouseFrom.x = xy.x;
+        mouseFrom.y = xy.y;
+        doDrawing=true;
+    });
+    canvas.on("mouse:up", function(options) {
+        doDrawing = false;
+    });
+    canvas.on("mouse:move", function(options) {
+        if(doDrawing){
+            var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+            mouseTo.x = xy.x;
+            mouseTo.y = xy.y;
+            var xchange = mouseTo.x-mouseFrom.x ;
+            var ychange = mouseTo.y- mouseFrom.y;
+            var delta = new fabric.Point(xchange,ychange) ;
+            canvas.relativePan(delta) ;
+            mouseFrom.x = xy.x;
+            mouseFrom.y = xy.y;
+        }
+
+    });
+    //坐标转换
+    function transformMouse(mouseX, mouseY) {
+        return { x: mouseX / canvas.getZoom(), y: mouseY / canvas.getZoom() };
+    }
+</script>
+</html>

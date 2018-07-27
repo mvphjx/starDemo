@@ -1,0 +1,61 @@
+
+<html>
+<head>
+	<title>地图API－范例－添加矢量图标</title>
+	<meta content="text/html; charset=UTF-8" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta tabindex="">
+	<link rel="stylesheet" type="text/css" href="apidemos/sourceLinks/style.css" />
+	<script type="text/javascript" src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+
+</head>
+<body  style="margin:0px;padding:0px">
+<div id="map"  style="width:100%;height:100%;"></div>
+<div id="pannel" class="contro_panel_button contro_panel_button_br">
+	<input type="button" class="button" value="添加矢量点" onclick="toggleVectorMarker()">&nbsp;
+	<input type="button" class="button" value="删除矢量点" onclick="toggleRemoveMarker()">
+</div>
+<script type="text/javascript">
+    var map, marker;
+    function initMap(){
+        map=new IMAP.Map("map", {
+            minZoom: 4,
+            zoom : 14,//设置地图初始化级别
+            center : new IMAP.LngLat(116.484101,39.989996),//设置地图中心点坐标
+            animation : true//设置地图缩放动画效果
+        });
+    }
+    //添加矢量点
+    function toggleVectorMarker() {
+        if(map){
+            toggleRemoveMarker();
+            var opts=new IMAP.MarkerOptions();
+            opts.anchor = IMAP["Constants"]["BOTTOM_CENTER"];
+            opts.markerColor="red";//边框色
+            opts.shadow=true;//是否有阴影
+            opts.pointType=3;//矢量图形样式类型选择。1：气泡，2：正方形，3：圆形
+            opts.pointStrokeColor="#000000";//边框色
+            opts.pointAlpha="0.9";//填充透明度
+            opts.pointLineWidth = 3;//边框宽度
+            opts.pointFillColor = "red";//填充色
+            opts.snippet="案件数3"
+
+            var lnglat=new IMAP.LngLat(116.397428, 39.90923);
+            if(lnglat){
+                marker=new IMAP.Marker(lnglat, opts);
+                map.getOverlayLayer().addOverlay(marker, true);
+            }
+        }
+    }
+    //删除矢量点
+    function toggleRemoveMarker(){
+        if(marker){
+            map.getOverlayLayer().removeOverlay(marker);
+            marker = null;
+        }
+    }
+    initMap();
+</script>
+</body>
+</html>

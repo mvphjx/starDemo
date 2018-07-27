@@ -1,0 +1,73 @@
+
+<html>
+<head>
+    <title>地图API－范例－添加/删除覆盖物</title>
+    <meta content="text/html; charset=UTF-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta tabindex="">
+    <link rel="stylesheet" type="text/css" href="apidemos/sourceLinks/style.css" />
+    <script type="text/javascript" src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+
+</head>
+<body  style="margin:0px;padding:0px">
+<div id="map"  style="width:100%;height:100%;"></div>
+<div id="pannel" class="contro_panel_button contro_panel_button_br">
+    <input type="button" class="button" value="添加覆盖物" onclick="toggleAddVector()">&nbsp;
+    <input type="button" class="button" value="删除覆盖物" onclick="toggleRemoveVector()">
+</div>
+<script type="text/javascript">
+    var map, vectors = [];
+    function initMap(){
+        map=new IMAP.Map("map", {
+            minZoom: 4,
+            zoom : 14,//设置地图初始化级别
+            center : new IMAP.LngLat(116.484101,39.989996),//设置地图中心点坐标
+            animation : true//设置地图缩放动画效果
+        });
+    }
+    //添加覆盖物
+    function toggleAddVector() {
+        if(map){
+            var linePath = [];
+            linePath.push(new IMAP.LngLat(116.368904,39.913423));
+            linePath.push(new IMAP.LngLat(116.382122,39.901176));
+            linePath.push(new IMAP.LngLat(116.387271,39.912501));
+            linePath.push(new IMAP.LngLat(116.398258,39.904600));
+            var polyline=new IMAP.Polyline(linePath, {"strokeOpacity" : 1});
+
+            var polygonArr = [];
+            polygonArr.push(new IMAP.LngLat(116.403322,39.920255));
+            polygonArr.push(new IMAP.LngLat(116.410703,39.897555));
+            polygonArr.push(new IMAP.LngLat(116.402292,39.892353));
+            polygonArr.push(new IMAP.LngLat(116.389846,39.891365));
+            var polygon=new IMAP.Polygon(polygonArr, {"strokeOpacity" : 1});
+
+            var sw = new IMAP.LngLat(116.403322,39.920255);
+            var ne = new IMAP.LngLat(116.502292,39.992353);
+            var rect = new IMAP.Rectangle(new IMAP.LngLatBounds(sw,ne), {"strokeOpacity" : 1});
+
+            var centerlnglat = new IMAP.LngLat(116.407486,40.008638);
+            var circle = new IMAP.Circle(centerlnglat, 5000, {"strokeOpacity" : 1});
+
+            var sectorlnglat = new IMAP.LngLat(116.297485,39.878676);
+            var sector = new IMAP.Sector(sectorlnglat, 5000, 60, {"strokeOpacity" : 1});
+
+            vectors.push(polyline);
+            vectors.push(polygon);
+            vectors.push(rect);
+            vectors.push(circle);
+            vectors.push(sector);
+
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    //删除覆盖物
+    function toggleRemoveVector() {
+        map.getOverlayLayer().clear(vectors);
+        vectors = [];
+    }
+    initMap();
+</script>
+</body>
+</html>

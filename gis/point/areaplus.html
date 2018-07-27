@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>行政区划查询&统计</title>
+    <meta content="text/html; charset=UTF-8" />
+    <meta tabindex="">
+    <script type="text/javascript" src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+
+    <script type="text/javascript" src="js/data.js"></script>
+</head>
+<body  style="margin:0px;padding:0px">
+<div id="map"  style="width:100%;height:100%;"></div>
+<script type="text/javascript">
+    var map,overlays=[];
+    function initMap(){
+        map=new IMAP.Map("map", {
+            zoom : 14,//设置地图初始化级别
+            center : new IMAP.LngLat(116.484101,39.989996),//设置地图中心点坐标
+            animation : true//设置地图缩放动画效果
+        });
+        boundary();
+    }
+    function boundary() {
+        if (map) {
+            var keyword = "海淀区";
+            map.plugin(['IMAP.DistrictSearch'], function(){
+                boundarySearch = new IMAP.DistrictSearch();
+                boundarySearch.search(keyword,
+                    function(status,result) {
+                        if (status==0) {
+                            var paths = result.results,pathArray;
+                            for (var i = 0, l = paths.length; i < l; ++i) {
+                                if (paths[i]) {
+                                    pathArray = paths[i].polyline.split("|");
+                                    var path;
+                                    for (var j = 0, jl = pathArray.length; j < jl; ++j) {
+                                        lnglats = [];
+                                        path = pathArray[j].split(";");
+                                        for (var n = 0, nl = path.length; n < nl; ++n) {
+                                            var lnglat = path[n].split(",");
+                                            lnglat = new IMAP.LngLat(lnglat[0], lnglat[1]);
+                                            lnglats.push(lnglat);
+                                        }
+                                        var polygon = new IMAP.Polygon(lnglats, {
+                                            fillOpacity: 0.5,
+                                            strokeStyle: IMAP.Constants.OVERLAY_LINE_DASHED,
+                                            strokeWeight: 2
+                                        });
+                                        overlays.push(polygon);
+                                    }
+                                }
+                            }
+                            map.getOverlayLayer().addOverlays(overlays,true);
+                        }
+                    });
+                boundarySearch.search("丰台区",
+                    function(status,result) {
+                        if (status==0) {
+                            var paths = result.results,pathArray;
+                            for (var i = 0, l = paths.length; i < l; ++i) {
+                                if (paths[i]) {
+                                    pathArray = paths[i].polyline.split("|");
+                                    var path;
+                                    for (var j = 0, jl = pathArray.length; j < jl; ++j) {
+                                        lnglats = [];
+                                        path = pathArray[j].split(";");
+                                        for (var n = 0, nl = path.length; n < nl; ++n) {
+                                            var lnglat = path[n].split(",");
+                                            lnglat = new IMAP.LngLat(lnglat[0], lnglat[1]);
+                                            lnglats.push(lnglat);
+                                        }
+                                        var polygon = new IMAP.Polygon(lnglats, {
+                                            fillOpacity: 0.5,
+                                            strokeStyle: IMAP.Constants.OVERLAY_LINE_DASHED,
+                                            strokeWeight: 2
+                                        });
+                                        overlays.push(polygon);
+                                    }
+                                }
+                            }
+                            map.getOverlayLayer().addOverlays(overlays,true);
+                        }
+                    });
+            });
+
+        }
+    }
+    initMap();
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+
+<html>
+<head>
+    <title>地图API－范例－点集合</title>
+    <meta content="text/html; charset=UTF-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta tabindex="">
+    <link rel="stylesheet" type="text/css" href="apidemos/sourceLinks/style.css" />
+    <script type="text/javascript" src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+    <script type="text/javascript" src="apidemos/sourceLinks/clusterdata.js"></script>
+
+
+</head>
+<body  style="margin:0px;padding:0px">
+<div id="map"  style="width:100%;height:100%;"></div>
+<div id="pannel" class="contro_panel_button contro_panel_button_bc" style="right:555px;">
+    <input type="button" class="button" value="重新加载" onclick="toggleReCluster()">&nbsp;
+    <input type="button" class="button" value="清空" onclick="toggleClearCluter()">
+</div>
+<div class="contro_panel contro_panel_position_bc">
+    <div class="content">
+        &nbsp;&nbsp;
+        <span>聚合最大级别:
+	        	<select id="zoom" onchange="toggleCluster();">
+		        	<option value="0">0</option>
+		          	<option value="1">1</option>
+		          	<option value="2">2</option>
+		          	<option value="3">3</option>
+		          	<option value="4">4</option>
+		          	<option value="5">5</option>
+		          	<option value="6">6</option>
+		          	<option value="7">7</option>
+		          	<option value="8">8</option>
+		          	<option value="9">9</option>
+		          	<option value="10">10</option>
+		          	<option value="11">11</option>
+		          	<option value="12">12</option>
+		          	<option value="13">13</option>
+	        	</select>
+	        </span>
+        <span class="item">缓冲范围:
+		        <select id="size" onchange="toggleCluster();">
+		          <option value="3">3</option>
+		          <option value="5">5</option>
+		          <option value="10">10</option>
+		          <option value="15">15</option>
+		          <option value="60">60</option>
+		          <option value="40">40</option>
+		          <option value="50">50</option>
+		          <option value="70">70</option>
+		          <option value="80">80</option>
+		          <option value="100">100</option>
+		        </select>
+		    </span>
+        <span class="item">最小聚合的个数:
+		   		<select id="clusterSum" onchange="toggleCluster();">
+		        	<option value="2">2</option>
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="50">50</option>
+		       	</select>
+			</span>
+        <span class="item">点击放大:
+		    	<select id="zoomclick" onchange="toggleCluster();">
+		       		<option value="true">true</option>
+		        	<option value="false">false</option>
+		       	</select>
+			</span>
+        &nbsp;&nbsp;
+    </div>
+</div>
+<script type="text/javascript">
+    //serchRest是在clusterdata.js下定义的全局变量
+    var map, serchRsusl = serchRest,dataCluster,markers;
+    function initMap(){
+        map=new IMAP.Map("map", {
+            minZoom: 4,
+            zoom : 14,//设置地图初始化级别
+            center : new IMAP.LngLat(116.484101,39.989996),//设置地图中心点坐标
+            animation : true//设置地图缩放动画效果
+        });
+        toggleCluster();
+    }
+    //重新加载
+    function toggleReCluster() {
+        window.location.reload();
+    }
+    //点聚合功能
+    function toggleCluster() {
+        if(map){
+            if (dataCluster) {
+                //清空所有的marker及点聚合对象
+                dataCluster.setMap(null);
+            }
+            markers = [];
+            //循环遍历数据 把数据加载到markers中去 注：数据类型是IMAP.Marker类型
+            for (var i = 0; i < serchRsusl.count; i++) {
+                (function(i) {
+                    var poi = serchRsusl.searchPoints[i];
+                    var lnglat = new IMAP.LngLat(poi.point[0]/100000, poi.point[1]/100000);
+                    var marker = new IMAP.Marker(lnglat);
+                    marker.name = poi.name;
+                    markers.push(marker);
+                })(i);
+            }
+            //获取点聚合的显示级别数
+            var zoom = parseInt(document.getElementById('zoom').value, 10);
+            //获取点聚合的缓冲大小
+            var size = parseInt(document.getElementById('size').value, 10);
+            //获取点聚合的最小聚合数
+            var clusterSum = parseInt(document.getElementById('clusterSum').value, 10);
+            //获取是否允许点击放大
+            var zoomclick = document.getElementById('zoomclick').value;
+            zoomclick = zoomclick == 'true' ? true: false;
+            zoom = zoom == -1 ? null: zoom;
+            size = size == -1 ? null: size;
+            clusterSum = clusterSum == -1 ? null: clusterSum;
+
+            //创建聚合管理对象 并将各参数设置到其中
+            map.plugin(['IMAP.DataCluster'], function(){
+                dataCluster = new IMAP.DataCluster(map, markers, {
+                    maxZoom: zoom,
+                    gridSize: size,
+                    zoomOnClick:zoomclick,
+                    minimumClusterSize: clusterSum
+                });
+            });
+        }
+    }
+    function toggleClearCluter() {
+        if (dataCluster) {
+            dataCluster.clearMarkers();
+        }
+    }
+    initMap();
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ie8解析excel文件</title>
+</head>
+<body>
+<input  id="file"  type="file"/>
+<div id="show">
+
+</div>
+</body>
+<!--[if lte IE 9]>
+<script type="text/javascript" src="oldie/shim.min.js"></script>
+<![endif]-->
+<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="xlsx.full.min.js"></script>
+
+<script>
+
+    var input_dom_element = document.getElementById("file");
+    function handle_ie() {
+        /* get data from selected file */
+        var path = input_dom_element.value;
+        var bstr = IE_LoadFile(path);
+        /* read workbook */
+        var wb = XLSX.read(bstr, {type:'binary'});
+        /* DO SOMETHING WITH workbook HERE */
+    }
+    function handle_fr(e) {
+        var files = e.target.files, f = files[0];
+        var reader = new FileReader();
+        var rABS = !!reader.readAsBinaryString;
+        reader.onload = function(e) {
+            var data = e.target.result;
+            if(rABS) {
+                wb = XLSX.read(data, {type: 'binary'});
+            } else {
+                var arr = fixdata(data);
+                wb = XLSX.read(btoa(arr), {type: 'base64'});
+            }
+            process_wb(wb);
+        };
+        if(rABS) reader.readAsBinaryString(f); else reader.readAsArrayBuffer(f);
+    }
+    var handler = typeof IE_LoadFile !== 'undefined' ? handle_ie : handle_fr;
+    if(input_dom_element.attachEvent) input_dom_element.attachEvent('onchange', handler);
+    else input_dom_element.addEventListener('change', handler, false);
+    function to_json(workbook) {
+        console.log("to_json");
+        var result = {};
+        workbook.SheetNames.forEach(function(sheetName) {
+            var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            if(roa.length > 0){
+                result[sheetName] = roa;
+            }
+        });
+        return result;
+    }
+
+    function process_wb(wb) {
+        console.log("process_wb");
+        var output = JSON.stringify(to_json(wb), 2, 2);//去掉后2个参数，显示结果只有1行，没有缩进
+        console.log(output)
+    }
+    function fixdata(data) {
+        console.log("fixdata");
+        var o = "", l = 0, w = 10240;
+        for(; l<data.byteLength/w; ++l) o+=String.fromCharCode.apply(null,new Uint8Array(data.slice(l*w,l*w+w)));
+        o+=String.fromCharCode.apply(null, new Uint8Array(data.slice(l*w)));
+        return o;
+    }
+</script>
+</html>

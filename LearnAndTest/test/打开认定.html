@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="chrome-extension://hehijbfgiekmjfkfjpbkbammjbdenadd/nhc.htm#url=http://localhost:7950/abisweb/match/check/381614?ServiceTicket=1213" target="_blank">打开认定页面</a>
+<a href="http://localhost:7950/abisweb/match/check/381614?ServiceTicket=1213">打开认定页面</a>
+
+<script>
+    var data = {
+        request: {type: "SET_SETTING", key: "autourl-list", value: ["2"]},
+        src:
+            "WP",
+        type:
+            "EXTAPI_REQUEST"
+    }
+    chrome.extension.sendMessage(data);
+
+</script>
+
+</body>
+</html>

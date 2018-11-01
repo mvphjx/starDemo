@@ -1,0 +1,50 @@
+<html>
+<head>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#inputfile").change(function() {
+                //创建FormData对象
+                var data = new FormData();
+                //为FormData对象添加数据
+                debugger;
+                $.each($('#inputfile')[0].files, function(i, file) {
+                    data.append('fileData', file);
+                });
+                $.ajax({
+                    url: 'url',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    cache: false,
+                    contentType: false, //必须false才会自动加上正确的Content-Type
+                    processData: false, //对 formdata 进行正确的处理
+                    success: function(data) {
+                        if (data.success == true) {
+
+                            var img = $("#img-show");
+                            if (img.children('img').length != 0) {
+
+                                img.children('img').attr('src', data.file_path);
+                                var img_input = '<input type="hidden" name="picture" id="picture" value="' + data.file_path + '">'
+                                img.append(img_input);
+                            } else if (img.children('img').length == 0) {
+
+                                var img_show = '<img src="' + data.file_path + '" width="135" height="75">';
+                                img.append(img_show);
+                                var img_input = '<input type="hidden" name="picture" id="picture" value="' + data.file_path + '">'
+                                img.append(img_input);
+                            }
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+选择文件:<input type="file" id="inputfile" /><br />
+<img src="" style="display:none" id="imgWait" />
+</body>
+</html>

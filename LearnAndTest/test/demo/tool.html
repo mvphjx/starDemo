@@ -1,0 +1,143 @@
+<html>
+<div class="toolbar">
+    <table cellspacing="0">
+        <tbody>
+        <tr>
+            <form id="tbForm_03851176282703306" action="/abisweb/ReportEmitter" method="post"
+                  onsubmit="return check(this);"></form>
+            <script language="javascript">function check(tbForm) {
+                var v = true;
+                var p = tbForm.page.value;
+                if (isNaN(p)) v = false;
+                if (v) {
+                    p = parseInt(p);
+                    if (isNaN(p) || p <= 0) v = false;
+                }
+                if (!v) {
+                    bios_msg('输入的页码数不合法', 1000, 'biosPopup_alert', 240);
+                    return false;
+                }
+                return true;
+            };
+
+            function getPage(pageIdx, tbForm) {
+                tbForm.page.value = pageIdx;
+                tbForm.submit();
+            }
+
+            function openEmitter(url) {
+                window.open(url, '_self');
+            }</script>
+            <input type="hidden" name="rpt" value="abis/abis_all.brt">
+            <td class="disabled">
+                <table class="btn-icon page-first">
+                    <tbody>
+                    <tr>
+                        <td title="首页" class="btn-center">
+                            <button type="button" class="btn-text"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="disabled">
+                <table class="btn-icon page-prev">
+                    <tbody>
+                    <tr>
+                        <td title="上一页" class="btn-center">
+                            <button type="button" class="btn-text"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>第<input type="text" name="page" value="1" size="3" style="height: 18px;">页</td>
+            <td class="disabled">
+                <table class="btn-icon page-next">
+                    <tbody>
+                    <tr>
+                        <td title="下一页" class="btn-center">
+                            <button type="button" class="btn-text"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="disabled">
+                <table class="btn-icon page-last">
+                    <tbody>
+                    <tr>
+                        <td title="末页" class="btn-center">
+                            <button type="button" class="btn-text"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td><span class="btn-sep"></span></td>
+            <td>
+                <table cellspacing="0" cellpadding="0" title="导出整页EXCEL"
+                       onclick="openEmitter(&quot;/abisweb/ReportEmitter?rpt=abis%2Fabis_all.brt&amp;emitter=toxls&amp;params=null&amp;vars=null&amp;brf=false&quot;)">
+                    <tbody>
+                    <tr>
+                        <td class="button-img btn-excel"></td>
+                        <td class="button-text" id="be_0" style="display: block;">整页</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td><span class="btn-sep"></span></td>
+            <td>
+                <table cellspacing="0" cellpadding="0" title="导出分页EXCEL"
+                       onclick="openEmitter(&quot;/abisweb/ReportEmitter?rpt=abis%2Fabis_all.brt&amp;emitter=toxls&amp;params=null&amp;vars=null&amp;brf=false&amp;paginate=true&quot;)">
+                    <tbody>
+                    <tr>
+                        <td class="button-img btn-excel-paged"></td>
+                        <td class="button-text" id="be_1" style="display: block;">分页</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td><span class="btn-sep"></span></td>
+            <td>
+                <table cellspacing="0" cellpadding="0" title="导出PDF文档"
+                       onclick="openEmitter(&quot;/abisweb/ReportEmitter?rpt=abis%2Fabis_all.brt&amp;emitter=topdf&amp;params=null&amp;vars=null&amp;brf=false&quot;)">
+                    <tbody>
+                    <tr>
+                        <td class="button-img btn-pdf"></td>
+                        <td class="button-text" id="be_2" style="display: block;">PDF</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td><span class="btn-sep"></span></td>
+            <td>
+                <table cellspacing="0" cellpadding="0" title="导出WORD文档"
+                       onclick="openEmitter(&quot;/abisweb/ReportEmitter?rpt=abis%2Fabis_all.brt&amp;emitter=todoc&amp;params=null&amp;vars=null&amp;brf=false&quot;)">
+                    <tbody>
+                    <tr>
+                        <td class="button-img btn-doc"></td>
+                        <td class="button-text" id="be_3" style="display: block;">DOC</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td><span class="btn-sep"></span></td>
+            <td>
+                <table cellspacing="0" cellpadding="0" title="打印报表"
+                       onclick="window.open('/abisweb/ReportEmitter?rpt=abis%2Fabis_all.brt&amp;emitter=print&amp;params=null&amp;vars=null&amp;brf=false','prtwindow','height=600,width=800,top=80,left=100,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,status=no')">
+                    <tbody>
+                    <tr>
+                        <td class="button-img btn-print"></td>
+                        <td class="button-text" id="be_5" style="display: block;">打印</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="paging-info">共1页</div>
+
+</html>

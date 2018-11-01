@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>ie8解析excel文件</title>
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="oldie/shim.min.js"></script>
+    <![endif]-->
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="xlsx.full.min.js"></script>
+
+
 </head>
 <body>
 <input  id="file"  type="file"/>
@@ -10,12 +17,6 @@
 
 </div>
 </body>
-<!--[if lte IE 9]>
-<script type="text/javascript" src="oldie/shim.min.js"></script>
-<![endif]-->
-<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="xlsx.full.min.js"></script>
-
 <script>
 
     var input_dom_element = document.getElementById("file");

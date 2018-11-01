@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tree" class="ztree">
+
+</div>
+</body>
+<link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
+<script>
+    var menuCfg = [{"img":null,"name":"活采","id":671,"type":0,"items":[{"mode":0,"img":null,"linkid":13,"name":"活采质量检查","id":1911,"key":"TPQual","url":"/tp/qual/","seq":0},{"mode":0,"img":null,"linkid":14,"name":"活采信息反馈","id":1912,"key":"FeedBack","url":"/tp/feedback/","seq":1}],"key":"Live","seq":0},{"img":null,"name":"捺印","id":672,"type":0,"items":[{"mode":0,"img":null,"linkid":10,"name":"捺印卡片列表","id":1913,"key":"TPCardList","url":"/tp/list/","seq":0},{"mode":1,"img":null,"linkid":11,"name":"捺印卡片录入","id":1914,"key":"TPCardInput","url":"/tp/scan/","seq":1},{"mode":1,"img":null,"linkid":12,"name":"捺印指掌纹编辑","id":1915,"key":"TPCardEdit","url":"/tp/edit/","seq":2},{"mode":0,"img":null,"linkid":21,"name":"捺印重卡列表","id":1916,"key":"TPDupCardList","url":"/tp/tpdupcard/","seq":3},{"mode":0,"img":null,"linkid":22,"name":"浏览人员照片","id":1917,"key":"PersonPhoneSee","url":"/tp/tpface/","seq":4},{"mode":0,"img":null,"linkid":143,"name":"捺印作业管理","id":1918,"key":"TPWorkManage","url":"/work/tplist/","seq":5},{"mode":0,"img":null,"linkid":27,"name":"捺印指掌纹质量抽查列表","id":1919,"key":"TPSpotCheckList","url":"/tp/spotcheck/list/","seq":6},{"mode":0,"img":null,"linkid":28,"name":"捺印文本编辑","id":1920,"key":"TPTextEdit","url":"/tp/textedit/","seq":7},{"mode":0,"img":null,"linkid":516,"name":"捺印入库质量检查列表","id":1921,"key":"TPScanQualList","url":"/tp/scanqual/list","seq":8},{"mode":0,"img":null,"linkid":150,"name":"人员唯一档案列表","id":1922,"key":"UniPersonList","url":"/tp/uniperson/list","seq":9}],"key":"TP","seq":1},{"img":null,"name":"现场","id":673,"type":0,"items":[{"img":null,"openMode":"","name":"串并案管理","id":674,"type":0,"menu":{"img":null,"name":"CaseGroupsMgr","id":674,"type":0,"items":[{"mode":0,"img":null,"linkid":306,"name":"串并案信息列表","id":1931,"key":"CaseGroupsList","url":"/lp/cegroupslist/","seq":0},{"mode":0,"img":null,"linkid":307,"name":"录入串并案信息","id":1932,"key":"InputCaseGroups","url":"/lp/addcegroups/","seq":1}],"key":"CaseGroupsMgr","seq":0},"key":"CaseGroupsMgr","seq":0,"pageLink":""},{"mode":0,"img":null,"linkid":30,"name":"案件列表","id":1923,"key":"CaseList","url":"/lp/caselist/","seq":1},{"mode":0,"img":null,"linkid":31,"name":"现场卡片列表","id":1924,"key":"LPCardList","url":"/lp/cardlist/","seq":2},{"mode":1,"img":null,"linkid":35,"name":"案件录入与编辑","id":1925,"key":"LPCaseInputEdit","url":"/lp/lpinputedit/","seq":3},{"mode":1,"img":null,"linkid":32,"name":"现场卡片录入","id":1926,"key":"LPCardInput","url":"/lp/scan/","seq":4},{"mode":1,"img":null,"linkid":33,"name":"现场指掌纹编辑","id":1927,"key":"LPCardEdit","url":"/lp/edit/","seq":5},{"mode":0,"img":null,"linkid":34,"name":"现场卡片质量检查","id":1928,"key":"LPCardQualCheck","url":"/lp/lpcardqual/","seq":6},{"mode":0,"img":null,"linkid":144,"name":"现场作业管理","id":1929,"key":"LPWorkManage","url":"/work/lplist/","seq":7},{"mode":0,"img":null,"linkid":37,"name":"案件原始数据列表","id":1930,"key":"LPOriginalDataList","url":"/lp/original/list/","seq":8}],"key":"LP","seq":2},{"img":null,"name":"比对任务","id":675,"type":0,"items":[{"img":null,"openMode":"","name":"比中记录","id":676,"type":0,"menu":{"img":null,"name":"MatchRecord2","id":676,"type":0,"items":[{"img":null,"openMode":"","name":"查重比中信息","id":677,"type":0,"menu":{"img":null,"name":"TTHitInfo","id":677,"type":0,"items":[{"mode":0,"img":null,"linkid":50,"name":"查重比中列表","id":1939,"key":"TTHitList","url":"/hitlog/ttlist/","seq":0},{"mode":1,"img":null,"linkid":53,"name":"录入查重比中信息","id":1940,"key":"AddTTHitlogInfo","url":"/hitlog/addtt/","seq":1}],"key":"TTHitInfo","seq":1},"key":"TTHitInfo","seq":1,"pageLink":""},{"img":null,"openMode":"","name":"串查比中信息","id":678,"type":0,"menu":{"img":null,"name":"LLHitInfo","id":678,"type":0,"items":[{"mode":0,"img":null,"linkid":51,"name":"串查比中列表","id":1941,"key":"LLHitlogList","url":"/hitlog/lllist/","seq":0},{"mode":1,"img":null,"linkid":54,"name":"录入串查比中信息","id":1942,"key":"InputLLHit","url":"/hitlog/addll/","seq":1}],"key":"LLHitInfo","seq":2},"key":"LLHitInfo","seq":2,"pageLink":""},{"img":null,"openMode":"","name":"正查/倒查比中信息","id":679,"type":0,"menu":{"img":null,"name":"TLLTHitInfo","id":679,"type":0,"items":[{"mode":0,"img":null,"linkid":52,"name":"正查/倒查比中列表","id":1943,"key":"TLLTHitList","url":"/hitlog/tlltlist/","seq":0},{"mode":1,"img":null,"linkid":55,"name":"录入正查/倒查比中信息","id":1944,"key":"AddLTLHitlogInfo","url":"/hitlog/addtllt/","seq":1}],"key":"TLLTHitInfo","seq":3},"key":"TLLTHitInfo","seq":3,"pageLink":""}],"key":"MatchRecord2","seq":0},"key":"MatchRecord2","seq":0,"pageLink":""},{"mode":0,"img":null,"linkid":40,"name":"比对任务列表","id":1933,"key":"MatchList","url":"/match/list/","seq":4},{"mode":0,"img":null,"linkid":41,"name":"比对认定","id":1934,"key":"MatchCheck","url":"/match/check/","seq":5},{"mode":0,"img":null,"linkid":42,"name":"专家分析","id":1935,"key":"ExpertAnalysis","url":"/expertAnalysis/","seq":6},{"mode":0,"img":null,"linkid":43,"name":"虹膜鉴定","id":1936,"key":"EyeMatchCheck","url":"/match/check/eye/","seq":7},{"mode":0,"img":null,"linkid":44,"name":"鞋印鉴定","id":1937,"key":"FootPrintCheck","url":"/match/check/foot/","seq":8},{"mode":0,"img":null,"linkid":45,"name":"人像鉴定","id":1938,"key":"FaceCheck","url":"/match/check/face/","seq":9}],"key":"Match","seq":3},{"img":null,"name":"综合","id":680,"type":0,"items":[{"img":null,"openMode":"","name":"数据导入","id":681,"type":0,"menu":{"img":null,"name":"DataImport","id":681,"type":0,"items":[{"mode":1,"img":null,"linkid":70,"name":"导入FPT","id":1946,"key":"ImportFPT","url":"/import/fpt/","seq":0},{"mode":1,"img":null,"linkid":72,"name":"导入NIST文件","id":1947,"key":"ImportNist","url":"/import/nist/","seq":1},{"mode":1,"img":null,"linkid":73,"name":"导入HPP文件","id":1948,"key":"ImportHpp","url":"/import/hpp/","seq":2}],"key":"DataImport","seq":0},"key":"DataImport","seq":0,"pageLink":""},{"img":null,"openMode":"","name":"关联管理","id":682,"type":0,"menu":{"img":null,"name":"LinkMgr","id":682,"type":0,"items":[{"mode":0,"img":null,"linkid":304,"name":"现场/捺印关联管理","id":1949,"key":"LP/TPLinkMgr","url":"/lp/lppersonlink/","seq":0},{"mode":0,"img":null,"linkid":305,"name":"案事件与人员关联","id":1950,"key":"CasePersonLink","url":"/lp/personcelink/","seq":1}],"key":"LinkMgr","seq":1},"key":"LinkMgr","seq":1,"pageLink":""},{"mode":0,"img":null,"linkid":120,"name":"统计","id":1945,"key":"Stat","url":"/stat/new/","seq":2}],"key":"Complex","seq":4},{"img":null,"name":"系统","id":683,"type":0,"items":[{"img":null,"openMode":"","name":"远程","id":684,"type":0,"menu":{"img":null,"name":"Remote","id":684,"type":0,"items":[{"mode":0,"img":null,"linkid":201,"name":"捺印卡片上报状态列表","id":1959,"key":"RmtTPCardUploadList","url":"/rmt/upload/tpcardlist/","seq":0},{"mode":0,"img":null,"linkid":202,"name":"现场案件上报状态列表","id":1960,"key":"RmtLPCaseUploadList","url":"/rmt/upload/lpcaselist/","seq":1},{"mode":0,"img":null,"linkid":203,"name":"现场卡片上报状态列表","id":1961,"key":"RmtLPCardUploadList","url":"/rmt/upload/lpcardlist/","seq":2},{"mode":0,"img":null,"linkid":205,"name":"远程任务列表","id":1962,"key":"RmtTaskList","url":"/rmt/tasklist/","seq":3},{"mode":0,"img":null,"linkid":206,"name":"远程任务历史记录列表","id":1963,"key":"RmtTaskHistoryList","url":"/rmt/taskhistlist/","seq":4},{"mode":0,"img":null,"linkid":209,"name":"比对任务远程服务器列表","id":1964,"key":"RmtQrySvrList","url":"/rmt/qrysvrlist/","seq":5},{"mode":0,"img":null,"linkid":139,"name":"远程配置","id":1965,"key":"WebJava.RemoteConfig","url":"/rmt/config/","seq":6}],"key":"Remote","seq":0},"key":"Remote","seq":0,"pageLink":""},{"img":null,"openMode":"","name":"用户","id":685,"type":0,"menu":{"img":null,"name":"User","id":685,"type":0,"items":[{"mode":0,"img":null,"linkid":90,"name":"用户列表","id":1966,"key":"UserList","url":"/user/list/","seq":0},{"mode":1,"img":null,"linkid":99,"name":"新建用户","id":1967,"key":"NewUser","url":"/user/adduser/","seq":1},{"mode":0,"img":null,"linkid":130,"name":"用户会话管理","id":1968,"key":"UserSessionMgr","url":"/user/sessionlist/","seq":2},{"mode":0,"img":null,"linkid":133,"name":"用户登录历史","id":1969,"key":"UserLoginHistory","url":"/user/loginhistory/","seq":3},{"mode":0,"img":null,"linkid":152,"name":"用户分组管理","id":1970,"key":"UserGroupMgr","url":"/user/group/","seq":4}],"key":"User","seq":1},"key":"User","seq":1,"pageLink":""},{"img":null,"openMode":"","name":"角色","id":686,"type":0,"menu":{"img":null,"name":"Role","id":686,"type":0,"items":[{"mode":0,"img":null,"linkid":91,"name":"角色列表","id":1971,"key":"RoleList","url":"/user/rolelist/","seq":0},{"mode":1,"img":null,"linkid":100,"name":"新建角色","id":1972,"key":"NewRole","url":"/user/addrole/","seq":1}],"key":"Role","seq":2},"key":"Role","seq":2,"pageLink":""},{"img":null,"openMode":"","name":"参数配置","id":687,"type":0,"menu":{"img":null,"name":"ParametersConfig","id":687,"type":0,"items":[{"mode":1,"img":null,"linkid":94,"name":"系统参数配置","id":1973,"key":"SystemConfig","url":"/sys/paramcfg/","seq":0},{"mode":0,"img":null,"linkid":138,"name":"菜单管理","id":1974,"key":"MenuMgr","url":"/sys/menumgr/","seq":1},{"mode":1,"img":null,"linkid":109,"name":"系统通知配置","id":1975,"key":"NoticeConfig","url":"/notice/cfg/","seq":2},{"mode":0,"img":null,"linkid":134,"name":"参数定义管理","id":1976,"key":"ParamDefMgr","url":"/sys/paramdefmgr/","seq":3},{"mode":0,"img":null,"linkid":137,"name":"门户栏目配置管理","id":1977,"key":"PortalColCfgMgr","url":"/sys/portalcolcfgmgr/","seq":4}],"key":"ParametersConfig","seq":3},"key":"ParametersConfig","seq":3,"pageLink":""},{"img":null,"openMode":"","name":"系统日志","id":688,"type":0,"menu":{"img":null,"name":"SystemLog","id":688,"type":0,"items":[{"mode":0,"img":null,"linkid":95,"name":"系统日志配置管理","id":1978,"key":"SysLogConfgMgr","url":"/sys/mgr/","seq":0},{"mode":1,"img":null,"linkid":96,"name":"系统日志配置","id":1979,"key":"SystemLogConfig","url":"/sys/cfg/","seq":1},{"mode":0,"img":null,"linkid":103,"name":"系统日志管理","id":1980,"key":"SystemLogMgr","url":"/sys/list/","seq":2},{"mode":0,"img":null,"linkid":145,"name":"数据导入导出日志","id":1981,"key":"ExpImpDataLog","url":"/datalog/expimp/mgr/","seq":3},{"mode":0,"img":null,"linkid":151,"name":"系统状态","id":1982,"key":"SysStatus","url":"/sys/status/","seq":4}],"key":"SystemLog","seq":4},"key":"SystemLog","seq":4,"pageLink":""},{"img":null,"openMode":"","name":"工作日志","id":689,"type":0,"menu":{"img":null,"name":"UserLog","id":689,"type":0,"items":[{"mode":0,"img":null,"linkid":97,"name":"工作日志配置列表","id":1983,"key":"WorkLogConfgList","url":"/sys/workmgr/","seq":0},{"mode":0,"img":null,"linkid":104,"name":"工作日志管理","id":1984,"key":"WorkLogMgr","url":"/sys/worklist/","seq":1}],"key":"UserLog","seq":5},"key":"UserLog","seq":5,"pageLink":""},{"img":null,"openMode":"","name":"消息","id":690,"type":0,"menu":{"img":null,"name":"Message","id":690,"type":0,"items":[{"mode":1,"img":null,"linkid":106,"name":"发布消息","id":1985,"key":"SentMessage","url":"/notice/user/sent/","seq":0},{"mode":0,"img":null,"linkid":107,"name":"已读消息","id":1986,"key":"ReadMessage","url":"/notice/user/readlist/","seq":1},{"mode":0,"img":null,"linkid":108,"name":"未读消息","id":1987,"key":"NotMessage","url":"/notice/user/","seq":2}],"key":"Message","seq":6},"key":"Message","seq":6,"pageLink":""},{"img":null,"openMode":"","name":"数据库管理","id":691,"type":0,"menu":{"img":null,"name":"DBManager","id":691,"type":0,"items":[{"mode":0,"img":null,"linkid":148,"name":"数据库子库列表","id":1988,"key":"SubDbList","url":"/logicdb/","seq":0},{"mode":0,"img":null,"linkid":105,"name":"逻辑数据库配置","id":1989,"key":"DBMgr","url":"/db/mgr/","seq":1}],"key":"DBManager","seq":7},"key":"DBManager","seq":7,"pageLink":""},{"img":null,"openMode":"","name":"比对分区","id":692,"type":0,"menu":{"img":null,"name":"SysMatch","id":692,"type":0,"items":[{"mode":0,"img":null,"linkid":140,"name":"比对分区","id":1990,"key":"SysMatch","url":"/match/partition/","seq":0},{"mode":0,"img":null,"linkid":153,"name":"比对分区模板列表","id":1991,"key":"MatchPartitionTemplateList","url":"/match/partition/template","seq":1}],"key":"SysMatch","seq":8},"key":"SysMatch","seq":8,"pageLink":""},{"img":null,"openMode":"","name":"刑专","id":693,"type":0,"menu":{"img":null,"name":"xingzhuan","id":693,"type":0,"items":[{"mode":0,"img":null,"linkid":507,"name":"刑专成功上报数据列表","id":1992,"key":"XzUploadLogList","url":"/xz/upload/list/log","seq":0},{"mode":0,"img":null,"linkid":508,"name":"刑专上报队列","id":1993,"key":"XzUploadQueueList","url":"/xz/upload/list/queue","seq":1},{"mode":0,"img":null,"linkid":509,"name":"刑专操作日志列表","id":1994,"key":"XzxcOperationsLogList","url":"/xz/xc/list/log","seq":2},{"mode":1,"img":null,"linkid":510,"name":"协查服务器参数配置","id":1995,"key":"XzxcParam","url":"/xz/xc/param","seq":3},{"mode":0,"img":null,"linkid":511,"name":"协查任务列表","id":1996,"key":"XzxcTaskList","url":"/xz/xc/list/task","seq":4},{"mode":0,"img":null,"linkid":512,"name":"协查任务历史记录","id":1997,"key":"XzxcTaskHistoryList","url":"/xz/xc/list/taskHistory","seq":5}],"key":"xingzhuan","seq":9},"key":"xingzhuan","seq":9,"pageLink":""},{"mode":0,"img":null,"linkid":101,"name":"队列管理","id":1951,"key":"QueMgr","url":"/sys/queuetask/","seq":10},{"mode":0,"img":null,"linkid":115,"name":"组织机构","id":1952,"key":"Unitlevel","url":"/sys/unitlevel/","seq":11},{"mode":0,"img":null,"linkid":132,"name":"代码表管理","id":1953,"key":"CodeTableMgr","url":"/sys/codemgr/","seq":12},{"mode":0,"img":null,"linkid":141,"name":"数据过滤","id":1954,"key":"DataFilter","url":"/sys/datafilter/cfglist","seq":13},{"mode":0,"img":null,"linkid":142,"name":"配额","id":1955,"key":"Quota","url":"/sys/quotalist/","seq":14},{"mode":0,"img":null,"linkid":146,"name":"回收站管理","id":1956,"key":"RecycleBinManger","url":"/sys/recyclebinmgr/mgr","seq":15},{"mode":0,"img":null,"linkid":149,"name":"客户端注册管理","id":1957,"key":"UserComputerInfoMgr","url":"/user/computerinfomgr/mgr","seq":16},{"mode":0,"img":null,"linkid":515,"name":"排查任务列表","id":1958,"key":"LaisTaskList","url":"/laischeck/laisTaskList","seq":17}],"key":"System","seq":5}];
+    var zTree;
+    var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function (treeId, treeNode) {
+
+                },
+                onCheck: function (event, treeId, treeNode) {
+                    console.log(treeNode.tId + ", " + treeNode.name + "," + treeNode.checked);
+                    console.log(zTree.getCheckedNodes(true));
+                }
+
+
+            },
+            check: {
+                enable: true, chkboxType:
+                    {
+                        "Y":
+                            "ps", "N":
+                            "ps"
+                    }
+            }
+        }
+    ;
+    //{id: 1, pId: 0, name: "捺印", open: true},
+    var data = [];
+    $.each(menuCfg, function (index, model) {
+        data.push({id: model.key, pId: 0, name: model.name, open: true});
+        var pid = model.key;
+        $.each(model.items, function (index, model) {
+            if(model){
+                if (model.url) {
+                    data.push({id: model.linkid, pId: pid, name: model.name});
+                } else {
+                    $.each(model.menu.items, function (index, model) {
+                        if (model.url) {
+                            data.push({id: model.linkid, pId: pid, name: model.name});
+                        }else{
+                            $.each(model.menu.items, function (index, model) {
+                                if (model.url) {
+                                    data.push({id: model.linkid, pId: pid, name: model.name});
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    });
+    var $tree = $("#tree");
+    zTree = $.fn.zTree.init($tree, setting, data);
+
+
+</script>
+</html>

@@ -1,0 +1,97 @@
+
+var MasterTemplate = {
+
+    getJWTCookieExpiration: function(idToken) {
+        var payload = JSON.parse(atob(idToken.split('.')[1]));
+        return new Date(payload.exp*1000).toUTCString();
+    },
+
+    updateLoginState: function(loggedIn, refreshToken) {
+        if (loggedIn) {
+            $('.login-menu').css('display', 'none');
+            $('.logout-menu').css('display', 'list-item');
+        } else {
+            $('.login-menu').css('display', 'list-item');
+            $('.logout-menu').css('display', 'none');
+        }
+
+        // Update the refresh token with the user
+        if (typeof(ExtensionApi) != 'undefined') {
+            ExtensionApi.sendRequest({ type: 'UPDATE_REFRESHTOKEN', token: refreshToken });
+        }
+    },
+
+    initFirebase: function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                this.updateLoginState(true, user.refreshToken);
+
+                // Get the JWT token
+                firebase.auth().currentUser.getIdToken().then(function(idToken) {
+                    var expires = this.getJWTCookieExpiration(idToken);
+                    document.cookie = 'jwt=' + idToken + ';domain=.ietab.net;path=/;expires=' + expires;
+
+                    var match = document.location.href.match(/returnurl=([^&]*)/);
+                    if (match) {
+                        document.location.href = match[1];
+                    } else {
+                        // Make sure we don't infinitely loop retrying during this session
+                        match = document.cookie.match(/[; ]triedpostlogin=([^\\s;]*)/);
+                        if (!match) {
+                            match = document.cookie.match(/[; ]postloginietaburl=([^\s;]*)/);
+
+                            if (match) {
+                                // Delete the cookie
+                                document.cookie='postloginietaburl=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.ietab.net;path=/';
+                                // Set the cookie that prevents infinite redirect.  Can only do this once per minute
+                                var exp = new Date();
+                                exp.setTime(exp.getTime() + 60*1000);
+                                document.cookie='triedpostlogin=1; expires=' + exp.toGMTString();
+
+                                // Use the IE Tab API to launch this URL
+                                window.ietab.requestAccess(true, function(allowed) {
+                                    if (allowed) {
+                                        window.ietab.openWithIETab(decodeURIComponent(match[1]));
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }.bind(this));
+            } else {
+                this.updateLoginState(false, null);
+            }
+        }.bind(this));
+        $('.logout-link').click(function() {
+            firebase.auth().signOut();
+            document.cookie = 'jwt=;domain=.ietab.net;path=/';
+            this.updateLoginState(false, null);
+            document.location.reload();
+            return false;
+        }.bind(this));
+    },
+
+    init: function() {
+        if($('headertext').length) {
+            $('#main-header-size1').text($('headertext').attr('value'));
+        }
+        if($('headertext2').length) {
+            $('#main-header-size2').text($('headertext2').attr('value'));
+        }
+
+        $(function() {
+            var footer = $('#footer');
+            if (footer.length) {
+                footer = footer[0];
+                if(footer.offsetTop+footer.offsetHeight < document.body.offsetHeight) {
+                    footer.style.position = "fixed";
+                    footer.style.bottom = "0px";
+                }
+            }
+        });
+
+        this.initFirebase();
+    }
+}
+
+MasterTemplate.init();

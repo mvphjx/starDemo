@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>细节特征与图像 旋转</title>
+    <style>
+        .canvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid rgb(170, 170, 170);
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="../js/fabric.js"></script>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+
+<body style="padding-left: 10px;">
+<script>
+    var el = $('<canvas/>');
+    var canvas = new fabric.Canvas(el[0], {selection: false});
+    canvas.setWidth(300);
+    canvas.setHeight(300);
+    var rect = new fabric.Rect({  fill: '#00FFAB', top: 150, left: 150, width: 100, height: 100, selectable: false, 'originX': 'center', 'originY': 'center' });
+    canvas.add(rect);
+
+    $('body').append(canvas.wrapperEl);
+
+    var toCanvasPoint = function (canvas, absoluteX, absoluteY) {
+        var offset = fabric.util.getElementOffset(canvas.lowerCanvasEl), localX = absoluteX - offset.left, localY = absoluteY - offset.top;
+        return new fabric.Point(localX, localY);
+    }, offsetToObject = function (object, point) {
+        var offsetPoint = new fabric.Point(object.left, object.top);
+        return point.subtract(offsetPoint);
+    }, start, end;
+    canvas.on('mouse:down', function (opts) {
+        start = offsetToObject(rect,
+            toCanvasPoint(canvas, opts.e.clientX, opts.e.clientY));
+
+    });
+    canvas.on('mouse:up', function () {
+        start = undefined;
+
+    });
+    canvas.on('mouse:move', function (opts) {
+        end = offsetToObject(rect,
+            toCanvasPoint(canvas, opts.e.clientX, opts.e.clientY));
+        if (start !== undefined) {
+            var deltaAngle = fabric.util.radiansToDegrees(Math.atan2(start.x,
+                start.y) - Math.atan2(end.x, end.y)), oldAngle = rect.get('angle');
+            var angle = oldAngle + deltaAngle;
+            rect.set('angle', angle);
+            start = end;
+            canvas.renderAll();
+        }
+    });
+</script>
+</body>
+
+</html>

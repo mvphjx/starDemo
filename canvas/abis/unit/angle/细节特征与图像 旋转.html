@@ -3,13 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,
-				initial-scale=1.0,
-				maximum-scale=1.0,
-				user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>细节特征</title>
+    <title>细节特征与图像 旋转</title>
     <style>
         .canvas {
             width: 400px;
@@ -20,8 +16,7 @@
 
 
     </style>
-    <script src="../js/fabric_with_gestures.js"></script>
-
+    <script src="../../js/fabric.js"></script>
     <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
@@ -33,12 +28,14 @@
 <br/>
 <div>
     <textarea style="width: 300px;height: 300px;" id="jsondata">
-{"version":"2.2.4","objects":[{"type":"image","version":"2.2.4","originX":"left","originY":"top","left":0,"top":0,"width":723,"height":720,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"selectable":false,"hoverCursor":"default","src":"http://localhost:63342/starDemo/canvas/abis/img/%E6%8C%87%E7%BA%B9.jpg","filters":[]},{"type":"group","version":"2.2.4","originX":"center","originY":"center","left":410.4,"top":446.4,"width":61,"height":61,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"selectable":true,"hoverCursor":null,"objects":[{"type":"rect","version":"2.2.4","originX":"center","originY":"top","left":0,"top":0,"width":20,"height":100,"fill":"red","stroke":"red","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":-104,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0,"selectable":false,"hoverCursor":null},{"type":"circle","version":"2.2.4","originX":"center","originY":"center","left":0,"top":0,"width":60,"height":60,"fill":"yellow","stroke":"yellow","strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":76,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"radius":30,"startAngle":0,"endAngle":6.283185307179586,"selectable":false,"hoverCursor":null}]}],"hoverCursor":"move"}
+
 
     </textarea>
     <input type="button" value="序列化" id="Serialize"></input>
     <input type="button" value="反序列化" id="Deserialize"></input>
     <input type="button" value="隐藏细节特征" id="HideMnt"></input>
+    <input type="button" value="顺时针旋转" onclick="angle(10)"></input>
+    <input type="button" value="逆时针旋转" onclick="angle(-10)"></input>
 </div>
 <script>
     //变量声明
@@ -63,36 +60,29 @@
         width: 800,
         height: 500
     });
-    //监听触摸与鼠标事件
-    canvas.on({
-        'touch:drag': function (data) {
-            var eventType = data.e.type;
-            var point = {x:data.self.x,y:data.self.y};
-            switch (eventType){
-                case "touchstart":
-                case "mousedown":
-                    beginEvent(point);
-                    break;
-                case "touchmove":
-                case "mousemove":
-                    moveEvent(point);
-                    break;
-                case undefined:
-                    endEvent(point);
-            }
-        }
-    });
-
-    function beginEvent(point) {
+    //绑定画板事件  "rectangle" 长方形
+    canvas.on("mouse:down", function(options) {
         if(canvas.getActiveObject()){
             return;
         }
-        var xy = transformMouse(point.x, point.y);
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
         mouseFrom.x = xy.x;
         mouseFrom.y = xy.y;
         doDrawing = true;
-    }
-    function moveEvent(point) {
+    });
+    canvas.on("mouse:up", function(options) {
+        if(canvas.getActiveObject()){
+            return;
+        }
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
+        mouseTo.x = xy.x;
+        mouseTo.y = xy.y;
+        // drawing();
+        drawingObject = null;
+        moveCount = 1;
+        doDrawing = false;
+    });
+    canvas.on("mouse:move", function(options) {
         if(canvas.getActiveObject()){
             return;
         }
@@ -101,26 +91,14 @@
             return;
         }
         moveCount++;
-        var xy = transformMouse(point.x, point.y);
+        var xy = transformMouse(options.e.offsetX, options.e.offsetY);
         mouseTo.x = xy.x;
         mouseTo.y = xy.y;
         drawing();
-    }
-    function endEvent(point) {
-        if(canvas.getActiveObject()){
-            return;
-        }
-        var xy = transformMouse(point.x, point.y);
-        mouseTo.x = xy.x;
-        mouseTo.y = xy.y;
-        // drawing();
-        drawingObject = null;
-        moveCount = 1;
-        doDrawing = false;
-    }
+    });
     // images
     var top_img=0,left_img=0,zoom =1;
-    var finger = new fabric.Image.fromURL('../img/指纹.jpg', function(image) {
+    var finger = new fabric.Image.fromURL('../../img/指纹.jpg', function(image) {
         if(canvas.width/image.width >canvas.height/image.height){
             zoom=canvas.height/image.height;
             left_img = Math.abs((image.width*zoom-canvas.width)/2)
@@ -152,15 +130,13 @@
         if (drawingObject) {
             canvas.remove(drawingObject);
         }
-        var width =20,height=20,radius=30;
-        var distance =  100;//line length is static .
         var canvasObject = null;
         var line = new fabric.Rect({
             left: 0,
             top: 0,
             strokeWidth: 1,
-            width: width,
-            height: height,
+            width: 2,
+            height: 2,
             stroke: 'red',
             fill: 'red',
             selectable: false,
@@ -170,21 +146,19 @@
             left: 0,
             top: 0,
             strokeWidth: 1,
+            width: 5,
+            height: 5,
             stroke: 'yellow',
             fill: 'yellow',
             selectable: false,
             originX: 'center',
             originY: 'center',
-            radius:radius
+            radius:3
         });
         //进行组合
         canvasObject = new fabric.Group([ line,circle], {
-            // left: mouseFrom.x-radius,
-            // top: mouseFrom.y-radius,
             left: mouseFrom.x,
             top: mouseFrom.y,
-            originX: 'center',
-            originY: 'center',
             angle: 0
         });
         if (canvasObject) {
@@ -192,7 +166,7 @@
             drawingObject = canvasObject;
         }
         var angle = getAngle(mouseFrom.x, mouseFrom.y, mouseTo.x, mouseTo.y)||0; //转换角度
-
+        var distance =  10;//line length is static .
         canvasObject.item(0).set({ height: distance, angle: angle - 180 });
         canvasObject.item(1).set({ left: canvasObject.item(0).left, top: canvasObject.item(0).top, angle: angle });
         canvas.renderAll();
@@ -251,13 +225,53 @@
     });
     $("#HideMnt").click(function () {
         var groups= canvas.getObjects('group')
-        for(var i=0 ;i<groups.length;i++){
-            groups[i].set({"visible":!groups[i].get("visible")});
-        }
-        canvas.renderAll()
     });
+    function angle(value) {
+        //fabric.util.rotatePoint
+        var image = canvas.getObjects("image")[0];
+        var angle = image.get('angle')+value;
+        image.rotate(angle);
+        canvas.renderAll();
+    }
+
+    /**
+     var rotation_origin = new fabric.Point(200,300);
+     var angle_radians = fabric.util.degreesToRadians(50);
+     var start = fabric.util.rotatePoint(new fabric.Point(0,0),rotation_origin,angle_radians);
+     var end = fabric.util.rotatePoint(new fabric.Point(100,100),rotation_origin,angle_radians);
+     var line1 = new fabric.Line([start.x,start.y,end.x,end.y],{
+ stroke:'＃000000',
+ strokeWidth:6
+});
+     canvas.add(line1);
+     canvas.renderAll();
+
+     canvas.getObjects("line")[0].rotate(90)
+     canvas.renderAll();
+     canvas.getObjects("line")[0].set(angle:30)
+     canvas.renderAll();
 
 
+     fabric.Image.fromURL(src, function(oImg) {
+    oImg.set({
+        width: 200,
+        height: 200,
+        originX:  'left',
+        originY: 'top',
+        selectable: false
+    });
+    canvas.add(oImg);
+    canvas.centerObject(oImg);
+    oImg.sendToBack();
+    canvas.renderAll();
+});
+
+     $("#rotate").click(function(){
+    var curAngle = canvas.item(0).getAngle();
+    canvas.item(0).setAngle(curAngle+15);
+    canvas.renderAll();
+});
+     */
 </script>
 </body>
 

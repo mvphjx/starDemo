@@ -5,27 +5,452 @@
     <meta tabindex="">
     <script type="text/javascript"
             src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+    <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
     <script type="text/javascript" src="js/data.js"></script>
 </head>
+<style>
+    .name {
+        margin-top: 20px;
+    }
+
+    .num {
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: -11px;
+        min-height: 10px;
+    }
+
+    p{
+        text-align: center;
+        color: mintcream;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 6px;
+        padding-right: 6px;
+
+    }
+    .vector {
+        width: 78px;
+        height: 78px;
+        border: 1px solid transparent;
+        background-color: #00a75b;
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 18px;
+        cursor: pointer;
+    }
+    .vector:hover {
+        background-color: #d44642;
+    }
+
+    .modellist {
+        width: 438px;
+        height: 100%;
+        padding-top: 112px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: -438px;
+        background-color: #fff;
+        z-index: 0;
+        transition: left .5s;
+        -webkit-transition: left .5s;
+        -moz-transition: left .5s;
+        -o-transition: left .5s;
+    }
+    .slideBar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -280px;
+        width: 280px;
+        background: #12ab66;
+        transition: right .5s;
+        z-index: 999;
+    }
+    .slideBar ul {
+        list-style: none;
+        margin: 10% 0 0 0;
+        padding: 0;
+    }
+    .slideBar ul li {
+        padding: 15px 0 10px 20%;
+    }
+    .slideBar ul li a{
+        color: #ffffff;
+    }
+    .slideBar .closeList {
+        position: absolute;
+        left: -40px;
+        background-color: #fff;
+        display: none;
+        width: 40px;
+        top: 50%;
+        transform: translateY(23px);
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        z-index: 1;
+    }
+    .mapIcon {
+        display: inline-block;
+        background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/map/sprite.svg);
+        background-repeat: no-repeat;
+        position: relative;
+        cursor: pointer;
+    }
+</style>
 <body style="margin:0px;padding:0px">
 <div id="map" style="width:100%;height:100%;"></div>
+<!--右侧边导航栏-->
+<div class="slideBar">
+    <ul>
+        <li><a href="#">案件1</a></li>
+        <li><a href="#">案件2</a></li>
+        <li><a href="#">案件3</a></li>
+        <li><a href="#">案件4</a></li>
+    </ul>
+    <div class="closeList" style="display: block;">
+        <i class="mapIcon"></i>
+    </div>
+</div>
+
+
 <script type="text/javascript">
-    var map, overlays = [], vectors = [];
+    var map, overlays = [];
 
     function initMap() {
+
         map = new IMAP.Map("map", {
             minZoom:10,
             zoom: 11,//设置地图初始化级别
             center: new IMAP.LngLat(116.404269,39.917591),//设置地图中心点坐标
             animation: true//设置地图缩放动画效果
         });
+        var navi = new IMAP.NavigationControl({
+            visible: true
+        });
+        var scale = new IMAP.ScaleControl({
+            visible: true
+        });
+        map.addControl(navi);
+        map.addControl(scale);
         //boundary();
-    }
+        map.addEventListener(IMAP.Constants.ZOOM_CHANGED, function(type, target, zoom){//事件绑定
+            map.getOverlayLayer().clear();
+            var zoom = type.zoom;
+            switch(zoom){
+                case 10:
+                    addLeve10();
+                    break;
+                case 11:
+                    addLeve11();
+                    break;
+                case 12:
+                    addLeve12();
+                    break;
+                case 13:
+                    addLeve13();
+                    break;
+                case 14:
+                    addLeve14();
+                    break;
+                case 15:
+                    addLeve15();
+                    break;
+            }
 
-    function boundary() {
+        }, map);
+        map.addEventListener(IMAP.Constants.MOUSE_OVER, function(type, target, zoom){
+            var zoom = type.zoom;
+            if(zoom>=12){
+
+            }
+
+        }, map);
+
+    }
+    initMap();
+
+    //添加覆盖物 区级别
+    function addLeve10() {
+        var vectors = [];
         if (map) {
-            var keyword = "海淀区";
+            for (var i = 0; i < beijing.length; i++) {
+                var area = beijing[i];
+                var centerlnglat = new IMAP.LngLat(area.longitude, area.latitude);
+                var circle = new IMAP.Circle(
+                        centerlnglat,
+                        4000,  //半径
+                    {
+                        strokeColor: "#12ab66",  //线颜色
+                        strokeOpacity: 1,  //线透明度
+                        strokeWeight: 3,  //线粗细度
+                        fillColor: "#12ab66",  //填充颜色
+                        fillOpacity: 1 //填充透明度
+                    });
+                var html  =  '<p class="name">';
+                html+=area.district_name;
+                html+='</p>';
+                html+= '<p class="num">';
+                html+=area.count;
+                html+='</p>';
+                var label = new IMAP.Label(html
+                    , {
+                        title:area.district_name,
+                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
+                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
+                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
+                        anchor: IMAP.Constants.BOTTOM_CENTER,
+                        fontName: "宋体",
+                        fontColor: "#ff1f24",
+                        fontSize: 12,
+                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
+                        editabled: true
+                    });
+                label.addEventListener(IMAP.Constants.MOUSE_OVER, function(type, target, zoom){
+                    var content=this.getContent();
+                    var name = $(content).eq(0).html();
+                    showArea(name);
+                });
+                label.addEventListener(IMAP.Constants.MOUSE_OUT, function(type, target, zoom){
+                    map.getOverlayLayer().clear(overlays);
+                    overlays = [];
+                });
+                vectors.push(circle);
+                vectors.push(label);
+            }
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    //添加覆盖物 区级别
+    function addLeve11() {
+        var vectors = [];
+        if (map) {
+            for (var i = 0; i < beijing.length; i++) {
+                var area = beijing[i];
+                var html  =  '<div class="vector"><p class="name">';
+                html+=area.district_name;
+                html+='</p>';
+                html+= '<p class="num">';
+                html+=area.count;
+                html+='</p></div>';
+                var label = new IMAP.Label(html
+                    , {
+                        zIndex:10,
+                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
+                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
+                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
+                        anchor: IMAP.Constants.BOTTOM_CENTER,
+                        title: "label",
+                        fontName: "宋体",
+                        fontColor: "#ff1f24",
+                        fontSize: 12,
+                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
+                        editabled: true
+                    });
+                label.addEventListener(IMAP.Constants.MOUSE_OVER, function(type, target, zoom){
+                    var content=this.getContent();
+                    var name =  $(content).find(".name").html();
+                    var reg=new RegExp(/\u5206\u5c40/);
+                    name = name.replace(reg,"");
+                    showArea(name);
+                });
+                label.addEventListener(IMAP.Constants.MOUSE_OUT, function(type, target, zoom){
+                    map.getOverlayLayer().clear(overlays);
+                    overlays = [];
+                });
+                label.addEventListener(IMAP.Constants.CLICK, function(type, target, zoom){
+                    var position=this.getPosition();
+                    map.setCenter(new IMAP.LngLat(position.lng,position.lat), 13);
+                });
+                //vectors.push(circle);
+                vectors.push(label);
+            }
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    function addLeve12() {
+        var vectors = [];
+        if (map) {
+            var data = beijing;
+            for (var i = 0; i < data.length; i++) {
+                var area = data[i];
+                var centerlnglat = new IMAP.LngLat(area.longitude, area.latitude);
+                var circle = new IMAP.Circle(
+                    centerlnglat,
+                    2000,  //半径
+                    {
+                        strokeColor: "#12ab66",  //线颜色
+                        strokeOpacity: 1,  //线透明度
+                        strokeWeight: 3,  //线粗细度
+                        fillColor: "#12ab66",  //填充颜色
+                        fillOpacity: 1 //填充透明度
+                    });
+                var html  =  '<p class="name">';
+                html+=area.district_name;
+                html+='</p>';
+                html+= '<p class="num">';
+                html+=area.count;
+                html+='</p>';
+                var label = new IMAP.Label(html
+                    , {
+                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
+                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
+                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
+                        anchor: IMAP.Constants.BOTTOM_CENTER,
+                        title: "label",
+                        fontName: "宋体",
+                        fontColor: "#ff1f24",
+                        fontSize: 12,
+                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
+                        editabled: true
+                    });
+                vectors.push(circle);
+                vectors.push(label);
+            }
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    //添加覆盖物 派出所级别
+    function addLeve13() {
+        var vectors = [];
+        if (map) {
+            var data = haidian;
+            for (var i = 0; i < data.length; i++) {
+                var area = data[i];
+                var centerlnglat = new IMAP.LngLat(area.longitude, area.latitude);
+                var circle = new IMAP.Circle(
+                    centerlnglat,
+                    500,  //半径
+                    {
+                        strokeColor: "#12ab66",  //线颜色
+                        strokeOpacity: 1,  //线透明度
+                        strokeWeight: 3,  //线粗细度
+                        fillColor: "#12ab66",  //填充颜色
+                        fillOpacity: 1 //填充透明度
+                    });
+                var html  =  '<p class="name">';
+                html+=area.district_name;
+                html+='</p>';
+                html+= '<p class="num">';
+                html+=area.count;
+                html+='</p>';
+                var label = new IMAP.Label(html
+                    , {
+                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
+                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
+                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
+                        anchor: IMAP.Constants.BOTTOM_CENTER,
+                        title: "label",
+                        fontName: "宋体",
+                        fontColor: "#ff1f24",
+                        fontSize: 12,
+                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
+                        editabled: true
+                    });
+                vectors.push(circle);
+                vectors.push(label);
+            }
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    //添加覆盖物 派出所级别
+    function addLeve14() {
+        var vectors = [];
+        if (map) {
+            var data = haidian;
+            for (var i = 0; i < data.length; i++) {
+                var area = data[i];
+                var centerlnglat = new IMAP.LngLat(area.longitude, area.latitude);
+                var circle = new IMAP.Circle(
+                    centerlnglat,
+                    250,  //半径
+                    {
+                        strokeColor: "#12ab66",  //线颜色
+                        strokeOpacity: 1,  //线透明度
+                        strokeWeight: 3,  //线粗细度
+                        fillColor: "#12ab66",  //填充颜色
+                        fillOpacity: 1 //填充透明度
+                    });
+                var html  =  '<p class="name">';
+                html+=area.district_name;
+                html+='</p>';
+                html+= '<p class="num">';
+                html+=area.count;
+                html+='</p>';
+                var label = new IMAP.Label(html
+                    , {
+                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
+                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
+                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
+                        anchor: IMAP.Constants.BOTTOM_CENTER,
+                        title: "label",
+                        fontName: "宋体",
+                        fontColor: "#ff1f24",
+                        fontSize: 12,
+                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
+                        editabled: true
+                    });
+                vectors.push(circle);
+                vectors.push(label);
+            }
+            map.getOverlayLayer().addOverlays(vectors, false);
+        }
+    }
+    //添加标记点 案件级别
+    //添加点标注
+    function toggleAddMarker(model) {
+        var longitude = model.longitude;
+        var latitude = model.latitude;
+        if (map) {
+            var opts = new IMAP.MarkerOptions();
+            opts.anchor = IMAP.Constants.BOTTOM_CENTER;
+            opts.icon = new IMAP.Icon(IMAP.MapConfig.API_REALM_NAME + "images/point_1.png", {
+                "size": new IMAP.Size(35, 30),
+                "offset": new IMAP.Pixel(1, 0)
+            });
+            var lnglat = new IMAP.LngLat(longitude, latitude);
+            if (lnglat) {
+                var marker = new IMAP.Marker(lnglat, opts);
+                map.getOverlayLayer().addOverlay(marker, false);
+                marker.setLabel(model.name, {"anchor": IMAP.Constants.TOP_CENTER});
+                marker.addEventListener(IMAP.Constants.CLICK,function(model1){
+                    marker.openInfoWindow('<div style="padding:0px 0px 0px 4px;">'+model.name+'<br>'+model.name+'</div>', {
+                        "size": new IMAP.Size(300, 200),
+                        "offset": new IMAP.Pixel(-5, -35),
+                        "title": "案件详情",
+                        visible: true
+                    });
+                })
+            }
+        }
+    }
+    function addLeve15() {
+        var vectors = [];
+        if (map) {
+            var data = lpcaselist;
+            for (var i = 0; i < data.length; i++) {
+                toggleAddMarker(data[i])
+            }
+        }
+    }
+    addLeve11();
+    var cacheMap ={};
+    function showArea(name) {
+        if (map) {
+            map.getOverlayLayer().clear(overlays);
+            overlays = [];
+            var keyword = name;
+            if(cacheMap[keyword]){
+                overlays.push(cacheMap[keyword]);
+                map.getOverlayLayer().addOverlays(overlays, false);
+                return;
+            }
             map.plugin(['IMAP.DistrictSearch'], function () {
                 boundarySearch = new IMAP.DistrictSearch();
                 boundarySearch.search(keyword,
@@ -45,89 +470,36 @@
                                             lnglats.push(lnglat);
                                         }
                                         var polygon = new IMAP.Polygon(lnglats, {
-                                            fillOpacity: 0.5,
+                                            fillOpacity: 0.25,
                                             strokeStyle: IMAP.Constants.OVERLAY_LINE_DASHED,
                                             strokeWeight: 2
                                         });
+                                        cacheMap[keyword]=polygon;
                                         overlays.push(polygon);
                                     }
                                 }
                             }
-                            map.getOverlayLayer().addOverlays(overlays, true);
-                        }
-                    });
-                boundarySearch.search("丰台区",
-                    function (status, result) {
-                        if (status == 0) {
-                            var paths = result.results, pathArray;
-                            for (var i = 0, l = paths.length; i < l; ++i) {
-                                if (paths[i]) {
-                                    pathArray = paths[i].polyline.split("|");
-                                    var path;
-                                    for (var j = 0, jl = pathArray.length; j < jl; ++j) {
-                                        lnglats = [];
-                                        path = pathArray[j].split(";");
-                                        for (var n = 0, nl = path.length; n < nl; ++n) {
-                                            var lnglat = path[n].split(",");
-                                            lnglat = new IMAP.LngLat(lnglat[0], lnglat[1]);
-                                            lnglats.push(lnglat);
-                                        }
-                                        var polygon = new IMAP.Polygon(lnglats, {
-                                            fillOpacity: 0.5,
-                                            strokeStyle: IMAP.Constants.OVERLAY_LINE_DASHED,
-                                            strokeWeight: 2
-                                        });
-                                        overlays.push(polygon);
-                                    }
-                                }
-                            }
-                            map.getOverlayLayer().addOverlays(overlays, true);
+                            map.getOverlayLayer().addOverlays(overlays, false);
                         }
                     });
             });
-
         }
     }
 
-    initMap();
 
-    //添加覆盖物
-    function toggleAddVector() {
-        if (map) {
-            for (var i = 0; i < beijing.length; i++) {
-                var area = beijing[i];
-                var centerlnglat = new IMAP.LngLat(area.longitude, area.latitude);
-                var circle = new IMAP.Circle(
-                        centerlnglat,
-                        2000,  //半径
-                    {
-                        strokeColor: "#35ee76",  //线颜色
-                        strokeOpacity: 1,  //线透明度
-                        strokeWeight: 3,  //线粗细度
-                        fillColor: "#60ee94",  //填充颜色
-                        fillOpacity: 0.35 //填充透明度
-                    });
-                var label = new IMAP.Label(area.district_name + "<br/>" + area.count
-                    , {
-                        type: IMAP.Constants.OVERLAY_LABEL_HTML,
-                        position: new IMAP.LngLat(area.longitude, area.latitude),//基点位置
-                        offset: new IMAP.Pixel(0, 15),//相对于基点的位置
-                        anchor: IMAP.Constants.BOTTOM_CENTER,
-                        title: "label",
-                        fontName: "宋体",
-                        fontColor: "#ff1f24",
-                        fontSize: 12,
-                        fontBold: false,//在html5 marker的情况下，是否允许marker有背景
-                        editabled: true
-                    });
-                vectors.push(circle);
-                vectors.push(label);
-            }
-            map.getOverlayLayer().addOverlays(vectors, false);
+    var $closeList = $(".closeList");
+    var slideBar = $(".slideBar");
+    $closeList.on('click', changeBar);//点击更多显示slide
+    function changeBar() {
+        var right = slideBar.css("right")
+        if(right=="0px"){
+            slideBar.css('right', - slideBar.width()) //修改CSS
+        }else{
+            slideBar.css('right', 0); //修改CSS
         }
     }
 
-    toggleAddVector();
+
 </script>
 </body>
 </html>

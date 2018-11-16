@@ -1,0 +1,60 @@
+.gtable_panel				{overflow:auto;}
+.gtable						{width:100%;font-size:13px;}
+.gtable .header				{height:22px;line-height:22px;}
+.gtable .header .title		{text-align:left; height:100%;cursor:default;white-space:nowrap; border-bottom:1px solid #bab8b8;border-right:1px solid #bab8b8;}
+
+.gtable .normal		{background:url(../image/header.png) repeat-x;}
+.gtable .hover		{background:url(../image/header_hover.png) repeat-x;}
+.gtable .down		{background:url(../image/header_down.png) repeat-x;}
+
+.gtable .headerLab	{text-indent:5px;font-weight:bold;}
+.gtable	.order_dec	{float:right;margin-left:-16px;margin-right:2px;width:12px;height:12px;line-height:12px;margin-top:5px;background:url(../image/order_d.png) no-repeat;}
+.gtable	.order_asc	{float:right;margin-left:-16px;margin-right:2px;width:12px;height:12px;line-height:12px;margin-top:5px;background:url(../image/order_a.png) no-repeat;}
+
+.gtable .srow		{height:22px;line-height:22px;background-color:#FCFCFD;cursor:default;text-align:left;}
+.gtable .drow		{height:22px;line-height:22px;background-color:#F4F8FB;cursor:default;text-align:left;}
+.gtable .rowhover	{height:22px;line-height:22px;background-color:#F3FCEC!important;cursor:default;text-align:left;}
+.gtable .rowdown	{height:22px;line-height:22px;background-color:#E7F8DA!important;cursor:default;text-align:left;white-space:nowrap;}
+.gtable .cell		{height:22px;padding:0px 2px;overflow:hidden;max-width:300px;border-bottom:1px solid #e4e5e6;border-right:1px solid #e4e5e6;cursor:default;white-space:nowrap;}
+.gtable .cell_min_w	{min-width:50px;}
+.gtable .first_cell	{border-left:1px solid #e4e5e6;}
+.gtable .check_min_w{width:32px;max-width:32px;}
+.gtable .cell a		{color: #0F4AC4;height: 22px;text-decoration: none;}
+.gtable .autocut {
+    width:200px;overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -icab-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+}
+
+.backup				{text-overflow:ellipsis;white-space:nowrap; }
+
+.gMenu				{padding:2px;position:absolute;z-index:999;left:200px;background-color:#F2F3F4;border:1px solid #B9D9EC;box-shadow: 1 1 5px #CFE5F2;display:none;}
+.grow				{height:24px;line-height:24px;overflow: hidden;}
+.gItem				{margin:1px 1px;height:22px;line-height:22px;cursor:default;}
+.gselectItem		{margin:0px;margin-bottom:3px;background-color:#F1F8FE;border-radius:3px;border:1px solid #AECFF7;}
+.gItemLogo			{float:left;width:16px;height:16px;margin-left:2px;margin-top:2px;border:0px solid #5F81A4;}
+.gVerticalLine		{float:left;width:0px;margin-left:3px;margin-top:-2px;margin-bottom:-2px;height:26px;border-left:1px solid #E2E3E3;border-right:1px solid white;}
+.gVLineSelect		{margin-top:0px;margin-bottom:0px;height:22px;}
+.gItemTxt			{float:left;text-indent:4px;}
+
+
+/** 菜单中的分割线样式 */
+.gVSeparator		{float:left;margin-left:22px;width:0px;height:2px;margin-right:1px;border-left:1px solid #E2E3E3;border-right:1px solid white;}
+.gHSeparator		{margin-left:24px; margin-right:1px;height:0px;line-height:0px;border-top:1px solid #E2E3E3;border-bottom:1px solid white;}
+/*字段超长 tip提示框*/
+.td_showdiv {width:200px;height: auto;background: #1c1c1c;position: absolute;display: none;padding: 5px 10px;word-wrap:break-word;color: #f3f0f6;z-index: 9999;}
+
+.fix-table-header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 101;
+}
+#tablr{
+    position: relative;
+}

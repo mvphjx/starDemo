@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/webtable.css" />
+    <link rel="stylesheet" type="text/css" href="css/webtable_pagenum.css" />
+</head>
+<body>
+<div id="table"></div>
+<div id="pageBar"></div>
+
+</body>
+<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/webutil.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/webtable.js"></script>
+<script type="text/javascript" src="js/webtable_pagenum.js"></script>
+<script type="text/javascript" src="js/webtablemgr.js"></script>
+<script>
+    var callBack = {
+        dbClick:function(){
+            console.log("双击")
+        },
+        onClick:function () {
+            console.log("单击 ")
+        },
+        refresh:function () {
+            console.log("刷新 比如翻页")
+        }
+    };
+    var menu =
+        {
+            selectItem: function () {
+                console.log("selectItem")
+            },
+            menuItem: [//菜单项
+                {id: "1", type: 0, txt: "1"},
+                {type: 1},
+                {id:  "2", type: 0, txt: "2"},
+                {id:  "3", type: 0, txt: "3"}
+            ]
+        };
+    var setting =
+        {
+            callBack	: callBack,
+            menu		: menu,
+            sort		: {colName:"ID", order:0 },
+            multiSelect: true,
+            link		: {cols:["ID"],callBack:function(){}},
+            pageBarId	: "pageBar",
+            order		: WebCode.Order.DESC,
+            isCheck		: true,
+            //freezeCols	: ["ID"],
+            //设置列排序
+            canSort     : true,
+            //是否允许选中全部，默认为true，点击checkbox列的列标题，选中所有；传值FALSE，则禁用选中全部功能
+            checkAll	: true
+        };
+
+var tableComponent = new WebTable("table",setting)
+tableComponent.setInput(result.tblData);
+
+</script>
+</html>

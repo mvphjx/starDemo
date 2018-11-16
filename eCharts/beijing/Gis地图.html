@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+    <meta charset="UTF-8">
+    <title>
+    </title>
+
+</head>
+<style>
+    .gisMap {
+        height: 900px;
+    }
+    .name {
+        margin-top: 20px;
+    }
+
+    .num {
+        font-size: 13px;
+        font-weight: bold;
+        /*margin-top: -11px;*/
+        min-height: 10px;
+    }
+
+    .vector p {
+        text-align: center;
+        color: mintcream;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 6px;
+        padding-right: 6px;
+
+    }
+
+    .vector {
+        width: 78px;
+        height: 78px;
+        border: 1px solid transparent;
+        background-color: #00a75b;
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 18px;
+        cursor: pointer;
+        /*white-space: initial;*/
+    }
+
+    .vector:hover {
+        background-color: #d44642;
+
+    }
+
+</style>
+<body>
+<div class="gisMap" >
+    <div id="map" style="width: 100%;height: 100%;"></div>
+</div>
+</body>
+<script type="text/javascript"
+        src="https://dingtalk.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=9b2f2e65f5e1849100c6fbf80a134c3e"></script>
+<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/gis/jquery.json-2.2.min.js"></script>
+<script src="js/gis/jquery.ajax.js"></script>
+<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+<script src="js/gis/abislayer.js"></script>
+<script src="js/data.js"></script>
+<script src="js/gis/webcode.js"></script>
+<script src="js/gis/webutil.js"></script>
+<script src="js/gis/gishelper.js"></script>
+
+</html>

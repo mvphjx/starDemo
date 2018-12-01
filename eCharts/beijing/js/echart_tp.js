@@ -14,17 +14,13 @@ var EchartTPComponent = function () {
         }
     };
     var option = {
-        title: {
-            text: '档案数据采集排行',
-            subtext: '月度'
-        },
         tooltip : {
             trigger: 'axis',
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             }
         },
-        legend: {},
+        legend: {top:30},
         grid: {
             left: '3%',
             right: '4%',
@@ -49,7 +45,6 @@ var EchartTPComponent = function () {
     function createOption(object) {
         var thisOption = $.extend(true, {}, option);
         $.each(object, function (key, unitModels) {// 遍历 年月日
-            thisOption.title.subtext = Resource[key];
             var series = [];
             var yAxisData = [];
             var maxLength;

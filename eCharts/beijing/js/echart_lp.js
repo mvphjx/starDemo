@@ -14,15 +14,12 @@ var EchartLPComponent = function () {
         }
     }
     var option = {
-        title: {
-            text: '现场采集工作情况',
-            subtext: '月度'
-        },
         tooltip: {
             trigger: 'axis'
         },
         legend: {
-            data: ['勘查现场数', '现场指掌纹采集数']
+            data: ['勘查现场数', '现场指掌纹采集数'],
+            top:30
         },
         calculable: true,
         xAxis: [
@@ -58,7 +55,6 @@ var EchartLPComponent = function () {
     function createOption(object) {
         var thisOption = $.extend(true, {}, option);
         $.each(object, function (key, unitModels) {// 遍历 年月日
-            thisOption.title.subtext = Resource[key];
             var legendData = [];
             var series = [];
             var xAxisData = [];

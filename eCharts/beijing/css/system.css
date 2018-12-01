@@ -1,0 +1,131 @@
+	/*公共样式*/
+	body{
+		/*background: #011D5C;*/
+		font-family: "微软雅黑";
+		color: #fff;
+		box-sizing: border-box;
+		margin: 0;
+		padding:0;
+		height: 100vh;
+    	overflow: hidden;
+	}
+	*{
+		margin:0;		
+		padding: 0;
+		box-sizing: border-box;
+		list-style:none;
+	}
+	/*index*/
+	.wrap{
+		position: relative;
+	}
+	.wrap-left{
+		width: 32%;
+		padding-left: 16px
+	}
+	.header{
+        padding: 16px 0;
+        height: 67px
+	}
+	.header:before,.header:after{
+		content:"";
+		width: calc((100% - 466px)/2);
+		height: 30px;
+		background: url(../img/1.png) no-repeat;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.header:before{
+		transform:rotate(180deg);
+	}
+	.content{
+		position: absolute;
+		width: 67%;
+		float: right;
+		border:1px solid #002879;
+		margin-left: 33%;
+		height:calc(100% - 4px);
+		top: 0;
+	}
+	.header-text{
+		padding: 0 5px
+	}
+/*系统战果汇总情况*/
+.title{
+		color: #01eafe;
+		font-size: 24px;
+		padding-left: 50px;
+		position: relative;
+		margin-left:-1px;
+		border-left: 1px solid #020A3B
+	}
+	.title:after,.title:before,.line{
+		height: 1px;
+		background:#002879;
+		content: "";
+		position: absolute;
+	}
+	.title:before{
+		width: 26px;
+		left: -3px;
+		top: 22px;
+		display:block;
+		transform: rotate(-40deg);
+	}
+	.title:after{
+		width: calc(100% - 270px);
+		right:0;
+		top: 0
+	}
+	.result-con{
+		width: 100%;
+		height:100vh;
+		border:1px solid #002879;
+		border-top: none;
+		position: relative;
+	}
+	.result-con:before,.result-con:after{
+		position: absolute;
+	    height: 12px;
+	    width: 12px;
+	    display: block;
+	    content: "";
+	    background-size: 12px 12px;
+	}
+	.result-con:before{
+		 background: linear-gradient(225deg, transparent 50%, #0746A3 0%);
+		 left: 0px;
+		 bottom: 0px;
+	}
+	.result-con:after{
+		 background: linear-gradient(45deg, transparent 50%, #0746A3 0%);
+		 right: 0px;
+		 top: 0px
+	}
+	.line{
+		width: 26px;
+		transform: rotate(-40deg);
+		left: 247px;
+		top: 9px
+
+	}
+	.time {
+		text-align: right;
+	}
+	.time span{
+		border: 1px solid #2676FF;
+		border-radius:45px;
+		display:inline-block;
+		font-size: 14px;
+		margin-right: 8px;
+		color: #2676FF;
+		cursor: pointer;
+		width: 40px;
+		height: 22px;
+		text-align:center;
+		line-height: 22px
+	}
+	.time span.active{
+		background: #2676FF;
+		color: #fff;
+	}

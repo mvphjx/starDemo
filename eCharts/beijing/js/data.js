@@ -38,8 +38,22 @@ tpdata.year.push({"unitCode": "", "unitName": "亦庄", data: [{"name": "人员�
 
 var hitdata = {"year": [], "month": [], day: []};
 hitdata.year = [];
-hitdata.year.push({"name":"倒查案件数","count":2587});
-hitdata.year.push({"name":"正查指纹数","count":1765});
+hitdata.year.push({
+    "name": "比对任务",
+    "count": 2587,
+    "data": [{"name": "查重", value: 70},{
+        "name": "串查",
+        value: 15
+    }, {"name": "倒查", value: 40}, {"name": "正查", value: 30} ]
+});
+hitdata.year.push({
+    "name": "比中信息",
+    "count": 1223,
+    "data": [{"name": "查重", value: 10}, {"name": "倒查", value: 20}, {"name": "正查", value: 30}, {
+        "name": "串查",
+        value: 40
+    }]
+});
 
 
 

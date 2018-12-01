@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京市公安局指掌纹识别系统</title>
+    <link rel="stylesheet" type="text/css" href="css/system.css">
+    <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
+    <style type="text/css">
+    	body{
+    		padding: 16px;
+    		background:url(img/bg.png) no-repeat;
+    		background-size:100% 100%;
+    		height: 100vh
+    	}
+    	.iframe1{
+    		height:calc(((100vh - 67px)/3) - 67px)
+    	}
+    </style>
+</head>
+<body>
+	<div class="header"><img src="img/text.png"></div>
+	<div class='wrap'>
+		<div class='wrap-left'>
+			<iframe src="result.html" width="100%" class='iframe1' frameborder="no" border="0" scrolling="no" allowtransparency="yes"></iframe>
+			<iframe src="scene.html" width="100%"  frameborder="no" border="0"  scrolling="no" allowtransparency="yes" style="margin:16px 0" class='iframeItem'></iframe>
+			<iframe src="chop.html" width="100%"  frameborder="no" border="0"   scrolling="no" allowtransparency="yes" class='iframeItem'></iframe>
+		</div>
+		<div class='content'>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var domHei = $(window).height();
+		var hei = $('.iframe1').height();
+		var iframeHei = ((domHei-hei-67)/2)-32;
+		$('.iframeItem').css('height',iframeHei+'px')
+	})
+</script>

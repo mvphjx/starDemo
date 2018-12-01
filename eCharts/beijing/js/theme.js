@@ -34,7 +34,7 @@
             "#546570",
             "#c4ccd3"
         ],
-        "backgroundColor": "#000a46",
+        "backgroundColor": "rgba(0,10,70,0)",
         "textStyle": {},
         "title": {
             "textStyle": {
@@ -286,7 +286,7 @@
             "axisLabel": {
                 "show": true,
                 "textStyle": {
-                    "color": "#00ffff"
+                    "color": "#cccccc"
                 }
             },
             "splitLine": {
@@ -323,14 +323,14 @@
             "axisLabel": {
                 "show": true,
                 "textStyle": {
-                    "color": "#00ffff"
+                    "color": "#cccccc"
                 }
             },
             "splitLine": {
                 "show": true,
                 "lineStyle": {
                     "color": [
-                        "#ccc"
+                        "#cccccc"
                     ]
                 }
             },

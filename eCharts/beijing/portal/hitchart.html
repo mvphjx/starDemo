@@ -8,18 +8,18 @@
 </head>
 <link rel="stylesheet" type="text/css" href="../css/system.css">
 <body>
-<div class='result-con'>
+<div class='result-con' id="hitmain">
     <p class='title'>系统战果汇总情况 <span class='line'></span></p>
-    <p class='time'><span class='active'>日</span><span>月</span><span>年</span></p>
-    <div id="tlhitmain" style="float:left;width:50%;height:100%;margin-top: -30px"></div>
-    <div id="lthitmain" style="float:left;width:50%;height:100%;margin-top: -30px"></div>
+    <p class='time'><span name='day' class='active'>日</span><span name='month'>月</span><span name='year'>年</span></p>
+    <div id="chart1" style="float:left;width:50%;height:100%;margin-top: -30px"></div>
+    <div id="chart2" style="float:left;width:50%;height:100%;margin-top: -30px"></div>
 </div>
 </body>
 <script src="../js/jquery-1.12.3.min.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/theme.js"></script>
 <script src="../js/data.js"></script>
-<script src="echart_hit.js"></script>
+<script src="js/echart_hit.js"></script>
 
 
 </html>

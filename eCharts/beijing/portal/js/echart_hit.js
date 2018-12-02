@@ -3,7 +3,7 @@ var EchartHITComponent = function () {
 
     /**
      * 构造器
-     * @param setting{$parent:父容器}
+     * @param setting{$parent:父容器,timeInterval}
      * @constructor
      */
     var EchartHITComponentClass = function (setting) {
@@ -11,21 +11,73 @@ var EchartHITComponent = function () {
         init.call(this);
     };
     EchartHITComponentClass.prototype = {//这里定义 暴露给外界调用的 接口/方法
-        setObject: function (object) {
-            var options = createOption.call(this, object);
-            this.myTLChart.setOption(options[0]);
-            this.myLTChart.setOption(options[1]);
+        setType:function(type){
+            setType.call(this,type);
+        },
+        /**
+         * 开启自动切换
+         * @param enbale {boolean}
+         */
+        switchAuto:function (enbale) {
+            var _this = this;
+            var $dom = this.config.$parent.find(".time");
+            if(enbale){
+                if(!this.timeout){
+                    this.timeout = setInterval(function(){
+                        var $thisDom = $dom.find(".active");
+                        var $nextDom = $thisDom.next();
+                        if($nextDom.length===0){
+                            $nextDom = $thisDom.prevAll().last()
+                        }
+                        $thisDom.removeClass('active');
+                        $nextDom.addClass('active');
+                        var type = $nextDom.attr("name");
+                        _this.setType(type);
+                    }, this.config.timeInterval||10000);
+                }
+            }else{
+                clearInterval(this.timeout);
+                this.timeout=null;
+            }
         }
     };
     return EchartHITComponentClass;
 
     function init() {
-        this.myLTChart = echarts.init(this.config.$parentLT[0], 'hisign');
-        this.myTLChart = echarts.init(this.config.$parentTL[0], 'hisign');
+        this.myQryChart = echarts.init(this.config.$parent.find("#chart1")[0], 'hisign');
+        this.myHitChart = echarts.init(this.config.$parent.find("#chart2")[0], 'hisign');
     }
-    function createOption(object) {
+    /**
+     * 切换统计类型
+     * @param type DateType
+     */
+    function setType(type){
+        if(!type){
+            type = DateType.day;
+        }
+        var statData = getStatData();
+        var options = createOption.call(this, statData,type)
+        this.myQryChart.setOption(options[0]);
+        this.myHitChart.setOption(options[1]);
+    }
+    /**
+     * 获取统计数据
+     * @returns {{year, month, day}}
+     */
+    function getStatData(){
+        return hitdata;
+    }
+    /**
+     *
+     * @param statData  统计数据
+     * @param type 显示的统计类型
+     */
+    function createOption(statData,type) {
         var result = [];
-        $.each(object, function (key, hitModels) {// 遍历 年月日
+        $.each(statData, function (key, hitModels) {// 遍历 年月日
+            if(type!==key){
+                return true;
+            }
             $.each(hitModels, function (index, hitModel) {//遍历比中类型数组
                 var thisOption;
                 if(index==0){
@@ -33,6 +85,7 @@ var EchartHITComponent = function () {
                 }else{
                     thisOption = createQryOption(hitModel.data);
                 }
+                thisOption.title.text=hitModel.name
                 result.push(thisOption);
             });
         });
@@ -68,7 +121,7 @@ var EchartHITComponent = function () {
                 itemStyle: {
                     normal: {
                         borderWidth: 1,
-                        shadowBlur: 200,
+                        shadowBlur: 0,
                         borderColor:color[i],
                         shadowColor: color[i]
                     }
@@ -116,6 +169,18 @@ var EchartHITComponent = function () {
             data: data
         }];
         var option = {
+            title: {
+                text: '',
+                x: '50%',
+                y: '78%',
+                textAlign: 'center',
+                textStyle: {
+                    color: '#fff',
+                    textAlign: 'center',
+                    fontSize: 15,
+                    fontWeight: 'bold'
+                }
+            },
             tooltip: {
                 show: false
             },
@@ -126,10 +191,11 @@ var EchartHITComponent = function () {
                 show: false
             },
             series: seriesObj
-        }
+        };
         return option;
     }
 
 }();
-var echartHITComponent = new EchartHITComponent({"$parentTL": $("#tlhitmain"),"$parentLT": $("#lthitmain")});
-echartHITComponent.setObject(hitdata);
+var echartHITComponent = new EchartHITComponent({"$parent": $("#hitmain"),timeInterval:timeInterval});
+echartHITComponent.setType(DateType.day);
+echartHITComponent.switchAuto(true);

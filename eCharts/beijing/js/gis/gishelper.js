@@ -504,5 +504,5 @@ var GisHelper = function () {
 
 
 var gisMap = new  GisHelper({id:"map"});
-gisMap.getMap().setCenter(new IMAP.LngLat(110.2363281250, 36.2036553181), 5);
+gisMap.getMap().setCenter(new IMAP.LngLat(116.33766, 40.10329), 10);
 gisMap.loadData();

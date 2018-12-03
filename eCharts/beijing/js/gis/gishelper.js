@@ -294,7 +294,7 @@ var GisHelper = function () {
             geocoder.getLocation(address,function(status,results){
                 if(status==0){
                     var datas=results.results, plnglat,lnglat;
-                    var data = datas[datas.length-1];
+                    var data = datas[0];
                     var plnglat = data.location;
                     setting.position = new IMAP.LngLat(plnglat.lng,plnglat.lat);
                     callback(setting)
@@ -332,7 +332,14 @@ var GisHelper = function () {
         var position = setting.position;
         var area = setting.model;
         var html = '<div class="vector" level="'+area.level+'"><p class="name">';
-        html += area.unitName;
+        if (area.unitName.indexOf("分局") > 0 && area.unitName.indexOf("北京市公安局") == 0) {
+            html += area.unitName.replace("北京市公安局", "");
+        } else if (area.unitName=="北京市公安局") {
+            html += area.unitName.replace("北京市公安局","北京市局");
+        }
+        else {
+            html += area.unitName;
+        }
         html += '</p>';
         html += '<p class="num">';
         html += area.count;

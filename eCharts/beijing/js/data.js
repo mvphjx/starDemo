@@ -7,16 +7,26 @@ var DateType = {
 };
 //测试数据
 var lpdata = {"year": [], "month": [], day: []};
-lpdata.day = [{
-    "unitCode": "",
-    "unitName": "海淀",
-    data: [{"name": "勘查现场数", "count": 10}, {"name": "现场指掌纹采集数", "count": 15}]
-}, {"unitCode": "", "unitName": "丰台", data: [{"name": "勘查现场数", "count": 10}, {"name": "现场指掌纹采集数", "count": 15}]}];
-lpdata.month = [{
-    "unitCode": "",
-    "unitName": "海淀",
-    data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 150}]
-}, {"unitCode": "", "unitName": "丰台", data: [{"name": "勘查现场数", "count": 10}, {"name": "现场指掌纹采集数", "count": 15}]}];
+lpdata.day = [];
+lpdata.day.push({"unitCode": "", "unitName": "海淀", data: [{"name": "勘查现场数", "count": 3000}, {"name": "现场指掌纹采集数", "count": 3000}]})
+lpdata.day.push({"unitCode": "", "unitName": "朝阳", data: [{"name": "勘查现场数", "count": 2555}, {"name": "现场指掌纹采集数", "count": 1500}]})
+lpdata.day.push({"unitCode": "", "unitName": "丰台", data: [{"name": "勘查现场数", "count": 1000}, {"name": "现场指掌纹采集数", "count": 1500}]})
+lpdata.day.push({"unitCode": "", "unitName": "房山", data: [{"name": "勘查现场数", "count": 1000}, {"name": "现场指掌纹采集数", "count": 1500}]})
+lpdata.day.push({"unitCode": "", "unitName": "昌平", data: [{"name": "勘查现场数", "count": 2000}, {"name": "现场指掌纹采集数", "count": 1005}]})
+lpdata.day.push({"unitCode": "", "unitName": "石景山", data: [{"name": "勘查现场数", "count": 1000}, {"name": "现场指掌纹采集数", "count": 1005}]})
+lpdata.day.push({"unitCode": "", "unitName": "通州", data: [{"name": "勘查现场数", "count": 1000}, {"name": "现场指掌纹采集数", "count": 1005}]})
+lpdata.day.push({"unitCode": "", "unitName": "亦庄", data: [{"name": "勘查现场数", "count": 1000}, {"name": "现场指掌纹采集数", "count": 1005}]})
+
+lpdata.month = [];
+lpdata.month.push({"unitCode": "", "unitName": "海淀", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 150}]})
+lpdata.month.push({"unitCode": "", "unitName": "朝阳", data: [{"name": "勘查现场数", "count": 500}, {"name": "现场指掌纹采集数", "count": 150}]})
+lpdata.month.push({"unitCode": "", "unitName": "丰台", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 150}]})
+lpdata.month.push({"unitCode": "", "unitName": "房山", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 150}]})
+lpdata.month.push({"unitCode": "", "unitName": "昌平", data: [{"name": "勘查现场数", "count": 200}, {"name": "现场指掌纹采集数", "count": 150}]})
+lpdata.month.push({"unitCode": "", "unitName": "石景山", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 105}]})
+lpdata.month.push({"unitCode": "", "unitName": "通州", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 105}]})
+lpdata.month.push({"unitCode": "", "unitName": "亦庄", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 105}]})
+
 lpdata.year = [];
 lpdata.year.push({"unitCode": "", "unitName": "海淀", data: [{"name": "勘查现场数", "count": 10}, {"name": "现场指掌纹采集数", "count": 15}]})
 lpdata.year.push({"unitCode": "", "unitName": "朝阳", data: [{"name": "勘查现场数", "count": 100}, {"name": "现场指掌纹采集数", "count": 150}]})

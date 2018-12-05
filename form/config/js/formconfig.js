@@ -13,14 +13,23 @@ var FormConfig = function () {
     };
     FormConfigClass.prototype = {//这里定义 暴露给外界调用的 接口/方法
         getObject:function(){
-            var  result = [];
+            var  result = {columnConfigs:[],columnCatlogs:""};
             $content.find(".item").each(function(){
                 var itemConfig = $(this).data("options");
-                result.push(itemConfig.getObject())
+                var columnConfig = itemConfig.getObject();
+                result.columnConfigs.push(columnConfig);
+                if(columnConfig.inputType!=InputType.Title){
+                    if(result.columnCatlogs){
+                        result.columnCatlogs =result.columnCatlogs+","+columnConfig.columnName
+                    }else{
+                        result.columnCatlogs=columnConfig.columnName
+                    }
+                }
             });
             return result;
         },
         setObject:function(textInfoConfig){
+            textInfoConfig = textInfoConfig.columnConfigs;
             getColumnConfigs().then(function(columnConfigs){
                 $.each(textInfoConfig,function(index,columnConfig){
                     var id = columnConfig.id;
@@ -94,7 +103,7 @@ var FormConfig = function () {
         getId:function(){
             return this.columnConfig.id;
         }
-    }
+    };
     return FormConfigClass;
 
 
@@ -110,7 +119,7 @@ var FormConfig = function () {
             edit: {
                 enable: true,
                 showRemoveBtn: false,
-                showRenameBtn: false,
+                showRenameBtn: false
             },
             data: {
                 keep: {
@@ -153,7 +162,11 @@ var FormConfig = function () {
                 $.each(columnConfigs,function(index,columnConfig){
                     var node = {id: "", pId: "columns", name: "",columnConfig:""};
                     node.id = columnConfig.id;
-                    node.name = columnConfig.columnCatlog.colDispName;
+                    if(columnConfig.columnCatlog){
+                        node.name = columnConfig.columnCatlog.colDispName;
+                    }else{
+                        node.name = columnConfig.columnName;
+                    }
                     node.columnConfig = columnConfig;
                     zNodes.push(node);
                 })
@@ -182,6 +195,15 @@ var FormConfig = function () {
             def.resolve(columnConfigs);
         }else{//不存在去查询
             columnConfigs = demoColumnConfigs;
+            var columnCatlogMaps={};
+            $.each(columnCatlogs,function(index,columnCatlog){
+                var uniqueColumnName =columnCatlog.tableName+"|"+columnCatlog.columnName;
+                columnCatlogMaps[uniqueColumnName]=columnCatlog;
+            });
+            $.each(demoColumnConfigs,function(index,columnConfig) {
+                var uniqueColumnName = columnConfig.columnName;
+                columnConfig.columnCatlog = columnCatlogMaps[uniqueColumnName]
+            });
             def.resolve(columnConfigs);
         }
         return def.promise();

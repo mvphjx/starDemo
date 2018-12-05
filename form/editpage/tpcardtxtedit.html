@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>捺印卡片录入</title>
+    <link rel="stylesheet" type="text/css" href="../base/css/ui/check_bnt.css"/>
+    <link rel="stylesheet" type="text/css" href="../base/css/ui/combo/webcombo.css"/>
+    <link rel="stylesheet" href="../base/css/ui-dialog.css">
+    <link rel="stylesheet" href="../base/css/style.css" type="text/css"/>
+</head>
+
+<body>
+<div class="add-button">
+    <button onclick="addInfo(this,'personTextInfo_And_CertInfo')">添加证件</button>
+    <button onclick="addInfo(this,'personTextInfo_And_CommInfo')">添加号码</button>
+    <button onclick="addInfo(this,'personTextInfo_And_PhoneInfo')">添加电话</button>
+    <button onclick="addInfo(this,'personTextInfo_And_AddrInfo')">添加地址</button>
+</div>
+<div class="edit">
+    <div class="abisform"></div>
+<div >
+    <div class="other" setting="{'id':'personTextInfo_And_AddrInfo','inputType':'9'}">
+        <h5>地址信息
+            <button class="delete1" title="删除" name="del_box"></button>
+            <button class="edit1" title="编辑" name="edit_box"></button>
+            <button class="add1" title="添加" name="add_box"></button>
+        </h5>
+    </div>
+    <div name='AddrInfo' style="display:none;" class="edit2">
+        <div class="form"
+             setting="{'id':'personTextInfo_And_AddrInfo_And_AddressCode','showText':false,'inputType':'0','columnName':'MIS_PERSON_TEXT_INFO|ADDRESS_CODE','relatid':'personTextInfo_And_AddrInfo_And_AddressDetaildiv','all':false}">
+            <label>地址代码</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_AddrInfo_And_AddressDetail','inputType':'6','validate':{'maxlength':100}}">
+            <label>详细地址</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_AddrInfo_And_AddressType','inputType':'0','columnName':'MIS_PERSON_TEXT_INFO|ADDRESS_TYPE'}">
+            <label>地址类型</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_AddrInfo_And_AddressZipCode','inputType':'1','validate':{'maxlength':16}}">
+            <label>邮编</label>
+        </div>
+    </div>
+    <div class="other" setting="{'id':'personTextInfo_And_CommInfo','inputType':'9'}" style="display:none;">
+        <h5>号码信息
+            <button class="delete1" title="删除" name="del_box"></button>
+            <button class="edit1" title="编辑" name="edit_box"></button>
+            <button class="add1" title="添加" name="add_box"></button>
+        </h5>
+    </div>
+    <div name='CommInfo' style="display:none;" class="edit2">
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CommInfo_And_CommType','inputType':'0','columnName':'MIS_PERSON_TEXT_INFO|COMM_TYPE'}">
+            <label>号码类型</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CommInfo_And_CommNum','inputType':'1','validate':{'maxlength':80}}">
+            <label>号码</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CommInfo_And_LoginPass','inputType':'1','validate':{'maxlength':20}}">
+            <label>密码</label>
+        </div>
+    </div>
+    <div class="other" setting="{'id':'personTextInfo_And_PhoneInfo','inputType':'9'}" style="display:none;">
+        <h5>电话信息
+            <button class="delete1" title="删除" name="del_box"></button>
+            <button class="edit1" title="编辑" name="edit_box"></button>
+            <button class="add1" title="添加" name="add_box"></button>
+        </h5>
+    </div>
+    <div name='PhoneInfo' style="display:none;" class="edit2">
+        <div class="form"
+             setting="{'id':'personTextInfo_And_PhoneInfo_And_PhoneNum','inputType':'1','validate':{'maxlength':40}}">
+            <label>电话号码</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_PhoneInfo_And_PhoneNumType','inputType':'0','columnName':'MIS_PERSON_TEXT_INFO|PHONE_NUM_TYPE'}">
+            <label>电话号码类型</label>
+        </div>
+    </div>
+    <div class="other" setting="{'id':'personTextInfo_And_CertInfo','inputType':'9'}" style="display:none;">
+        <h5>证件信息
+            <button class="delete1" title="删除" name="del_box"></button>
+            <button class="edit1" title="编辑" name="edit_box"></button>
+            <button class="add1" title="添加" name="add_box"></button>
+        </h5>
+    </div>
+    <div name='CertInfo' style="display:none;" class="edit2">
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_CertType','inputType':'0','columnName':'MIS_PERSON_TEXT_INFO|CERT_TYPE'}">
+            <label>证件类型</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_CertNum','inputType':'1','validate':{'maxlength':40}}">
+            <label>证件号码</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_IssueBy','inputType':'1','validate':{'maxlength':40}}">
+            <label>签发机关</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_IssueDate','inputType':'2','my97Options':{minDate:'#F{$dp.$D(\'personTextInfo_And_CertInfo_And_StartDate\')}',maxDate:'#F{$dp.$D(\'personTextInfo_And_CertInfo_And_ExpireDate\')||\'%y-%M-%d\'}'}}">
+            <label>签发日期</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_StartDate','inputType':'2','my97Options':{maxDate:'#F{$dp.$D(\'personTextInfo_And_CertInfo_And_IssueDate\')||$dp.$D(\'personTextInfo_And_CertInfo_And_ExpireDate\')||\'%y-%M-%d\'}'}}">
+            <label>开始日期</label>
+        </div>
+        <div class="form"
+             setting="{'id':'personTextInfo_And_CertInfo_And_ExpireDate','inputType':'2','my97Options':{maxDate:'',minDate:'#F{$dp.$D(\'personTextInfo_And_CertInfo_And_IssueDate\')||$dp.$D(\'personTextInfo_And_CertInfo_And_StartDate\')}'}}">
+            <label>截止日期</label>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+
+<script type="text/javascript" src="../base/js/common/util/pinyin/pinyin_dict_withtone.js"></script>
+<script type="text/javascript" src="../base/js/common/util/pinyin/pinyin_dict_polyphone.js"></script>
+<script type="text/javascript" src="../base/js/common/util/pinyin/pinyinUtil.js"></script>
+<script type='text/javascript' src='../base/js/common/ui/webui.js'></script>
+<script type='text/javascript' src='../base/js/common/ui/combo/webcombo.js'></script>
+<script type='text/javascript' src='../base/js/common/ui/combo/webcomboutil.js'></script>
+<script type='text/javascript' src='../base/js/common/ui/combo/websearchcombo.js'></script>
+<script type='text/javascript' src='../base/js/common/date/date_picker/WdatePicker.js'></script>
+<script type='text/javascript' src='../base/js/common/jquery-1.7.1.min.js'></script>
+<script type='text/javascript' src='../base/js/common/ui/dialog/dialog-plus-min.js'></script>
+<script type="text/javascript" src='../base/js/qwebchannel.js'></script>
+<script type='text/javascript' src='../base/js/ajax.js'></script>
+<script type='text/javascript' src='../base/js/editpage.js'></script>
+<script type='text/javascript' src='../base/js/base/abiscode.js'></script>
+<script type='text/javascript' src='../base/js/common/util/webutil.js'></script>
+<script type='text/javascript' src='../base/js/common/util/web_array_util.js'></script>
+<script type='text/javascript' src='../base/js/common/util/json2.js'></script>
+<script type='text/javascript' src='../base/js/common/ui/check_bnt.js'></script>
+<script type="text/javascript" src='../base/js/common/ui/table/webtable.js'></script>
+<script type="text/javascript" src="../base/js/common/ui/table/webtable_pagenum.js"></script>
+<script type="text/javascript" src="../base/js/common/ui/table/webtablemgr.js"></script>
+<script type='text/javascript' src='../base/js/data.js'></script>
+<script>
+    /**
+     * @param type 客户端类型
+     * @param mode 编辑/新增模式
+     * @param validateFunction 校验监听
+     * @param changeFunction 页面改变监听
+     * @param columnConfigs 表单配置
+     */
+    function form(type,mode,validateFunction,changeFunction,columnConfigs) {
+        if (WebUtil.isNull(mode)) {
+            mode = 1;
+        }
+        new EditPage(type,mode,columnConfigs);
+        EditPage.prototype.unique.registerChangeListener(txtChange);
+        function txtChange(id, value, data) {
+            var txtChanged = EditPage.prototype.unique.isTxtInfoChanged();
+            var validate = EditPage.prototype.unique.isPassValidate();
+            validateFunction&&validateFunction(validate);
+            changeFunction && changeFunction(txtChanged);
+        }
+        //根据身份证自动填写出生日期 性别
+        if (document.all) {//ie8及以下
+            $('#personTextInfo_And_ShenfenId')[0].attachEvent('onpropertychange', function (e) {
+                if (e.propertyName != 'value') return;
+                setValueByShenfenId();
+            });
+            $('#personTextInfo_And_Name')[0].attachEvent('onpropertychange', function (e) {
+                if (e.propertyName != 'value') return;
+                setValueByName();
+            });
+        } else {
+            $(document).on('propertychange input', "#personTextInfo_And_ShenfenId", function (event) {
+                setValueByShenfenId();
+            });
+            $(document).on('propertychange input', "#personTextInfo_And_Name", function (event) {
+                setValueByName();
+            });
+        }
+
+        function setValueByName() {
+            $setTime && clearTimeout($setTime);
+            $setTime = setTimeout(function () {
+                //
+                var tip = $('#personTextInfo_And_Nametip').html();
+                if (tip === '') {
+                    var value = $('#personTextInfo_And_Name').val();
+                    if (WebUtil.isEmpty(value)) {
+                        return;
+                    }
+                    var pinyin = pinyinUtil.getPinyin(value, '', false, true);
+                    EditPage.prototype.unique.setValueById('personTextInfo_And_NamePinyin', pinyin);
+                }
+            }, 200);
+        }
+        //页面特殊需求  表格某一列为主键
+        EditPage.prototype.unique.webTableUniqueCols = ["personTextInfo_And_AddrInfo_And_AddressType", "personTextInfo_And_CommInfo_And_CommType", "personTextInfo_And_PhoneInfo_And_PhoneNumType", "personTextInfo_And_CertInfo_And_CertType"];
+    }
+
+    var $setTime = null;
+    function setValueByShenfenId() {
+        $setTime && clearTimeout($setTime);
+        $setTime = setTimeout(function () {
+            var tip = $('#personTextInfo_And_ShenfenIdtip').html();
+            if (tip === '') {
+                var value = $('#personTextInfo_And_ShenfenId').val();
+                if (WebUtil.isEmpty(value)) {
+                    return;
+                }
+                var birth = value.substr(6, 8);
+                EditPage.prototype.unique.setValueById('personTextInfo_And_BirthDate', birth);
+                var sexcode = 0;
+                if (value.length === 15) {
+                    sexcode = value.substr(14, 1) % 2;
+                } else {
+                    sexcode = value.substr(16, 1) % 2;
+                }
+                sexcode = sexcode === 1 ? 1 : 2;
+                EditPage.prototype.unique.setValueById('personTextInfo_And_SexCode', sexcode);
+            }
+        }, 200);
+    }
+
+    function getObject() {
+        return EditPage.prototype.unique.getObject()
+    }
+
+    //mode =1  表示 进入编辑模式
+    function setObject(jsonData, mode, notUpdateData) {
+        var forbCol = null;
+        if (!WebUtil.isEmpty(notUpdateData)) {
+            forbCol = getColumsFromConfig(notUpdateData);
+        } else {
+            forbCol = ["person_num", 'card_num'];//缺省不能编辑的字段
+        }
+        EditPage.prototype.unique.initUIStatus(mode, forbCol, null);
+        EditPage.prototype.unique.setObject(jsonData);
+        //AddrInfo_Show 不根据数据有无，总是显示
+        $('#personTextInfo_And_AddrInfo').parent().show();
+        EditPage.prototype.unique.runChangeListener();
+        setValueByShenfenId();
+    }
+
+    //修改指定数据{columnName:value,columnName:value}
+    function setValues(mapData) {
+        var data = WebUtil.string2Json(mapData);
+        $("div").each(function () {
+            var settingStr = $(this).attr('setting');
+            var setting = WebUtil.string2Json(settingStr);
+            if (setting && setting.requpdId) {
+                var columnName = setting.requpdId;
+                var id = setting.id;
+                var value = data[columnName] || data[columnName.toUpperCase()];
+                if (value === "" || value === null) {
+                    EditPage.prototype.unique.setValueById(id, "");
+                } else if (value !== undefined) {
+                    EditPage.prototype.unique.setValueById(id, value);
+                }
+            }
+        });
+        $('#personTextInfo_And_AddrInfo').parent().show(); //AddrInfo_Show 不根据数据有无，总是显示
+        EditPage.prototype.unique.runChangeListener();
+    }
+
+    function validateFunctionDemo(bool) {
+        if (bool) {
+            console.log("validate")
+        } else {
+            console.log("not validate")
+        }
+    }
+    function changeFunctionDemo(bool) {
+        if (bool) {
+            console.log("change")
+        } else {
+            console.log("not change")
+        }
+    }
+    /**
+     * 弹出新增窗口
+     * @param {Object} key  隐藏div的setting id属性
+     */
+    function addInfo(_this, key) {
+        EditPage.prototype.unique.addBox(_this, key);
+    }
+    $(document).ready(
+        function () {
+            if (isDebug && isDebug === true) {
+                $("#testDiv").show()
+            } else {
+                $("#testDiv").hide()
+            }
+        }
+    );
+    var tpconfig = {
+        "columnConfigs": [{
+            "inputType": "Title", //标题
+            "title": "基本信息",
+            "validate": {
+                "notUpdata": false,
+                "isRequired": false
+            }
+        }, {
+            "id": "mainInfo_And_personNum", //字段 人员编号
+            "inputType": "1",
+            "validate": {
+                "notUpdata": true,
+                "isRequired": true,
+                "maxlength": 23,
+                "minlength": 23
+            },
+            "columnName": "TP_CARD_INFO|PERSON_NUM",
+            "columnCatlog": {  //入库是否携带  绑定列描述？
+                "codeDispStyle": 0,
+                "codeFmt": null,
+                "codeTableName": "",
+                "colDispName": "人员编号",
+                "colDispWidth": 100,
+                "columnName": "PERSON_NUM",
+                "cpCodeCol": null,
+                "dataFmt": null,
+                "dataType": 0,
+                "description": "",
+                "entityAttrType": null,
+                "id": 46910,
+                "inputCode": "",
+                "macroType": 0,
+                "storageFmt": 0,
+                "tableName": "TP_CARD_INFO"
+            }
+        }, {
+            "id": "tpCardInfo_And_printUnitCode",  //字段 捺印单位代码
+            "showText": false,
+            "inputType": "0",
+            "columnName": "TP_CARD_INFO|PRINT_UNIT_CODE",
+            "relatid": "tpCardInfo_And_printUnitNamediv",
+            "all": false,
+            "columnCatlog": {
+                "codeDispStyle": 0,
+                "codeFmt": null,
+                "codeTableName": "",
+                "colDispName": "捺印单位代码",
+                "colDispWidth": 100,
+                "columnName": "PRINT_UNIT_CODE",
+                "cpCodeCol": null,
+                "dataFmt": null,
+                "dataType": 0,
+                "description": "",
+                "entityAttrType": null,
+                "id": 46910,
+                "inputCode": "",
+                "macroType": 0,
+                "storageFmt": 0,
+                "tableName": "TP_CARD_INFO"
+            },
+            "validate": {
+                "notUpdata": false,
+                "isRequired": false
+            }
+        }],
+        "columnCatlogs": "TP_CARD_INFO|PERSON_NUM,TP_CARD_INFO|PRINT_UNIT_CODE"
+    };
+</script>
+
+<div style="display:none;" id=testDiv>
+    <a onclick="form(null,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByWeb</a>
+    <a onclick="form(0,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByQT</a>
+    <a onclick="form(2,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByRCP</a>
+    <a onclick="setObject(rcptpdata2,0,upd)">setObjectAdd</a>
+    <a onclick="setObject(rcptpdata2,1,null)">setObjectEdit</a>
+    <a onclick="alert(getObject())">getObject</a>
+    <a onclick="setValues('{PERSON_NUM:111,CARD_NUM:222}')">setSomeValues</a>
+</div>
+</body>
+
+</html>

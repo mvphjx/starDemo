@@ -1,0 +1,10 @@
+.rowItem				{margin:0px;padding:0px;width:100%;height:24px;line-height:24px;vertical-align:middle;}
+.sItem					{float:left;margin:0px;padding:0px;height:24px;line-height:24px;vertical-align:middle;overflow: hidden;cursor:pointer;}
+.sItem .text			{font-size: 1em;float:left;width:auto;margin-left:5px;cursor:pointer;color:#2a2a2a;}
+.sItem .check			{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) -14px 0px no-repeat;}
+.sItem .ncheck			{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) 0px 0px no-repeat;}
+.sItem .checkhover		{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) -14px -14px no-repeat;}
+.sItem .ncheckhover		{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) 0px -14px no-repeat;}
+.sItem .checkdisable	{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) -14px -56px no-repeat;}
+.sItem .ncheckdisable	{float:left;margin-left:0px;margin-top:6px;width:13px;height:13px;line-height:13px;background: url(../../img/ui/imgtool/icons.png) 0px -56px no-repeat;}
+#rescanbnt				{margin:0px;padding:0px;height:24px;line-height:24px;vertical-align:middle;background-color:#ddee99;}

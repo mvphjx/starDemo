@@ -1,0 +1,512 @@
+﻿/* 通用清理样式 */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+}
+.add-button{height: 40px; margin:0 15px;}
+.add-button button{float: right; margin-right: 10px; width: 89px; height: 27px; background: url(../img/button2.png) 0 0 no-repeat; color: #fff; padding-left:20px; font-size: 12px; margin-top: 6px; cursor: pointer;}
+.add-button button:hover{opacity: 0.8;}
+.edit {
+	margin: 0 15px 20px 15px;
+	background: #f0f3f6;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	padding: 10px 25px 180px 25px;
+}
+
+.edit h4 {
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #0168AC;
+	clear: both;
+}
+
+.edit .form {
+	float: left;
+	width: 45%;
+	margin-right: 5%;
+	margin-bottom: 20px;
+	height: 32px;
+	line-height: 32px;
+	white-space: nowrap;
+}
+.edit .form-ex{width: 95%;}
+
+.edit .form label {
+	width: 33%;
+	height: 32px;
+	color: #666;
+	position: relative;
+	float: left;
+}
+
+.edit .form-ex label{width: 15.5%;}
+
+.edit .form label span {
+	position: absolute;
+	left: -12px;
+	top: 2px;
+	color: red;
+	font-size: 16px;
+}
+
+.edit .form input {
+	width: 66%;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 30px;
+	font-size:1em;
+}
+
+/* .edit .form select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	padding-right: 32px;
+	border: 1px solid #ccc;
+	height: 32px;
+	padding-left: 10px;
+	background: #fff url(../img/select-xl.png) right center no-repeat;
+	width: 66%;
+}
+
+select::-ms-expand {
+	display: none;
+} */
+
+.edit .form.whole {
+	width: 95%;
+	height: auto;
+}
+
+.edit .form.whole label {
+	width: 15.5%;
+}
+
+.edit .form.whole input {
+	width: 84%;
+}
+
+.edit .form.whole span {
+	width: 15.5%;
+	color: #666;
+	float: left;
+}
+
+.edit .form.whole textarea {
+	width: 84%;
+	border: 1px solid #ccc;
+}
+
+.divider {
+	clear: both;
+}
+
+.edit .other {
+	clear: both; margin-top: 40px;
+}
+
+.edit .other>div {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.edit .other h5 {
+	background: #535353;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.edit .other h5 button {
+	float: right;
+	width: 15px;
+	height: 14px;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+
+.edit .other h5 button:hover {
+	opacity: 0.8;
+}
+
+.edit .other h5 .add1 {
+	background: url(../img/add1.png) 0 0 no-repeat;
+}
+
+.edit .other h5 .edit1 {
+	background: url(../img/edit1.png) 0 0 no-repeat;
+}
+
+.edit .other h5 .delete1 {
+	background: url(../img/delete1.png) 0 0 no-repeat;
+}
+
+.edit .other table {
+	width: 100%;
+	border: 1px solid #ccc;
+	width: 100%;
+	max-width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	white-space: nowrap;
+}
+
+.edit .other table th {
+	height: 32px;
+	background: #f9f9f9;
+	color: #666;
+	font-weight: normal;
+	border: 1px solid #ddd;
+	text-align: left;
+	padding: 0 10px;
+}
+
+.edit .other table td {
+	height: 32px;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+}
+.edit .other table tr{background: #fff;}
+
+.edit .other table .rowdown,.edit .other table .rowhover{background: #ebf6ff;}
+/* 动态生成之后修改样式 */
+
+.edit .form>div {
+	width: 66%;
+	float: left;
+	height: 32px;
+}
+
+.edit .form-ex > div{width: 84%;}
+.edit .form>div .combolist input {
+	height: 30px!important;
+	width: 100%!important;
+}
+
+.edit .form>div .combolist .combo_bnt {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+}
+
+.edit .form>div .combolist .combo_bnt_hover {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist .combo_bnt_down {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist>div {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: -12px;
+	top: 0;
+}
+
+.edit .form>div .combolist>div:hover {
+	display: visible!important;
+	width: 32px;
+	height: 32px;
+}
+
+.edit .form>div .combolist {
+	position: relative;
+	overflow: visible;
+}
+
+.edit .form .Field_Body input {
+	width: 100%;
+}
+.edit .remarks{width: 95%;}
+.edit .remarks label{width: 16%;}
+.edit .remarks > div{width: 84%; margin-left: -3px;}
+.edit .form .Field_Body textarea {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 25px;
+	min-height: 60px;
+	white-space:normal;
+}
+
+.edit .form .Field_Body {
+	position: relative;
+}
+
+.edit .form .Field_Body .Field_Image {
+	position: absolute;
+	top: -2px;
+	right: -30px;
+}
+
+.edit .form .twoinput {}
+
+.edit .form .twoinput .First_Input {
+	width: 40%;
+	padding-left: 5px;
+	border-right: none;
+	background: #f8f8f8;
+}
+
+.edit .form .twoinput .Last_Input {
+	width: 60%;
+	padding-left: 5px;
+}
+
+
+/*Required*/
+
+.Field_Image {
+	float: left;
+	width: 14px;
+	height: 24px;
+}
+
+.Field_Up_Image {
+	width: 12px;
+	margin-left: 2px;
+	height: 12px;
+	cursor: default;
+}
+
+.Field_Down_Image {
+	width: 12px;
+	margin-left: 2px;
+	height: 12px;
+	line-height: 12px;
+	cursor: default;
+}
+
+.Required_Image {
+	background: url(../img/ui/common/required.png) no-repeat;
+}
+
+/*弹出框*/
+.edit2 .form {
+	width: 430px;
+	margin-bottom: 20px;
+	height: 32px;
+	line-height: 32px;
+	white-space: nowrap;
+	margin:15px 50px;
+	clear: both;
+}
+
+.edit2 .form label {
+	width: 33%;
+	height: 32px;
+	color: #666;
+	position: relative;
+	float: left;
+}
+
+.edit2 .form label span {
+	position: absolute;
+	left: -12px;
+	top: 2px;
+	color: red;
+	font-size: 16px;
+}
+
+.edit2 .form input {
+	width: 66%;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 30px;
+	font-size: 1em;
+}
+
+.edit2 .form.whole {
+	width: 95%;
+	height: auto;
+}
+
+.edit2 .form.whole label {
+	width: 15.5%;
+}
+
+.edit2 .form.whole input {
+	width: 84%;
+}
+
+.edit2 .form.whole span {
+	width: 15.5%;
+	color: #666;
+	float: left;
+}
+
+.edit2 .form.whole textarea {
+	width: 84%;
+	border: 1px solid #ccc;
+}
+
+.edit2 .other {
+	clear: both; margin-top: 40px;
+}
+
+.edit2 .other>div {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.edit2 .other h5 {
+	background: #535353;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.edit2 .other h5 button {
+	float: right;
+	width: 15px;
+	height: 14px;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+
+.edit2 .other h5 button:hover {
+	opacity: 0.8;
+}
+
+
+/* 动态生成之后修改样式 */
+
+.edit2 .form>div {
+	width: 66%;
+	float: left;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist input {
+	height: 30px!important;
+	width: 100%!important;
+}
+
+.edit2 .form>div .combolist .combo_bnt {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+}
+
+.edit2 .form>div .combolist .combo_bnt_hover {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist .combo_bnt_down {
+	background: url(../img/select-xl.png) 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist>div {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: -12px;
+	top: 0;
+}
+
+.edit2 .form>div .combolist>div:hover {
+	display: visible!important;
+	width: 32px;
+	height: 32px;
+}
+
+.edit2 .form>div .combolist {
+	position: relative;
+	overflow: visible;
+}
+
+.edit2 .form .Field_Body input {
+	width: 100%;
+}
+.edit2 .remarks{width: 95%;}
+.edit2 .remarks label{width: 16%;}
+.edit2 .remarks > div{width: 84%; margin-left: -3px;}
+.edit2 .form .Field_Body textarea {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	line-height: 25px;
+	min-height: 60px;
+	white-space:normal;
+}
+
+.edit2 .form .Field_Body {
+	position: relative;
+}
+
+.edit2 .form .Field_Body .Field_Image {
+	position: absolute;
+	top: -2px;
+	right: -30px;
+}
+
+.edit2 .form .twoinput {position: relative;}
+
+.edit2 .form .twoinput .First_Input {
+	width: 114px;
+	padding-left: 5px;
+	border-right: none;
+	background: #f8f8f8;
+}
+
+.edit2 .form .twoinput .Last_Input {
+	width: 170px;
+	padding-left: 5px;
+	position: absolute;
+	top:0;
+	_top:2px;
+	left: 119px;
+}
+.Field_Disable	{background-color:#f8f8f8;color:black;}
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: 0.8em/1.5 "微软雅黑";
+	color: #333;
+}
+
+.Sigle_Line_Div {
+	width: 95%!important;
+}
+.Sigle_Line_Div label {
+	width: 15.63%!important;
+}
+.Sigle_Line_Div>div {
+	width: 83.9%!important; 
+}
+.TextArea_Line_Div {
+	height:62px!important;
+}
+/*字段超长 tip提示框*/
+.td_showdiv {
+	width: 200px;
+	height: auto;
+	background: #1c1c1c;
+	position: absolute;
+	display: none;
+	padding: 5px 10px;
+	word-wrap: break-word;
+	color: #f3f0f6;
+	z-index: 9999;
+}

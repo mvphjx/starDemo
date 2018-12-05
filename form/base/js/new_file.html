@@ -1,0 +1,49 @@
+<!DOCTYPE HTML> 
+<html> 
+<head>
+<meta http-equiv="Content-Type"; content="text/html; charset=utf-8"> 
+	<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+function init(){
+    //每次点击给不一样的值
+    var i=0;
+    $("#testchange").on("click",function(){
+        $("#name").val(i);
+        i++;
+    });
+    var jsDate = "";
+    
+    if(document.all){//ie8及以下
+        $("#name").on("change",function(){
+            console.log(i);//改变值后要触发的代码
+        });
+        
+        $('input[type="text"]').each(function() {
+            var that=this;
+            if(this.attachEvent) {
+                this.attachEvent('onpropertychange',function(e) {
+                    if($("#name").is(":focus")) return;
+                    if(e.propertyName!='value') return;
+                    debugger;
+                    $(that).trigger('change');
+                });
+            }
+        })
+    } else {//非ie和IE9以上
+        var intervalName;
+        intervalName = setInterval(handle,100);
+        function handle(){
+            if($("#name").val() != jsDate && !$("#name").is(":focus")){//模拟失去焦点后时才会触发
+                jsDate = $("#name").val();
+                console.log(i + " oninput");//改变值后要触发的代码
+            }
+        };
+    }
+}
+</script>
+</head> 
+<body onload ="init();"> 
+    <button id="testchange">JS赋值</button>
+    <label>文本框：</label><input type="text" id="name"/>
+</body> 
+</html>

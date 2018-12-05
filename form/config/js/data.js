@@ -20,26 +20,7 @@ demoColumnConfigs.push({
         'id': 'mainInfo_And_personNum',
         'inputType': '1',
         'validate': {notUpdata:true,isRequired:true,'maxlength': 23, minlength: 23},
-        'columnName': 'TP_CARD_INFO|PERSON_NUM',
-        columnCatlog:
-            {
-                "codeDispStyle": 0,
-                "codeFmt": null,
-                "codeTableName": "",
-                "colDispName": "人员编号",
-                "colDispWidth": 100,
-                "columnName": "DIY_NUM",
-                "cpCodeCol": null,
-                "dataFmt": null,
-                "dataType": 0,
-                "description": "",
-                "entityAttrType": null,
-                "id": 46910,
-                "inputCode": "",
-                "macroType": 0,
-                "storageFmt": 0,
-                "tableName": "_BASE_8CDD25A0_TP_DIY_INFO"
-            }
+        'columnName': 'TP_CARD_INFO|PERSON_NUM'
     }
 );
 demoColumnConfigs.push({
@@ -49,32 +30,90 @@ demoColumnConfigs.push({
     'columnName': 'TP_CARD_INFO|PRINT_UNIT_CODE',
     'relatid': 'tpCardInfo_And_printUnitNamediv',
     'all': false,
-    columnCatlog: {
-        "codeDispStyle": 0,
-        "codeFmt": null,
-        "codeTableName": "",
-        "colDispName": "捺印单位代码",
-        "colDispWidth": 100,
-        "columnName": "PRINT_UNIT_CODE",
-        "cpCodeCol": null,
-        "dataFmt": null,
-        "dataType": 0,
-        "description": "",
-        "entityAttrType": null,
-        "id": 46910,
-        "inputCode": "",
-        "macroType": 0,
-        "storageFmt": 0,
-        "tableName": "_BASE_8CDD25A0_TP_DIY_INFO"
-    }
+    columnCatlog:{}
 });
+demoColumnConfigs.push({'id':'tpCardInfo_And_printUnitName','columnName': 'TP_CARD_INFO|PRINT_UNIT_NAME','inputType':'5'});
+demoColumnConfigs.push({'id':'tpCardInfo_And_printDate','columnName': 'TP_CARD_INFO|PRINT_DATE','inputType':'2'});
 //模板配置
-var tpTextInfoConfig = [];
-tpTextInfoConfig.push({inputType: InputType.Title, title: "基本信息"});
-tpTextInfoConfig.push({
+var tpTextInfoConfig = {columnConfigs:[],columnCatlogs:""};
+tpTextInfoConfig.columnConfigs.push({inputType: InputType.Title, title: "基本信息"});
+tpTextInfoConfig.columnConfigs.push({
     'id': 'mainInfo_And_personNum',
     'inputType': '1',
     'validate': {notUpdata: true, isRequired: true, 'maxlength': 23, minlength: 23},
     'columnName': 'TP_CARD_INFO|PERSON_NUM'
+});
+var  columnCatlogs=[];
+columnCatlogs.push({
+    "codeDispStyle": 0,
+    "codeFmt": null,
+    "codeTableName": "",
+    "colDispName": "人员编号",
+    "colDispWidth": 100,
+    "columnName": "PERSON_NUM",
+    "cpCodeCol": null,
+    "dataFmt": null,
+    "dataType": 0,
+    "description": "",
+    "entityAttrType": null,
+    "id": 46910,
+    "inputCode": "",
+    "macroType": 0,
+    "storageFmt": 0,
+    "tableName": "TP_CARD_INFO"
+});
+columnCatlogs.push({
+    "codeDispStyle": 0,
+    "codeFmt": null,
+    "codeTableName": "",
+    "colDispName": "捺印单位代码",
+    "colDispWidth": 100,
+    "columnName": "PRINT_UNIT_CODE",
+    "cpCodeCol": null,
+    "dataFmt": null,
+    "dataType": 0,
+    "description": "",
+    "entityAttrType": null,
+    "id": 46910,
+    "inputCode": "",
+    "macroType": 0,
+    "storageFmt": 0,
+    "tableName": "TP_CARD_INFO"
+});
+columnCatlogs.push({
+    "codeDispStyle": 0,
+    "codeFmt": null,
+    "codeTableName": "",
+    "colDispName": "捺印单位名称",
+    "colDispWidth": 100,
+    "columnName": "PRINT_UNIT_NAME",
+    "cpCodeCol": null,
+    "dataFmt": null,
+    "dataType": 0,
+    "description": "",
+    "entityAttrType": null,
+    "id": 46910,
+    "inputCode": "",
+    "macroType": 0,
+    "storageFmt": 0,
+    "tableName": "TP_CARD_INFO"
+});
+columnCatlogs.push({
+    "codeDispStyle": 0,
+    "codeFmt": null,
+    "codeTableName": "",
+    "colDispName": "捺印日期",
+    "colDispWidth": 100,
+    "columnName": "PRINT_DATE",
+    "cpCodeCol": null,
+    "dataFmt": null,
+    "dataType": 0,
+    "description": "",
+    "entityAttrType": null,
+    "id": 46910,
+    "inputCode": "",
+    "macroType": 0,
+    "storageFmt": 0,
+    "tableName": "TP_CARD_INFO"
 });
 

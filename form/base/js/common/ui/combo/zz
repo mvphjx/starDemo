@@ -1,0 +1,24 @@
+function runAsync(){
+    var def = $.Deferred();
+    //做一些异步操作
+    setTimeout(function(){
+        console.log('执行完成');
+        def.resolve('随便什么数据');
+    }, 2000);
+    return def.promise(); //就在这里调用
+}
+runAsync().then(function(){})
+
+$.when(runAsync(), runAsync2(), runAsync3()).then
+
+
+function a() {
+    console.log('a');
+    var data = [];
+    return new Promise(function(resolve, reject){
+      setTimeout(function() {
+          data.push([1]);
+          resolve(data);
+      }, 1000);
+    })
+}

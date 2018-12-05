@@ -165,8 +165,8 @@ var FormConfig = function () {
 
     }
     function initEvent(){
-        $(document).on("dblclick",".Column",function(){
-
+        $content.on("dblclick",".item",function(){
+            $(this).remove();
         });
         $content.sortable({//可排序
             handle: ".item-title"

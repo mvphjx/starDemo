@@ -30,8 +30,8 @@ html,body {
 .item{
     float: left;
     margin-left: 30px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     min-height: 30px;
     position: relative;
     border:1px solid #DDDDDD;
@@ -46,13 +46,6 @@ html,body {
     clear: both;
 }
 .Column{
-    float: left;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    min-height: 30px;
-    position: relative;
-    border:1px solid #DDDDDD;
     width: 45%;
 }
 .Column .item-title{

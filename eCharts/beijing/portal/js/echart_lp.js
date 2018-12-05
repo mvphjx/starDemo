@@ -57,7 +57,8 @@ var EchartLPComponent = function () {
         xAxis: [
             {
                 type: 'category',
-                data: ""
+                data: "",
+                axisLabel:{interval :0}
             }
         ],
         yAxis: [

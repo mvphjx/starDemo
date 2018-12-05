@@ -58,7 +58,8 @@ var EchartTPComponent = function () {
         },
         yAxis: {
             type: 'category',
-            data: ['单位1']
+            data: ['单位1'],
+            axisLabel:{interval :0}
         },
         series: []
     };

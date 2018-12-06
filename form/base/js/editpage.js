@@ -1,18 +1,3 @@
-var InputType =
-    {
-        CODE: 0,//下拉选
-        TEXT: 1,//文本框
-        DATE: 2,//日期框
-        MULTEXT: 3,//多行文本
-        CHECKBNT: 4,//勾选框
-        CODETEXT: 5,//下拉选字典组合框 ，有补充文本输入框（例如地址代码，地址代码名称）
-        CODETEXT2: 6,//下拉选字典组合框，没有补充信息 （捺印单位，捺印单位名称）
-        DATETIME: 7,//日期时间
-        TABLE: 9,//表格控件
-        MULTIPLECOMBO: 10,//多选控件
-        CandFgps: 'CandFgps',//指位暂时特殊处理
-        Title: 'Title'//标题行特殊处理
-    };
 //文本编辑模式(编辑|更新|只读)
 var TxtMode = {
     INPUT: 0,
@@ -311,8 +296,8 @@ EditPage.prototype.initUI = function() {
         }
         var inputType = columnConfig.inputType;
         //创建标题
-        if(inputType==InputType.Title){
-            $abisform.append("<h4 id='mainInfo'>"+columnConfig.title+"</h4>");
+        if(inputType==ABISCode.InputType.Title){
+            $abisform.append("<h4>"+columnConfig.title+"</h4>");
             return true;
         }
         //创建父容器
@@ -386,6 +371,7 @@ EditPage.prototype.initUI = function() {
             var cssName = columnConfig.cssName||"WebTextField";
             abisInput = WebUI.createText(divid, id, cssName, "", required);
         } else if(inputType == ABISCode.InputType.MULTEXT) {
+            $(this).addClass("Sigle_Line_Div TextArea_Line_Div")
             abisInput = WebUI.createMulText(divid, id, "WebTextArea_Auto", "",required);
         } else if(inputType == ABISCode.InputType.CODETEXT) {
             $("#" + divid).addClass('oneinput');

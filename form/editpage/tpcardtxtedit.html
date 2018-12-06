@@ -153,13 +153,13 @@
      * @param mode 编辑/新增模式
      * @param validateFunction 校验监听
      * @param changeFunction 页面改变监听
-     * @param columnConfigs 表单配置
+     * @param pageConfig 表单配置
      */
-    function form(type,mode,validateFunction,changeFunction,columnConfigs) {
+    function form(type,mode,validateFunction,changeFunction,pageConfig) {
         if (WebUtil.isNull(mode)) {
             mode = 1;
         }
-        new EditPage(type,mode,columnConfigs);
+        new EditPage(type,mode,pageConfig.columnConfigs);
         EditPage.prototype.unique.registerChangeListener(txtChange);
         function txtChange(id, value, data) {
             var txtChanged = EditPage.prototype.unique.isTxtInfoChanged();
@@ -371,11 +371,11 @@
 </script>
 
 <div style="display:none;" id=testDiv>
-    <a onclick="form(null,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByWeb</a>
-    <a onclick="form(0,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByQT</a>
-    <a onclick="form(2,0,validateFunctionDemo,changeFunctionDemo,tpconfig.columnConfigs)">createFormByRCP</a>
-    <a onclick="setObject(rcptpdata2,0,upd)">setObjectAdd</a>
-    <a onclick="setObject(rcptpdata2,1,null)">setObjectEdit</a>
+    <a onclick="form(null,0,validateFunctionDemo,changeFunctionDemo,tpconfig)">createFormByWeb</a>
+    <a onclick="form(0,0,validateFunctionDemo,changeFunctionDemo,tpconfig)">createFormByQT</a>
+    <a onclick="form(2,0,validateFunctionDemo,changeFunctionDemo,tpconfig)">createFormByRCP</a>
+    <a onclick="setObject(rcptpcard,0,upd)">setObjectAdd</a>
+    <a onclick="setObject(rcptpcard,1,null)">setObjectEdit</a>
     <a onclick="alert(getObject())">getObject</a>
     <a onclick="setValues('{PERSON_NUM:111,CARD_NUM:222}')">setSomeValues</a>
 </div>

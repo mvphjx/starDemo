@@ -12,29 +12,32 @@ DetailPage.prototype.showCodeCols = [];
 /**
  *
  * @param type
+ * @param  columnConfigs 表单配置
  * @param columns
  * @param menu
  * @param param
+ *
  * {
  *  detail:td
  *  edit:div
  *  supportEdit:true
  * }
- *
+
  * @returns {null|DetailPage|*}
  * @constructor
  */
-function DetailPage(type, columns, menu,param) {
+function DetailPage(type,columnConfigs, columns, menu,param,) {
     if(!WebUtil.isNull(DetailPage.prototype.unique)) {
         return DetailPage.prototype.unique;
     }
     DetailPage.prototype.unique = this;
     this.type = type;
     this.columns = columns;
-    //根据哪些标签  穿件页面对象
-    this.param = {detail:"td",edit:"div",supportEdit:true};
+    this.columnConfigs = columnConfigs;
+    //根据哪些标签  创建页面对象
+    this.param = {detail:".detailform",edit:".form",supportEdit:true};
     if(!WebUtil.isEmpty(param)){
-        this.param = $.extend({detail:"td",edit:"div",supportEdit:true},param);
+        this.param = $.extend(this.param,param);
     }
     this.init();
     if((type>=0)||menu==true) {
@@ -103,7 +106,7 @@ DetailPage.prototype.setObject = function(jsonData,writeOver) {
     if(WebUtil.isNull(jsonData)) {
         return;
     } else if(typeof jsonData == 'string') {
-        jsonData = eval('(' + jsonData + ')');
+        jsonData = WebUtil.string2Json(jsonData);
     }
     if(WebUtil.isNull(writeOver)){
         writeOver = true;
@@ -126,19 +129,19 @@ DetailPage.prototype.setObject = function(jsonData,writeOver) {
     //只读td填充
     $(this.param.detail).each(function() {
         var $this = $(this);
-        var settingStr = $(this).attr('setting')
-        var setting = nthis.getSetting(settingStr, nthis);
+        var settingStr = $(this).attr('setting');
+        var setting = nthis.getSetting(settingStr);
         if(WebUtil.isNull(setting) || WebUtil.isNull(setting.id))
             return;
         var id = setting.id;
         var jsonvalue = getJson(id, nthis.splitChar);
         getValue(setting, jsonvalue, relatValueCatch,function(value){
             if(writeOver===true||!WebUtil.isNull(jsonvalue)){
-                $this.attr("title", value)
-                $this.html($this.attr("title"));
+                var $content = $this.find(".content");
+                $content.html(value);
+                $content.attr("title", value);
             }
         });
-
     });
     //解析json 获取值
     function getJson(id, splitChar) {
@@ -228,9 +231,39 @@ DetailPage.prototype.setObject = function(jsonData,writeOver) {
  编辑状态
  */
 DetailPage.prototype.init = function() {
+    var _this = this;
+    initPageConfig();
     if(this.param.supportEdit){
         this.initUI();
         this.initTable();
+    }
+    function initPageConfig(){
+        if(!_this.columnConfigs){
+            return
+        }
+        var $abisdetail = $(".abisdetail");
+        $.each(_this.columnConfigs,function(index,columnConfig){
+            if(WebUtil.isNull(columnConfig)){
+                return;
+            }
+            if(!columnConfig.validate){
+                columnConfig.validate={}
+            }
+            var inputType = columnConfig.inputType;
+            //创建标题
+            if(inputType==ABISCode.InputType.Title){
+                $abisdetail.append("<h4>"+columnConfig.title+"</h4>");
+                return true;
+            }
+            //创建父容器
+            var $div = $("<div class='detailform' setting='{{setting}}' ><label>{{title}}</label><div class='content'></div></div>")
+            $div.find("label").html(columnConfig.columnCatlog.colDispName);
+            $div.attr("setting",JSON.stringify(columnConfig));
+            if(inputType==ABISCode.InputType.MULTEXT){
+                $div.addClass("Sigle_Line_Div TextArea_Line_Div");
+            }
+            $abisdetail.append($div);
+        });
     }
 }
 /*
@@ -239,9 +272,8 @@ DetailPage.prototype.init = function() {
 DetailPage.prototype.initUI = function() {
     var _this = this;
     $(this.param.edit).each(function() {
-        var _this = DetailPage.prototype.unique;
         var settingStr = $(this).attr('setting')
-        var setting = _this.getSetting(settingStr, _this);
+        var setting = _this.getSetting(settingStr);
         if(WebUtil.isNull(setting) || WebUtil.isNull(setting.id))
             return;
         var arr = setting.id.split(_this.splitChar);
@@ -287,29 +319,37 @@ DetailPage.prototype.initUI = function() {
         }
         _this.initCache(abisInput);
     });
-    return;
+}
+function getColumnConfigs(columnConfigStr){
+    var columnConfig = WebUtil.string2Json(columnConfigStr);
+    try {
+        //优先取div配置，如果没有，从传入的配置中找
+        if(WebUtil.isNull(columnConfig) || WebUtil.isNull(columnConfig.id)){
+            if(!WebUtil.isNull(_this.columns)&&!WebUtil.isNull(_this.columns[settingStr])){
+                columnConfig = _this.columns[settingStr];
+            }
+        }
+    } catch(e) {
+        columnConfig=null;
+    }
+    return columnConfig;
 }
 /*
  * 获取当前dom标签的 setting配置
  */
-DetailPage.prototype.getSetting = function getSetting(settingStr, _this) {
-    var setting = null;
+DetailPage.prototype.getSetting = function(columnConfigStr) {
+    var columnConfig = WebUtil.string2Json(columnConfigStr);
     try {
-        setting = eval('(' + settingStr + ')');
-    } catch(e) {
-        setting = null;
-    }
-    try {
-        //优先取dom配置的setting，如果没有，从传入的配置中找
-        if(WebUtil.isNull(setting) || WebUtil.isNull(setting.id)) {
-            if(!WebUtil.isNull(_this.columns) && !WebUtil.isNull(_this.columns[settingStr])) {
-                setting = _this.columns[settingStr];
+        //优先取div配置，如果没有，从传入的配置中找
+        if(WebUtil.isNull(columnConfig) || WebUtil.isNull(columnConfig.id)){
+            if(!WebUtil.isNull(this.columns)&&!WebUtil.isNull(this.columns[settingStr])){
+                columnConfig = this.columns[settingStr];
             }
         }
     } catch(e) {
-        setting = null;
+        columnConfig=null;
     }
-    return setting;
+    return columnConfig;
 
 }
 /*
@@ -336,7 +376,6 @@ DetailPage.prototype.initTable = function() {
                 var arr = new Array();
                 arr = input.getId().split(_this.splitChar);
                 var name = arr[arr.length - 1];
-                //prevAll('label').html()  or  .prev().html()
                 tableJson["headerText"][name] = $("#" + input.getId() + "div").prev().html();
                 tableJson["header"].push(name)
             }
@@ -403,12 +442,13 @@ DetailPage.prototype.setValueById = function(id,value) {
     //只读td填充
     $(this.param.detail).each(function() {
         var settingStr = $(this).attr('setting')
-        var setting = _this.getSetting(settingStr, _this);
+        var setting = _this.getSetting(settingStr);
         if(WebUtil.isNull(setting) || WebUtil.isNull(setting.id))
             return;
         if(id===setting.id){
-            $(this).html(value);
-            $(this).attr("title", value)
+            var $content = $(this).find(".content");
+            $content.html(value);
+            $content.attr("title", value)
         }
     });
 }

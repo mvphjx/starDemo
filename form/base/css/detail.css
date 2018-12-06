@@ -7,8 +7,7 @@
 	list-style: none;
 	box-sizing: border-box;
 }
-
-.Information {
+.detail{
 	padding: 0 15px 20px 15px;
 	overflow: hidden;
 	position: relative;
@@ -16,79 +15,51 @@
 	border: 1px solid #ddd;
 	min-width: 780px;
 }
-
-.Information h4 {
+.detail  h4{
 	height: 40px;
 	line-height: 40px;
-	font-size: 1.0em;
+	font-size: 1.2em;
 	font-weight: bold;
-	color: #0168ac;
+	color: #0168AC;
+	clear: both;
 }
-
-.Information table {
-	border: 1px solid #ddd;
-	width: 100%;
-	max-width: 100%;
-	background-color: transparent;
-	border-spacing: 0;
-	border-collapse: collapse;
+.detail .detailform{
+	float: left;
+	width: 45%;
+	margin-right: 5%;
+	margin-bottom: 20px;
+	height: 32px;
+	line-height: 32px;
 	white-space: nowrap;
-	table-layout: fixed;
 }
-
-.Information table tr.odd {
-	-background-color: #f9f9f9;
-}
-
-.Information table tr td.odd2 {
+.detail .detailform label {
+	width: 33%;
+	height: 32px;
 	color: #666;
-	text-align: right;
-	width: 20%;
-	background: #f9f9f9;
+	position: relative;
+	float: left;
+	font-weight: bold;
 }
-
-.Information table tr td {
-	padding: 8px 15px;
-	border: 1px solid #ddd;
-	line-height: 1.42857143;
-	width: 30%;
-	background: #fff;
-	text-overflow: ellipsis;
-	overflow: hidden;
+.detail .detailform .content {
+	width: 66%;
+	height: 32px;
+	color: #666;
+	position: relative;
+	float: left;
 }
 /*显示多行文本*/
-.multiple {
-	white-space: pre-line;
+
+.Sigle_Line_Div {
+	width: 95%!important;
 }
-
-/* .Information table tr td:hover{text-overflow:inherit; overflow: visible; white-space: pre-line;} 
- */
-
-.Information .half h4 {
-	height: 35px;
-	line-height: 35px;
-	color: #fff;
-	padding-left: 10px;
-	background: #535353;
-	margin-top: 30px;
+.Sigle_Line_Div label {
+	width: 15.63%!important;
 }
-
-.Information .half tr th {
-	background: #f9f9f9;
-	height: 35px;
-	color: #666;
-	font-weight: normal;
-	text-align: left;
-	padding-left: 10px;
-	border: 1px solid #ddd;
+.Sigle_Line_Div>div {
+	width: 83.9%!important;
 }
-
-.Information .half tr td {
-	background: #fff;
-	height: 35px;
-	color: #333 !important;
-	padding-left: 10px;
-	text-align: left !important;
+.TextArea_Line_Div {
+	height:62px!important;
 }
 
 body {
@@ -99,33 +70,6 @@ body {
 	color: #333;
 }
 
-
-/* .Information .divider {
-	clear: both;
-}
-
-.Information .PersonPhoto {
-	position: absolute;
-	left: 15px;
-	top: 40px;
-	border: 1px solid #ddd;
-	overflow: hidden;
-	width: 92px;
-}
-
-.Information .PersonPhoto img {
-	width: 100%;
-	height: auto;
-	display: block;
-}
-
-.Information .PersonPhoto .name {
-	height: 35px;
-	line-height: 35px;
-	color: #fff;
-	text-align: center;
-	background: #87cbf2;
-} */
 /*字段超长 tip提示框*/
 .td_showdiv {
 	width: 200px;
@@ -138,3 +82,59 @@ body {
 	color: #f3f0f6;
 	z-index: 9999;
 }
+.detail .other {
+	clear: both; margin-top: 40px;
+}
+
+.detail .other>div {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.detail .other h5 {
+	background: #535353;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.detail .other h5 button {
+	float: right;
+	width: 15px;
+	height: 14px;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+.detail .other h5 button:hover {
+	opacity: 0.8;
+}
+.detail .other table {
+	width: 100%;
+	border: 1px solid #ccc;
+	width: 100%;
+	max-width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	white-space: nowrap;
+}
+
+.detail .other table th {
+	height: 32px;
+	background: #f9f9f9;
+	color: #666;
+	font-weight: normal;
+	border: 1px solid #ddd;
+	text-align: left;
+	padding: 0 10px;
+}
+
+.detail .other table td {
+	height: 32px;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+}
+.detail .other table tr{background: #fff;}
+.detail .other table .rowdown,.detail .other table .rowhover{background: #ebf6ff;}

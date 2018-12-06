@@ -478,7 +478,8 @@ var ABISCode=
             DATETIME: 7,//日期时间
             TABLE: 9,//表格控件
             MULTIPLECOMBO: 10,//多选控件
-            CandFgps: 'CandFgps'//指位暂时特殊处理
+            CandFgps: 'CandFgps',//指位暂时特殊处理
+            Title: 'Title'//标题行特殊处理
         },
 	ClientType :
 	{

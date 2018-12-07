@@ -26,7 +26,7 @@ DetailPage.prototype.showCodeCols = [];
  * @returns {null|DetailPage|*}
  * @constructor
  */
-function DetailPage(type,columnConfigs, columns, menu,param,) {
+function DetailPage(type,columnConfigs,columns,menu,param) {
     if(!WebUtil.isNull(DetailPage.prototype.unique)) {
         return DetailPage.prototype.unique;
     }
@@ -165,62 +165,55 @@ DetailPage.prototype.setObject = function(jsonData,writeOver) {
             callback(result);
             return;
         }
-        if(WebUtil.isNull(setting.dataType)) {
+        if(WebUtil.isNull(setting.inputType)) {
             callback(value);
             return;
         }
-        var dataType = setting.dataType;
-        if(WebUtil.isNumber(dataType)) {
-            dataType = Number(dataType);
-        }
-        switch(dataType) {
-            case ABISCode.InputType.CODE:
-                if(setting.showText===false||setting.showText==='false'){
-                    result = value;
-                    callback(result);
-                }else if(!WebUtil.isNull(setting.columnName)) {
-                    if(setting.columnName.indexOf(ABISCode.DBCodeName) > -1) {
-                        //数据库特殊处理
-                        if(setting.columnName.split(nthis.splitChar).length > 1) {
-                            var dbType = setting.columnName.split(nthis.splitChar)[1];
-                            WebComboUtil.getDBCodeText(dbType, value).then(callback)
-                        }
-                    } else {
-                        WebComboUtil.getCodeText(setting.columnName,value).then(callback)
-                    }
-                }else{
-                    result = value;
-                    callback(result);
-                }
-                break;
-            case ABISCode.InputType.DATE:
-                //日期格式转换
-                result = WebUtil.dateTime2Date(value);
-                callback(result);
-                break;
-            case ABISCode.InputType.CandFgps:
-                result = "";
-                var bty =JsonUtil.getJsonValueById('cardInfo_And_bty',jsonData,'_And_');
-                var data =AbisCheckData.candFgps;
-                if(bty==2){
-                    data =AbisCheckData.candFgps_zw;
-                }
-                var valuelen = data.length;
-                for(var i = 0; i < valuelen; i++) {
-                    if(value.substr(i, 1) == '1') {
-                        if(result == '') {
-                            result = data[i].text
-                        } else {
-                            result = result + "," + data[i].text
-                        }
-                    }
-                }
-                result == '' ? value : result
-                callback(result);
-                break;
-            default:
+        var inputType = setting.inputType;
+        if(inputType == ABISCode.InputType.CODE){
+            if(setting.showText===false||setting.showText==='false'){
                 result = value;
                 callback(result);
+            }else if(!WebUtil.isNull(setting.columnName)) {
+                if(setting.columnName.indexOf(ABISCode.DBCodeName) > -1) {
+                    //数据库特殊处理
+                    if(setting.columnName.split(nthis.splitChar).length > 1) {
+                        var dbType = setting.columnName.split(nthis.splitChar)[1];
+                        WebComboUtil.getDBCodeText(dbType, value).then(callback)
+                    }
+                } else {
+                    WebComboUtil.getCodeText(setting.columnName,value).then(callback)
+                }
+            }else{
+                result = value;
+                callback(result);
+            }
+        }else if(inputType == ABISCode.InputType.DATE){
+            //日期格式转换
+            result = WebUtil.dateTime2Date(value);
+            callback(result);
+        }else if(inputType == ABISCode.InputType.CandFgps){
+            result = "";
+            var bty =JsonUtil.getJsonValueById('cardInfo_And_bty',jsonData,'_And_');
+            var data =AbisCheckData.candFgps;
+            if(bty==2){
+                data =AbisCheckData.candFgps_zw;
+            }
+            var valuelen = data.length;
+            for(var i = 0; i < valuelen; i++) {
+                if(value.substr(i, 1) == '1') {
+                    if(result == '') {
+                        result = data[i].text
+                    } else {
+                        result = result + "," + data[i].text
+                    }
+                }
+            }
+            result == '' ? value : result
+            callback(result);
+        }else{
+            result = value;
+            callback(result);
         }
     }
 };
@@ -278,12 +271,12 @@ DetailPage.prototype.initUI = function() {
             return;
         var arr = setting.id.split(_this.splitChar);
         var id = setting.id;
-        var dataType = setting.dataType;
+        var inputType = setting.inputType;
         //创建父容器
         var divid = id + "div";
         $(this).append($("<div id=\"" + divid + "\"></div>"));
         var abisInput = null;
-        if(dataType == ABISCode.InputType.CODE) {
+        if(inputType == ABISCode.InputType.CODE) {
             var codeName = "";
             if(!WebUtil.isNull(setting.columnName)) {
                 codeName = setting.columnName;
@@ -305,13 +298,13 @@ DetailPage.prototype.initUI = function() {
                 issearchall = false;
             }
             abisInput = WebUI.createCombo(divid, id, null, null, true, issearchall, codeName, "", _this.requiredField);
-        } else if(dataType == ABISCode.InputType.DATE) {
+        } else if(inputType == ABISCode.InputType.DATE) {
             abisInput = WebUI.createDateText(divid, id, "WebTextField", "", _this.requiredField);
-        } else if(dataType == ABISCode.InputType.TEXT) {
+        } else if(inputType == ABISCode.InputType.TEXT) {
             abisInput = WebUI.createText(divid, id, "WebTextField", "", _this.requiredField);
-        } else if(dataType == ABISCode.InputType.MULTEXT) {
+        } else if(inputType == ABISCode.InputType.MULTEXT) {
             abisInput = WebUI.createMulText(divid, id, "WebTextArea", "", _this.requiredField);
-        } else if(dataType == ABISCode.InputType.TABLE) {
+        } else if(inputType == ABISCode.InputType.TABLE) {
             $("#" + divid).attr('id', id);
             abisInput = new WebTableMgr(id, "", 20, null);
         } else {

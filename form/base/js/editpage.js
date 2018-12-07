@@ -23,6 +23,8 @@ EditPage.prototype.webTableArr = [];
 EditPage.prototype.webTableUniqueCols = [];
 //一些字段 需要展示 代码值而不是文本
 EditPage.prototype.showCodeCols = [];
+//一些字段 不允许更新
+EditPage.prototype.notUpdataCols = [];
 
 /**
  * 创建编辑页面
@@ -252,10 +254,8 @@ EditPage.prototype.init = function() {
 /**
  *编辑/新增界面切换
  * @param {Object} mode 编辑状态（新增还是编辑）
- * @param {Object} limitCols 编辑时需要禁用的控件的setting id
- * @param {Object} enableCols 编辑时需要启用的控件的setting id（这个参数为了更加灵活控制更新项，比如接警编号 为空可更新，非空只读不可更新）
  */
-EditPage.prototype.initUIStatus = function (mode, limitCols, enableCols) {
+EditPage.prototype.initUIStatus = function (mode) {
     if (mode || mode === 0) {
         this.mode = mode;
     }
@@ -263,14 +263,16 @@ EditPage.prototype.initUIStatus = function (mode, limitCols, enableCols) {
     var i = 0;
     var length = arrObject.length;
     var control;//控件
-     if (this.mode == TxtMode.EDIT) {
+    if (this.mode == TxtMode.EDIT) {
         for (; i < length; i++) {
+            var editable = true;
             control = arrObject[i];
-            if (WebArrayUtil.containsToIgnoreCase(enableCols, control.getParamVal())) {
-                control.setEditable(true);
-            } else if (WebArrayUtil.containsToIgnoreCase(limitCols, control.getParamVal())) {
-                control.setEditable(false);
+            if(!WebUtil.isEmpty(control.getValue())){
+                if($.inArray(control.getId(), this.notUpdataCols) !== -1){
+                    editable=false;
+                }
             }
+            control.setEditable(editable);
         }
     } else {
         for (; i < length; i++) {
@@ -335,6 +337,9 @@ EditPage.prototype.initUI = function() {
         $(this).append($("<div id=\"" + divid + "\"></div>"));
         var inputType = columnConfig.inputType;
         var required = columnConfig.validate&&columnConfig.validate.isRequired?[id]:null;
+        if(columnConfig.validate&&columnConfig.validate.notUpdata){
+            _this.notUpdataCols.push(id);
+        }
         if(inputType == ABISCode.InputType.CODE||inputType == ABISCode.InputType.MULTIPLECOMBO) {
             var codeName = columnConfig.columnName||"";
             var showText = columnConfig.showText||true;

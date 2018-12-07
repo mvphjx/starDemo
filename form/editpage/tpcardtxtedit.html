@@ -234,15 +234,9 @@
     }
 
     //mode =1  表示 进入编辑模式
-    function setObject(jsonData, mode, notUpdateData) {
-        var forbCol = null;
-        if (!WebUtil.isEmpty(notUpdateData)) {
-            forbCol = getColumsFromConfig(notUpdateData);
-        } else {
-            forbCol = ["person_num", 'card_num'];//缺省不能编辑的字段
-        }
-        EditPage.prototype.unique.initUIStatus(mode, forbCol, null);
+    function setObject(jsonData, mode) {
         EditPage.prototype.unique.setObject(jsonData);
+        EditPage.prototype.unique.initUIStatus(mode);
         //AddrInfo_Show 不根据数据有无，总是显示
         $('#personTextInfo_And_AddrInfo').parent().show();
         EditPage.prototype.unique.runChangeListener();

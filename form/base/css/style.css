@@ -461,12 +461,13 @@ select::-ms-expand {
 }
 
 .edit2 .form .twoinput {position: relative;}
-
+.form .First_Input{
+	background: #f8f8f8;
+}
 .edit2 .form .twoinput .First_Input {
 	width: 114px;
 	padding-left: 5px;
 	border-right: none;
-	background: #f8f8f8;
 }
 
 .edit2 .form .twoinput .Last_Input {

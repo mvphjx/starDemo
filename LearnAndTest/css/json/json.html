@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>HTML显示json字符串并且进行格式化</title>
+</head>
+
+<body>
+<p id="show_p">{ "name": "Brett", "address":"No.23", "email": "123456@qq.com" }</p>
+<pre id="out_pre"></pre>
+<pre id="out_pre2"></pre>
+</body>
+<script type="text/javascript">
+
+    var text = document.getElementById('show_p').innerText; //获取json格式内容
+    var result = JSON.stringify(JSON.parse(text), null, 2);//将字符串转换成json对象
+    document.getElementById('out_pre').innerText= result ;
+
+    var json = { "name": "Brett", "address":"No.23", "email": "123456@qq.com" }
+    var result2 = JSON.stringify(json, null, 2);//将字符串转换成json对象
+    document.getElementById('out_pre2').innerText= result ;
+
+</script>
+
+</html>

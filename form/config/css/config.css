@@ -48,7 +48,7 @@ html,body {
     border:1px solid #DDDDDD;
     width: 90%;
 }
-.rightContent .content .item .item-title{
+.rightContent .content .item .item_title{
     height: 30px;
     line-height: 30px;
     font-size: 1.2em;
@@ -59,11 +59,14 @@ html,body {
 .rightContent .content .Column{
     width: 45%;
 }
-.rightContent .content .Column .item-title{
+.rightContent .content .Column .item_title{
     height: 20px;
     line-height: 20px;
     font-size: 1.2em;
     font-weight: bold;
     color: #424265;
     clear: both;
+}
+.rightContent .content .item_tool{
+    float: right;
 }

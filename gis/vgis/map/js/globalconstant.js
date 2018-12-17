@@ -20,7 +20,7 @@ globalconstant.selects ={};
 //地图自定义插件集合对象
 globalconstant.plugin = new Array();
 
-globalconstant.imgUrl="../../images/";//图标地址
+globalconstant.imgUrl="../images/";//图标地址
 globalconstant.featureNS='http://www.visystem.cn/';   //geoserver命名空间
 globalconstant.featurePrefix= 'vgisNew'        //geoserver工作空间
 

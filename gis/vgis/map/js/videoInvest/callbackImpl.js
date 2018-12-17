@@ -84,7 +84,8 @@ callbackImpl.pointermoveCallback = function (feature, event) {
      * @param feature
      */
     callbackImpl.moveendCallback = function (center, zoom, event) {
-        window.VisMapJsInteract.moveendCallback(JSON.stringify({center:center,zoom:zoom}));
+        console.log(center, zoom, event)
+        //window.VisMapJsInteract.moveendCallback(JSON.stringify({center:center,zoom:zoom}));
     }
 /**
  * 双击回调业务系统函数
@@ -141,7 +142,8 @@ callbackImpl.modifyEndCallback = function (feature, event) {
  * 动画完成回调
  */
 callbackImpl.animationCallback = function (id, slef, status) {
-    window.VisMapJsInteract.animationCallback(id);
+    console.log(id, slef, status)
+    //window.VisMapJsInteract.animationCallback(id);
 }
 callbackImpl.queryGeoServerDataCallback=function(geoType,data){
     var _layerId=geoType;

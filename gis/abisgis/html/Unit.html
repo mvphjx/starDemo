@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../js/openlayers/4.6.5/ol.css" />
+    <link rel="stylesheet" href="../js/openlayers/popup/ol-popup.css" />
+    <link rel="stylesheet" href="../js/openlayers/4.6.5/ext/ol-ext.min.css" />
+    <script src="../js/openlayers/4.6.5/ol-debug.js"></script>
+    <script src="../js/openlayers/popup/ol-popup.js"></script>
+    <script src="../js/openlayers/4.6.5/turf.min.js"></script>
+    <script src="../js/jquery/jquery-3.3.1.min.js"></script>
+</head>
+
+<body style="width:100%;height:100%">
+<div id="map" style="width:100%;height:100%"></div>
+<div id="marker" class="vector" title="">
+    <p class="name">丰台分局</p>
+    <p class="num">500</p>
+</div>
+</body>
+</html>
+<style>
+
+    .vector p {
+        text-align: center;
+        color: mintcream;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 6px;
+        padding-right: 6px;
+
+    }
+    .vector {
+        width: 78px;
+        height: 78px;
+        border: 1px solid transparent;
+        background-color: #00a75b;
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 18px;
+        cursor: pointer;
+        /*white-space: initial;*/
+    }
+    .vector:hover {
+        background-color: #d44642;
+
+    }
+    .name {
+        margin-top: 20px;
+    }
+
+    .num {
+        font-size: 13px;
+        font-weight: bold;
+        /*margin-top: -11px;*/
+        min-height: 10px;
+    }
+</style>
+<script src="../js/util/mapTool.js"></script>
+<script>
+    var options={
+        tileUrl:"http://localhost:8080/map",
+        defaultLon:116.29570551767891,
+        defaultLat:39.82209837478379,
+        defaultlevel:13,
+        minlevel:7,
+        maxlevel:18,
+        geoserverWfs:"http://192.168.0.128:8282/geoserver-gis/wfs"
+    };
+    mapTool.init(options);
+    var pos = ol.proj.fromLonLat([116.29570551767891, 39.82209837478379]);
+    // Vienna marker
+    var marker = new ol.Overlay({
+        position: pos,
+        positioning: 'center-center',
+        element: document.getElementById('marker'),
+        stopEvent: false
+    });
+    appMap.map.addOverlay(marker);
+</script>

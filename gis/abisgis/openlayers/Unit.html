@@ -14,10 +14,6 @@
 
 <body style="width:100%;height:100%">
 <div id="map" style="width:100%;height:100%"></div>
-<div id="marker" class="vector" title="">
-    <p class="name">丰台分局</p>
-    <p class="num">500</p>
-</div>
 </body>
 </html>
 <style>
@@ -29,6 +25,7 @@
         text-overflow: ellipsis;
         padding-left: 6px;
         padding-right: 6px;
+        white-space:nowrap;
 
     }
     .vector {
@@ -63,19 +60,39 @@
         tileUrl:"http://localhost:8080/map",
         defaultLon:116.29570551767891,
         defaultLat:39.82209837478379,
-        defaultlevel:13,
+        defaultlevel:12,
         minlevel:7,
         maxlevel:18,
         geoserverWfs:"http://192.168.0.128:8282/geoserver-gis/wfs"
     };
     mapTool.init(options);
-    var pos = ol.proj.fromLonLat([116.29570551767891, 39.82209837478379]);
-    // Vienna marker
-    var marker = new ol.Overlay({
-        position: pos,
-        positioning: 'center-center',
-        element: document.getElementById('marker'),
-        stopEvent: false
-    });
-    appMap.map.addOverlay(marker);
+
+    createPoint(116.32634600,39.89649100,'西站分局');
+    createPoint(116.40054400,39.90246400,'天安门分局');
+    createPoint(116.29464000,39.85694300,'丰台分局');
+    createPoint(116.41083600,39.93859900,'东城分局');
+
+    function createPoint(lon,Lat,name){
+        var dom  = "<div id=\"marker\" class=\"vector\" title=\"\">\n" +
+            "    <p class=\"name\">{{name}}}</p>\n" +
+            "    <p class=\"num\">500</p>\n" +
+            "</div>"
+        dom = dom.replace("{{name}}}",name);
+        var pos = ol.proj.fromLonLat([lon, Lat]);
+        // Vienna marker
+        var marker = new ol.Overlay({
+            position: pos,
+            positioning: 'center-center',
+            element: $(dom)[0],
+            stopEvent: false
+        });
+        appMap.map.addOverlay(marker);
+
+    }
+
+
+
+
+
+
 </script>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.bootcss.com/leaflet/1.3.4/leaflet-src.js"></script>
+    <link href="https://cdn.bootcss.com/leaflet/1.3.4/leaflet.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body style="width:100%;height:100%">
+<div id="map"></div>
+<!--<div id="marker" class="vector" title="">-->
+<!--<p class="name">丰台分局</p>-->
+<!--<p class="num">500</p>-->
+<!--</div>-->
+</body>
+</html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    html {
+        height: 100%;
+    }
+
+    #map {
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        width: 100%;
+    }
+    .vector p {
+        text-align: center;
+        color: mintcream;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 6px;
+        padding-right: 6px;
+        white-space:nowrap;
+
+    }
+    .vector {
+        width: 78px;
+        height: 78px;
+        border: 1px solid transparent;
+        background-color: #00a75b;
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 18px;
+        cursor: pointer;
+        /*white-space: initial;*/
+    }
+    .vector:hover {
+        background-color: #d44642;
+
+    }
+    .name {
+        margin-top: 20px;
+    }
+
+    .num {
+        font-size: 13px;
+        font-weight: bold;
+        /*margin-top: -11px;*/
+        min-height: 10px;
+    }
+</style>
+<script>
+    var map = L.map('map', {
+        tapTolerance: 25
+    }).setView(L.latLng(39.8675991827,116.4550923390), 12);
+    L.tileLayer('http://localhost:8080/map/roadmap/{z}/{x}/{y}.png').addTo(map);
+    L.marker([39.89649100,116.32634600]).addTo(map)
+        .bindPopup('<span style="color: red">北京西站分局</span>');
+    L.marker([39.90246400,116.40054400]).addTo(map)
+        .bindPopup('天安门地区分局');
+    L.marker([39.85694300,116.29464000]).addTo(map)
+        .bindPopup('丰台分局');
+    var testMarker = L.marker([39.93859900, 116.41083600]);
+    testMarker.addTo(map);
+    //test Tooltip
+    testMarker.bindTooltip('东城分局').openTooltip();
+
+
+    var myIcon = L.divIcon({className: 'vector'});
+    // you can set .my-div-icon styles in CSS
+    L.marker([39.8675991827,116.4550923390], {icon: myIcon}).addTo(map);
+
+    //L.circleMarker(<LatLng> latlng, <CircleMarker options> options?)  116.44641600 	39.91428100
+
+    L.circleMarker([39.91428100 ,116.44641600],{radius:80}).addTo(map);
+
+    //L.DivOverlay var point = L.point(200, 300);
+    //L.DivOverlay(L.point(200, 300),"vector",'popupPane').addTo(map);
+    var dom  =
+        "    <p class=\"name\">{{name}}}</p>\n" +
+        "    <p class=\"num\">500</p>\n";
+    var popupOption = {
+        maxWidth:100,
+        minWidth:100,
+        //autoPanPaddingBottomRight:L.point(1,1),
+        autoPanPadding:L.point(1,1),
+        keepInView:false,
+        closeButton:false,
+        autoClose:false,
+        closeOnEscapeKey:false,
+        className:"vector",
+        closeOnClick:function(){console.log(1)}
+    };
+    var popup = L.popup(popupOption)
+        .setLatLng([39.89649100,116.32634600])
+        .setContent(dom)
+        .addTo(map);
+
+    var divoverlay = L.DivOverlay(popupOption)
+        .setLatLng([39.8675991827,116.4550923390])
+        .setContent(dom);
+    divoverlay.addTo(map);
+
+</script>

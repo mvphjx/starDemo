@@ -54,25 +54,26 @@
         min-height: 10px;
     }
 </style>
-<script src="../js/util/mapTool.js"></script>
 <script src="data.js"></script>
 
 <script>
-    var options={
-        tileUrl:"http://localhost:8080/map",
-        defaultLon:116.29570551767891,
-        defaultLat:39.82209837478379,
-        defaultlevel:12,
-        minlevel:7,
-        maxlevel:18,
-        geoserverWfs:"http://192.168.0.128:8282/geoserver-gis/wfs"
-    };
-    mapTool.init(options);
+    var  tileUrl = "http://localhost:8080/map";
 
-    var p1 = createPoint(116.32634600,39.89649100,'西站分局');
-    var p2 = createPoint(116.40054400,39.90246400,'天安门分局');
-    var p3 = createPoint(116.29464000,39.85694300,'丰台分局');
-    var p4 = createPoint(116.41083600,39.93859900,'东城分局');
+    var map = new ol.Map({
+        layers: [new ol.layer.Tile({
+            source:new ol.source.XYZ({
+                url: tileUrl+'/roadmap/{z}/{x}/{y}.png'
+            })
+        })],
+        renderer: 'canvas', //dom canvas
+        target: 'map',
+        view: new ol.View({
+            center:ol.proj.fromLonLat([116.295, 39.822]),
+            maxZoom: 19,
+            zoom: 13,
+            projection: "EPSG:3857"
+        })
+    });
 
     function createPoint(lon,Lat,name){
         var dom  = "<div id=\"marker\" class=\"vector\" title=\"\">\n" +
@@ -88,32 +89,11 @@
             element: $(dom)[0],
             stopEvent: false
         });
-        marker.on('singleclick', function() {
-          console.log("marker-singleclick")
-        });
-        appMap.map.addOverlay(marker);
+        map.addOverlay(marker);
         return marker;
     }
-    /**
-     * 单击点击
-     */
-    appMap.map.on('singleclick', function(event,a) {
-        var feature = appMap.map.forEachFeatureAtPixel(event.pixel,
-            function(feature) {
-                return feature;
-            });
-        console.log(feature, event);
-    });
-    appMap.map.on('click', function(event,a) {
-        var feature = appMap.map.forEachFeatureAtPixel(event.pixel,
-            function(feature) {
-                return feature;
-            });
-        console.log(feature, event);
-    });
-
     $.each(unitData,function(index,model){
-        if(index>100){
+        if(index>1){
             return false;
         }
         createPoint(Number(model.lon),Number(model.lat),model.unitName);

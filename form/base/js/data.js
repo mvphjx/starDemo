@@ -1,5 +1,5 @@
 ﻿var WebVar = {
-	VarPath: "http://192.168.129.107:7950/abisweb",
+	VarPath: "http://192.168.129.148:7950/abisweb",
 	ImgOcxBg: 0x8c8d8b,
 	TimeOut: 10000
 };

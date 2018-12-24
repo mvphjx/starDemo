@@ -14,6 +14,11 @@ var InputType =
         CandFgps: 'CandFgps',//指位暂时特殊处理
         Title: 'Title'//标题行特殊处理
     };
+var WebVar = {
+    VarPath: "http://192.168.129.148:7950/abisweb",
+    ImgOcxBg: 0x8c8d8b,
+    TimeOut: 10000
+};
 //元数据
 var demoColumnConfigs = [];
 demoColumnConfigs.push({

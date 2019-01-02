@@ -1,0 +1,49 @@
+<head>
+    <script src="../../js/fabric.js"></script>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<canvas style="border: 1px solid black" id="canvas"></canvas>
+<button id=cropB>crop</button>
+<image id="demoImage"></image>
+</body>
+<script>
+    var canvas = new fabric.Canvas('canvas');
+    var image;
+    fabric.util.loadImage("../../img/angle.jpg", function(img) {
+        image = new fabric.Image(img);
+        image.selectable = true;
+        image.angle = 0;
+        canvas.setWidth(image.width);
+        canvas.setHeight(image.height);
+        canvas.add(image);
+        canvas.centerObject(image);
+        canvas.renderAll();
+    });
+    var rectangle = new fabric.Rect({
+        // fill: 'transparent',
+        stroke: '#ccc',
+        //strokeDashArray: [2, 2],
+        strokeWidth: 1,
+        fill: "rgba(255, 255, 255, 0)",
+        visible: true,
+        selectable : true,
+        width:800,
+        height:800
+    });
+    canvas.add(rectangle);
+    $('#cropB').on('click', function() {
+        var imageAngle = image.angle;
+        image.angle =image.angle-rectangle.angle;
+        var srcData = image.toDataURL({
+            multiplier:0.5,
+            left: rectangle.left-image.left,
+            top: rectangle.top-image.top,
+            width: rectangle.width,
+            height: rectangle.height
+        });
+        image.angle = imageAngle;
+        $("#demoImage").attr("src",srcData)
+    });
+
+</script>

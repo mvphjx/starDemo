@@ -1,0 +1,32 @@
+<head>
+    <script src="../../js/fabric.js"></script>
+    <script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<canvas style="border: 1px solid black" id="canvas"></canvas>
+<button id=cropB>crop</button>
+<image id="demoImage"></image>
+</body>
+<script>
+    var canvas = new fabric.Canvas('canvas');
+    canvas.setWidth($(document.documentElement).width());
+    canvas.setHeight($(document.documentElement).height());
+    var rectangle = new fabric.Rect({
+        left: 0,
+        top: 0,
+        stroke: "blue",
+        strokeWidth: 2,
+        fill: "rgba(255, 255, 255, 0)",
+        visible: true,
+        angle : 90,
+        selectable : true,
+        width:600,
+        height:500,
+        originX:'center',
+        originY:'center'
+    });
+    canvas.add(rectangle);
+    canvas.renderAll();
+
+
+</script>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://cdn.bootcss.com/leaflet/1.3.4/leaflet-src.js"></script>
     <link href="https://cdn.bootcss.com/leaflet/1.3.4/leaflet.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 </head>
 
 <body style="width:100%;height:100%">
@@ -83,7 +83,7 @@
         zoom:14,
         center:L.latLng(39.8675991827,116.4550923390)
     });
-    L.tileLayer('http://localhost:8080/map/roadmap/{z}/{x}/{y}.png').addTo(gisMap);
+    L.tileLayer('http://localhost:7951/map/roadmap/{z}/{x}/{y}.png').addTo(gisMap);
 
 
 
@@ -107,7 +107,7 @@
         marker.on('mouseout', function(e){
             this.setZIndexOffset(1);
         });
-
+        marker.bindTooltip(name,{offset:[30,-10],direction:'right'});
         //setZIndex  setZIndexOffset
         myLayerGroup.addLayer(marker);
         gisMap.addLayer(myLayerGroup);

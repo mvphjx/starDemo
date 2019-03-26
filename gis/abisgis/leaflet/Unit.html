@@ -74,7 +74,7 @@
     var map = L.map('map', {
         tapTolerance: 25
     }).setView(L.latLng(39.8675991827,116.4550923390), 12);
-    L.tileLayer('http://localhost:8080/map/roadmap/{z}/{x}/{y}.png').addTo(map);
+    L.tileLayer('http://localhost:7951/map/roadmap/{z}/{x}/{y}.png').addTo(map);
     L.marker([39.89649100,116.32634600]).addTo(map)
         .bindPopup('<span style="color: red">北京西站分局</span>');
     L.marker([39.90246400,116.40054400]).addTo(map)

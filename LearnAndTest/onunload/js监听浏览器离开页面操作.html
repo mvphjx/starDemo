@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+cookie当前值：
+    <div id="text">
+
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+    $("#text").html(document.cookie);
+    var showMsg = false;
+    /*浏览器关闭提示*/
+    window.onbeforeunload = function() {
+        if (showMsg) {
+            return "将要离开此页面";
+        } else {
+            return;//正常关闭 不需要弹框提示
+        }
+    };
+    /*浏览器关闭 后续操作*/
+    window.onunload = closeFun;
+    //ie  建议用attachEvent
+    window.attachEvent('onunload',closeFun);
+    function closeFun() {
+        document.cookie="test="+new Date();
+    }
+
+</script>
+</html>

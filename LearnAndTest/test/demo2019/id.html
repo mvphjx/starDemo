@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS选择器与事件绑定</title>
+</head>
+<body>
+<input id="clearBtn1" type="button" value="clearBtn1"></input>
+<input id="clearBtn2" type="button" value="clearBtn2"></input>
+<input id="clearBtn3" type="button" value="clearBtn3"></input>
+<input id="clearBtn4" type="button" value="clearBtn4"></input>
+<input id="clearBtn5" type="button" value="clearBtn5"></input>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    //原生js 传统写法
+    document.getElementById("clearBtn1").onclick = function () {
+        alert("原生js 传统写法")
+    };
+    //原生js 高级写法
+    document.getElementById("clearBtn2").addEventListener("click",function () {
+        alert("原生js  高级写法,支持绑定多个1")
+    });
+    document.getElementById("clearBtn2").addEventListener("click",function () {
+        alert("原生js  高级写法,支持绑定多个2")
+    });
+    //jquery 写法
+    $("#clearBtn3").click(function () {
+        alert("jquery 写法")
+    });
+    //document.querySelectorAll() 是 HTML5中引入的新方法，返回文档中匹配的CSS选择器的所有元素节点列表
+    document.querySelectorAll("#clearBtn4")[0].onclick=function () {
+        alert("HTML5中引入的新方法 querySelectorAll")
+    };
+    //id 直接作为变量使用
+    clearBtn5.onclick = function () {
+        alert("id 直接作为变量使用")
+    };
+</script>
+</html>

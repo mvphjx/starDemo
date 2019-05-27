@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/wavesurfer.min.js"></script>
+    <script src="js/wavesurfer.timeline.min.js"></script>
+    <script src="js/wavesurfer.cursor.min.js"></script>
+    <script src="js/wavesurfer.spectrogram.min.js"></script>
+    <style>
+        .controls {
+            padding: 30px 0 15px;
+            text-align: center;
+        }
+        .controls .btn {
+            margin-bottom: 15px;
+        }
+        @media screen and (min-width: 990px) {
+            .controls .mark-controls {
+                display: inline;
+            }
+        }
+        #waveform {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    <div id="waveform">
+    </div>
+    <div id="wave-timeline"></div>
+    <div id="wave-spectrogram"></div>
+    <div id="annotations"></div>
+    <div class="controls">
+        <div class="row">
+            <div class="col-sm-7">
+                <button class="btn btn-primary" data-action="play">
+                    <i class="glyphicon glyphicon-play"></i>
+                    播放
+                    /
+                    <i class="glyphicon glyphicon-pause"></i>
+                    暂停
+                </button>
+
+                <button class="btn btn-primary" data-action="open">
+                    打开
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+    var pluginOptions = {
+        minimap: {
+            waveColor: '#A8DBA8',
+            progressColor: '#3B8686',
+            height: 30
+        },
+        timeline: {
+            container: '#wave-timeline'
+        },
+        spectrogram: {
+            container: '#wave-spectrogram'
+        },
+        cursor: {
+            showTime: true,
+            opacity: 1,
+            customShowTimeStyle: {
+                'background-color': '#000',
+                color: '#fff',
+                padding: '2px',
+                'font-size': '10px'
+            }
+        },
+        regions: {
+            regions: [
+                {
+                    start: 1,
+                    end: 3,
+                    color: 'hsla(400, 100%, 30%, 0.5)'
+                },
+                {
+                    start: 4,
+                    end: 5.4
+                },
+                {
+                    start: 6.22,
+                    end: 7.1
+                }
+            ]
+        },
+        elan: {
+            url: '../elan/transcripts/001z.xml',
+            container: '#annotations',
+            tiers: {
+                Text: true,
+                Comments: true
+            }
+        }
+    };
+    var options = {
+        container: '#waveform',
+        waveColor: '#A8DBA8',
+        progressColor: '#3B8686',
+        loaderColor: 'purple',
+        cursorColor: 'navy',
+        plugins: [WaveSurfer.timeline.create(pluginOptions.timeline), WaveSurfer.cursor.create(pluginOptions.cursor), WaveSurfer.spectrogram.create(pluginOptions.spectrogram)]
+    };
+    var wavesurfer = WaveSurfer.create(options);
+
+    wavesurfer.load('demo.wav');
+    // Play button
+    var button = document.querySelector('[data-action="play"]');
+    button.addEventListener('click', wavesurfer.playPause.bind(wavesurfer));
+
+
+
+    //打开文件
+    var button_open = document.querySelector('[data-action="open"]');
+    button_open.addEventListener('click', function(){
+        var fileInputId = "voice_file_input_id";
+        var $file = $("#"+fileInputId);
+        if($file.length===0){
+            $("body").append('<input id="'+fileInputId+'" type="file" multiple accept="wav/*" style="display:none;">');
+            $file =  $("#"+fileInputId);
+        }
+        //完成选择文件后，将文件以文件流形式交给canvas渲染
+        $file.change(function () {
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                var dataLob = evt.target.result
+                console.log(dataLob)
+            };
+            if(this.files&&this.files.length>0){
+                reader.readAsDataURL(this.files[0]);
+                wavesurfer.loadBlob(this.files[0]);
+                $file.remove();
+            }
+        });
+        //点击文件输入框，打开选择文件对话框
+        $file.click();
+    });
+
+
+</script>
+</html>

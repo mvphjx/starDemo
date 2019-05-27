@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>wavesurfer.swf demo</title>
+
+    <style type="text/css">
+        #wavesurfer {
+            border: 1px solid #000;
+            background: #333;
+        }
+    </style>
+
+    <script src="https://cdn.bootcss.com/swfobject/2.2/swfobject.min.js"></script>
+    <script src="https://cdn.bootcss.com/wavesurfer.js/1.0.30/wavesurfer.min.js"></script>
+    <script type="text/javascript" src="../dist/wavesurfer.swf.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="myWaveSurferId"></div>
+
+    <a href="javascript:waveSurferInstance.play();void(0);">Play</a>
+    <a href="javascript:waveSurferInstance.pause();void(0);">Pause</a>
+    <a href="javascript:waveSurferInstance.seekTo(0.5);void(0);">Seek to 50%</a>
+
+    <p>
+        You cannot view the Flash version when running the demo from your local disk.
+        You need to run this demo on a webserver. This is a Flash security restriction.
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    (function() {
+
+
+
+        /**
+         * We embed the SWF using SWFObject. However, it is not required to use SWFObject.
+         * You can use any method to embed the SWF
+         */
+        swfobject.embedSWF('../dist/wavesurfer.swf', 'myWaveSurferId', '100%', '128', '11.1.0', 'expressInstall.swf', {id: 'myWaveSurferId'}, {allowScriptAccess: 'always'}, {});
+
+        /**
+         * Wait for the Flash to initialize
+         */
+        var waveSurfer = new WaveSurfer.Swf('myWaveSurferId');
+        waveSurfer.on('init', function() {
+            onWaveSurferInitialized(waveSurfer);
+        });
+
+
+        /**
+         * Invoked when either the js or swf version has inited
+         *
+         * @param {WaveSurfer|WaveSurfer.Swf} wavesurfer
+         * @return {void}
+         */
+        function onWaveSurferInitialized(wavesurfer) {
+
+            // Copy the instance to the global namespace for the purpose of this demo (html buttons)
+            window.waveSurferInstance = wavesurfer;
+
+            // Setup wavesurfer
+            wavesurfer.init({
+                waveColor: '#999999',
+                progressColor: '#ffffff',
+                cursorColor: '#ff0000',
+                cursorWidth: 2,
+                backgroundColor: '#333333', // Only used by Flash
+                container: document.getElementById('myWaveSurferId') // Only used by js version
+            });
+            wavesurfer.on('ready', function() {
+                wavesurfer.play();
+            });
+            wavesurfer.on('error', function(message) {
+                console.error(message);
+            });
+            wavesurfer.load('audio/demo.wav');
+        };
+
+    })();
+</script>
+</body>
+</html>

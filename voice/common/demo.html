@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>common</title>
+</head>
+<body>
+<header>
+    <h1>common</h1>
+</header>
+<br/>
+demo.wav
+<audio src="../data/demo.wav" controls="controls">
+    Your browser does not support the audio element.
+</audio>
+<br/>
+demo.mp3
+<audio src="../data/demo.mp3" controls="controls">
+    Your browser does not support the audio element.
+</audio>
+<br/>wavsrc
+<audio src="" controls="controls" id="test1">
+    Your browser does not support the audio element.
+</audio>
+<br/>mp3src
+<audio src="" controls="controls" id="test2">
+    Your browser does not support the audio element.
+</audio>
+<button class="btn btn-primary" data-action="open">
+    打开
+</button>
+</body>
+<script  type="text/javascript" class="library" src="../data/gistfile1.js"></script>
+
+<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //打开文件
+    var button_open = document.querySelector('[data-action="open"]');
+    button_open.addEventListener('click', function(){
+        var fileInputId = "voice_file_input_id";
+        var $file = $("#"+fileInputId);
+        if($file.length===0){
+            $("body").append('<input id="'+fileInputId+'" type="file" multiple accept="audio/*" style="display:none;">');
+            $file =  $("#"+fileInputId);
+        }
+        //完成选择文件后，将文件以文件流形式交给canvas渲染
+        $file.change(function () {
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                var dataLob = evt.target.result;
+                $("#test1").attr("src",dataLob);
+                console.log(dataLob)
+            };
+            if(this.files&&this.files.length>0){
+                reader.readAsDataURL(this.files[0]);
+                $file.remove();
+            }
+        });
+        //点击文件输入框，打开选择文件对话框
+        $file.click();
+    });
+    document.getElementById('test1').src=wavsrc;
+    document.getElementById('test2').src=src;
+
+
+</script>
+</html>

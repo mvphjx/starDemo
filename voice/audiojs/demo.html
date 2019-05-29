@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>audio.js</title>
+    <script>var _gaq=[['_setAccount','UA-20257902-1'],['_trackPageview']];(function(d,t){ var g=d.createElement(t),s=d.getElementsByTagName(t)[0]; g.async=1;g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+    <script src="./audiojs/audio.min.js"></script>
+    <link rel="stylesheet" href="./includes/index.css" media="screen">
+    <script>
+        audiojs.events.ready(function() {
+            audiojs.createAll();
+        });
+    </script>
+</head>
+<body>
+<header>
+    <h1>audio.js</h1>
+</header>
+
+<audio src="../data/demo.wav" preload="auto" id="test"></audio>
+
+<button class="btn btn-primary" data-action="open">
+    打开
+</button>
+</body>
+<script  type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //打开文件
+    var button_open = document.querySelector('[data-action="open"]');
+    button_open.addEventListener('click', function(){
+        var fileInputId = "voice_file_input_id";
+        var $file = $("#"+fileInputId);
+        if($file.length===0){
+            $("body").append('<input id="'+fileInputId+'" type="file" multiple accept="wav/*" style="display:none;">');
+            $file =  $("#"+fileInputId);
+        }
+        //完成选择文件后，将文件以文件流形式交给canvas渲染
+        $file.change(function () {
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                var dataLob = evt.target.result;
+                $("#test").attr("src",dataLob);
+                console.log(dataLob)
+            };
+            if(this.files&&this.files.length>0){
+                reader.readAsDataURL(this.files[0]);
+                $file.remove();
+            }
+        });
+        //点击文件输入框，打开选择文件对话框
+        $file.click();
+    });
+</script>
+</html>

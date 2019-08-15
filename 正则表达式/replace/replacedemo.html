@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var  text = "<p><span>发布时间</span> <font id=\"date\">222-8-14</font></p>";
+        var replaceText=text.replace(/(?<=<font id="date">).*?(?=<\/font>)/,"$替换内容$");
+        console.log(text)
+        console.log(replaceText)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

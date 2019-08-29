@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>栅格嵌套</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="layui/layui.js"></script>
+</head>
+<body>
+<style>
+    div {
+        border:2px solid #84f8cf;
+    }
+
+</style>
+<div class="layui-row layui-col-space5">
+    <div class="layui-col-md5">
+        <div class="layui-row grid-demo">
+            <div class="layui-col-md3">
+                内部列1.md3
+            </div>
+            <div class="layui-col-md9">
+                内部列1.md9
+            </div>
+            <div class="layui-col-md12">
+                内部列1.md12
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md7">
+        <div class="layui-row grid-demo grid-demo-bg1">
+            <div class="layui-col-md12">
+                内部列2.md12
+            </div>
+            <div class="layui-col-md9">
+                内部列2.md9
+            </div>
+            <div class="layui-col-md3">
+                内部列2.md3
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md9">
+        <div class="layui-row grid-demo grid-demo-bg1">
+            <div class="layui-col-md1">
+                1<br/>
+                内部列3.md1
+            </div>
+            <div class="layui-col-md5">
+                1<br/>
+                内部列3.md5<br/>
+                2
+            </div>
+            <div class="layui-col-md3">
+                内部列3.md3
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+自由布局 三列布局
+<br>
+<style>
+    .left{
+        height: 100%;
+        max-width:200px ;
+        min-width: 100px;
+    }
+    .right{
+        height: 100%;
+    }
+    .up{
+        height: 10%;
+    }
+    .dowm{
+        height: 10%;
+    }
+    .content{
+
+    }
+
+</style>
+<div class="layui-row">
+    <div class="layui-col-md4 left">
+        左侧固定
+    </div>
+    <div class="layui-col-md6">
+        <div class="layui-row">
+            <div class="layui-col-md12 up">
+                上固定
+            </div>
+            <div class="layui-col-md12 content">
+                正文自适应
+            </div>
+            <div class="layui-col-md12 dowm">
+                下固定
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md2 right">
+        右侧固定
+    </div>
+
+</div>
+<br>
+<br>
+</body>
+</html>

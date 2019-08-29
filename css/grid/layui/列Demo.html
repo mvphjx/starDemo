@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>列Demo</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="layui/layui.js"></script>
+</head>
+<body>
+<style>
+    div {
+        border:2px solid #84f8cf;
+    }
+
+</style>
+<br/><br/>
+列间距layui-row ：
+<br/>
+layui-col-space30
+<br/>
+<div class="layui-row layui-col-space30">
+    <div class="layui-col-md4">
+        1/3
+    </div>
+    <div class="layui-col-md4">
+        1/3
+    </div>
+    <div class="layui-col-md4">
+        1/3
+    </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/>
+列偏移 layui-row：
+<br/>
+layui-col-md-offset4
+<br/>
+<div class="layui-row">
+    <div class="layui-col-md4">
+        4/12
+    </div>
+    <div class="layui-col-md4 layui-col-md-offset4">
+        偏移4列，从而在最右
+    </div>
+</div>
+</body>
+</html>

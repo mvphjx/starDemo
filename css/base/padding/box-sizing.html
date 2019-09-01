@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing</title>
+    <style>
+        .simple {
+            width: 500px;
+            margin: 20px auto;
+            border: solid blue 10px;
+        }
+
+        .fancy {
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            border: solid blue 10px;
+        }
+        .box-sizing{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<div class="simple">
+    simple
+</div>
+<div class="fancy">
+    fancy
+</div>
+<div class="simple box-sizing">
+    simple with box-sizing
+</div>
+<div class="fancy box-sizing">
+    fancy with box-sizing
+</div>
+</body>
+</html>

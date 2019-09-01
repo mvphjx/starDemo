@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>布局例子</title>
+    <style>
+        .container {
+            position: relative;
+            border: 5px solid #9ebc4e;
+        }
+        nav {
+            position: absolute;
+            left: 0px;
+            width: 200px;
+            border: 5px solid #566526;
+        }
+        section {
+            /* position is static by default */
+            margin-left: 200px;
+            border: 5px solid #3d21e4;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 70px;
+            background-color: white;
+            width: 100%;
+            border: 5px solid #c245c1;
+        }
+        body {
+            margin-bottom: 120px;
+            border: 5px solid #84f8cf;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        Home
+        Taco Menu
+        Draft List
+        Hours
+        Directions
+        Contact
+    </nav>
+    <section>
+        section 的 margin-left 样式确保了有足够的空间容纳 nav 元素。
+    </section>
+    <section>
+        <br>
+        <br>
+        通过具体的例子可以帮助我们更好地理解“position”。下面是一个真正的页面布局。
+        <br>
+        这个例子在容器比nav元素高的时候可以正常工作。如果容器比nav元素低，那么nav会溢出到容器的外面。
+        之后我们会讨论下其他布局技术，它们都各有优劣。
+        <br>
+    </section>
+    <section>
+        注意观察当你调整浏览器窗口时发生了什么。效果很赞！
+    </section>
+    <footer>
+        如果你使用了一个固定定位的页眉或页脚，确保有足够的空间来显示它们！我在 body 上面加了 margin-bottom 。
+    </footer>
+</div>
+
+</body>
+</html>

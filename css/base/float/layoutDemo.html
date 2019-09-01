@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>布局例子</title>
+    <style>
+        nav {
+            float: left;
+            width: 200px;
+            border: 5px solid #566526;
+        }
+        section {
+            margin-left: 200px;
+            border: 5px solid #3d21e4;
+        }
+        .clearfix {
+            overflow: auto;
+            border: 5px solid #9ebc4e;
+        }
+        body {
+            border: 5px solid #84f8cf;
+        }
+        span{
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="clearfix">
+    <nav>
+        Home
+        Taco Menu
+        Draft List
+        Hours
+        Directions
+        Contact
+    </nav>
+    <section>
+        这个例子和之前那个外观一模一样。请注意我们在容器上做了“清除浮动”。
+        原本在这个例子中是不需要的，但是<span>当 nav 比非浮动的内容还要高时</span>就需要了
+    </section>
+    <section>
+        <br>
+        <br>
+        浮动布局例子
+        完全使用 float 来实现页面的布局是很常见的。
+        这里有一个我之前用 position 实现的布局例子，这次我使用 float 实现了它。
+        <br>
+    </section>
+</div>
+
+</body>
+</html>

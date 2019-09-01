@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inline-block</title>
+    <style>
+        span{
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .box {
+            float: left;
+            width: 200px;
+            height: 100px;
+            margin: 1em;
+            border: 2px solid #42ffb2;
+        }
+        .after-box {
+            clear: left;
+        }
+        .box2 {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin: 1em;
+            border: 2px solid #42ffb2;
+        }
+    </style>
+</head>
+<body>
+你可以创建很多网格来铺满浏览器。在过去很长的一段时间内使用 float 是一种选择，
+但是使用 inline-block 会更简单。让我们看下使用这两种方法的例子：
+<br>
+<span>困难的方式（使用浮动）</span>
+<br>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div     class="after-box">
+    我在使用 clear，所以我不会浮动到上面那堆盒子的旁边。
+</div>
+<br>
+<span>容易的方式（使用 inline-block）</span>
+<br>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div class="box2"></div>
+<div >
+    这次我可没有用 clear 。太棒了！
+</div>
+</body>
+</html>

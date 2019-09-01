@@ -1,17 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-
-
+        .static {
+            position: static;
+            border: 5px solid red;
+        }
+        .relative1 {
+            position: relative;
+            border: 5px solid #9ebc4e;
+        }
+        .relative2 {
+            position: relative;
+            top: -20px;
+            left: 20px;
+            background-color: white;
+            width: 500px;
+            border: 5px solid #59aa2a;
+        }
+        .fixed {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            background-color: white;
+            border: 5px solid #e1df18;
+        }
+        .relative {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 5px solid #c245c1;
+        }
+        .absolute {
+            position: absolute;
+            top: 120px;
+            right: 0;
+            width: 300px;
+            height: 200px;
+            border: 5px solid #3d21e4;
+        }
+        span{
+            font-size: larger;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-<div>
-
-
+<div class="static">
+    <span>static 是默认值</span>
+    任意 position: static; 的元素不会被特殊的定位。一个 static 元素表示它不会被“positioned”，一个 position 属性被设置为其他值的元素表示它会被“positioned”。
+</div>
+<div class="relative1">
+    <span>relative 表现的和 static 一样</span>，除非你添加了一些额外的属性。
+    <br>
+    <br>
+</div>
+<div class="relative2">
+    在一个相对定位（position属性的值为relative）的元素上设置 top 、 right 、 bottom 和 left 属性会使其偏离其正常位置。
+    其他的元素的位置则不会受该元素的影响发生位置改变来弥补它偏离后剩下的空隙。
+</div>
+<div class="absolute">
+    absolute 这个元素是绝对定位的。它相对于它的<span>父元素</span>定位。
+</div>
+<div class="relative">
+    relative 这个元素是相对定位的。
+    如果它是 position: static; ，那么它的绝对定位子元素会跳过它直接相对于body元素定位。
+</div>
+<div class="fixed">
+    fixed Hello！暂时不要太关注我哦。
 </div>
 </body>
 </html>

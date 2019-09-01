@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>布局例子</title>
+    <style>
+        .container {
+            display: -webkit-flex;
+            display: flex;
+            border: 2px solid #d65a5e;
+        }
+        .initial {
+            -webkit-flex: initial;
+            flex: initial;
+            width: 200px;
+            min-width: 100px;
+            border: 2px solid #42ffb2;
+        }
+        .none {
+            -webkit-flex: none;
+            flex: none;
+            width: 200px;
+            border: 2px solid #42ffb2;
+        }
+        .flex1 {
+            -webkit-flex: 1;
+            flex: 1;
+            border: 2px solid #42ffb2;
+        }
+        .flex2 {
+            -webkit-flex: 2;
+            flex: 2;
+            border: 2px solid #42ffb2;
+        }
+    </style>
+</head>
+<body>
+<div class="container ">
+   <div class="initial">
+       <br><br>
+       initial
+       <br><br>
+   </div>
+    <div class="none">
+        <br><br>
+        none
+        <br><br>
+    </div>
+    <div class="flex1">
+        <br><br>
+        flex1
+        <br><br>
+    </div>
+    <div class="flex2">
+        <br><br>
+        flex2
+        <br><br>
+    </div>
+</div>
+<style>
+    .vertical-container {
+        height: 300px;
+        display: -webkit-flex;
+        display:         flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        border: 2px solid #42ffb2;
+    }
+    .vertical-container div{
+        border: 2px solid #42ffb2;
+    }
+
+</style>
+使用 Flexbox 的居中布局
+<div class="vertical-container">
+    <div>
+        CSS里总算是有了一种简单的垂直居中布局的方法了！
+    </div>
+</div>
+
+</body>
+</html>

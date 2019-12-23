@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script type="text/javascript" class="library" src="jquery.json2xml.js"></script>
+    <script type="text/javascript" class="library" src="jquery.xml2json.js"></script>
+    <style type="text/css">
+        textarea{
+            width: 700px;
+            height: 600px;
+        }
+        #json1{
+            background: #8FB0CF;
+        }
+        #xml2{
+            background: #8FB0CF;
+        }
+    </style>
+</head>
+
+<body>
+<textarea id="xml1"></textarea>
+<textarea id="json1" readonly></textarea>
+<textarea id="json2"></textarea>
+<textarea id="xml2" readonly></textarea>
+</body>
+<script type="text/javascript">
+    $("#xml1").blur(function () {
+        console.log(" xml1 blur");
+        var json = $.xml2json('<TextCheck><Item Name="SHENFEN_ID"><Text></Text><Value /><Cause>必须填写</Cause></Item><Item Name="SHENFEN_ID1"><Text></Text><Value /><Cause>必须填写</Cause></Item></TextCheck>');
+        $("#json1").text(json)
+        console.log(json);
+    });
+    var defaultSettings = {
+        formatOutput: true,
+        formatTextNodes: false,
+        indentString: '  ',
+        rootTagName: 'TextCheck',
+        ignore: [],
+        replace: [],
+        nodes: [],
+        exceptions: []
+    };
+
+    $("#json2").blur(function () {
+        console.log(" json2 blur");
+        var xml = $.json2xml({
+            Item: [{Text: "", Value: "", Cause: "必须填写", "@Name": "SHENFEN_ID"}, {
+                Text: "1",
+                Value: "1",
+                Cause: "必须填写1",
+                "@Name": "SHENFEN_ID1"
+            }]
+        }, defaultSettings);
+        $("#xml2").text(xml);
+        console.log(xml);
+    });
+
+    var json1 = $.xml2json('<TextCheck>\n' +
+        '\t<Item Name="PERSON_NUM" >\n' +
+        '\t\t<Value>B5002287300002018075001</Value>\n' +
+        '\t\t<Cause>正则表达式"R[0-9A-Z]{22}"校验失败</Cause>\n' +
+        '\t</Item>\n' +
+        '</TextCheck>',true);
+    console.log(json1)
+    var json2 = $.xml2json('<TextCheck>\n' +
+        '\t<Item Name="PERSON_NUM" >\n' +
+        '\t\t<Value>B5002287300002018075001</Value>\n' +
+        '\t\t<Cause>正则表达式"R[0-9A-Z]{22}"校验失败</Cause>\n' +
+        '\t</Item>\n' +
+        '\t<Item Name="SHENFEN_ID" >\n' +
+        '\t\t<Value>512224197011010315</Value>\n' +
+        '\t\t<Cause>正则表达式"(^\\d{15}$)|(^\\d{17}(\\d|X)$)"校验失败</Cause>\n' +
+        '\t</Item>\n' +
+        '</TextCheck>',true);
+    console.log(json2)
+</script>
+</html>

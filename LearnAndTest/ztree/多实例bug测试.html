@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    如果dom没有设置ID，ztree多实例会存在bug:事件绑定会错乱
+    <br/>
+    <div class="tree1 ztree" style="display: inline-block"></div>
+    <div class="tree2 ztree" style="display: inline-block"></div>
+</div>
+
+</body>
+<link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
+<script>
+    var nodes = [{"id": 21, "name": "案件基本信息", "open": true}, {
+        "id": "21-PHYSICAL_EVIDENCE_NUM",
+        "name": "现场物证编号:F11010500000020190800061101001",
+        "pId": 21,
+        "open": true
+    }, {
+        "id": "21-PHYSICAL_EVIDENCE_NUM-1",
+        "name": "标准现勘服务",
+        "pId": "21-PHYSICAL_EVIDENCE_NUM",
+        "open": true
+    }, {
+        "id": "21-PHYSICAL_EVIDENCE_NUM-1-Data1569758292640447",
+        "name": " 未知",
+        "pId": "21-PHYSICAL_EVIDENCE_NUM-1",
+        "open": true,
+        "extSysId": 1,
+        "dataType": 21
+    }];
+    var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function (treeId, treeNode) {
+
+                },
+                onCheck: function (event, treeId, treeNode) {
+                    console.log(treeNode.tId + ", " + treeNode.name + "," + treeNode.checked);
+                    console.log(zTree.getCheckedNodes(true));
+                }
+
+
+            },
+            check: {
+                enable: true, chkboxType:
+                    {
+                        "Y":
+                            "ps", "N":
+                            "ps"
+                    }
+            }
+        }
+    ;
+
+    zTree1 = $.fn.zTree.init($(".tree1"), setting, null);
+    zTree2 = $.fn.zTree.init($(".tree2"), setting, null);
+    zTree1.addNodes(null, nodes, true);
+    zTree1.expandAll(true);
+    zTree2.addNodes(null, nodes, true);
+    zTree2.expandAll(true);
+
+
+</script>
+</html>

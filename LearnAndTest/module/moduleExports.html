@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //写一个列子，用来学习前端（vue）模块化加载
+    //  TODO 待完善
+    var module = {};
+    module.exports = (function(modules) {
+        var installedModules = {};
+
+        function __webpack_require__(moduleId) {
+            // Create a new module (and put it into the cache)
+            var module = installedModules[moduleId] = {
+                i: moduleId,
+                l: false,
+                exports: {}
+            };
+            modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+            return module.exports;
+        }
+        return __webpack_require__(__webpack_require__.s = "tree");
+    })({
+        "tree": (function(module, exports, __webpack_require__) {
+            console.log(module)
+            var add = __webpack_require__("jq").default;
+            exports = {};
+            exports.default = function() {
+                console.log("tree default");
+            }
+        }),
+        "jq": (function(module, exports, __webpack_require__) {
+            console.log(module)
+            exports = {};
+            exports.default = function() {
+                console.log("jq default");
+            }
+        })
+    })["default"];
+</script>
+</html>

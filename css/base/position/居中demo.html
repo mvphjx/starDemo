@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>div自适应</title>
+    <style type="text/css">
+        #dMain {
+            margin:0 auto;
+            width:90%;
+            display:table;
+            #position:relative;
+        }
+        #dLeft {
+            float:left;
+            height:300px;
+            background:#C1C1FF;
+        }
+        #dCenter {
+            display:table-cell;
+            align:center;
+            #position:absolute;
+            #left:50%;
+            width:380px;
+            height:300px;
+        }
+        #dCenter div{
+            #position:relative;
+            #left:-50%;
+            width:380px;
+            height:300px;
+            background:#FFC1FF;
+        }
+        #dRight {
+            float:right;
+            height:300px;
+            background:#C8E3E3;
+        }
+    </style>
+</head>
+<body>
+<b>3个部分，中间宽度固定，左右根据内容自适应，如何实现不管左右的宽度怎样变化，dCenter始终居中？</b>
+<div id="dMain">
+    <div id="dLeft">1111111</div>
+    <div id="dCenter"><div>2222222222222</div></div>
+    <div id="dRight">3333333333333</div>
+</div>
+</body>
+</html>

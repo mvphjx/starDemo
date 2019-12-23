@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>垂直居中</title>
+</head>
+<style>
+    div{
+        border: 1px #0F4AC4 solid;
+    }
+    span{
+        border: 1px #7c7ca6 solid;
+    }
+    textarea{
+        border: 1px #00a75b solid;
+    }
+
+/*demo1*/
+    .demo1{
+        width: 600px;
+        height: 150px;
+        display: table
+    }
+    .demo1 div{
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .demo1 div{
+
+    }
+    textarea {
+        width: 456px;
+        height: 64px;
+    }
+
+
+/*demo2*/
+    .demo2{
+        width: 600px;
+        height: 300px;
+    }
+    .demo2  span{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+</style>
+<script>
+
+
+</script>
+<body>
+<div class="demo1">
+    <div class="div1">居中显示</div>
+    <div class="div2"><textarea></textarea></div>
+</div>
+
+<div class="demo2">
+    <span>居中显示</span>
+</div>
+</body>
+</html>

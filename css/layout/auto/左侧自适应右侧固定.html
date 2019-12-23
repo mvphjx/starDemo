@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style>
+        #wrap {
+            *zoom: 1;
+            position: relative;
+        }
+
+        #left {
+            background-color: blue;
+            height: 100%;
+            margin-right: 310px;
+        }
+
+        #right {
+            background-color: green;
+            height: 100%;
+            width: 300px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    父组件relative
+    <div id="left">左侧自适应</div>
+    <div id="right">右侧固定</div>
+</div>
+</body>
+</html>

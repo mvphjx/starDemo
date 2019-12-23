@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style>
+        #sidebar {
+            width: 300px; float: right;
+        }
+        #content {
+            margin-left: -310px; float: left; width: 100%;
+        }
+        #contentb {
+            background-color: #5cff81;
+            height: 100%;
+            margin-right: 310px;
+        }
+        #content {
+            background-color: blue;
+            height: 100%;
+            margin-right:-310px;float: left; width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="content">
+        <div id="contentb">
+            content自适应区 但是有310px 隐藏到了左边
+        </div>
+    </div>
+    <div id="sidebar" >sidebar fix</div>
+</div>
+</body>
+</html>

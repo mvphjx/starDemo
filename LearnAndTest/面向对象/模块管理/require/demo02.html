@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 RequireJS 来定义 JavaScript 模块</title>
+</head>
+<body>
+
+</body>
+<script src="../../lib/require.js"></script>
+<script>
+    require(["js/student", "js/class"], function (student, clz) {
+        clz.addToClass(student.createStudent("Jack", "male"));
+        clz.addToClass(student.createStudent("Rose", "female"));
+        console.log(clz.getStudents());
+    });
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6依赖模块加载</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    import {message} from './js/message.js';
+    import {logDemoClass} from './js/log.js';
+    let msg = new message();
+    let logDemo = new logDemoClass(msg);
+    logDemo.warn("加载成功");
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6单个模块加载</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    import {message} from './js/message.js';
+    let msg = new message();
+    console.log("加载成功：" + msg.toString());
+</script>
+<script>
+    console.log("全局变量message:" + typeof message);
+    setTimeout(function () {
+        //es6 模块加载后，没有产生 全局变量message
+        console.log("全局变量message:" + typeof message);
+    }, 3000)
+</script>
+</html>

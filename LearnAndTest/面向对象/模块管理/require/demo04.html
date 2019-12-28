@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 RequireJS 来管理复杂依赖</title>
+</head>
+<body>
+
+</body>
+<script src="../../lib/require.js"></script>
+<script>
+    //为所有模块起一个别名，方便管理和使用
+    require.config({
+        paths: {
+            //由于define( "jquery") 此处必须写jquery
+            "jquery":"https://cdn.bootcss.com/jquery/1.12.4/jquery.min",
+            "manager": "js/manager",
+            "class": "js/class",
+            "student": "js/student",
+            "message": "js/message",
+            "logDemo":"js/log"
+        },
+        shim:{
+            'message':{//非标准模块处理 即没有define
+                exports:'message'
+            }
+        }
+    });
+    require(["manager","jquery","message","logDemo"], function (manager,jq,message,logDemo) {
+        manager.addNewStudent("Jack", "male");
+        manager.addNewStudent("Rose", "female");
+        console.log(manager.getStudents());
+        jq("body").append(JSON.stringify(manager.getStudents()));
+        jq("body").append("<br/>");
+        jq("body").append(JSON.stringify(message));
+        jq("body").append(message.toString());
+        logDemo.warn("执行完毕");
+    });
+</script>
+</html>

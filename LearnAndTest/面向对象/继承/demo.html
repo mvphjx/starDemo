@@ -1,0 +1,47 @@
+<html>
+<body></body>
+</html>
+
+<script type="text/javascript">
+    var log = console.log;
+    console.log = function (value) {
+        log(value);
+        document.body.innerText = document.body.innerText + "\n" + value;
+    }
+
+    //父类
+    function BaseClass() {
+        this.showMsg = function () {
+            console.log("BaseClass::showMsg");
+        }
+
+        this.baseShowMsg = function () {
+            console.log("BaseClass::baseShowMsg");
+        }
+    }
+    //静态方法
+    BaseClass.showMsg = function () {
+        console.log("BaseClass::showMsg static");
+    }
+
+    //子类
+    function ExtendClass() {
+        this.showMsg = function () {
+            console.log("ExtendClass::showMsg");
+        }
+    }
+    ExtendClass.prototype = new BaseClass();
+    ExtendClass.showMsg = function () {
+        console.log("ExtendClass::showMsg static")
+    }
+    console.log("Instance BaseClass...\n")
+    var instance = new BaseClass();
+    instance.showMsg();//显示baseClass::showMsg
+    console.log("\n\nInstance ExtendClass...\n")
+    var instanceExtend = new ExtendClass();
+    instanceExtend.baseShowMsg(); //显示baseClass::baseShowMsg
+    instanceExtend.showMsg(); //显示extendClass::showMsg
+    ExtendClass.showMsg.call(instanceExtend);//显示baseClass::showMsg static
+    ExtendClass.showMsg();//显示baseClass::showMsg static
+
+</script>

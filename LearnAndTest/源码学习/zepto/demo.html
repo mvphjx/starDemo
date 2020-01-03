@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="zepto_1.1.6_cn.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    function println(value) {
+        console.log(value);
+        var $div = $("<div></div>");
+        $div.html(value.toString());
+        $("body").append($div);
+    }
+
+    println($);
+    println($.fn);
+</script>
+</html>

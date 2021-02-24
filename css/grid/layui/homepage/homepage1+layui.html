@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>栅格嵌套</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="homepage_aibbs.css">
+</head>
+<body>
+<style>
+    div {
+        /*border: 2px solid #84f8cf;*/
+    }
+    /**
+    TODO
+    margin 与 响应式布局 有冲突
+     */
+</style>
+<div class="layui-row layui-col-space30">
+    <div class="layui-col-md6 leftLayout">
+        <div class="layui-row homelist layui-col-space30">
+            <div class="layui-col-md6">
+                <ul class="homelist">
+                    <li>
+                        <dl>
+                            <dt class="greencolor">
+                                <span class="vertical-line"></span>
+                                <span class="homeicon chop"></span>
+                                捺印
+                            </dt>
+                            <dd><a href="/abis/tp/list/" target="_blank">捺印卡片列表</a></dd>
+                            <dd><a href="/abis/import/fpt/" target="_blank">导入</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-col-md6">
+                <ul class=" homelist">
+                    <li>
+                        <dl>
+                            <dt class="bluecolor">
+                                <span class="vertical-line"></span>
+                                <span class="homeicon scene"></span>
+                                现场
+                            </dt>
+                            <dd><a href="/abis/lp/case/list" target="_blank">案件列表</a></dd>
+                            <dd><a href="/abis/lp/cardlist/" target="_blank">现场卡片列表</a></dd>
+                            <dd><a href="/abis/lp/lpinputedit/" target="_blank">案件录入与编辑</a></dd>
+                            <dd><a href="/abis/lp/scan/" target="_blank">现场卡片录入</a></dd>
+                            <dd><a href="/abis/lp/edit/" target="_blank">现场指掌纹编辑</a></dd>
+                            <dd><a href="/abis/import/fpt/" target="_blank">导入</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-col-md12">
+                <ul class="homelist ">
+                    <li>
+                        <dl>
+                            <dt class="greencolor">
+                                <span class="vertical-line"></span>
+                                <span class="homeicon chop"></span>
+                                捺印
+                            </dt>
+                            <dd><a href="/abis/tp/list/" target="_blank">捺印卡片列表</a></dd>
+                            <dd><a href="/abis/import/fpt/" target="_blank">导入</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md6 rightLayout">
+        <div class="layoutTztb" id="nscroller">
+            <div class="tit">
+                <span onclick="switchNotice('notice')" id="noticeTab" class="active">通知通报</span>
+                <a class="fr" href="/abis/doc/notice/list" target="_blank">查看更多</a>
+            </div>
+            <div style="height: 575px; overflow: hidden;" class="layoutContent" id="layoutContentNotice">
+                <ul class="contentTztb" id="ulNotice">
+                    <li class="news" style="top: 0px;"><a href="/abis/doc/notice/detail/-1" target="_blank"><span>发布通知通报-1</span></a><label>20191102</label>
+                    </li>
+                    <li class="news" style="top: 40px;"><a href="/abis/doc/notice/detail/0" target="_blank"><span>发布通知通报0</span></a><label>20190502</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

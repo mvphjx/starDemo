@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>布局例子</title>
+    <style>
+        body, html {
+            height: calc(100% - 10px);
+        }
+        .container {
+            display: -webkit-flex;
+            display: flex;
+            border: 2px solid #d65a5e;
+            height: 100%;
+        }
+        .flex1 {
+            flex: 2;
+            border: 2px solid #42ffb2;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content:space-between;
+            flex-flow:row wrap;
+        }
+        .flex11 {
+            flex: 0 0 48%;
+            margin: 10px 0 10px 1%;
+            background: #0A96DE;
+        }
+        .flex12 {
+            flex: 0 0 48%;
+            margin: 10px 1% 10px 0;
+            background: #00a23f;
+        }
+        .flex13 {
+            flex: 0 0 98%;
+            margin: 10px 1%;
+            background:#00c3f0;
+        }
+
+        .flex2 {
+            flex: 1;
+            margin: 10px 1%;
+            background: #1E9FFF;
+        }
+    </style>
+</head>
+<body>
+<div class="container ">
+    <div class="flex1">
+        <div class="flex11">
+            <br><br>
+            flex11
+            <br><br>
+        </div>
+        <div class="flex12">
+            <br><br>
+            flex12
+            <br><br>
+        </div>
+        <div class="flex13">
+            <br><br>
+            flex13
+            <br><br>
+        </div>
+    </div>
+    <div class="flex2">
+        <br><br>
+        flex2
+        <br><br>
+    </div>
+</div>
+
+</body>
+</html>

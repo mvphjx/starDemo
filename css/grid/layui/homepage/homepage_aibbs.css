@@ -1,0 +1,243 @@
+/*通用清理样式*/
+html {
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: 14px/1.5 "微软雅黑";
+    color: #333;
+    background: #f7f7f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*首页内容*/
+.homelist {
+    height: 100%;
+}
+
+.homelist li {
+    height: 100%;
+    border: 1px solid #ddd;
+    background: #fff;
+    float: left;
+    width: 100%;
+}
+
+.homelist li dl {
+}
+
+.homelist li dl dt {
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 24px;
+    clear: both;
+}
+
+.homelist li dl .greencolor {
+    color: #40863b;
+}
+
+.homelist li dl .bluecolor {
+    color: #023aab;
+}
+
+.homelist li dl .orangecolor {
+    color: #ee8a2d;
+}
+
+.homelist li dl dt .vertical-line {
+    width: 5px;
+    height: 35px;
+    float: left;
+}
+
+.homelist li dl .greencolor .vertical-line {
+    background: #5ea03c;
+}
+
+.homelist li dl .bluecolor .vertical-line {
+    background: #023aab;
+}
+
+.homelist li dl .orangecolor .vertical-line {
+    background: #f5af40;
+}
+
+.homelist li dl .homeicon {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 8px 5px 0 10px;
+}
+
+.homelist li dl .chop {
+    background: url(../../../image/abis/homepage/homeicon.png) 0 0 no-repeat;
+}
+
+.homelist li dl .scene {
+    background: url(../../../image/abis/homepage/homeicon.png) -56px 0 no-repeat;
+}
+
+.homelist li dl .comparison {
+    background: url(../../../image/abis/homepage/homeicon.png) -116px 0 no-repeat;
+}
+
+.homelist li dl .statistics {
+    background: url(../../../image/abis/homepage/homeicon.png) -176px 0 no-repeat;
+}
+
+.homelist li dl .queue {
+    background: url(../../../image/abis/homepage/homeicon.png) -236px 0 no-repeat;
+}
+
+.homelist li dl .record {
+    background: url(../../../image/abis/homepage/homeicon.png) -293px 0 no-repeat;
+}
+
+.homelist li dl dd {
+    float: left;
+    width: 150px;
+    padding-left: 30px;
+}
+
+.homelist li dl dd a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    -height: 40px;
+    line-height: 40px;
+}
+
+.homelist li dl dd a:hover {
+    text-decoration: underline;
+    color: #2d4e6f;
+}
+
+
+/*样式扩展*/
+
+.vertical-container {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.vertical-container .content{
+    display: inline-flex;
+}
+
+/*通知通报*/
+.layoutTztb{
+    /*margin: 100px auto;*/
+    height: 100%;
+}
+.layoutTztb .layoutContent{
+    height: calc(100% - 43px);
+}
+
+
+
+.tit {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #F7F8F8;
+    border: 1px solid #E1E7E9;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.tit span {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #333333;
+}
+
+.tit span a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.tit > a {
+    font-size: 14px;
+    color: #494949;
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+.tit span.fr {
+    color: #494949;
+    font-size: 14px;
+    font-weight: 100;
+    padding-right: 50px;
+}
+
+.tit span.fr label {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.tit span.fr label.active {
+    color: #22A0E2;
+}
+
+.fr {
+    float: right
+}
+.news {
+    display: flex;
+}
+.news a{
+    flex: auto;
+}
+.news label{
+
+}
+#layoutContentNotice{
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+
+.contentTztb a:hover {
+    text-decoration: underline;
+    color: #2d4e6f;
+}
+
+.contentTztb a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    -height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.contentTztb label {
+    font-size: 13px;
+    font-weight: 500;
+    color: darkgray;
+    -height: 40px;
+    line-height: 40px;
+    padding-right: 10px;
+}

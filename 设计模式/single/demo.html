@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单例模式</title>
+</head>
+<body>
+<input type="button" id="loginBtn" value="登錄">
+</body>
+<script src="single.js"></script>
+<script>
+    /**
+     *只创建一个iframe登录页面
+     *惰性单例技术
+     */
+    var createSingleIframe = function () {
+        /*
+        创建对象和管理单例的职责被分布在两个不同的方法中
+        这两个方法组合起来才具有单例模式的威力，也符合单一职责原则，方便以后维护
+         */
+        return getSingle(createIframe());
+    }
+    document.getElementById('loginBtn').onclick = function () {
+        var loginLayer = createSingleIframe();
+        loginLayer.src = 'http://baidu.com';
+    }
+</script>
+</html>

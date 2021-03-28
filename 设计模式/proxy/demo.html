@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>miniconsole</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body style="font-size: 16px">
+
+我曾经写过一个mini控制台的开源项目miniConsole.js，
+这个控制台可以帮助开发者在IE浏览器以及移动端浏览器上进行一些简单的调试工作。
+</body>
+<script>
+
+    /**
+     *1 缺省加载一个miniConsole代理对象
+     *2 当用户按下F2时，开始加载真正的miniConsole.js
+     *  加载完成之后将遍历miniConsole代理对象中的缓存函数队列，同时依次执行它们
+     *
+     */
+
+    var miniConsole = (function () {
+        var cache = [];
+        var handler = function (ev) {
+            if (ev.keyCode === 113) {
+                var script = document.createElement('script');
+                script.onload = function () {
+                    for (var i = 0, fn; fn = cache[i++];) {
+                        fn();
+                    }
+                };
+                /**
+                 * 由于chrome限制异步加载js不允许使用document write
+                 * 所以提出到外边执行
+                 */
+                document.write(''
+                    + '<pre id="miniconsole">'
+                    + '<div id="miniconsole-prompt">'
+                    + '<span>> </span>'
+                    + '<span><textarea '
+                    + 'id="miniconsole-input" rows="1"'
+                    + '></textarea><span>'
+                    + '</div>'
+                    + '<style>'
+                    + '#miniconsole {'
+                    + 'margin: 0;'
+                    + 'padding-bottom: 2em;'
+                    + '}'
+                    + '#miniconsole * {'
+                    + 'font-size: 1em;'
+                    + '}'
+                    + '#miniconsole-prompt span {'
+                    + 'display: table-cell;'
+                    + 'vertical-align: top;'
+                    + '}'
+                    + '#miniconsole-prompt span + span {'
+                    + 'width: 100%;'
+                    + '}'
+                    + '#miniconsole-input {'
+                    + 'font-family: inherit;'
+                    + 'overflow: hidden;'
+                    + 'outline: none;'
+                    + 'resize: none;'
+                    + 'display: block;'
+                    + 'width: 100%;'
+                    + 'border: 0;'
+                    + 'margin: 0;'
+                    + 'padding: 0;'
+                    + '}'
+                    + '#miniconsole div {'
+                    + 'padding: .5em;'
+                    + 'border-top: 1px solid #ddd;'
+                    + '}'
+                    + '</style>'
+                    + '</pre>'
+                );
+                script.src = '../../miniConsole/miniConsole.js';
+                document.getElementsByTagName('head')[0].appendChild(script);
+                // 只加载一次miniConsole.js
+                document.body.removeEventListener('keydown', handler);
+                miniConsole.log = function () {
+                    console.log(Array.prototype.join.call(arguments));
+                }
+            }
+        };
+        document.body.addEventListener('keydown', handler, false);
+        return {
+            log: function () {
+                var args = arguments;
+                cache.push(function () {
+                    return miniConsole.log.apply(miniConsole, args);
+                });
+            }
+        }
+    })();
+
+    // 开始打印log，如果对象未加载，先放到缓存中
+    miniConsole.log(11);
+    miniConsole.log(123);
+</script>
+</html>

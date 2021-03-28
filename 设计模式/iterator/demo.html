@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>迭代器模式</title>
+</head>
+<body>
+迭代器模式（Iterator Pattern）又叫作游标模式（Cursor Pattern），
+它提供一种按顺序访问集合/容器对象元素的方法，而又无须暴露集合内部表示。
+迭代器模式可以为不同的容器提供一致的遍历行为，而不用关心容器内元素的组成结构，属于行为型设计模式。
+</body>
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //内部迭代器
+    $.each([ 1, 2, 3 ],function (index,model){
+        console.log("each",index,model)
+        /**返回值含义：
+         *  true ->continue
+         *  false ->break
+         */
+    })
+    //外部迭代器
+    var Iterator = function( obj ){
+        var current = 0;
+        var next = function(){
+            current += 1;
+        };
+        var isDone = function(){
+            return current >= obj.length;
+        };
+        var getCurrItem = function(){
+            return obj[ current ];
+        };
+        return {
+            next: next,
+            isDone: isDone,
+            getCurrItem: getCurrItem
+        }
+    };
+    var iterator1 = Iterator( [ 1, 2, 3 ] );
+    while (!iterator1.isDone()){
+        var model = iterator1.getCurrItem();
+        iterator1.next();
+        console.log(model)
+    }
+
+</script>
+</html>

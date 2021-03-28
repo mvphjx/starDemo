@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>策略模式</title>
+</head>
+<body>
+<div style="position: absolute;background: blue" id="div">
+    DIV
+</div>
+<div>
+    <input type="button" id="linear" value="linear线性的">
+    <input type="button" id="strongEaseIn" value="strongEaseIn">
+    <input type="button" id="strongEaseOut" value="strongEaseOut">
+</div>
+
+</body>
+<script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="animate.js"></script>
+<script>
+    /**
+     * 策略模式的定义是：定义一系列的算法,把它们一个个封装起来,并且使它们可以相互替换。
+     * 策略模式的实现并不复杂，关键是如何从策略模式的实现背后，找到封装变化、委托和多态性这些思想的价值。
+     * 优点：
+     * 重构if-else
+     * 开闭原则
+     * 提高复用性
+     */
+
+
+    var div = document.getElementById('div');
+    var animate = new Animate(div);
+    $("input").click(function () {
+        var id = this.id;
+        animate.start('left', 500, 5000, id);
+    })
+
+
+</script>
+</html>

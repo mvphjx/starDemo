@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>miniconsole</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body style="font-size: 16px">
+        <script src="miniconsole.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            Allo = function (name) {
+                this.name = name;
+            };
+
+            Allo.prototype.toString = function () {
+                return 'Allo ' + this.name + '?';
+            };
+
+            Pair = function (fst, snd) {
+                this.fst = fst;
+                this.snd = snd;
+            };
+
+            Pair.prototype.toString = function () {
+                return '(' + this.fst + ',' + this.snd + ')';
+            };
+
+            mini.clear();
+
+            mini.set('evalHook', function (code, dflt) {
+                if (code[0] != ':') {
+                    return dflt(code);
+                } else {
+                    return new Allo(code.slice(1));
+                }
+            });
+
+            mini.set('printHook', function (obj, dflt) {
+                if (obj instanceof Allo || obj instanceof Pair) {
+                    return obj;
+                } else {
+                    return dflt(obj);
+                }
+            });
+
+            mini.send('void(_ = console, console = mini)');
+            console.send('[ 1, "a", null, undefined, /regex/, [1], {a:1}, window, document, Object ]');
+            console.log("allo", [ 1, 2 ]);
+            console.send("\'allo\'");
+            console.send(":Nabila");
+            console.send("new Pair(\"al\", \"lo\")");
+            console.send("allo");
+            console.send('void(console = _)');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock.js demo</title>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+<input id="search" type="button" value="select">
+<div>
+    <textarea id="result" style="height: calc(100vh - 123px);width: 100%">
+
+    </textarea>
+</div>
+</body>
+<script>
+    $("#search").click(function () {
+        $.ajax({
+            url: "http://web.com/list",
+            type: "get",
+            dataType: "json"
+        }).done(function (data, status, xhr) {
+            $("#result").text(JSON.stringify(data, null, 4));
+        })
+    });
+    var random = Mock.Random;
+    Mock.mock("http://web.com/list", {
+            status: 0,
+            "data|1-5": [{
+                "tid|+1": 1,
+                "title": '@title',
+                "catalog": "index",
+                "fav": 20,
+                "created": '@datetime',
+                "isEnd": 0,
+                user: {
+                    "avatar": random.image('200x100'),
+                    "name": "用户昵称",
+                    "isvip|0-1": 1,
+                    "level|1-5": 4
+                }
+            }
+            ]
+        }
+    )
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>状态模式</title>
+</head>
+<body>
+状态模式（State Pattern）也叫作状态机模式（State Machine Pattern），
+允许对象在内部状态发生改变时改变它的行为，对象看起来好像修改了它的类，属于行为型设计模式。
+状态模式也许是被大家低估的模式之一。实际上，通过状态模式重构代码之后，很多杂乱无章的代码会变得清晰。
+<br>
+<script src="upload.js"></script>
+<br>
+<div id="demo" class="green">
+    <div id="controls">
+        <button id="clear" onclick="Demo.clear();" disabled="">clear</button>
+        <button id="calm" onclick="Demo.calm();" disabled="">calm</button>
+        <button id="warn" onclick="Demo.warn();">warn</button>
+        <button id="panic" onclick="Demo.panic();">panic!</button>
+    </div>
+    <div id="diagram">
+    </div>
+    <textarea id="output" style="height: 500px;width: 100%"></textarea>
+</div>
+<script src="state-machine.js"></script>
+<script src="state-machine-demo.js"></script>
+</body>
+</html>

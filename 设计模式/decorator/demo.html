@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>装饰者模式</title>
+</head>
+<body>
+装饰器模式（Decorator Pattern）也叫作包装器模式（Wrapper Pattern），
+指在不改变原有对象的基础上，动态地给一个对象添加一些额外的职责。
+就增加功能来说，装饰器模式相比生成子类更为灵活，属于结构型设计模式。
+<br>
+用户名：<input id="username" type="text"/>
+
+密码： <input id="password" type="password"/>
+<input id="submitBtn" type="button" value="提交"></button>
+</body>
+<script>
+    Function.prototype.before = function (beforefn) {
+        var __self = this;
+        return function () {
+            if (beforefn.apply(this, arguments) === false) {
+                // beforefn 返回false 的情况直接return，不再执行后面的原函数
+                return;
+            }
+            return __self.apply(this, arguments);
+        }
+    }
+    var validata = function () {
+        if (username.value === '') {
+            alert('用户名不能为空');
+            return false;
+        }
+        if (password.value === '') {
+            alert('密码不能为空');
+            return false;
+        }
+    }
+    var formSubmit = function () {
+        var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax('http:// xxx.com/login', param);
+    }
+
+    formSubmit = formSubmit.before(validata);
+
+    submitBtn.onclick = function () {
+        formSubmit();
+    }
+
+    function ajax(){
+        console.log(arguments[0])
+    }
+
+</script>
+</html>

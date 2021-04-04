@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>享元模式</title>
+</head>
+<body>
+享元（flyweight）模式是一种用于性能优化的模式，
+“fly”在这里是苍蝇的意思，意为蝇量级。
+享元模式的核心是运用共享技术来有效支持大量细粒度的对象。
+<br>
+共享模式
+<br>
+实现享元模式的关键是把内部状态和外部状态分离开来
+<br>
+
+</body>
+
+
+<script type="text/javascript">
+    //通用对象池
+    var objectPoolFactory = function( createObjFn ){
+        var objectPool = [];
+        return {
+            create: function(){
+                if(objectPool.length === 0){
+                    return createObjFn.apply( this, arguments )
+                }else{
+                    //取出，返回缓存对象
+                    return objectPool.shift()
+                }
+            },
+            //回收缓存对象
+            recover: function( obj ){
+                objectPool.push( obj );
+
+            }
+        }
+    };
+
+    var iframeFactory = objectPoolFactory( function(){
+        var iframe = document.createElement( 'iframe' );
+        document.body.appendChild( iframe );
+        iframe.onload = function(){
+            iframe.onload = null; // 防止iframe 重复加载的bug
+            iframeFactory.recover( iframe ); // iframe 加载完成之后回收节点
+        }
+        return iframe;
+    });
+
+    var iframe1 = iframeFactory.create();
+    iframe1.src = 'http:// baidu.com';
+    var iframe2 = iframeFactory.create();
+    iframe2.src = 'http:// QQ.com';
+    setTimeout(function(){
+        var iframe3 = iframeFactory.create();
+        iframe3.src = 'http:// 163.com';
+    }, 3000 );
+
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>责任链模式</title>
+</head>
+<body>
+责任链模式（Chain of Responsibility Pattern）将链中每一个节点都看作一个对象，每个节点处理的请求均不同，且内部自动维护下一个节点对象。
+当一个请求从链式的首端发出时，会沿着责任链预设的路径依次传递到每一个节点对象，直至被链中的某个对象处理为止，属于行为型设计模式。
+</body>
+
+
+<script type="text/javascript">
+    /**
+     * 传递请求给某个节点
+     * 通过AOP实现
+     *
+     */
+    Function.prototype.after = function( fn ){
+        var self = this;
+        return function(){
+            var ret = self.apply( this, arguments );
+            if ( ret === 'nextSuccessor' ){
+                return fn.apply( this, arguments );
+            }
+            return ret;
+        }
+    };
+    /**
+     * 责任链
+     * @param fn
+     * @constructor
+     */
+    var Chain = function( fn ){
+        this.fn = fn;
+        this.successor = null;
+    };
+    Chain.prototype.setNextSuccessor = function( successor ){
+        return this.successor = successor;
+    };
+
+    Chain.prototype.passRequest = function(){
+        var ret = this.fn.apply( this, arguments );
+        if ( ret === 'nextSuccessor' ){
+            return this.successor && this.successor.passRequest.apply( this.successor, arguments );
+        }
+        return ret;
+    };
+
+
+    var order500Handler = function( orderType, pay, stock ){
+        if ( orderType === 1 && pay === true ){
+            console.log( '500 元定金预购，得到100 优惠券' );
+        }else{
+            return 'nextSuccessor'; // 我不知道下一个节点是谁，反正把请求往后面传递
+        }
+    };
+
+    var order200Handler = function( orderType, pay, stock ){
+        if ( orderType === 2 && pay === true ){
+            console.log( '200 元定金预购，得到50 优惠券' );
+        }else{
+            return 'nextSuccessor'; // 我不知道下一个节点是谁，反正把请求往后面传递
+        }
+    };
+
+    var orderNormalHandler = function( orderType, pay, stock ){
+        if ( stock > 0 ){
+            console.log( '普通购买，无优惠券' );
+        }else{
+            console.log( '手机库存不足' );
+        }
+    };
+
+
+
+    /**
+     * AOP function 实现
+     */
+    var orderFun = order500Handler.after( order200Handler ).after( orderNormalHandler );
+    orderFun( 1, true, 500 ); // 输出：500 元定金预购，得到100 优惠券
+    orderFun( 2, true, 500 ); // 输出：200 元定金预购，得到50 优惠券
+    orderFun( 1, false, 500 ); // 输出：普通购买，无优惠券
+    orderFun( 1, false, 0 ); // 输出：手机库存不足
+    console.log("----------------------------------")
+    /**
+     * Chain对象实现 责任链
+     * @type {function(...[*]=)}
+     */
+    var chainOrder500 = new Chain( order500Handler );
+    var chainOrder200 = new Chain( order200Handler );
+    var chainOrderNormal = new Chain( orderNormalHandler );
+    chainOrder500.setNextSuccessor( chainOrder200 );
+    chainOrder200.setNextSuccessor( chainOrderNormal );
+    chainOrder500.passRequest( 1, true, 500 ); // 输出：500 元定金预购，得到100 优惠券
+    chainOrder500.passRequest( 2, true, 500 ); // 输出：200 元定金预购，得到50 优惠券
+    chainOrder500.passRequest( 3, true, 500 ); // 输出：普通购买，无优惠券
+    chainOrder500.passRequest( 1, false, 0 ); // 输出：手机库存不足
+</script>
+</html>

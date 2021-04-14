@@ -1,0 +1,67 @@
+openapi: "3.0.2"
+info:
+  title: 大屏接口文档
+  description: 接口地址均为以下格式 http://ip:port/abisweb/stat/largescreen/nationafis/* 例如：
+    get http://192.168.128.56:7930/abis/stat/largescreen/nationafis/person/province.
+  version: "1.0"
+servers:
+  - url: http://192.168.128.56:7930/abis/stat/largescreen/nationafis
+tags:
+  - name: 比对任务
+    description: 任务统计
+paths:
+  /task:
+    get:
+      tags:
+      - 比对任务
+      responses:
+        200:
+          description: 请求成功
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/result'
+
+components:
+  schemas:
+    result:
+      required:
+        - status
+        - data
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/task'
+    task:
+      type: object
+      properties:
+        all:
+          type: array
+          items:
+            $ref: '#/components/schemas/year'
+        month:
+          type: array
+          items:
+            $ref: '#/components/schemas/year'
+        day:
+          type: array
+          items:
+            $ref: '#/components/schemas/year'
+    year:
+      type: object
+      properties:
+        text:
+          type: string
+          example: 北京
+        code:
+          type: string
+          example: "110"
+        count:
+          type: integer
+          format: int32
+          example: 1000

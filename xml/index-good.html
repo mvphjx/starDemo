@@ -5,8 +5,7 @@
     <title></title>
 
     <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
-    <script type="text/javascript" class="library" src="jquery.json2xml.js"></script>
-    <script type="text/javascript" class="library" src="jquery.xml2json.js"></script>
+    <script type="text/javascript" class="library" src="ObjTree.js"></script>
     <style type="text/css">
         textarea{
             width: 700px;
@@ -34,25 +33,20 @@
     $("#xml1").text(xmlStr);
     $("#xml1").blur(function () {
         var xmlStr = $("#xml1").val();
-        var json = $.xml2json(xmlStr);
+        //将xml字符串转为json
+        var xotree = new XML.ObjTree();
+        var json = xotree.parseXML(xmlStr);
         $("#json1").text(JSON.stringify(json))
         console.log(json);
     });
-    var defaultSettings = {
-        formatOutput: true,
-        formatTextNodes: false,
-        indentString: '  ',
-        rootTagName: 'TextCheck',
-        ignore: [],
-        replace: [],
-        nodes: [],
-        exceptions: []
-    };
 
     $("#json2").blur(function () {
         var jsonStr = $("#json2").val();
-        var xml = $.json2xml(jsonStr, defaultSettings);
+        var xotree = new XML.ObjTree();
+        var xml = xotree.writeXML(JSON.parse(jsonStr));
         $("#xml2").text(xml)
     });
+
+
 </script>
 </html>

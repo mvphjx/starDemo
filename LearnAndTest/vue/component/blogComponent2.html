@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Component Blog Post Example</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="blog-post-demo" class="demo" :style="{ fontSize: postFontSize + 'em' }">
+    <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:post="post"
+            v-on:enlarge-text="onEnlargeText"
+    ></blog-post>
+</div>
+
+<script>
+    /**
+     * 子组件 调用父组件的方法，进行字体放大
+     */
+    Vue.component('blog-post', {
+        props: ['post'],
+        template: `
+          <div class="blog-post">
+          <h3>{{ post.title }}</h3>
+          <button v-on:click="$emit('enlarge-text',0.1)">
+            全局字体放大
+          </button>
+          <div v-html="post.content"></div>
+          </div>
+        `
+    })
+    new Vue({
+        el: "#blog-post-demo",
+        data: {
+            posts: [],
+            postFontSize: 1
+        },
+        created: function () {
+            var vm = this;
+            vm.posts = [{id: 1, title: 1, content: "123"}, {id: 2, title: 2,content :"1234"}, {id: 3, title: 3,content :"12345"}]
+        },
+        methods: {
+            onEnlargeText: function (enlargeAmount) {
+                this.postFontSize += enlargeAmount
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>什么是Virtual Dom</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="app">
+    {{code}}:{{text}}
+</div>
+</body>
+
+<script>
+    var data = {
+        code: "110000",
+        text: "北京"
+    };
+    new Vue({
+        el: "#app",
+        data: data
+    });
+
+</script>
+
+</html>

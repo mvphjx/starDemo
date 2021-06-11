@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>简单路由</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/2.4.0/vue-router.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="app">
+    <p>
+        <router-link to="/user/123">Go to user 123</router-link>
+        <router-link to="/user/admin">Go to user admin</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+<script>
+    const User = {
+        template: `
+          <div class="user">
+          <h2>User: {{ $route.params.id }}</h2>
+          <router-view></router-view>
+          </div>
+        `
+    }
+
+    const router = new VueRouter({
+        mode: 'history',
+        routes: [
+            {
+                path: '/user/:id',
+                component: User,
+                name: 'user'
+            }
+        ]
+    })
+    /**
+     * 全局前置守卫
+     *
+     * to: Route: 即将要进入的目标 路由对象
+     * from: Route: 当前导航正要离开的路由
+     * next: Function: 一定要调用该方法来 resolve 这个钩子。
+     */
+    router.beforeEach((to, from, next) => {
+        if(to.name==="user"&&to.params.id==="admin"){
+            console.log("没有管理员权限...")
+        }else{
+            next();
+        }
+    })
+    new Vue({
+        el: "#app",
+        router: router
+    })
+</script>
+</body>
+</html>

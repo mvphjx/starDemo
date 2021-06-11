@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>什么是render</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="app">
+    <anchor :level="2" title="特性">特性</anchor>
+</div>
+</body>
+
+<script>
+
+    var app = new Vue({
+        el: "#app", render: function (h) {
+            return (
+                <anchor level={1}>
+                    <span>一级</span>
+                    标题
+                </anchor>
+            )
+        }
+    });
+</script>
+
+</html>

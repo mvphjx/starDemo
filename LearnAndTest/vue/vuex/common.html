@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>状态管理</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vuex/2.4.0/vuex.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="app">
+    <common-a></common-a>
+    <common-b></common-b>
+</div>
+<script>
+    /**
+     * 案例：count 为通知数，不同组件需要同步
+     * @type {Vuex.Store}
+     */
+    const store = new Vuex.Store({
+        //状态 单一数据源（single source of truth）
+        state: {
+            count: 0
+        },
+        //变更
+        mutations: {
+            increment(state, n = 1) {
+                state.count += n;
+            },
+            decrease(state) {
+                state.count--;
+            }
+        },
+        //动作
+        actions: {
+            increment(context) {
+                context.commit('increment');
+            }
+        }
+    });
+    //全局注册
+    Vue.component('common-a', {
+        data: function () {
+            return {
+                content: ""
+            }
+        },
+        template: '<h2>id1:{{count}}</h2>',
+        computed: {
+            count() {
+                return this.$store.state.count;
+            }
+        },
+        methods: {
+            increment: function () {
+                this.$store.commit('increment', 1);
+            }
+        }
+    })
+    /**
+     * 局部注册 组件B
+     */
+    const comB = {
+        data: function () {
+            return {
+                content: ""
+            }
+        },
+        template: '<h2>id1:{{count}}</h2>',
+        computed: {
+            count() {
+                return this.$store.state.count;
+            }
+        },
+        methods: {
+            increment: function () {
+                this.$store.commit('increment', 1);
+            }
+        }
+    }
+
+    new Vue({
+        el: "#app",
+        store: store,
+        components:{"common-b":comB}
+    })
+</script>
+</body>
+</html>

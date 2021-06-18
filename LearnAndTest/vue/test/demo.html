@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件测试</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    const NotificationCount = {
+        template: '<P>' +
+            'Messages:<span class="count">{{messageCount}}</span>' +
+            '<a @click.prevent="handleUpdate">（update）</a>' +
+            '</P>',
+        props: {
+            initialCount: {
+                type: Number,
+                default: 0
+            }
+        },
+        data() {
+            return {messageCount: this.initialCount};
+        },
+        method:{
+            handleUpdate(){
+                var _this = this;
+                new Promise(resolve => {
+                    setTimeout(() => {
+                        _this.messageCount +=5;
+                    }, 100)
+                });
+            }
+        }
+    }
+    //因为没有为new Vue()提供el属性，所以需要手动调用.$mount()方法，以便Vue触发挂载进程。
+    const  vm = new Vue({
+        template: '<NotificationCount  :initial-count="5" />',
+        components:{NotificationCount}
+    }).$mount();
+    /**
+     * 测试用例
+     *   1.应当测试被提供的初始通知计数是否被正确地展示
+     *   2.应当有一个测试来确保当链接被单击时，通知计数被正确地更新。
+     **/
+
+    //开始测试
+    vm.$el.outerHTML;
+    const count = vm.$el.querySelector('.count').innerHTML;
+    if(count!=='5'){
+        throw new Error('Expected count too equal 5')
+    }else{
+        console.log("Pass")
+    }
+    /**
+     * 断言库，比如Chai
+     * expect(count).toBe("5")
+     */
+
+
+</script>
+</html>

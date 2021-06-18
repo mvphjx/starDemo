@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>状态管理</title>
+    <title>状态管理-模块化</title>
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vuex/2.4.0/vuex.js"></script>
     <meta charset="UTF-8">
@@ -13,10 +13,63 @@
     <common-b></common-b>
 </div>
 <script>
-    /**
-     * 案例：count 为通知数，不同组件需要同步
-     * @type {Vuex.Store}
-     */
+
+    const moduleA = {
+        namespaced: true,
+        state: () => ({count: 0}),
+        mutations: {
+            increment(state, n = 1) {
+                state.count += n;
+            },
+            decrease(state) {
+                state.count--;
+            }
+        },
+        actions: {
+            asyncIncrement(context) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        context.commit('increment', 10);
+                        resolve();
+                    }, 500)
+                });
+            }
+        },
+        getters: {
+            count(state) {
+                return state.count
+            }
+        }
+    }
+
+    const moduleB = {
+        namespaced: true,
+        state: () => ({count: 0}),
+        mutations: {
+            increment(state, n = 1) {
+                state.count += n;
+            },
+            decrease(state) {
+                state.count--;
+            }
+        },
+        actions: {
+            asyncIncrement(context) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        context.commit('increment', 10);
+                        resolve();
+                    }, 500)
+                });
+            }
+        },
+        getters: {
+            count(state) {
+                return state.count
+            }
+        }
+    }
+
     const store = new Vuex.Store({
         //状态 单一数据源（single source of truth）
         state: {
@@ -49,6 +102,9 @@
             }
         }
     });
+    store.registerModule('moduleA',moduleA);
+    store.registerModule('moduleB',moduleB);
+
     //全局注册
     Vue.component('common-a', {
         data: function () {
@@ -56,21 +112,35 @@
                 content: ""
             }
         },
-        template: '<div><h2>id1:{{count}}</h2>' +
+        template: '<div><h2>id1:{{count}}/{{countA}}/{{countB}}</h2>' +
             '<input type="button" v-on:click="increment"  value="increment"></input>' +
             '<input type="button" v-on:click="asyncIncrement"  value="asyncIncrement"></input>' +
+            '<input type="button" v-on:click="incrementA"  value="incrementA"></input>' +
+            '<input type="button" v-on:click="incrementB"  value="incrementB"></input>' +
             '</div>',
         computed: {
             count() {
                 return this.$store.state.count;
+            },
+            countA() {
+                return this.$store.state.moduleA.count;
+            },
+            countB() {
+                return this.$store.state.moduleB.count;
             }
         },
         methods: {
             increment: function () {
                 this.$store.commit('increment', 1);
             },
-            asyncIncrement:function (){
+            asyncIncrement: function () {
                 this.$store.dispatch('asyncIncrement');
+            },
+            incrementA: function () {
+                this.$store.commit('moduleA/increment', 1);
+            },
+            incrementB: function () {
+                this.$store.commit('moduleB/increment', 1);
             }
         }
     })
@@ -83,12 +153,18 @@
                 content: ""
             }
         },
-        template: '<div><h2>id2:{{count}}</h2>' +
+        template: '<div><h2>id2:{{count}}/{{countA}}/{{countB}}</h2>' +
             '<input type="button" v-on:click="decrease" value="decrease"></input>' +
             '</div>',
         computed: {
             count() {
-                return this.$store.getters.count;
+                return this.$store.state.count;
+            },
+            countA() {
+                return this.$store.state.moduleA.count;
+            },
+            countB() {
+                return this.$store.state.moduleB.count;
             }
         },
         methods: {

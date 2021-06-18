@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>状态管理</title>
+    <title>状态管理简单版-store 模式</title>
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vuex/2.4.0/vuex.js"></script>
     <meta charset="UTF-8">
@@ -15,62 +15,45 @@
 <script>
     /**
      * 案例：count 为通知数，不同组件需要同步
-     * @type {Vuex.Store}
      */
-    const store = new Vuex.Store({
-        //状态 单一数据源（single source of truth）
+    var store = {
+        debug: true,
         state: {
             count: 0
         },
-        //变更  同步变更state对象
-        mutations: {
-            increment(state, n = 1) {
-                state.count += n;
-            },
-            decrease(state) {
-                state.count--;
-            }
+        increment(n = 1) {
+            this.state.count += n;
         },
-        //动作  实现异步变更;通过提交mutation来变更
-        actions: {
-            asyncIncrement(context) {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        context.commit('increment',10);
-                        resolve();
-                    }, 500)
-                });
-            }
-        },
-        //Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）
-        getters: {
-            count(state) {
-                return state.count
-            }
+        decrease() {
+            this.state.count--;
         }
-    });
+    }
     //全局注册
     Vue.component('common-a', {
         data: function () {
             return {
+                //可以响应变化
+                state1:store.state,
+                //无法响应变化
+                count1:store.state.count,
                 content: ""
             }
         },
-        template: '<div><h2>id1:{{count}}</h2>' +
+        template: '<div><h2>state1:{{state1.count}}/count1:{{count1}}</h2>' +
+            '<h2>state2:{{state2.count}}/count2:{{count2}}</h2>' +
             '<input type="button" v-on:click="increment"  value="increment"></input>' +
-            '<input type="button" v-on:click="asyncIncrement"  value="asyncIncrement"></input>' +
             '</div>',
         computed: {
-            count() {
-                return this.$store.state.count;
+            count2() {//可以响应变化
+                return store.state.count;
+            },
+            state2() {//可以响应变化
+                return store.state;
             }
         },
         methods: {
             increment: function () {
-                this.$store.commit('increment', 1);
-            },
-            asyncIncrement:function (){
-                this.$store.dispatch('asyncIncrement');
+                store.increment();
             }
         }
     })
@@ -87,13 +70,13 @@
             '<input type="button" v-on:click="decrease" value="decrease"></input>' +
             '</div>',
         computed: {
-            count() {
-                return this.$store.getters.count;
+            count() {//可以响应变化
+                return store.state.count;
             }
         },
         methods: {
             decrease: function () {
-                this.$store.commit('decrease');
+                store.decrease();
             }
         }
     }

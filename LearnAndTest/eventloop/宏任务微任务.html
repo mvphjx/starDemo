@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+1同步任务 异步任务
+JS串行执行主线程任务，当遇到异步任务如定时器时，将其放入事件队列中，在主线程任务执行完毕后，再去事件队列中遍历取出队首任务进行执行，直至队列为空
+<br/>
+2宏任务 微任务
+宏任务和微任务主要有两点区别：
+1、宏任务执行完成，在控制权交还给主线程执行其他宏任务之前，会将微任务队列中的所有任务执行完成。
+2、微任务创建的新的微任务，会在下一个宏任务执行之前被继续遍历执行，直到微任务队列为空。
+</body>
+<script>
+    //同步任务  执行序号1
+    console.log('script start')
+
+    async function async1() {
+        await async2()
+        //微任务 执行序号5
+        console.log('async1 end')
+    }
+
+    async function async2() {
+        //微任务 执行序号2
+        console.log('async2 end')
+    }
+
+    async1()
+
+    setTimeout(function () {
+        //宏任务 执行序号8
+        console.log('setTimeout')
+    }, 0)
+
+    new Promise(resolve => {
+        //微任务 执行序号3
+        console.log('Promise')
+        resolve()
+    })
+        .then(function () {
+            //微任务 执行序号6
+            console.log('promise1')
+        })
+        .then(function () {
+            //微任务 执行序号7
+            console.log('promise2')
+        })
+    //同步任务 执行序号4
+    console.log('script end')
+</script>
+</html>

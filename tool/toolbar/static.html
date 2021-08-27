@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>静态页面，样式展示</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/webui.css">
+    <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+
+</head>
+<body>
+<div id="tool">
+    <div id="operTool_add" class="LinkBnt_28_Right">
+        <div id="operTool_add_bnt" class="LinkButton">
+            <div id="operTool_add_img" class="Image Add"></div>
+            <div id="operTool_add_txt" class="Text">增加</div>
+        </div>
+    </div>
+    <div id="2" class="LinkBnt_28_Right">
+        <div class="LinkButton">
+            <div class="Image Add"></div>
+            <div class="Text">XXX</div>
+        </div>
+    </div>
+    <div id="test" class="LinkBnt_28_Right">
+        <div class="LinkButton">
+            <div class="Image Add"></div>
+            <div class="Text">管理</div>
+        </div>
+        <div class="LinkButtonMenu" style="display: none;">
+            <div id="test1" class="">
+                <div class="LinkButton">
+                    <div class="Image Add"></div>
+                    <div class="Text">XXX1</div>
+                </div>
+            </div>
+            <div id="test2" class="">
+                <div class="LinkButton">
+                    <div class="Image Add"></div>
+                    <div class="Text">XXX2</div>
+                </div>
+            </div>
+            <div id="test3" class="">
+                <div class="LinkButton">
+                    <div class="Image Add"></div>
+                    <div class="Text">XXX3</div>
+                </div>
+                <div class="LinkButtonMenu LinkButtonMenuChild" style="display: none;">
+                    <div id="test31" class="">
+                        <div class="LinkButton">
+                            <div class="Image Add"></div>
+                            <div class="Text">XXX1</div>
+                        </div>
+                    </div>
+                    <div id="test32" class="">
+                        <div class="LinkButton">
+                            <div class="Image Add"></div>
+                            <div class="Text">XXX2</div>
+                        </div>
+                    </div>
+                    <div id="test33" class="">
+                        <div class="LinkButton">
+                            <div class="Image Add"></div>
+                            <div class="Text">XXX3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    function updateMenuLocation(){
+        var $parent = $("#test3");
+        var offset = $parent.offset();
+        var txtH = $parent.height();
+        var mfLeft = offset.left;
+        var mfTop = offset.top + txtH;
+        var mf = $("#test3 .LinkButtonMenuChild")
+        mf.css("left", mfLeft + "px");
+        mf.css("top", mfTop + "px");
+    }
+    updateMenuLocation()
+
+    $("#test").click(function (){
+       $(this).find(".LinkButtonMenu").eq(0).show();
+    });
+    $("#test3").mouseenter(function (){
+        $(this).find(".LinkButtonMenu").eq(0).show();
+    });
+    $(".LinkButtonMenu").mouseleave(function (){
+        $(this).hide();
+        $(this).find(".LinkButtonMenu").hide();
+    });
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" class="library" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="toolbar_component.js"></script>
+</head>
+<body>
+<div id="tool"></div>
+</body>
+<script>
+    var $dom = $("#tool");
+    var toolBar = new WebToolbarComponent({
+        $parent: $dom,
+        items: [
+            {id: '1', text: '增加', type: 'button'},
+            {id: '2', text: '编辑', type: 'button'},
+            {id: '3', text: '删除', type: 'button'},
+            {
+                id: '4', text: '管理', type: 'button', items: [
+                    {
+                        id: '41', text: '导出', type: 'button', items: [
+                            {id: '411', text: '导出Excel', type: 'button'},
+                            {id: '412', text: '导出HPP', type: 'button'}
+                        ]
+                    },
+                    {
+                        id: '42', text: '修改优先级', type: 'button', items: [
+                            {id: '421', text: '高', type: 'button'},
+                            {id: '422', text: '低', type: 'button'}
+                        ]
+                    },
+                    {id: '43', text: '移库', type: 'button'}
+                ]
+            }
+        ]
+    });
+</script>
+</html>

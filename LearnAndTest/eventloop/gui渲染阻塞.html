@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../../lib/layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <div id="testDiv"></div>
+    <input onclick="test()" type="button" value="test">
+</body>
+<script>
+    layui.use('layer')
+    var $content = $("#testDiv");
+    function test(){
+        $content.append("start");
+        //$content.empty();
+        //$content.width($content.width())
+        var index = layer.load(0, {shade: false, time: 5000});
+        setTimeout(function (){
+            doSomeThing();
+        },0)
+    }
+    //某种耗时操作
+    function doSomeThing(){
+        console.time("doSomeThing")
+        for (let i = 0; i < 40000; i++) {
+            var $div = $("#testDiv");
+            $div.append(i);
+            $div.append("<br>");
+            $div.empty();
+        }
+        console.timeEnd("doSomeThing")
+    }
+</script>
+</html>

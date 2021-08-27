@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>.128.56
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.6/layui/css/layui.css"  media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+<script src="../../lib/layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
+<table id="test-table" class="layui-table" >
+    <thead>
+    <tr>
+        <th lay-data="{align:'center'，}" rowspan="3">生物特征类型</th>
+        <th lay-data="{align:'center'}" colspan="7">服务</th>
+    </tr>
+    <tr>
+        <th lay-data="{align:'center'}" colspan="2">即采即比</th>
+        <th lay-data="{field:'province'}" colspan="2">积案查询</th>
+        <th lay-data="{field:'city'}" colspan="1">人员身份查询</th>
+        <th lay-data="{align:'center'}" colspan="2">人员案件查询</th>
+    </tr>
+    <tr>
+        <th lay-data="{align:'center'}">1</th>
+        <th lay-data="{field:'street'}">0</th>
+        <th lay-data="{align:'center'}">1</th>
+        <th lay-data="{field:'street'}">0</th>
+        <th lay-data="{align:'center'}">1</th>
+        <th lay-data="{align:'center'}">1</th>
+        <th lay-data="{field:'street'}">0</th>
+    </tr>
+    </thead>
+</table>
+
+<table id="test-table2" class="layui-table" ></table>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+        table.render({
+            elem: '#test-table',
+            cols:[[]],
+            data: []
+        });
+
+        var btyCols1 = [{
+            field: 'btyText',
+            title: '生物特征类型',
+            width: 260,
+            align: 'center',
+            rowspan: 3
+        },{
+            title: '服务',
+            align: 'center',
+            colspan: 7
+        }];
+        var btyCols2 = [{
+            title: '即采即比',
+            align: 'center',
+            colspan: 2
+        },{
+            title: '积案查询',
+            align: 'center',
+            colspan: 2
+        },{
+            title: '人员身份查询',
+            align: 'center',
+            colspan: 1
+        },{
+            title: '人员案件查询',
+            align: 'center',
+            colspan: 2
+        }];
+
+        var btyCols3 = [{
+            title: '有检视',
+            align: 'center',
+            field: 'num1',
+        },{
+            title: '无检视',
+            align: 'center',
+            field: 'num2'
+        },{
+            title: '有检视',
+            align: 'center',
+            field: 'num3',
+        },{
+            title: '无检视',
+            align: 'center',
+            field: 'num4',
+        },{
+            title: '有检视',
+            align: 'center',
+            field: 'num5',
+        },{
+            title: '有检视',
+            align: 'center',
+            field: 'num6',
+        },{
+            title: '无检视',
+            align: 'center',
+            field: 'num7',
+        }
+        ];
+        table.render({
+            elem: '#test-table2',
+            cols:[btyCols1,btyCols2,btyCols3],
+            data: []
+        });
+    });
+</script>
+
+
+</body>
+</html>

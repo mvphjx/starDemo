@@ -22,8 +22,10 @@
             var ret = self.apply( this, arguments );
             if ( ret === 'nextSuccessor' ){
                 return fn.apply( this, arguments );
+            }else{
+                return ret;
             }
-            return ret;
+
         }
     };
     /**

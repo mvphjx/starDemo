@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function getEvery(item) {
+        return new Promise(resolve => {
+            // 模拟个异步请求
+            setTimeout(() => {
+                resolve(item)
+            }, 1000)
+        })
+    }
+
+    var arr = ['A', 'B', 'C'];
+
+    /**
+     * 开启3个异步事件，并行处理三个请求
+     */
+    function init1() {
+        arr.every(async function (item) {
+            console.log(1, await getEvery(item));
+        });
+        console.log(1, '你好吗')
+    }
+    /**
+     * 开启3个异步事件，并行处理三个请求
+     */
+    function init2() {
+        for (const index in arr) {
+            (async function test(item) {
+                console.log(2, await getEvery(item));
+            })(arr[index]);
+        }
+        console.log(2, '你好吗')
+    }
+
+    /**
+     * 开启1个异步事件,串行处理三个请求
+     */
+    async function init3() {
+        for (const index in arr) {
+            console.log(3, await getEvery(arr[index]));
+        }
+        console.log(3, '你好吗')
+    }
+
+    console.log("Start")
+    init1();
+    init2();
+    init3();
+    console.log("End")
+
+</script>
+</html>

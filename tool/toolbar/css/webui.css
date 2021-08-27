@@ -1,0 +1,20 @@
+/** 超链接按钮相关样式 */
+.LinkButton					{height:22px;ling-height:22px;cursor:pointer;overflow: hidden;}
+.LinkButton .Image			{width:22px;height:22px;cursor:pointer;float:left;}
+.LinkButton .Text			{height:22px;line-height:22px;cursor:pointer;float:left;}
+.LinkButton .Hover_Text		{font-weight:500;text-decoration: underline;}
+.LinkButton .Text_Disable	{color:#c9c9c9;}
+.LinkBnt_28_Right			{float:right;margin-top:3px;margin-right:5px;}
+.LinkButton .Add					{background:url(add.png) no-repeat;}
+.LinkButton .Add_Large				{background:url(add.png) no-repeat;}
+
+/*工具栏样式扩展 下拉选*/
+.LinkButtonMenu{
+    position: absolute;
+    background-color: #F4F8FB;
+    border:2px solid #0955a0;
+    border-top: 0px;
+}
+.LinkButtonMenuChild{
+
+}

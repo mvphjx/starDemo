@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+        <iframe id="demoFrame1" class="content cid" scrolling="no">132331 </iframe>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+<script>
+    var $iFrame = $("#demoFrame1");
+
+    $iFrame.bind("load",function(){
+        console.log("load")
+    });
+    $iFrame.bind("ready",function(){
+        console.log("ready")
+    });
+</script>
+</html>

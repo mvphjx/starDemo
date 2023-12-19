@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>配合按键精灵进行后台点击测试-寻道大千</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div id="app" @click="doClick">
+  <div id="div1">点击数：{{ count }}</div>
+  <div id="div2">点击历史</div>
+  <div id="div3" v-for="(model,index) in history" v-bind:key="index">
+    {{ model }}
+  </div>
+</div>
+</body>
+<style>
+    #app {
+        width: 800px;
+        height: 800px;
+        border: #22b7b0 dashed 0.5px;
+    }
+    #div1{
+        width: 200px;
+        height: 30px;
+        border: #1a56d5 dashed 0.5px;
+    }
+    #div2{
+        width: 400px;
+        height: 30px;
+        border: #1a56d5 dashed 0.5px;
+    }
+    #div3{
+        //width: 700px;
+        height: 30px;
+        border: #1a56d5 dashed 0.5px;
+    }
+</style>
+<script>
+  var data = {
+    count: 0,
+    history: []
+  }
+  new Vue({
+    el: '#app',
+    data: data,
+    methods: {
+      doClick() {
+        this.count++
+        var event = { time: new Date(), count: this.count }
+        event.x=arguments[0].x;
+        event.y=arguments[0].y;
+        event.screenX=arguments[0].screenX;
+        event.screenY=arguments[0].screenY;
+        if (this.history.length > 30) {
+          this.history.pop()
+        }
+        this.history.unshift(event)
+      }
+    }
+  })
+</script>
+</html>

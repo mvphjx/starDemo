@@ -45,6 +45,8 @@
             var month = (date.month() + 1).toString().padStart(2, '0');
             var day = date.date();
             var hour = date.hour();
+            var minutes = date.minute();
+            var seconds = date.second();
             var monthKey = year + '-' + month;
             var calendarKey = [year, month, day].join('-');
             if (!monthlyData[monthKey]) {
@@ -52,10 +54,13 @@
             } else {
                 monthlyData[monthKey]++;
             }
-            if (!hourlyData[hour]) {
-                hourlyData[hour] = 1;
-            } else {
-                hourlyData[hour]++;
+            //过滤掉缺少时间的数据
+            if (minutes != 0 || seconds != 0 || hour != 0) {
+                if (!hourlyData[hour]) {
+                    hourlyData[hour] = 1;
+                } else {
+                    hourlyData[hour]++;
+                }
             }
             if (!daylyData[calendarKey]) {
                 daylyData[calendarKey] = 1;
@@ -98,6 +103,13 @@
 
     function parseDate(dateStr) {
         let format = "YYYY年MM月DD日HH:mm:ss";
+        if (dateStr.indexOf('年') == -1) {
+            if(dateStr.length==10){
+                format = "YYMMDDHHmm";
+            }else{
+                format = "YYYYMMDDHHmmss";
+            }
+        }
         let jsDate = moment(dateStr, format);
         return jsDate;
     }
@@ -122,7 +134,7 @@
             },
             visualMap: {
                 min: 0,
-                max: 5,
+                max: 4,
                 calculable: true,
                 orient: 'vertical',
                 left: '670',

@@ -102,11 +102,12 @@
     }
 
     function parseDate(dateStr) {
+        dateStr = dateStr.replace("\r", "")
         let format = "YYYY年MM月DD日HH:mm:ss";
         if (dateStr.indexOf('年') == -1) {
-            if(dateStr.length==10){
+            if (dateStr.length == 10) {
                 format = "YYMMDDHHmm";
-            }else{
+            } else {
                 format = "YYYYMMDDHHmmss";
             }
         }

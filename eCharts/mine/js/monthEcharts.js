@@ -1,9 +1,8 @@
-var monthlyData = {"2024-05": 19, "2024-06": 20};
-
 /**
  * 月分布
  */
 function monthEcharts() {
+    sortedMonthData(monthlyData);
     var myChart = echarts.init(document.getElementById('monthStat'));
     // 准备 ECharts 的数据
     var xAxisData = Object.keys(monthlyData).map(function (key) {
@@ -101,4 +100,23 @@ function calculateDailyAverages(data) {
         dailyAverages[month] = dailyAverage.toFixed(2);
     }
     return dailyAverages;
+}
+
+
+//月度数据排序
+function sortedMonthData() {
+    // 将对象的键转换为数组
+    var keys = Object.keys(monthlyData);
+    // 按日期从远到近排序键
+    keys = keys.sort((a, b) => {
+        var dateA = moment(a, 'YYYY-MM');
+        var dateB = moment(b, 'YYYY-MM');
+        return dateA.diff(dateB, 'days'); // 降序
+    })
+    var sortedData = {};
+    for (let key of keys) {
+        sortedData[key] = monthlyData[key]
+    }
+    console.log(Object.keys(sortedData))
+    monthlyData = sortedData;
 }

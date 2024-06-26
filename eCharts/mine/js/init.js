@@ -1,20 +1,35 @@
+var fileUrl = 'data.txt';
+
 function init() {
-    fetch(fileUrl)
-        .then(response => {
-            // 确保响应状态是成功的
-            if (!response.ok) {
-                throw new Error('网络响应错误');
-            }
-            // 解析文本内容
-            return response.text();
-        })
-        .then(text => {
-            // 将文本按行分割成数组
-            const lines = text.split('\n');
-            // 过滤掉可能的空行
-            datetimeArray = lines.filter(line => line.trim() !== '');
+    // 定义要获取数据的文件 URL 数组
+    var fileUrls = ['data.txt', 'data202405.txt'];
+    initData(fileUrls)
+        .then(dataArrays => {
+            // dataArrays 是一个数组，包含了每个文件解析后的数据数组
+            // 将这些数组合并为一个单一的数组
+            datetimeArray = [].concat(...dataArrays);
             initEcharts();
         })
+        .catch(error => {
+            console.error('初始化数据时发生错误:', error);
+        });
+}
+
+function initData(fileUrls) {
+    // 创建一个数组，包含每个文件的获取和解析操作
+    const dataPromises = fileUrls.map(fileUrl =>
+        fetch(fileUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`从 ${fileUrl} 获取数据失败`);
+                }
+                return response.text();
+            })
+            .then(text => text.split('\n').filter(line => line.trim() !== ''))
+    );
+
+    // 使用 Promise.all 等待所有文件的数据获取完成
+    return Promise.all(dataPromises);
 }
 
 function initEcharts() {

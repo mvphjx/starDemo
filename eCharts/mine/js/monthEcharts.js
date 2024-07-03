@@ -60,6 +60,10 @@ function calculateMonthlyAverage(data) {
         var monthIndex = parseInt(month.substring(5, 7), 10) - 1; // JavaScript 月份从 0 开始
         var total = data[month];
         var days = getDaysInMonth(year, monthIndex + 1);
+        const todayDate = moment();
+        if (todayDate.month() == monthIndex && todayDate.year() == year) {
+            days = todayDate.day();
+        }
         var average = (total / days).toFixed(2);
         averages[month] = average;
     });

@@ -75,6 +75,8 @@ function parseDate(dateStr) {
     if (dateStr.indexOf('年') == -1) {
         if (dateStr.length == 10) {
             format = "YYMMDDHHmm";
+        } else if (dateStr.length == 12) {
+            format = "YYYYMMDDHHmm";
         } else {
             format = "YYYYMMDDHHmmss";
         }

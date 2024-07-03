@@ -33,6 +33,7 @@ function initData(fileUrls) {
 }
 
 function initEcharts() {
+    var _datetimeArray = [];
     //数据清洗，转为统计数据
     datetimeArray.forEach(function (dateStr) {
         var date = parseDate(dateStr) // 转换为Date对象
@@ -62,7 +63,9 @@ function initEcharts() {
         } else {
             daylyData[calendarKey]++;
         }
+        _datetimeArray.push(date)
     });
+    datetimeArray = _datetimeArray;
     hourEcharts();
     monthEcharts();
     dateEcharts();

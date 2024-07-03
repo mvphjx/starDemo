@@ -9,13 +9,16 @@ function monthEcharts() {
         return key; // 这里直接使用年月作为x轴数据
     });
     var seriesData = Object.values(monthlyData);
-    var averages = calculateMonthlyAverage(monthlyData);
-    var averagesData = Object.values(averages);
+    var rencent30AveragesData = Object.values(calculateRecentAverage(monthlyData, 30));
+    var rencent90AveragesData = Object.values(calculateRecentAverage(monthlyData, 90));
     // 计算日均次数
     var dailyAverages = calculateDailyAverages(monthlyData);
     var dailyAveragesData = Object.values(dailyAverages);
     // 指定图表的配置项和数据
     var option = {
+        legend: {
+            data: ['每月数量', '近30天日均数', '近90天日均数', '日均数']
+        },
         title: {
             text: '每月数量分布'
         },
@@ -26,7 +29,7 @@ function monthEcharts() {
         },
         yAxis: [{type: 'value', name: '每月数量'}, {
             type: 'value',
-            name: '日均次数',
+            name: '日均数',
             position: 'right',
             alignTicks: true
         }],
@@ -35,12 +38,17 @@ function monthEcharts() {
             type: 'bar',
             data: seriesData
         }, {
-            name: '每月日均数',
+            name: '近30天日均数',
             type: 'line',
             yAxisIndex: 1,
-            data: averagesData
+            data: rencent30AveragesData
         }, {
-            name: '日均数量',
+            name: '近90天日均数',
+            type: 'line',
+            yAxisIndex: 1,
+            data: rencent90AveragesData
+        }, {
+            name: '日均数',
             type: 'line',
             yAxisIndex: 1,
             data: dailyAveragesData
@@ -48,6 +56,41 @@ function monthEcharts() {
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+}
+
+/**
+ *计算最近X天日均数
+ */
+function calculateRecentAverage(data, dayCount) {
+    var averages = {};
+    const todayDate = moment();
+    const _startDate = moment('2023-07-12', 'YYYY-MM-DD').subtract(1, 'seconds');
+    Object.keys(data).forEach(function (month) {
+        let _dayCount = dayCount;
+        let startDate, endDate;
+        let startOfMonth = moment(month, 'YYYY-MM')
+        let endOfMonth = startOfMonth.clone().add(1, 'months').subtract(1, 'seconds');
+        if (endOfMonth.isAfter(todayDate)) {
+            endDate = todayDate;
+        } else {
+            endDate = endOfMonth;
+        }
+        startDate = endDate.clone().subtract(_dayCount, 'days');
+        if (startDate.isBefore(_startDate)) {
+            startDate = _startDate;
+            _dayCount = endDate.diff(startDate, 'days');
+        }
+        let total = 0;
+        datetimeArray.forEach(function (date) {
+            if (date.isAfter(startDate) && date.isBefore(endDate)) {
+                total++;
+            }
+        });
+        var average = (total / _dayCount).toFixed(2);
+        averages[month] = average;
+    });
+    return averages;
+
 }
 
 /**
@@ -80,27 +123,28 @@ function getDaysInMonth(year, month) {
 function calculateDailyAverages(data) {
     let dailyAverages = {};
     // 定义起始日期
-    const startDate = moment('2023-07-12', 'YYYY-MM-DD');
+    const startDate = moment('2023-07-12', 'YYYY-MM-DD').subtract(1, 'seconds');
     const todayDate = moment();
     for (let month in data) {
-        // 构造每个月的月末日期
-        let monthDate = moment(month, 'YYYY-MM')
-        let endOfMonth = monthDate.add(1, 'months').subtract(1, 'days');
-        if (todayDate.isBefore(endOfMonth)) {
-            endOfMonth = todayDate;
+        let endDate;
+        let startOfMonth = moment(month, 'YYYY-MM')
+        let endOfMonth = startOfMonth.clone().add(1, 'months').subtract(1, 'seconds');
+        if (endOfMonth.isAfter(todayDate)) {
+            endDate = todayDate;
+        } else {
+            endDate = endOfMonth;
         }
         // 计算从月末到起始日期的天数
-        const days = endOfMonth.diff(startDate, 'days');
+        const days = endDate.diff(startDate, 'days');
         //console.log(month,days)
         let total = 0;
-        for (let monthKey in data) {
-            if (moment(monthKey, 'YYYY-MM').isBefore(monthDate)) {
-                total = total + data[monthKey];
+        datetimeArray.forEach(function (date) {
+            if (date.isBefore(endDate)) {
+                total++;
             }
-        }
+        });
         // 计算日均次数
         let dailyAverage = total / days;
-        // 保存结果
         dailyAverages[month] = dailyAverage.toFixed(2);
     }
     return dailyAverages;
@@ -121,6 +165,10 @@ function sortedMonthData() {
     for (let key of keys) {
         sortedData[key] = monthlyData[key]
     }
-    console.log(Object.keys(sortedData))
     monthlyData = sortedData;
+    var todayMont = moment().format('YYYY-MM');
+    if (keys.indexOf(todayMont) === -1) {
+        monthlyData[todayMont] = 0;
+    }
+
 }

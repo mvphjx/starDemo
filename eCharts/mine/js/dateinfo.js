@@ -65,7 +65,7 @@ let weekendDays = [];
 // 循环遍历每一个星期，直到结束日期
 while (startDate.isBefore(endDate)) {
     // 检查是否为星期六（5）或星期天（6）
-    if (startDate.day() === 5 || startDate.day() === 6) {
+    if (startDate.weekday() === 0 || startDate.weekday() === 6) {
         // 格式化日期并添加到数组中
         weekendDays.push(startDate.format('YYYY年M月D日'));
     }

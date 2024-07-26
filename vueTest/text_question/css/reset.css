@@ -1,0 +1,139 @@
+/*
+*@date 2017-06-05
+*/
+/*---清除默认样式---*/
+
+@charset "UTF-8";
+/*base*/
+* {
+    -webkit-text-size-adjust: none;
+}
+
+/*
+    关于盒子模型的设置，这个版本先注释掉，因为旧的页面没有设置这个盒子模型，可以在新的页面设置该盒子模型。
+*/
+* {
+    box-sizing: border-box;
+}
+
+/*清除默认边距*/
+html, body, h1, h2, h3, h4, h5, h6, input, button, select, label, form, textarea, p, span, a, div, ol, ul, li, dl, dt, dd, table, tbody, tfoot, thead, tr, th, td, canvas, i, img {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+	font-family: Helvetica,"Open Sans",Arial,sans-serif;
+    outline: none;
+    color: #494949;
+    font-size: 13px;
+}
+html,body {
+    font: 13px/1.5 "Microsoft Yahei";
+    color: #494949;
+}
+input, select, button, textarea {
+    font-family: Helvetica,"Open Sans",Arial,sans-serif;
+    outline: none;
+    border: 0 none;
+    background: #fff;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"], input[type="text"], button, textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+    appearance: none;
+    -moz-appearance: none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+input[type="text"] {
+    vertical-align: middle;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+
+/*body {
+    font-size: 16px;
+}*/
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*去除一些按钮或者input点击高亮*/
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ul ,ol{
+    list-style: none;
+}
+ul li,ol li {
+    list-style: none;
+}
+img {
+    border: 0 none;
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+em, i {
+    font-style: normal;
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+input, button, textarea, select {
+    *font-size: 100%;
+}
+
+/*清楚浮动*/
+.clear:after {
+    display: block;
+    width: 0px;
+    height: 0px;
+    line-height: 0;
+    content: ".";
+    clear: both;
+    visibility: hidden;
+}
+
+.display-none {
+    display: none;
+}
+
+.clear {
+    zoom: 1;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+

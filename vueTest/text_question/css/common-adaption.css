@@ -1,0 +1,159 @@
+/*公共的中间部分（学习文字，视频，图片）公用*/
+/*中间自适应部分*/
+.middle-adaption-wrap {
+	width: 100%;
+	height: auto;
+	padding: 16px 0px;
+}
+
+.middle-adaption-wrap .text-wrap {
+	overflow-y: auto;
+}
+
+.middle-adaption-wrap .img-wrap {
+	position: relative;
+}
+
+.middle-adaption-wrap .img-wrap img {
+	width: 100%;
+	display: block;
+	height: 100%;
+	cursor: pointer;
+}
+
+.middle-adaption {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 4px;
+	border: 1px solid rgb(211, 211, 211);
+	background: #ffffff;
+}
+
+.middle-adaption .title-action {
+	width: 100%;
+	height: 64px;
+	border-bottom: 1px solid rgb(211, 211, 211);
+	line-height: 64px;
+	background: #F4F4F4;
+	padding: 0px 30px 0 30px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+.middle-adaption .title-action .title-bold {
+	font-weight: 700;
+	font-size: 16px;
+	color: rgb(51, 51, 51);
+}
+
+.middle-adaption .title-action .action-size {
+	font-size: 13px;
+	color: rgb(73, 73, 73);
+}
+
+.middle-adaption .title-action .action-size li {
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.middle-adaption .title-action .action-size li.active {
+	font-weight: bold;
+	color: rgb(34, 160, 226);
+}
+
+/*指掌纹鉴定示例的三个按钮*/
+.middle-adaption .title-action .appraisal li {
+	height: 32px;
+	line-height: 32px;
+	margin-top: 16px;
+	color: #808080;
+	position: relative;
+}
+
+.middle-adaption .title-action .appraisal li .text {
+	font-size: 14px;
+}
+
+.middle-adaption .title-action .appraisal li .icon {
+	font-size: 20px;
+}
+
+.middle-adaption .title-action .appraisal li.full-screen {
+	width: 96px;
+	cursor: pointer;
+}
+
+.middle-adaption .title-action .appraisal li.full-screen .icon {
+	margin-right: 4px;
+	float: left;
+	margin-top: 6px;
+	margin-left: 18px;
+}
+
+.middle-adaption .title-action .appraisal li.original-screen {
+	width: 120px;
+	cursor: pointer;
+	text-align: center;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+.middle-adaption .title-action .appraisal li.original-screen .icon {
+	float: left;
+	margin-top: 6px;
+	margin-left: 20px;
+}
+
+.middle-adaption .title-action .appraisal li .small-line {
+	width: 1px;
+	height: 24px;
+	background: #dddddd;
+	position: absolute;
+	top: 4px;
+}
+
+.middle-adaption .title-action .appraisal li.full-screen .small-line {
+	position: absolute;
+	left: -1px;
+}
+
+.middle-adaption .title-action .appraisal li.original-screen .left {
+	left: -1px;
+}
+
+.middle-adaption .title-action .appraisal li.original-screen .right {
+	right: -1px;
+}
+
+.middle-adaption .title-action .appraisal li.full-screen:hover {
+	background: #E7E7E7;
+}
+
+.middle-adaption .title-action .appraisal li.original-screen:hover {
+	background: #E7E7E7;
+}
+
+.middle-adaption .title-action .appraisal li.enlarge-img .icon {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 22px;
+	color: #808080;
+}
+
+.middle-adaption .title-action .appraisal li.enlarge-img .icon:hover {
+	background: #E7E7E7;
+	cursor: pointer;
+}
+
+.middle-adaption .title-action .appraisal li.enlarge-img {
+	margin-left: 18px;
+}
+
+.middle-adaption .title-action .appraisal li.enlarge-img .text {
+	margin: 0 10px;
+	font-size: 16px;
+	color: #808080;
+}
+

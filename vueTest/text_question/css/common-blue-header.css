@@ -1,0 +1,52 @@
+/*公共的头部（蓝底白字）*/
+.head-title {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background: #fff;
+}
+
+.head-title .img-box {
+	width: 36px;
+	height: 36px;
+	margin-top: 6px;
+}
+
+.head-title .img-box img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.head-title .middle-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 33px 0 40px;
+	background: #5D61CA url("../images/blue-header-bg.jpg") no-repeat center right;
+}
+
+.head-title .title-con .sys-title {
+	margin-left: 12px;
+	font-size: 18px;
+	color: #fff;
+	font-weight: 700;
+}
+
+.head-title .nav-action ul li {
+	margin-left: 30px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.head-title .nav-action span {
+	font-size: 16px;
+	position: relative;
+	top: 3px;
+	margin-right: 4px;
+}
+
+.head-title .nav-action i {
+	font-size: 12px;
+}
+
+

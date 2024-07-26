@@ -1,0 +1,155 @@
+/*登录页面cs文件*/
+/*头部title*/
+.head-title {
+	width: 100%;
+	height: 72px;
+	line-height: 72px;
+	background: #fff;
+}
+
+.head-title .img-box {
+	width: 36px;
+	height: 36px;
+	margin-top: 18px;
+}
+
+.head-title .img-box img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.head-title .title-con {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.head-title .title-con .sys-title {
+	margin-left: 12px;
+	font-size: 18px;
+	color: rgb(3, 92, 177);
+	font-weight: 700;
+}
+
+/*中间form表单*/
+.form-content {
+	width: 100%;
+	height: 632px;
+	background: url('../images/bg-repeat.png');
+	background-position: center;
+	background-repeat: repeat-x;
+}
+
+.form-content .middle-bg {
+	width: 1280px;
+	height: 632px;
+	position: relative;
+	margin: 0 auto;
+	background: url("../images/login-bg.png");
+}
+
+.form-content .middle-bg .login-action {
+	width: 360px;
+	height: 368px;
+	padding: 0 32px;
+	background: #ffffff;
+	border-radius: 6px;
+	position: absolute;
+	top: 132px;
+	right: 130px;
+}
+
+.form-content .middle-bg .login-action .tab-btn {
+	height: 48px;
+	line-height: 48px;
+	margin-top: 40px;
+	font-size: 16px;
+	color: #494949;
+	border-bottom: 2px solid #E1E7E9;
+}
+
+.form-content .middle-bg .login-action {
+	overflow: hidden;
+}
+
+.form-content .middle-bg .login-action .tab-btn li {
+	width: 50%;
+	float: left;
+	height: 48px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.form-content .middle-bg .login-action .tab-btn li.active {
+	border-bottom: 2px solid rgba(34, 160, 226, 1);
+	color: rgba(34, 160, 226, 1);
+	font-weight: bold;
+}
+
+.form-content .middle-bg .login-action .input-con {
+	margin-top: 52px;
+}
+
+.form-content .middle-bg .login-action .input-item {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #D6DEE0;
+	border-radius: 4px;
+}
+
+.form-content .middle-bg .login-action .input-item.active{
+	border: 1px solid #22A0E2;
+}
+
+.form-content .middle-bg .login-action .input-item span {
+	width: 40px;
+	height: 40px;
+}
+
+.form-content .middle-bg .login-action .input-item input {
+	width: 254px;
+	height: 38px;
+	line-height: 38px;
+	font-size: 16px;
+	color: #494949;
+}
+
+input::-webkit-input-placeholder {
+	color: #a6b9d1;
+}
+
+.form-content .middle-bg .login-action .input-item span img {
+	display: block;
+	margin: 0 auto;
+	margin-top: 11px;
+}
+
+.form-content .middle-bg .login-action .user-name {
+	margin-bottom: 16px;
+}
+
+.form-content .middle-bg .login-action .sure-btn {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	background: #22A0E2;
+	border-radius: 4px;
+	margin-top: 36px;
+	cursor: pointer;
+}
+.form-content .middle-bg .login-action .sure-btn:hover{
+	background: rgba(34, 160, 226, 0.7);
+}
+
+/*底部版权*/
+.footer {
+	width: 100%;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 16px;
+	color: #808080;
+}

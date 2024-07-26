@@ -1,0 +1,592 @@
+/*学员首页css*/
+
+/*课程相关------------------begin*/
+/*课程左侧*/
+.course-con {
+	width: 1200px;
+	margin: 56px auto 0px;
+	position: relative;
+}
+
+.course-state {
+	width: 160px;
+	height: auto;
+	margin-right: 35px;
+}
+
+.course-state .state-item {
+	width: 100%;
+	height: 56px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	padding-left: 12px;
+	background: #DDE4EC;
+}
+
+.course-state .state-text {
+	height: 100%;
+	line-height: 56px;
+	font-weight: 700;
+	font-size: 16px;
+	margin-left: 11px;
+	color: rgb(151, 167, 193);
+}
+
+.course-state li.active {
+	background: -webkit-linear-gradient(left, #7F7AFC, #6DA5FF); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #7F7AFC, #6DA5FF); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #7F7AFC, #6DA5FF); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #7F7AFC, #6DA5FF); /* 标准的语法 */
+}
+
+.course-state li.active .state-text {
+	color: #fff;
+}
+
+.course-state li .img-wrap {
+	width: 48px;
+	height: 56px;
+	background: url("../images/course-off.png");
+}
+
+.course-state li.active .img-wrap {
+	background: url("../images/course-on.png");
+}
+
+.course-state .down-arrow {
+	width: 100%;
+	height: 56px;
+}
+
+.course-state .down-arrow .arrow-item {
+	width: 30px;
+	height: 30px;
+	margin: 12px auto 0;
+}
+
+.course-state .down-arrow .arrow-item img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/*课程右侧-------------begin*/
+.course-tab {
+	width: 1005px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.course-tab .tab-btn {
+	width: 988px;
+	height: 36px;
+	border-bottom: 1px dashed #CCDAE8;
+	margin-bottom: 46px;
+}
+
+.course-tab .tab-btn li {
+	width: 72px;
+	margin-right: 16px;
+	text-align: center;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	color: #494949;
+	cursor: pointer;
+}
+
+ .course-tab .tab-btn li.normal:hover{
+	background: #DDE4EC;
+ }
+
+.course-tab .tab-btn li:first-child {
+	width: 60px;
+}
+
+.course-tab .tab-btn li.active {
+	border-bottom: 3px solid #22A0E2;
+}
+
+.course-process h6 {
+	height: 28px;
+	line-height: 28px;
+}
+
+.course-process h6 .arrow-notice {
+	font-size: 13px;
+	color: #fff;
+	font-weight: 700;
+	padding-left: 10px;
+	width: 56px;
+	height: 28px;
+}
+
+.course-process h6 .course-arrow {
+	background: url("../images/course-bg.png");
+}
+
+.course-process h6 .test-arrow {
+	background: url("../images/test-bg.png");
+}
+
+.course-process h6 .examine-arrow {
+	background: url("../images/examine-bg.png");
+}
+
+.course-process h6 .course-weight {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0px 16px 0px 12px;
+	color: rgb(73, 73, 73);
+}
+
+.course-process h6 i {
+	font-size: 14px;
+	color: #808080;
+}
+
+.course-line-card {
+	width: 100%;
+	height: auto;
+}
+
+.course-line-card {
+	height: auto;
+	padding-left: 44px;
+	background: url("../images/time-line.png") no-repeat 20px 0px;
+}
+
+.course-line-card .course-card {
+	margin-top: 26px;
+	margin-bottom: 34px;
+}
+
+.course-line-card .course-card ul li {
+	width: 448px;
+	height: 152px;
+	padding: 0px 20px 0px;
+	box-shadow: 0px 0px 10px rgba(220, 223, 232, 1);
+	border-radius: 6px;
+	position: relative;
+	margin-left: 24px;
+	background: #FFF;
+}
+
+.course-line-card .course-card ul li .specific-content {
+	padding-top: 30px;
+	width: 307px;
+}
+
+.course-line-card .course-card ul li .specific-content h6 {
+	height: 58px;
+	line-height: 29px;
+	font-size: 16px;
+	color: rgb(73, 73, 73);
+	font-weight: 700;
+}
+
+.course-test  .course-line-card .course-card ul li .specific-content h6{
+	margin-top: 6px;
+}
+
+.course-line-card .course-card ul li .specific-content p span {
+	font-size: 13px;
+	font-weight: 400;
+	padding-right: 22px;
+	color: #97A2AD;
+}
+
+.course-line-card .course-card ul li .specific-content p span:last-child {
+	padding-right: 0px;
+}
+
+.course-line-card .course-card ul li .specific-content p span i {
+	font-size: 13px;
+	font-weight: 400;
+	color: #97A2AD;
+}
+
+.course-line-card .course-card ul li .specific-content .badge {
+	width: 63px;
+	height: 23px;
+	line-height: 23px;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	border-radius: 6px 0px 6px 0px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.course-line-card .course-card ul li .specific-content .badge-finished {
+	background: #10BB71;
+}
+
+.course-line-card .course-card ul li .specific-content .badge-ing {
+	background: #FFB401;
+}
+
+.course-line-card .course-card ul li .specific-content .un-finished {
+	background: #C1D1E1;
+}
+
+.course-line-card .course-card ul li .action-btn {
+	width: 81px;
+	height: 103px;
+	padding-left: 20px;
+	margin-top: 24px;
+	border-left: 1px dashed #D6E1EC;
+}
+
+.course-line-card .course-card ul li a {
+	display: block;
+	font-weight: 700;
+	width: 80px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 4px;
+	text-align: center;
+	background: #E9F3FE;
+	color: rgb(34, 160, 226);
+}
+
+.course-line-card .course-card ul li a:hover {
+	background: #419AF4;
+	color: #fff;
+}
+
+.course-line-card .course-card ul li .look-gather {
+	margin-top: 12px;
+}
+
+.course-line-card .course-card ul li .repeat {
+	margin-top: 16px;
+}
+
+.course-line-card .course-card ul li .begin-test {
+	margin-top: 36px;
+}
+
+.course-line-card .course-card ul li .begin-examine {
+	margin-top: 36px;
+}
+
+.course-line-card .course-card ul li .study-again {
+	margin-top: 36px;
+}
+
+.course-line-card .course-card ul li .begin-study {
+	margin-top: 36px;
+}
+
+.course-line-card .course-card ul li.set-gray .mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(255, 255, 255, 0.85);
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(220,223,232);
+}
+
+.course-line-card .course-card ul li.set-gray .mask img {
+	display: block;
+	margin: 52px auto 0px;
+}
+
+.course-line-card .course-card ul li.set-gray .action-btn a {
+	color: #C1D1E1;
+	background: #F5F8FA;
+}
+
+/*
+进度条
+1.默认
+2.完成
+3.进行中
+*/
+.process-con {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	margin-top: 10px;
+}
+
+.process-con .process-bar {
+	width: 143px;
+	height: 4px;
+	background: #F1F1F1;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	margin-top: 9px;
+	margin-right: 13px;
+	position: relative;
+}
+
+.process-con .process-bar .bar-pos {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0px;
+}
+
+.process-con .process-count {
+	font-size: 13px;
+	font-weight: 700;
+	color: rgb(151, 162, 173);
+}
+
+/*已完成*/
+.process-finished .bar-pos {
+	height: 100%;
+	background: linear-gradient(90deg, rgb(141, 226, 189) 0%, rgb(141, 226, 189) 0%, rgb(16, 187, 113) 100%, rgb(16, 187, 113) 100%);
+}
+
+.process-finished .process-count {
+	color: rgb(16, 187, 113);
+}
+
+/*进行中*/
+.process-ing .bar-pos {
+	height: 100%;
+	background: linear-gradient(90deg, #FFD571 0%, #FFD571 0%, #FFB401 100%, #FFB401 100%);
+}
+
+.process-ing .process-count {
+	color: rgb(255, 180, 1);
+}
+
+/*右下角的快速导航和点击回到顶部*/
+.nav-scrollTop {
+	display: none;
+}
+
+.nav-scrollTop .fast-nav {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	background: #C1D1E1 url("../images/fast-nav-bg.png") no-repeat center;
+	margin-bottom: 8px;
+	border-radius: 2px;
+}
+
+.nav-scrollTop .fast-nav .text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 4px;
+	text-align: center;
+	padding: 2px 0px;
+	background: #97A7C1;
+	color: #fff;
+	font-size: 12px;
+	display: none;
+}
+
+.nav-scrollTop {
+	position: fixed;
+	right: 18px;
+	bottom: 88px;
+}
+.scrollTop {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: rgba(193, 209, 225, 1);
+	color: #fff;
+	padding-top: 6px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.scrollTop:hover{
+	background: #96A8C0;
+}
+
+.scrollTop span {
+	font-size: 28px;
+}
+
+.nav-list {
+	width: 175px;
+	height: 264px;
+	position: absolute;
+	overflow-y: auto;
+	right: 42px;
+	background: #FFF;
+	bottom: 0px;
+	padding: 16px 24px;
+	border: 1px solid #22A0E2;
+	border-radius: 4px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.38);
+	display: none;
+}
+
+.nav-list ul li {
+	width: 128px;
+	cursor: pointer;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #494949;
+	position: relative;
+	background: url("../images/vertical-line.png") repeat-Y;
+	background-position: 2px -2px;
+}
+
+.nav-list ul {
+	position: relative;
+}
+
+.nav-list ul li.mask-top {
+	width: 1px;
+	height: 11px;
+	background: #fff;
+	position: absolute;
+	left: 2px;
+	top: 0;
+	z-index: 1;
+}
+
+.nav-list ul li.mask-bottom {
+	width: 1px;
+	height: 10px;
+	background: #fff;
+	position: absolute;
+	left: 2px;
+	bottom: 0;
+	z-index: 1;
+}
+
+.nav-list ul li.active {
+	z-index: 100;
+	background: rgba(65, 154, 244, 0.12);
+}
+
+.nav-list ul li.normal:hover {
+	color: #419AF4;
+}
+
+.nav-list ul li.active span.square {
+}
+
+.nav-list ul li.normal:hover span.square {
+	background: #419AF4;
+}
+
+.nav-list ul li span.square {
+	width: 5px;
+	height: 5px;
+	left: 0;
+	float: left;
+	background: #CCDAE8;
+	margin-right: 18px;
+	margin-top: 13px;
+}
+
+.nav-list ul li i {
+	float: left;
+}
+
+.nav-list ul li.active span.rectangle {
+	background: #419AF4;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 5px;
+	height: 100%;
+}
+
+/*完成课程的旗帜*/
+.finished-course {
+	width: 100%;
+	height: 28px;
+	line-height: 28px;
+	margin-top: 10px;
+}
+
+.finished-course .h_flag_checkered {
+	width: 56px;
+	text-align: center;
+	font-size: 28px;
+	color: #A3B7CB;
+	position: relative;
+	left: -4px;
+}
+
+.finished-course .text {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0px 16px 0px 12px;
+	color: rgb(73, 73, 73);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

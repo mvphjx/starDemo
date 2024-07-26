@@ -1,0 +1,837 @@
+/*
+编辑题：指纹、掌纹
+鉴定题：指纹、掌纹
+考试题：考试内容
+三种页面结构相似
+*/
+.middle-adaption-wrap {
+	width: 100%;
+	height: auto;
+}
+
+.middle-adaption-wrap .middle-adaption {
+	width: 100%;
+	height: 100%;
+}
+
+.self-adaption-wrap {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+/*右边固定*/
+.fixed-right-wrap {
+	float: right;
+	width: 316px;
+	position: relative;
+	margin-left: -316px;
+	height: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+	border-left: 1px solid rgba(0, 0, 0, 0.35);
+	background: #FFF;
+}
+
+.self-adaption-wrap .self-adaption-con {
+	margin-right: 316px;
+	height: 100%;
+}
+
+.fix-item h6 {
+	width: 100%;
+	padding-left: 2px;
+	height: 32px;
+	line-height: 32px;
+	background-color: rgba(249, 249, 249, 1);
+}
+
+.features-con h6 {
+	border-top: 1px solid #E1E7E9;
+	border-bottom: 1px solid #E1E7E9;
+}
+
+.img-state h6 {
+	border-bottom: 1px solid #E1E7E9;
+}
+
+.image-enhancement h6 {
+	box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.117647058823529);
+	color: #494949;
+	border-bottom: 1px solid #E1E7E9;
+}
+
+.fix-item h6 span {
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+	margin-top: 4px;
+}
+
+.img-state h6 span {
+	background: url("../images/tzbjgj.png");
+	background-size: 24px 24px;
+}
+
+.features-con h6 span {
+	background: url("../images/tzbjgj.png");
+	background-size: 24px 24px;
+}
+
+.image-enhancement h6 span {
+	background: url("../images/txzq.png");
+	background-size: 24px 24px;
+}
+
+.fix-item h6 i {
+	color: #494949;
+	font-size:13px;
+}
+
+.scroll-wrapper {
+	overflow-y: auto;
+	width: 100%;
+}
+/*控制特征编辑的高度限制*/
+.features-con .scroll-wrapper {
+	max-height: 284px;
+}
+
+.btn-list {
+	padding-left: 7px;
+	padding-top: 8px;
+	width: 100%;
+}
+
+.btn-list li {
+	width: 72px;
+	height: 64px;
+	margin-right: 4px;
+	border: 1px solid #fff;
+	cursor: pointer;
+	padding-top: 2px;
+	margin-bottom: 4px;
+}
+
+.btn-list li.active {
+	border: 1px solid rgba(34, 160, 226, 0.54);
+	border-radius: 3px;
+	box-shadow: 0 0 4px rgba(34, 160, 226, 0.54) inset;
+}
+
+.btn-list div.active {
+	border: 1px solid rgba(34, 160, 226, 0.54);
+	border-radius: 3px;
+	box-shadow: 0 0 4px rgba(34, 160, 226, 0.54) inset;
+}
+
+.btn-list li:hover {
+	border: 1px solid rgba(34, 160, 226, 0.54);
+	border-radius: 3px;
+}
+
+.btn-list div:hover {
+	border: 1px solid rgba(34, 160, 226, 0.54);
+	border-radius: 3px;
+}
+
+.btn-list li p {
+	text-align: center;
+	font-size: 12px;
+	color: #494949;
+}
+
+.features-con .btn-list li .img-wrap {
+	width: 36px;
+	height: 36px;
+	margin: 0 auto;
+	background: url("../images/zw-tz.png") no-repeat;
+}
+
+.image-enhancement .btn-list li .img-wrap {
+	width: 36px;
+	height: 36px;
+	margin: 0 auto;
+	background: url("../images/txzq-zw.png") no-repeat;
+}
+
+.state-wrap {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.state-change {
+	padding-left: 6px;
+}
+
+.checkbox-state {
+	margin-top: 10px;
+}
+
+.state-change .option-select {
+	width: 150px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid rgba(214, 222, 224, 1);
+	border-radius: 3px;
+	margin-right: 6px;
+}
+
+.state-change .option-select select {
+	width: 100%;
+}
+
+.state-change .option-select select option {
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+}
+
+.state-change ul li {
+	color: #494949;
+	font-size: 13px;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 8px;
+	cursor: pointer;
+	margin-right: 8px;
+}
+
+.state-change ul li.normal:hover {
+	font-weight: bold;
+	color: rgb(42, 160, 226);
+}
+
+.state-change ul li.active {
+	font-weight: bold;
+	color: rgb(42, 160, 226);
+	background: #E5F4FC;
+	border-radius: 3px;
+}
+
+.features-con .btn-list li .xjtz {
+	background-position: 0 0;
+}
+
+.features-con .btn-list li .ysj {
+	background-position: 0 -36px;
+}
+
+.features-con .btn-list li .sxjx {
+	background-position: 0 -72px;
+}
+
+.features-con .btn-list li .tzdxs {
+	background-position: 0 -108px;
+}
+
+.features-con .btn-list li .zx {
+	background-position: 0 -144px;
+}
+
+.features-con .btn-list li .zyjx {
+	background-position: 0 -180px;
+}
+
+.features-con .btn-list li .zsj {
+	background-position: 0 -216px;
+}
+
+.features-con .btn-list li .zwbl {
+	background-position: 0 -252px;
+}
+
+.features-con .btn-list li .rydxs {
+	background-position: 0 -288px;
+}
+
+.features-con .btn-list li .fx {
+	background-position: 0 -324px;
+}
+
+.features-con .btn-list li .fzx {
+	background-position: 0 -360px;
+}
+
+.features-con .btn-list li .bjfl {
+	background-position: 0 -396px;
+}
+
+.features-con .btn-list li .blc {
+	background-position: 0 -432px;
+}
+
+.features-con .btn-list li .lxt {
+	background-position: 0 -468px;
+}
+
+.features-con .btn-list li .qjq {
+	background-position: 0 -504px;
+}
+
+.features-con .btn-list li .jhbh {
+	background-position: 0 -540px;
+}
+
+.features-con .btn-list li .ldjl {
+	background-position: 0 -576px;
+}
+/*指掌纹编辑 ,编辑工具*/
+.features-con .mntbnt {
+	width: 72px;
+    height: 64px;
+    margin-right: 4px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding-top: 2px;
+	float: left;
+    margin-bottom: 4px;
+	border: 1px solid rgba(34, 160, 226, 0.54);
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(34, 160, 226, 0.54) inset;
+}
+.btn-list .mntbnt {
+	float: left;
+    margin: 2px 2px;
+    width: 72px;
+    height: 64px;
+}
+
+.btn-list.mntbnt span {
+	text-align: center;
+	font-size: 12px;
+	color: #494949;
+}
+
+.features-con .mntbnt div {
+	width: 36px;
+	height: 36px;
+	margin: 0 auto;
+	background: url("../images/zw-tz.png") no-repeat;
+}
+
+.features-con .mntbnt div.core {
+	background-position: 0 -144px;
+}
+
+.features-con .mntbnt div.vcore {
+	background-position: 0 -360px;
+}
+.features-con .mntbnt div.dir {
+	background-position: 0 -324px;
+}
+
+.features-con .mntbnt div.mntpoint {
+	background-position: 0 0;
+}
+
+.features-con .mntbnt div.ldelta {
+	background-position: 0 -36px;
+}
+
+.features-con .mntbnt div.rdelta {
+	background-position: 0 -216px;
+}
+.features-con .mntbnt div.mntridge {
+	background-position: 0 -108px;
+}
+.features-con .mntbnt div.ridge {
+	background-position: 0 -288px;
+}
+.features-con .mntbnt div.pixcle {
+	background-position: 0 -576px;
+}
+
+.image-enhancement .btn-list li .zddbd {
+	background-position: 0 0;
+}
+
+.image-enhancement .btn-list li .zftggh {
+	background-position: 0 -36px;
+}
+
+.image-enhancement .btn-list li .yt {
+	background-position: 0 -72px;
+}
+
+.image-enhancement .btn-list li .txzq {
+	background-position: 0 -108px;
+}
+
+.image-enhancement .btn-list li .usmrh {
+	background-position: 0 -144px;
+}
+
+.image-enhancement .btn-list li .zsyfz {
+	background-position: 0 -180px;
+}
+
+.image-enhancement .btn-list li .zzlb {
+	background-position: 0 -216px;
+}
+
+.image-enhancement .btn-list li .zq2 {
+	background-position: 0 -252px;
+}
+
+.image-enhancement .btn-list li .zftls {
+	background-position: 0 -288px;
+}
+
+.image-enhancement .btn-list li .zq1 {
+	background-position: 0 -324px;
+}
+
+.image-enhancement .btn-list li .fz {
+	background-position: 0 -360px;
+}
+
+.image-enhancement .btn-list li .gldw {
+	background-position: 0 -396px;
+}
+
+.image-enhancement .btn-list li .fs {
+	background-position: 0 -432px;
+}
+
+.image-enhancement .btn-list li .byrh {
+	background-position: 0 -468px;
+}
+
+.image-enhancement .btn-list li .fd {
+	background-position: 0 -504px;
+}
+
+.image-enhancement .btn-list li .lddbd {
+	background-position: 0 -540px;
+}
+
+.image-enhancement .btn-list li .rh {
+	background-position: 0 -576px;
+}
+
+.image-enhancement .btn-list li .lb {
+	background-position: 0 -612px;
+}
+
+.image-enhancement .btn-list li .gslb {
+	background-position: 0 -648px;
+}
+
+.image-enhancement .btn-list li .jhh {
+	background-position: 0 -684px;
+}
+/*指纹，掌纹左侧上不的操作按钮*/
+.top-action-btn {
+	width: 100%;
+	height: 56px;
+	padding: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+	background: #FFFFFF;
+}
+
+.top-action-btn .ToolBntNormal {
+	padding: 8px 8px;
+	width: 40px;
+	height: 40px;
+	margin-right: 4px;
+	border: 1px solid #fff;
+	cursor: pointer;
+    float: left;
+}
+
+.top-action-btn .ToolBntNormal div{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url("../images/appraisal-sprites.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal:hover {
+	border: 1px solid rgba(34, 160, 226, 0.54);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.top-action-btn .ToolBntDown {
+    padding: 8px 8px;
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+    cursor: pointer;
+    float: left;
+    border: 1px solid rgba(34, 160, 226, 0.54);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.top-action-btn .ToolBntDown div {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+   /* background: url("../images/appraisal-sprites.png") no-repeat;*/
+}
+
+.top-action-btn ul.btns-ul > li {
+	padding: 8px 8px;
+	width: 40px;
+	height: 40px;
+	margin-right: 4px;
+}
+
+.top-action-btn ul.btns-ul > li {
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+.top-action-btn ul.btns-ul > li span {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url("../images/appraisal-sprites.png") no-repeat;
+}
+
+.top-action-btn ul.btns-ul > li.match_center span {
+	height: 16px;
+	width: 16px;
+	background-position: 0 0;
+}
+
+.top-action-btn ul.btns-ul > li.match_center_d span {
+	height: 16px;
+	width: 16px;
+	background-position: -16px 0;
+}
+
+.top-action-btn .ToolBntNormal .LeftRevolve, .top-action-btn .ToolBntDown .LeftRevolve{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/left_revolve_auto.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .RightRevolve, .top-action-btn .ToolBntDown .RightRevolve{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/right_revolve_auto.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowCentre, .top-action-btn .ToolBntDown .ShowCentre{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/show_center.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowMatchMnt, .top-action-btn .ToolBntDown .ShowMatchMnt{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/show_match_mnt.png") no-repeat;
+}
+.top-action-btn ul.btns-ul > li.previous_cand span{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/previous.png") no-repeat;
+}
+.top-action-btn ul.btns-ul > li.next_cand span{
+	height: 22px;
+	width: 22px;
+	background: url("../images/imgtool/next.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal .ImgRotateLeft,.top-action-btn .ToolBntDown .ImgRotateLeft{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/left_revolve.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgRotateRight,.top-action-btn .ToolBntDown .ImgRotateRight{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/right_revolve.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgZoomIn,.top-action-btn .ToolBntDown .ImgZoomIn{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/zoom_in.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgZoomOut,.top-action-btn .ToolBntDown .ImgZoomOut{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/zoom_out.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgMove,.top-action-btn .ToolBntDown .ImgMove{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/hand.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowMnt,.top-action-btn .ToolBntDown .ShowMnt{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_mnt.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowMntNumber,.top-action-btn .ToolBntDown .ShowMntNumber{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_mnt_num.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowMntDirection,.top-action-btn .ToolBntDown .ShowMntDirection{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_mnt_dir.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ShowTriangle,.top-action-btn .ToolBntDown .ShowTriangle{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_triangle.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal .Synchro ,.top-action-btn .ToolBntDown .Synchro{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/synchro.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal .verify_d ,.top-action-btn .ToolBntDown .verify_d{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/verify_d.png") no-repeat;
+}
+
+.top-action-btn ul.btns-ul > li.verify span {
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/verify.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal .showmatchmnt ,.top-action-btn .ToolBntDown .showmatchmnt{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_match_mnt.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .showcand ,.top-action-btn .ToolBntDown .showcand{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/show_cand.png") no-repeat;
+}
+
+.top-action-btn .ToolBntNormal .choose ,.top-action-btn .ToolBntDown .choose{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/choose.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .choose_d ,.top-action-btn .ToolBntDown .choose_d{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/choose_d.png") no-repeat;
+}
+
+.top-action-btn ul.btns-ul > li.auto_revolve span {
+	height: 24px;
+	width: 24px;
+	background-position: -768px 0;
+}
+.top-action-btn ul.btns-ul > li.cancel_verify_d span{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/cancel_verify_d.png") no-repeat;
+}
+.top-action-btn ul.btns-ul > li.cancel_verify span{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/cancel_verify.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgPrecent100 ,.top-action-btn .ToolBntDown .ImgPrecent100{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/p_100.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgViewPort ,.top-action-btn .ToolBntDown .ImgViewPort{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/viewport.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgFitWidth ,.top-action-btn .ToolBntDown .ImgFitWidth{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/fit_width.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgFitHeight ,.top-action-btn .ToolBntDown .ImgFitHeight{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/fit_height.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgRotate0 ,.top-action-btn .ToolBntDown .ImgRotate0{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/angle_0.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgRotate90 ,.top-action-btn .ToolBntDown .ImgRotate90{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/angle_90.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgRotate180 ,.top-action-btn .ToolBntDown .ImgRotate180{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/angle_180.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgRotate270 ,.top-action-btn .ToolBntDown .ImgRotate270{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/angle_270.png") no-repeat;
+}
+.top-action-btn .ToolBntNormal .ImgAlign ,.top-action-btn .ToolBntDown .ImgAlign{
+	height: 24px;
+	width: 24px;
+	background: url("../images/imgtool/align.png") no-repeat;
+}
+
+.top-action-btn ul.btns-ul > li.full_screen span {
+	height: 24px;
+	width: 24px;
+	background-position: -888px 0;
+}
+
+.top-action-btn ul.btns-ul > li.hide_right span {
+	height: 24px;
+	width: 24px;
+	background-position: -912px 0;
+}
+
+.top-action-btn ul.btns-ul > li.match_line_24 span {
+	height: 24px;
+	width: 24px;
+	background-position: -936px 0;
+}
+
+.top-action-btn ul.btns-ul > li.add_match_mnt_24 span {
+	height: 24px;
+	width: 24px;
+	background-position: -960px 0;
+}
+
+.top-action-btn ul.btns-ul > li.expert_analyze span {
+	height: 24px;
+	width: 24px;
+	background-position: -984px 0;
+}
+
+.top-action-btn ul.btns-ul > li.duoren_24_d span {
+	height: 24px;
+	width: 24px;
+	background-position: -1008px 0;
+}
+
+.top-action-btn ul.btns-ul > li.expert_analyze_d span {
+	height: 24px;
+	width: 24px;
+	background-position: -1032px 0;
+}
+
+.top-action-btn ul.btns-ul > li.expert_match_d span {
+	height: 24px;
+	width: 24px;
+	background-position: -1056px 0;
+}
+
+.top-action-btn ul.btns-ul > li.expert_match span {
+	height: 24px;
+	width: 24px;
+	background-position: -1080px 0;
+}
+
+.top-action-btn ul.btns-ul > li.rp_icon_u41 {
+	position: relative;
+}
+
+.top-action-btn ul.btns-ul > li.rp_icon_u41 span {
+	height: 24px;
+	width: 24px;
+	background: url("../images/rp_icon_u41.png");
+	background-position: 0 0;
+}
+
+.top-action-btn ul.btns-ul > li.rp_icon_u41 ul {
+	width: 720px;
+	position: absolute;
+	left: -2px;
+	top: 0px;
+	display: none;
+	transition: all 5s;
+	-webkit-transition: all 2s; /* Safari and Chrome */
+	background: #fff;
+}
+
+.top-action-btn ul.btns-ul > li.rp_icon_u41 ul li {
+	float: left;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+	font-size: 13px;
+	color: #494949;
+}
+
+.top-action-btn ul.btns-ul > li.rp_icon_u41 ul li.active{
+	border: 1px solid rgba(34,160,226,0.7);
+}
+
+/*.top-action-btn ul.btns-ul > li.rp_icon_u41:hover ul {
+	display: block;
+	transform: translateX(-100%);
+}*/
+
+.bottom-h5-canvas {
+	height: 100%;
+	padding-bottom: 56px;
+    float: left;
+    width: 100%;
+}
+/*右侧固定布局中用到的滚动条的样式*/
+/*滚动条的样式*/
+.scroll-wrapper::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: transparent;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+	cursor: crosshair;
+	background-color: transparent;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #ddd;
+}
+
+.scroll-wrapper::-webkit-scroll {
+	width: 8px;
+	height: 8px;
+	cursor: crosshair;
+}
+
+/*2019.3.26新加的滑块的样式*/
+.slide-wrap {
+	padding: 0 10px;
+}
+.slide-wrap .slide-notice {
+	width: 60px;
+	height: 32px;
+	line-height: 32px;
+	position: relative;
+	top:  -13px;
+	font-size: 13px;
+}
+
+.slide-wrap .slide-item {
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	margin: 8px 0px;
+}
+
+.slide-wrap .slide-con {
+	width: 74%;
+	float: right;
+}

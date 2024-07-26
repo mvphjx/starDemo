@@ -1,0 +1,116 @@
+/*考试结果*/
+body {
+	background: #F1F5F9;
+}
+
+.examine-result {
+	width: 1200px;
+	height: auto;
+	margin: 64px auto 0px;
+}
+
+.all-result {
+	width: 100%;
+	display: flex;
+
+}
+
+.all-result > div.all-item {
+	flex: 1;
+	text-align: center;
+	height: 128px;
+	border: 1px solid rgba(34, 160, 226, 0.12);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.all-result > .all-item .icon-wrap {
+	width: 160px;
+	height: 128px;
+	padding-top: 27px;
+	color: #22A0E2;
+	border-right: 1px solid rgba(34, 160, 226, 0.12);
+}
+
+.all-result > .all-item .icon-con span {
+	font-size: 48px;
+
+}
+
+.all-result > .all-item .icon-wrap p {
+	margin-top: 16px;
+	font-size: 16px;
+}
+
+.all-result > .all-item .count-con {
+	text-align: center;
+	width: 222px;
+	height: 100%;
+	line-height: 128px;
+	background: #FFF;
+}
+
+.all-result > .all-item .count-con .ranking {
+	font-size: 36px;
+	color: #494949;
+	font-weight: 400;
+	margin-right: -2px;
+	position: relative;
+	top: 1px;
+}
+
+.all-result > .all-item .count-con i {
+	font-size: 20px;
+	color: #6B6B6B;
+	margin-right: -2px;
+	position: relative;
+	top: -1px;
+}
+
+.all-result > .all-item .count-con .total {
+	font-size: 20px;
+	color: #6B6B6B;
+}
+
+/*表格*/
+.result-item-wrap {
+	margin-top: 45px;
+}
+
+table {
+	width: 100%;
+}
+
+table thead tr th {
+	font-size: 13px;
+	color: rgb(73, 73, 73);
+	font-weight: 700;
+}
+
+table th, table td {
+	text-align: left;
+	padding-left: 6px;
+}
+
+table td {
+	font-size: 13px;
+	color: #494949;
+}
+
+table thead tr {
+	height: 56px;
+	line-height: 56px;
+}
+
+table tr {
+	height: 40px;
+	line-height: 40px;
+}
+
+table tbody tr:nth-of-type(odd) {
+	background: #fff;
+}
+table tbody tr:nth-of-type(odd) :first-child {
+	border-right: 1px solid #F1F5F9;
+}

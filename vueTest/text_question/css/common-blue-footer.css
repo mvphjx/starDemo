@@ -1,0 +1,560 @@
+/*公共的footer（蓝底白字部分）*/
+/*固定的地步*/
+.footer {
+	width: 100%;
+	height: 56px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	line-height: 56px;
+	background: #076ED5;
+}
+
+.footer .center-con {
+	display: flex;
+	margin: 0 auto;
+	font-size: 13px;
+}
+
+.footer .center-con li {
+	flex: none;
+	padding: 0 12px;
+	color: #ffffff;
+	text-align: center;
+	position: relative;
+}
+
+.footer .center-con li.collect-problem {
+	padding-right: 24px;
+}
+
+.footer .center-con li.time-used {
+	padding-left: 24px;
+}
+
+.footer .center-con li.course-catalogue {
+	padding-left: 36px;
+}
+
+.footer .center-con li.answer-card {
+	padding-left: 36px;
+}
+
+.footer .center-con li a {
+	color: #fff;
+}
+
+.footer .center-con li.hover-action span {
+	margin-right: 10px;
+	font-size: 16px;
+	position: relative;
+	top: 2px;
+}
+
+.footer .center-con li.hover-action a {
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+}
+
+/*开始做题*/
+.footer .center-con li.start-write a {
+	width: 112px;
+}
+
+/*上一题*/
+.footer .center-con li.prev-problem a {
+	width: 96px;
+}
+
+/*下一题*/
+.footer .center-con li.next-problem a {
+	width: 96px;
+}
+/*保存*/
+.footer .center-con li.save a {
+	width: 64px;
+}
+/*取消*/
+.footer .center-con li.cancel a {
+	width: 64px;
+}
+/*查看结果*/
+.footer .center-con li.look-result a {
+	width: 112px;
+}
+
+/*完成本题*/
+.footer .center-con li.finish-topic a {
+	width: 112px;
+}
+
+/*收藏本题*/
+.footer .center-con li.collect-problem a {
+	width: 112px;
+}
+
+/*标记本题*/
+.footer .center-con li.mark-subject a {
+	width: 112px;
+}
+
+/*交卷*/
+
+.footer .center-con li.hand-papers a {
+	width: 88px;
+}
+
+.footer .center-con li.hover-action a:hover {
+	background-color: rgba(7, 110, 213, 1);
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 102, 0.349019607843137) inset;
+}
+
+/*课程目录的small-line*/
+.footer .center-con li.course-catalogue .small-line {
+	width: 1px;
+	height: 24px;
+	position: absolute;
+	top: 16px;
+	background: #569CE2;
+	left: 12px;
+}
+
+/*学习时间的small-line*/
+.footer .center-con li.time-used .small-line {
+	width: 1px;
+	height: 24px;
+	position: absolute;
+	top: 16px;
+	background: #569CE2;
+	left: 0px;
+}
+
+.footer .center-con li.course-catalogue .h_detail {
+	margin-right: 10px;
+	font-size: 16px;
+	position: relative;
+	top: 2px;
+}
+
+.footer .center-con li.course-catalogue .catalog {
+	display: inline-block;
+	width: 112px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+
+.footer .center-con li.course-catalogue .catalog:hover {
+	background-color: rgba(7, 110, 213, 1);
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 102, 0.349019607843137) inset;
+}
+
+.footer .center-con li.time-used {
+	color: #FFFF00;
+}
+
+.footer .center-con li.time-used span {
+	margin-right: 10px;
+}
+
+/*弹窗*/
+.hover-alert {
+	width: 424px;
+	height: auto;
+	border: 1px solid #797979;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+	padding-bottom: 46px;
+	position: absolute;
+	left: 0;
+	bottom: 40px;
+	background: #fff;
+	border-radius: 3px;
+	display: none;
+}
+
+.hover-alert .hover-title {
+	width: 100%;
+	height: 56px;
+	background: url("../images/hover-title.png");
+	position: relative;
+	overflow: hidden;
+}
+
+.hover-alert .hover-title span.fl {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 56px;
+	margin-left: 23px;
+}
+
+.hover-alert .hover-title span.sector {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border: 30px solid cornflowerblue;
+	border-right: 30px solid greenyellow;
+	border-left: 30px solid #2849D9;
+	border-radius: 50%;
+	transform: rotate(-45deg);
+	position: absolute;
+	right: -30px;
+	top: -30px;
+	cursor: pointer;
+}
+
+.hover-alert .hover-title span.sector i {
+	position: absolute;
+	left: -23px;
+	bottom: -7px;
+	transform: rotate(45deg);
+}
+
+.hover-alert .jump-subject {
+	padding: 0 0px 0px 15px;
+
+}
+
+.hover-alert .jump-subject h5 {
+	height: 20px;
+	text-align: left;
+	line-height: 20px;
+	margin-top: 26px;
+	margin-bottom: 16px;
+	color: #494949;
+	font-size: 13px;
+}
+
+.hover-alert .jump-subject ul li {
+	float: left;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 8px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+	text-align: center;
+	margin-bottom: 8px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.hover-alert .jump-subject ul li:hover {
+	border: 1px solid rgba(34, 160, 226, 0.7);
+}
+
+.hover-alert .jump-subject ul li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #494949;
+}
+
+/*三种状态*/
+.hover-alert .jump-subject ul li.wrong {
+	background: rgba(255, 0, 0, 0.3);
+	box-shadow: 0 0 2px rgba(153, 0, 0, 0.35) inset, 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+.hover-alert .jump-subject ul li.check {
+	background: #FF0000;
+	box-shadow: 0 0 2px #990000;
+}
+
+.hover-alert .jump-subject ul li.right {
+	background: rgba(0, 153, 0, 0.3);
+	box-shadow: 0 0 2px rgba(0, 102, 0, 0.35) inset, 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+/*编辑结果的弹窗*/
+.tz-edit-res-wrap {
+	width: 1192px;
+	height: auto;
+	padding: 8px;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con {
+	border-radius: 4px;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con > div {
+	width: 582px;
+	height: 566px;
+	border: 1px solid #E1E7E9;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con > div > h6 {
+	border-bottom: 1px solid #E1E7E9;
+	background: #F7F8F8;
+	height: 40px;
+	line-height: 40px;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con > div > h6 > .blue-line {
+	width: 5px;
+	height: 22px;
+	background: #22A0E2;
+	margin-top: 9px;
+	margin-right: 8px;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con > div > h6 > .title-text {
+	font-size: 16px;
+	color: #494949;
+	font-weight: 700;
+	margin-right: 14px;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con .my-score {
+	font-weight: 700;
+	font-style: normal;
+	font-size: 18px;
+	color: #009900;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con .my-score i {
+	font-weight: 700;
+	font-style: normal;
+	font-size: 18px;
+	color: #009900;
+}
+
+.tz-edit-res-wrap .tz-edit-res-con .canvas-con {
+	width: 100%;
+	height: 526px;
+	background: url("../images/temp/u123.jpg");
+}
+
+/*指纹鉴定or掌纹鉴定查看结果的样式(区分与指纹，掌纹编辑题的查看结果样式)*/
+.apprasial-layer-wrap {
+	width: 1192px;
+	height: auto;
+	padding: 8px;
+}
+
+.apprasial-layer .apra-layer-item {
+	border: 1px solid #E1E7E9;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.apprasial-layer .apra-layer-item h6 {
+	border-bottom: 1px solid #E1E7E9;
+	background: #F7F8F8;
+	height: 40px;
+	line-height: 40px;
+}
+
+.apprasial-layer .apra-layer-item h6 .my-score {
+	font-weight: 700;
+	font-style: normal;
+	font-size: 18px;
+	color: rgb(0, 153, 0);
+}
+
+.apprasial-layer .apra-layer-item h6 .blue-line {
+	width: 5px;
+	height: 22px;
+	background: #22A0E2;
+	margin-top: 9px;
+	margin-right: 8px;
+}
+
+.apprasial-layer .apra-layer-item h6 .title-text {
+	font-size: 16px;
+	color: #494949;
+	font-weight: 700;
+	margin-right: 14px;
+}
+
+.apprasial-layer .top-compare {
+	margin-bottom: 8px;
+}
+
+.apprasial-layer .top-compare .img-wrap > div {
+	width: 100%;
+	height: 527px;
+}
+
+.apprasial-layer .top-compare .img-wrap > div:first-child {
+	border-right: 1px solid #E1E7E9;
+}
+
+.apprasial-layer .bottom-score .score-wrap {
+	padding: 16px 14px;
+}
+
+.apprasial-layer .bottom-score .score-wrap ul li {
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+	font-size: 13px;
+	color: #494949;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+}
+
+.apprasial-layer .bottom-score .score-wrap ul li.bingo {
+	box-shadow: 0px 0px 2px 0px rgba(0, 102, 0, 0.349019607843137) inset;
+	background-color: rgba(0, 153, 0, 0.317647058823529);
+}
+
+.apprasial-layer .bottom-score .score-wrap ul li.no-bingo {
+	background-color: rgba(255, 0, 0, 0.317647058823529);
+	box-shadow: 0px 0px 2px 0px rgba(153, 0, 0, 0.349019607843137) inset;
+}
+
+/*答题卡的样式*/
+.footer .center-con .answer-card .small-line {
+	width: 1px;
+	height: 24px;
+	position: absolute;
+	top: 16px;
+	background: #569CE2;
+	left: 12px;
+}
+
+.footer .center-con .catalog {
+	display: inline-block;
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+	cursor: pointer;
+}
+
+.footer .center-con li.answer-card .catalog:hover {
+	background-color: rgba(7, 110, 213, 1);
+	border-radius: 3px;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 102, 0.349019607843137) inset;
+}
+
+/*考试内容页面点击交卷的弹窗的样式*/
+.fixed-alert {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.537255);
+	display: none;
+}
+
+.fixed-alert .confirm-con {
+	width: 400px;
+	height: 248px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -128px;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.23921568627451);
+}
+
+.fixed-alert .confirm-con .confirm-top {
+	width: 100%;
+	height: 72px;
+	border-radius: 3px 3px 0px 0px;
+	background: url("../images/confirm-bg.png");
+	position: relative;
+	overflow: hidden;
+}
+
+.fixed-alert .confirm-con span.sector {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border: 30px solid cornflowerblue;
+	border-right: 30px solid greenyellow;
+	border-left: 30px solid #2849D9;
+	border-radius: 50%;
+	transform: rotate(-45deg);
+	position: absolute;
+	right: -30px;
+	top: -30px;
+	cursor: pointer;
+}
+
+.fixed-alert .confirm-con span.sector:hover {
+	border-left: 30px solid #223DBB;
+}
+
+.fixed-alert .confirm-con span.sector i {
+	position: absolute;
+	left: -23px;
+	bottom: -7px;
+	color: #FFF;
+	transform: rotate(45deg);
+}
+
+.fixed-alert .confirm-con .confirm-text {
+	text-align: center;
+	padding-top: 30px;
+	font-weight: 700;
+	line-height: 30px;
+	counter: #494949;
+	font-size: 14px;
+}
+
+.fixed-alert .confirm-con .confirm-text .time {
+	color: #FF0000;
+}
+
+.fixed-alert .confirm-con .confirm-text .count {
+	color: #FF0000;
+}
+
+.fixed-alert .confirm-con .confirm-btns {
+	width: 208px;
+	height: 32px;
+	margin: 0 auto;
+	line-height: 32px;
+	margin-top: 38px;
+}
+
+.fixed-alert .confirm-con .confirm-btns li {
+	border-radius: 3px;
+	width: 96px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	border-radius: 3px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.fixed-alert .confirm-con .confirm-btns li.cancel {
+	border: 1px solid rgba(221, 221, 221, 1);
+	background-color: rgba(241, 241, 241, 1);
+	color: #494949;
+	transition: all .3s;
+	margin-right: 16px;
+}
+
+.fixed-alert .confirm-con .confirm-btns li.cancel:hover {
+	background: #FAFAFA;
+}
+
+.fixed-alert .confirm-con .confirm-btns li.sure {
+	background-color: #22A0E2;
+	color: #fff;
+	transition: all .3s;
+}
+
+.fixed-alert .confirm-con .confirm-btns li.sure:hover {
+	background: rgba(34, 160, 226, 0.7);
+}
+

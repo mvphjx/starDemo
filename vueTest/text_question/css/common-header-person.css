@@ -1,0 +1,162 @@
+/*公共的白色背景头部和个人信息*/
+
+/*头部*/
+.head-title {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background: #fff;
+}
+
+.head-title .img-box {
+	width: 36px;
+	height: 36px;
+	margin-top: 6px;
+}
+
+.head-title .img-box img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.head-title .middle-wrapper {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.head-title .title-con .sys-title {
+	margin-left: 12px;
+	font-size: 18px;
+	color: rgb(3, 92, 177);
+	font-weight: 700;
+}
+
+.head-title .nav-action ul li {
+	margin-left: 30px;
+	color: rgb(3, 92, 177);
+	cursor: pointer;
+}
+
+.head-title .nav-action span {
+	font-size: 16px;
+	position: relative;
+	top: 3px;
+	margin-right: 4px;
+}
+
+.head-title .nav-action i {
+	font-size: 12px;
+}
+
+/*个人信息部分*/
+.person-info {
+	width: 100%;
+	height: 136px;
+	background: #5D61CA url("../images/index-person-bg.png") no-repeat right center;
+}
+
+.person-info .person-info-wrapper {
+	width: 1200px;
+	height: 136px;
+	margin: 0 auto;
+}
+
+.person-info .person-info-wrapper .personal {
+	height: 136px;
+}
+
+.person-info .person-info-wrapper .personal .portrait-img {
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	border: 4px solid #fff;
+	margin-top: 24px;
+	box-shadow: 0 0 10px rgba(56,81,131,0.35);
+}
+
+.person-info .person-info-wrapper .personal .portrait-img img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.person-info .person-info-wrapper .personal .personal-msg {
+	margin-left: 32px;
+	padding-top: 45px;
+}
+
+.personal .personal-msg h5 span.name, .personal .personal-msg h5 span.name i {
+	font-size: 20px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.personal .personal-msg h5 span.level {
+	background: #FFB401;
+	font-weight: 700;
+	height: 22px;
+	line-height: 22px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 12px;
+	padding: 0px 10px;
+	margin-left: 14px;
+}
+
+.personal .personal-msg h5 span.level i {
+	font-weight: 700;
+}
+
+.personal .personal-msg p {
+	font-size: 14px;
+	color: #fff;
+	margin-top: 20px;
+}
+
+.personal .personal-msg p span.h_timeline {
+	margin-right: 10px;
+	font-size: 16px;
+	position: relative;
+	top: 2px;
+}
+
+.person-info-wrapper .record-con {
+	color: #fff;
+	padding-top: 44px;
+	padding-right: 150px;
+}
+
+.record-con ul li .icon span {
+	font-size: 24px;
+}
+
+.record-con ul li .text-count {
+	height: 32px;
+	margin-top: 12px;
+}
+
+.record-con ul li .text {
+	display: inline-block;
+	font-size: 14px;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+.record-con ul li .count {
+	display: inline-block;
+	font-size: 22px;
+	color: #fff;
+	font-weight: 700;
+	margin-left: 8px;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+.record-con ul li {
+	min-width: 142px;
+	text-align: center;
+}

@@ -17,17 +17,17 @@ function init() {
 
 function initData(fileUrls) {
     // 创建一个数组，包含每个文件的获取和解析操作
-    const dataPromises = fileUrls.map(fileUrl =>
-        fetch(fileUrl)
+    const dataPromises = fileUrls.map(fileUrl => {
+        const timestamp = new Date().getTime();
+        return fetch(`${fileUrl}?timestamp=${timestamp}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`从 ${fileUrl} 获取数据失败`);
                 }
                 return response.text();
             })
-            .then(text => text.split('\n').filter(line => line.trim() !== ''))
-    );
-
+            .then(text => text.split('\n').filter(line => line.trim() !== ''));
+    });
     // 使用 Promise.all 等待所有文件的数据获取完成
     return Promise.all(dataPromises);
 }

@@ -2,7 +2,7 @@ var fileUrl = 'data.txt';
 
 function init() {
     // 定义要获取数据的文件 URL 数组
-    var fileUrls = ['data.txt', 'data202405.txt'];
+    var fileUrls = ['data.txt', 'data2023.txt', 'data2024.txt', 'data2025.txt', 'data2026.txt'];
     initData(fileUrls)
         .then(dataArrays => {
             // dataArrays 是一个数组，包含了每个文件解析后的数据数组

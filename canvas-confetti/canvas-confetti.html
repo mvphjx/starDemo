@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confetti Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<button id="confettiButton">Click Me for Confetti!</button>
+
+<script>
+    //canvas-confetti 是一个用于在网页上生成五彩纸屑效果的JavaScript库，通常用于庆祝、动画效果或视觉反馈
+    // 获取按钮元素
+    const button = document.getElementById('confettiButton');
+
+    // 为按钮添加点击事件监听器
+    button.addEventListener('click', function () {
+        // 调用confetti生成五彩纸屑
+        confetti({
+            particleCount: 50, // 纸屑数量
+            spread: 90, // 纸屑分散的角度
+            origin: {y: 0.6} // 纸屑开始位置
+        });
+    });
+</script>
+
+</body>
+</html>

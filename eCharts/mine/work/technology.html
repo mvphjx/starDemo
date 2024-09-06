@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+    <meta charset="UTF-8">
+    <title>
+    </title>
+
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<body style="height: 500px; margin: 0">
+<div id="main" style="height: 100%"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '技术能力'
+        },
+        tooltip: {},
+        legend: {
+            data: ['前期', '中期', '后期']
+        },
+        radar: {
+            shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+                }
+            },
+            indicator: [{
+                name: '系统设计与建模能力',
+                max: 10
+            },
+                {
+                    name: '技术能力',
+                    max: 10
+                },
+                {
+                    name: '全局视角与系统性思维',
+                    max: 10
+                },
+                {
+                    name: '沟通与协作能力',
+                    max: 10
+                },
+                {
+                    name: '项目管理能力',
+                    max: 10
+                },
+                {
+                    name: '质量保障',
+                    max: 10
+                },
+                {
+                    name: '创新与前瞻性思维',
+                    max: 10
+                }
+            ]
+        },
+        series: [{
+            name: '技能加点',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data: [{
+                value: [3, 5, 2, 2, 2, 2, 1],
+                name: '前期'
+
+            }, {
+                value: [6, 7, 5, 4, 5, 4, 3],
+                name: '中期'
+            }, {
+                value: [9, 8, 8, 6, 6, 6, 6],
+                name: '后期',
+                areaStyle: {
+                    color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
+                        {
+                            color: 'rgba(255, 145, 124, 0.1)',
+                            offset: 0
+                        },
+                        {
+                            color: 'rgba(255, 145, 124, 0.9)',
+                            offset: 1
+                        }
+                    ])
+                }
+
+            }]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: '技能加点'
+            text: '全局加点'
         },
         tooltip: {},
         legend: {
@@ -32,35 +32,31 @@
                 }
             },
             indicator: [{
-                name: '后端',
+                name: '系统设计与建模能力',
                 max: 10
             },
                 {
-                    name: '前端',
+                    name: '技术能力',
                     max: 10
                 },
                 {
-                    name: '数据库',
+                    name: '全局视角与系统性思维',
                     max: 10
                 },
                 {
-                    name: '大数据',
+                    name: '沟通与协作能力',
                     max: 10
                 },
                 {
-                    name: '云计算与容器',
+                    name: '项目管理能力',
                     max: 10
                 },
                 {
-                    name: '安全',
+                    name: '质量保障',
                     max: 10
                 },
                 {
-                    name: '网络与通信',
-                    max: 10
-                },
-                {
-                    name: '前沿技术',
+                    name: '创新与前瞻性思维',
                     max: 10
                 }
             ]
@@ -70,14 +66,14 @@
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: [3, 5, 2, 2, 2, 2, 1, 1],
+                value: [3, 5, 2, 2, 2, 2, 1],
                 name: '前期'
 
             }, {
-                value: [6, 7, 5, 4, 5, 4, 3, 1],
+                value: [6, 7, 5, 4, 5, 4, 3],
                 name: '中期'
             }, {
-                value: [9, 8, 8, 6, 6, 6, 6, 1],
+                value: [9, 8, 8, 6, 6, 6, 6],
                 name: '后期',
                 areaStyle: {
                     color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [

@@ -14,13 +14,12 @@
     var myChart = echarts.init(document.getElementById('main'));
     // 指定图表的配置项和数据
     var option = {
+        color: ['#FF917C' , '#56A3F1'],
         title: {
-            text: '设计能力加点'
+            text: '自我介绍'
         },
         tooltip: {},
-        legend: {
-            data: ['前期', '中期', '后期']
-        },
+        legend: {},
         radar: {
             shape: 'circle',
             name: {
@@ -32,49 +31,38 @@
                 }
             },
             indicator: [{
-                name: '需求理解',
+                name: '经济',
                 max: 10
             },
                 {
-                    name: '领域建模',
+                    name: '外貌',
                     max: 10
                 },
                 {
-                    name: '技术架构',
+                    name: '工作',
                     max: 10
                 },
                 {
-                    name: '部署架构',
+                    name: '心理',
                     max: 10
                 },
                 {
-                    name: '详细建模',
+                    name: '健康',
                     max: 10
                 },
                 {
-                    name: '行为建模',
-                    max: 10
-                },
-                {
-                    name: '架构模式',
+                    name: '家庭',
                     max: 10
                 }
             ]
         },
         series: [{
-            name: '技能加点',
+            name: '自我介绍',
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: [5, 1, 2, 2, 2, 2, 1],
-                name: '前期'
-
-            }, {
-                value: [6, 3, 5, 4, 5, 3, 3],
-                name: '中期'
-            }, {
                 value: [9, 6, 8, 7, 8, 6, 6],
-                name: '后期',
+                name: '自我介绍',
                 areaStyle: {
                     color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
                         {

@@ -15,7 +15,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: '技术能力'
+            text: '技术能力加点'
         },
         tooltip: {},
         legend: {
@@ -32,31 +32,35 @@
                 }
             },
             indicator: [{
-                name: '系统设计与建模能力',
+                name: '后端',
                 max: 10
             },
                 {
-                    name: '技术能力',
+                    name: '前端',
                     max: 10
                 },
                 {
-                    name: '全局视角与系统性思维',
+                    name: '数据库',
                     max: 10
                 },
                 {
-                    name: '沟通与协作能力',
+                    name: '大数据',
                     max: 10
                 },
                 {
-                    name: '项目管理能力',
+                    name: '云计算与容器',
                     max: 10
                 },
                 {
-                    name: '质量保障',
+                    name: '安全',
                     max: 10
                 },
                 {
-                    name: '创新与前瞻性思维',
+                    name: '网络与通信',
+                    max: 10
+                },
+                {
+                    name: '前沿技术',
                     max: 10
                 }
             ]
@@ -66,21 +70,20 @@
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: [3, 5, 2, 2, 2, 2, 1],
+                value: [3, 5, 2, 2, 2, 2, 1, 1],
                 name: '前期'
 
             }, {
-                value: [6, 7, 5, 4, 5, 4, 3],
+                value: [6, 7, 5, 4, 5, 4, 4, 2],
                 name: '中期'
             }, {
-                value: [9, 8, 8, 6, 6, 6, 6],
+                value: [9, 8, 8, 6, 6, 6, 6, 4],
                 name: '后期',
                 areaStyle: {
-                    color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
-                        {
-                            color: 'rgba(255, 145, 124, 0.1)',
-                            offset: 0
-                        },
+                    color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [{
+                        color: 'rgba(255, 145, 124, 0.1)',
+                        offset: 0
+                    },
                         {
                             color: 'rgba(255, 145, 124, 0.9)',
                             offset: 1

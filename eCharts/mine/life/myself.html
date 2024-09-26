@@ -14,7 +14,7 @@
     var myChart = echarts.init(document.getElementById('main'));
     // 指定图表的配置项和数据
     var option = {
-        color: ['#FF917C' , '#56A3F1'],
+        color: ['#FF917C', '#56A3F1'],
         title: {
             text: '自我介绍'
         },
@@ -57,12 +57,12 @@
             ]
         },
         series: [{
-            name: '自我介绍',
+            name: '基本信息',
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: [9, 6, 8, 7, 8, 6, 6],
-                name: '自我介绍',
+                value: [7, 6, 7, 8, 7, 9, 9],
+                name: '基本信息',
                 areaStyle: {
                     color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
                         {

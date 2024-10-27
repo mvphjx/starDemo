@@ -6,9 +6,61 @@
     </title>
 
 </head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    .profile-summary {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .profile-summary h2 {
+        font-size: 24px;
+        color: #56A3F1;
+        margin-bottom: 15px;
+    }
+    .profile-summary p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #666;
+    }
+    .profile-summary ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .profile-summary li {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    .profile-summary li:last-child {
+        margin-bottom: 0;
+    }
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 <body style="height: 500px; margin: 0">
 <div id="main" style="height: 100%"></div>
+<div class="profile-summary">
+    <h2>个人简介</h2>
+    <p>爱生活、读书、跑步、美食。</p>
+    <p>优点靠谱、身心健康，缺点外貌一般。</p>
+    <ul>
+        <li>生日：1989年10月</li>
+        <li>身高：166cm</li>
+        <li>体重：64kg</li>
+        <li>职业：程序员</li>
+        <li>年薪：30万</li>
+        <li>存款：100万</li>
+    </ul>
+</div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
@@ -16,7 +68,7 @@
     var option = {
         color: ['#FF917C', '#56A3F1'],
         title: {
-            text: '自我介绍'
+            text: ''
         },
         tooltip: {},
         legend: {},

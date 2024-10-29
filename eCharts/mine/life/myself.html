@@ -45,6 +45,8 @@
     }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 <body style="height: 500px; margin: 0">
 <div id="main" style="height: 100%"></div>
 <div class="profile-summary">
@@ -134,6 +136,12 @@
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    // 调用confetti生成五彩纸屑
+    confetti({
+        particleCount: 50, // 纸屑数量
+        spread: 90, // 纸屑分散的角度
+        origin: {y: 0.6} // 纸屑开始位置
+    });
 </script>
 </body>
 </html>

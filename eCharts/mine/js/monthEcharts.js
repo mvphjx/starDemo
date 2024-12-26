@@ -9,11 +9,11 @@ function monthEcharts() {
         return key; // 这里直接使用年月作为x轴数据
     });
     var seriesData = Object.values(monthlyData);
-    var rencent30AveragesData = Object.values(calculateRecentAverage(monthlyData, 30));
-    var rencent90AveragesData = Object.values(calculateRecentAverage(monthlyData, 90));
+    rencent30AveragesData = Object.values(calculateRecentAverage(monthlyData, 30));
+    rencent90AveragesData = Object.values(calculateRecentAverage(monthlyData, 90));
     // 计算日均次数
     var dailyAverages = calculateDailyAverages(monthlyData);
-    var dailyAveragesData = Object.values(dailyAverages);
+    dailyAveragesData = Object.values(dailyAverages);
     // 指定图表的配置项和数据
     var option = {
         legend: {
@@ -63,7 +63,7 @@ function monthEcharts() {
  */
 function calculateRecentAverage(data, dayCount) {
     var averages = {};
-    const todayDate = moment();
+    const todayDate = getTodayMont();
     const _startDate = moment('2023-07-12', 'YYYY-MM-DD').subtract(1, 'seconds');
     Object.keys(data).forEach(function (month) {
         let _dayCount = dayCount;
@@ -103,7 +103,7 @@ function calculateMonthlyAverage(data) {
         var monthIndex = parseInt(month.substring(5, 7), 10) - 1; // JavaScript 月份从 0 开始
         var total = data[month];
         var days = getDaysInMonth(year, monthIndex + 1);
-        const todayDate = moment();
+        const todayDate = getTodayMont();
         if (todayDate.month() == monthIndex && todayDate.year() == year) {
             days = todayDate.day();
         }
@@ -124,7 +124,7 @@ function calculateDailyAverages(data) {
     let dailyAverages = {};
     // 定义起始日期
     const startDate = moment('2023-07-12', 'YYYY-MM-DD').subtract(1, 'seconds');
-    const todayDate = moment();
+    const todayDate = getTodayMont();
     for (let month in data) {
         let endDate;
         let startOfMonth = moment(month, 'YYYY-MM')
@@ -166,9 +166,11 @@ function sortedMonthData() {
         sortedData[key] = monthlyData[key]
     }
     monthlyData = sortedData;
-    var todayMont = moment().format('YYYY-MM');
+    var todayMont = getTodayMont().format('YYYY-MM');
     if (keys.indexOf(todayMont) === -1) {
         monthlyData[todayMont] = 0;
     }
 
 }
+
+

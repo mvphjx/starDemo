@@ -12,9 +12,20 @@
     <script src="js/hourEcharts.js"></script>
     <script src="js/monthEcharts.js"></script>
     <script src="js/init.js"></script>
-
+    <script src="js/monitoring.js"></script>
 </head>
 <body>
+<div class="alert-container" id="alertContainer">
+    <div class="alert-title">数据预警通知</div>
+    <div class="alert-content">
+        <p class="alert-message">30天数据预警，预计恢复时间：</p>
+        <p class="alert-date" id="message30">-</p>
+    </div>
+    <div class="alert-content">
+        <p class="alert-message">90天数据预警，预计恢复时间：</p>
+        <p class="alert-date"  id="message90">-</p>
+    </div>
+</div>
 <div id="monthStat" style="width: 900px;height:400px;"></div>
 <div id="dateStat" style="width: 900px;height:1200px;"></div>
 <div id="hourStat" style="width: 900px;height:400px;"></div>
@@ -25,5 +36,39 @@
     var daylyData = {};
     init();
 </script>
+<style>
+    .alert-container {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 600px;
+        margin: auto;
+        display: none;
+    }
+
+    .alert-title {
+        color: #d8000c;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .alert-content {
+        display: flex
+    }
+
+    .alert-message {
+        color: #333;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .alert-date {
+        color: #555;
+        font-size: 1em;
+        font-style: italic;
+    }
+
+</style>
 </body>
 </html>

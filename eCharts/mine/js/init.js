@@ -65,10 +65,24 @@ function initEcharts() {
         }
         _datetimeArray.push(date)
     });
+    // 使用sort方法和isAfter方法对datetimeArray进行排序
+    _datetimeArray.sort(function(a, b) {
+        // 如果a在b之后，返回1，这样a会被放在b的后面
+        if (a.isAfter(b)) {
+            return 1;
+        }
+        // 如果b在a之后，返回-1，这样b会被放在a的后面
+        if (b.isAfter(a)) {
+            return -1;
+        }
+        // 如果两个日期相等，返回0
+        return 0;
+    });
     datetimeArray = _datetimeArray;
     hourEcharts();
     monthEcharts();
     dateEcharts();
+    monitoring();
 }
 
 

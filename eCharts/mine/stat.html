@@ -17,11 +17,11 @@
 <body>
 <div class="alert-container" id="alertContainer">
     <div class="alert-title">数据预警通知</div>
-    <div class="alert-content">
+    <div class="alert-content" id="alert30">
         <p class="alert-message">30天数据预警，预计恢复时间：</p>
         <p class="alert-date" id="message30">-</p>
     </div>
-    <div class="alert-content">
+    <div class="alert-content" id="alert90">
         <p class="alert-message">90天数据预警，预计恢复时间：</p>
         <p class="alert-date"  id="message90">-</p>
     </div>
@@ -39,12 +39,13 @@
 <style>
     .alert-container {
         background-color: #fff;
-        border: 1px solid #ddd;
-        padding: 20px;
+        border-bottom: 1px solid #ddd;
+        padding: 5px;
         border-radius: 5px;
-        max-width: 600px;
-        margin: auto;
+        /*max-width: 600px;*/
+        /*margin: auto;*/
         display: none;
+        margin-bottom: 20px;
     }
 
     .alert-title {
@@ -54,7 +55,7 @@
     }
 
     .alert-content {
-        display: flex
+        display: none;
     }
 
     .alert-message {

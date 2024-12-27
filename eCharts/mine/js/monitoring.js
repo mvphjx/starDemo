@@ -7,21 +7,20 @@ function monitoring() {
     nextTime30 = getNextTime(rencent30AveragesData, 30);
     nextTime90 = getNextTime(rencent90AveragesData, 90);
     if (nextTime30) {
+        show("alert30");
         document.getElementById('message30').innerHTML = nextTime30.format('YYYY年MM月DD日HH:mm:ss');
     }
     if (nextTime90) {
+        show("alert90");
         document.getElementById('message90').innerHTML = nextTime90.format('YYYY年MM月DD日HH:mm:ss');
     }
-    show();
 }
 
-function show() {
+function show(id) {
+    var alertDiv = document.getElementById(id);
     var alertContainer = document.getElementById('alertContainer');
-    if (alertContainer.style.display === 'none' || alertContainer.style.display === '') {
-        alertContainer.style.display = 'block';
-    } else {
-        alertContainer.style.display = 'none';
-    }
+    alertContainer.style.display = 'block';
+    alertDiv.style.display = 'flex';
 }
 
 

@@ -19,8 +19,30 @@ function dateEcharts() {
         tooltip: {
             position: 'top',
             formatter: function (p) {
-                const format = echarts.time.format(p.data[0], '{yyyy}-{MM}-{dd}', false);
-                return format + ': ' + p.data[1];
+                const format = echarts.time.format(p.data[0], '{yyyy}年{MM}月{dd}日', false);
+                var startDate = moment(format, 'YYYY-MM-DD');
+                var endDate = startDate.clone().subtract(-1, 'days').subtract(1, 'seconds');
+                //获取明细 datetimeArray
+                var detail = null
+                datetimeArray.forEach(function (date) {
+
+                    if (date.isAfter(startDate) && date.isBefore(endDate)) {
+                        //'YYYY年MM月DD日HH:mm:ss'
+                        var dataStr = date.format('YYYY年MM月DD日HH:mm:ss')
+                        if (!detail) {
+                            detail = dataStr
+                        } else {
+                            detail = detail + "</br>" + dataStr
+                        }
+                    }
+                });
+                //优先显示明细，此次显示日期标注信息
+                if (detail) {
+                    return detail;
+                } else {
+                    return format + ':' + p.data[1];
+                }
+
             }
         },
         visualMap: {
@@ -93,7 +115,11 @@ function createScatterSeries(calendarIndex, data) {
             formatter: function (params) {
                 const dateObj = echarts.number.parseDate(params.value[0]);
                 const dayNum = dateObj.getDate();
-                return params.value[1] === '今天' ? `{b|${dayNum}}` : `{a|${dayNum}}`;
+                if (params.value[1] === '今天') {
+                    return `{b|${dayNum}}`;
+                } else {
+                    return `{a|${dayNum}}`;
+                }
             },
             rich: {
                 a: {

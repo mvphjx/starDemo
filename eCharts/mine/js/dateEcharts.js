@@ -20,8 +20,8 @@ function dateEcharts() {
             position: 'top',
             formatter: function (p) {
                 const format = echarts.time.format(p.data[0], '{yyyy}年{MM}月{dd}日', false);
-                var startDate = moment(format, 'YYYY-MM-DD');
-                var endDate = startDate.clone().subtract(-1, 'days').subtract(1, 'seconds');
+                var startDate = moment(format, 'YYYY-MM-DD').subtract(1, 'seconds');
+                var endDate = startDate.clone().add(1, 'days').add(1, 'seconds');
                 //获取明细 datetimeArray
                 var detail = null
                 datetimeArray.forEach(function (date) {

@@ -19,6 +19,23 @@ function monitoring() {
         show("alert30");
         document.getElementById('message30').innerHTML = nextTime30.format('YYYY年MM月DD日HH:mm:ss');
     }
+    var nextTimeNow = getNextTimeNow();
+    if (nextTimeNow) {
+        show("alertNow");
+        document.getElementById('messageNow').innerHTML = nextTimeNow.format('YYYY年MM月DD日HH:mm:ss');
+    }
+
+}
+
+function getNextTimeNow() {
+    var thisData = datetimeArray[datetimeArray.length - 1];
+    var hours = 48;
+    var nextTime = thisData.clone().add(hours, 'hours')
+    if (nextTime.isAfter(moment())) {
+        return nextTime;
+    } else {
+        return null;
+    }
 }
 
 

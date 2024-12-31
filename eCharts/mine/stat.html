@@ -17,6 +17,10 @@
 <body>
 <div class="alert-container" id="alertContainer">
     <div class="alert-title">数据预警通知</div>
+    <div class="alert-content" id="alertNow">
+        <p class="alert-message">当前数据预警，预计恢复时间：</p>
+        <p class="alert-date" id="messageNow">-</p>
+    </div>
     <div class="alert-content" id="alert30">
         <p class="alert-message">30天数据现值预警，预计恢复时间：</p>
         <p class="alert-date" id="message30">-</p>
@@ -60,6 +64,7 @@
 
     .alert-content {
         display: none;
+        height: 30px;
     }
 
     .alert-message {

@@ -67,7 +67,7 @@ function getNextTime(averagesData, days) {
     var count = days * passingData;
     var countRound = Math.round(count);
     var datetime = datetimeArray[datetimeArray.length + 1 - countRound];
-    nextTime = datetime.add(days, 'days');
+    nextTime = datetime.clone().add(days, 'days');
     return nextTime;
 }
 
@@ -90,7 +90,7 @@ function getCompareNextTime(averagesData, days) {
         var count = days * lastData;
         var countRound = Math.round(count);
         var datetime = datetimeArray[datetimeArray.length + 1 - countRound]
-        nextTime = datetime.add(days, 'days');
+        nextTime = datetime.clone().add(days, 'days');
     }
     return nextTime;
 }

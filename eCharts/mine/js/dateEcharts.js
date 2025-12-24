@@ -48,28 +48,44 @@ function dateEcharts() {
         visualMap: {
             min: 0,
             max: 4,
+            left: 765,
+            top: 'center',
             calculable: true,
-            orient: 'vertical',
-            left: '800',
-            top: 'center'
+            orient: 'vertical'
         },
         calendar: [
             {
+                left: 25,
                 orient: 'vertical',
-                cellSize: [30, 'auto'],
-                range: '2023'
+                cellSize: [20, 20],
+                range: '2023',
+                dayLabel: {
+                    margin: 5
+                }
             },
             {
-                left: 330,
-                cellSize: [30, 'auto'],
+                left: 225,
+                cellSize: [20, 20],
                 orient: 'vertical',
-                range: '2024'
+                range: '2024',
+                dayLabel: {
+                    margin: 5
+                }
             },
             {
-                left: 580,
-                cellSize: [30, 'auto'],
+                left: 425,
+                cellSize: [20, 20],
                 orient: 'vertical',
                 range: '2025',
+                dayLabel: {
+                    margin: 5
+                }
+            },
+            {
+                left: 625,
+                cellSize: [20, 20],
+                orient: 'vertical',
+                range: '2026',
                 dayLabel: {
                     margin: 5
                 }
@@ -94,9 +110,16 @@ function dateEcharts() {
                 calendarIndex: 2,
                 data: getVirtualData('2025')
             },
+            {
+                type: 'heatmap',
+                coordinateSystem: 'calendar',
+                calendarIndex: 3,
+                data: getVirtualData('2026')
+            },
             createScatterSeries(0, lunarData),
             createScatterSeries(1, lunarData),
-            createScatterSeries(2, lunarData)
+            createScatterSeries(2, lunarData),
+            createScatterSeries(3, lunarData)
         ]
     };
     // 使用刚指定的配置项和数据显示图表。

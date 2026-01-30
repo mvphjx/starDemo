@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冰球主题生日抽奖 - XX生日快乐！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #003399; /* 深蓝色背景 */
+            color: #FFFFFF;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-image:
+                    radial-gradient(circle at 20% 80%, rgba(0, 153, 255, 0.2) 0%, transparent 20%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.15) 0%, transparent 20%);
+        }
+
+        /* 首屏样式 */
+        #welcome-screen {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95); /* 白色主色 */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 8px solid #0099FF; /* 亮蓝色边框 */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #welcome-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15%;
+            background-color: #0099FF; /* 亮蓝色顶部条 */
+        }
+
+        #welcome-screen::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background-color: #FF6600; /* 橙色底部条 */
+        }
+
+        .birthday-title {
+            color: #003399; /* 深蓝色文字 */
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .birthday-subtitle {
+            color: #CC0000; /* 红色文字 */
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .birthday-message {
+            color: #333;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hockey-icon {
+            font-size: 4rem;
+            color: #FF6600; /* 橙色冰球图标 */
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            animation: bounce 2s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        /* 抽奖按钮 */
+        .draw-btn {
+            background: linear-gradient(to bottom, #0099FF, #0066CC); /* 亮蓝色渐变 */
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 153, 255, 0.4);
+            border: 4px solid #FFFFFF;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .draw-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 153, 255, 0.6);
+            background: linear-gradient(to bottom, #00AAFF, #0077DD);
+        }
+
+        .draw-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(0, 153, 255, 0.4);
+        }
+
+        /* 抽奖界面 */
+        #lottery-screen {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .lottery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 8px solid #0099FF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lottery-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15%;
+            background-color: #0099FF;
+        }
+
+        .lottery-title {
+            color: #003399;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lottery-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 转盘样式 */
+        .wheel-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 5s cubic-bezier(0.17, 0.67, 0.21, 0.99);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border: 8px solid #FF6600; /* 橙色边框 */
+        }
+
+        .wheel-item {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: bottom right;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .wheel-item-content {
+            transform: rotate(30deg);
+            width: 100%;
+            padding-left: 60px;
+        }
+
+        .wheel-item-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #003399;
+            margin-bottom: 5px;
+        }
+
+        .wheel-item-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 80px;
+            z-index: 10;
+        }
+
+        .pointer-triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 80px solid #CC0000; /* 红色指针 */
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+        }
+
+        .spin-btn {
+            background: linear-gradient(to bottom, #FF6600, #CC5500); /* 橙色按钮 */
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+            border: 4px solid #FFFFFF;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .spin-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.6);
+            background: linear-gradient(to bottom, #FF7700, #DD6600);
+        }
+
+        .spin-btn:disabled {
+            background: linear-gradient(to bottom, #AAAAAA, #888888);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 奖品展示区 - 现在是历史记录 */
+        .history-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 4px solid #0099FF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .history-title {
+            color: #003399;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FF6600;
+            width: 100%;
+            text-align: center;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            flex-grow: 1;
+            width: 100%;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #0099FF;
+        }
+
+        .history-icon {
+            font-size: 2rem;
+            color: #0099FF;
+            margin-right: 15px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .history-info {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .history-name {
+            color: #003399;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .history-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .empty-history {
+            color: #777;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-btn {
+            background-color: #003399; /* 深蓝色 */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: 3px solid #FFFFFF;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background-color: #002288;
+            transform: translateY(-3px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1100px) {
+            .lottery-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .history-container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .wheel-container {
+                width: 350px;
+                height: 350px;
+            }
+
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+
+            .birthday-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .birthday-message {
+                font-size: 1.2rem;
+            }
+
+            .lottery-title {
+                font-size: 2.2rem;
+            }
+
+            .wheel-item-title {
+                font-size: 0.9rem;
+            }
+
+            .wheel-item-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes confetti {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(1000px) rotate(360deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: #FF6600;
+            top: -20px;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        .prize-reveal {
+            animation: reveal 1s ease-out;
+        }
+
+        @keyframes reveal {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .winning-effect {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        /* 弹窗样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 8px solid #0099FF;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background-color: #0099FF;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #FF6600;
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            color: #FFCC00;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .modal-prize-image {
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #0099FF;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border: 8px solid #FF6600;
+            overflow: hidden;
+        }
+
+        .modal-prize-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-prize-name {
+            color: #003399;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .modal-prize-description {
+            color: #555;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .modal-blessing {
+            color: #CC0000;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: rgba(255, 102, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+        }
+
+        .modal-btn-close {
+            background-color: #003399;
+            color: white;
+            border: 3px solid #FFFFFF;
+        }
+
+        .modal-btn-close:hover {
+            background-color: #002288;
+            transform: translateY(-3px);
+        }
+
+        .modal-btn-share {
+            background-color: #FF6600;
+            color: white;
+            border: 3px solid #FFFFFF;
+        }
+
+        .modal-btn-share:hover {
+            background-color: #E55A00;
+            transform: translateY(-3px);
+        }
+
+        .modal-btn-again {
+            background-color: #0099FF;
+            color: white;
+            border: 3px solid #FFFFFF;
+        }
+
+        .modal-btn-again:hover {
+            background-color: #0088EE;
+            transform: translateY(-3px);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!-- 首屏界面 -->
+<div id="welcome-screen">
+    <div class="hockey-icon">
+        <i class="fas fa-hockey-puck"></i>
+    </div>
+    <h1 class="birthday-title">XX，生日快乐！</h1>
+    <h2 class="birthday-subtitle">天天开心，保持热爱</h2>
+    <p class="birthday-message">
+        在这个特别的日子里，我们为你准备了一场特别的冰球主题抽奖活动！<br>
+        点击下方按钮，转动幸运大转盘，赢取属于你的生日礼物！
+    </p>
+    <button id="start-lottery" class="draw-btn">
+        <i class="fas fa-gift"></i> 点击抽奖
+    </button>
+</div>
+
+<!-- 抽奖界面 -->
+<div id="lottery-screen">
+    <div class="lottery-container">
+        <h1 class="lottery-title">生日幸运大转盘</h1>
+        <div class="lottery-content">
+            <!-- 转盘区域 -->
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <div class="wheel-pointer">
+                        <div class="pointer-triangle"></div>
+                    </div>
+                    <div id="wheel" class="wheel">
+                        <!-- 转盘项将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+                <button id="spin-btn" class="spin-btn">
+                    <i class="fas fa-redo-alt"></i> 转动转盘
+                </button>
+            </div>
+
+            <!-- 历史记录区 -->
+            <div class="history-container">
+                <h2 class="history-title">抽奖历史</h2>
+                <div id="history-list" class="history-list">
+                    <div class="empty-history">
+                        <i class="fas fa-history"></i><br>
+                        暂无抽奖记录<br>
+                        转动转盘开始抽奖吧！
+                    </div>
+                </div>
+                <button id="back-btn" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> 返回首页
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 奖品弹窗 -->
+<div id="prize-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button id="modal-close" class="modal-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="modal-title">恭喜中奖！</h2>
+            <p class="modal-subtitle">幸运降临，礼物属于你！</p>
+        </div>
+        <div class="modal-body">
+            <div id="modal-prize-image" class="modal-prize-image">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3 id="modal-prize-name" class="modal-prize-name">奖品名称</h3>
+            <p id="modal-prize-description" class="modal-prize-description">奖品描述</p>
+            <div id="modal-blessing" class="modal-blessing">
+                愿这份礼物带给你惊喜与欢乐，生日快乐！
+            </div>
+            <div class="modal-actions">
+                <button id="modal-close-btn" class="modal-btn modal-btn-close">
+                    <i class="fas fa-check"></i> 确认领取
+                </button>
+                <button id="modal-share-btn" class="modal-btn modal-btn-share">
+                    <i class="fas fa-share-alt"></i> 分享喜悦
+                </button>
+                <button id="modal-again-btn" class="modal-btn modal-btn-again">
+                    <i class="fas fa-redo"></i> 再抽一次
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 冰球主题生日抽奖 | 祝XX生日快乐，心想事成！</p>
+</footer>
+
+<script>
+    // 礼物数据
+    const gifts = [
+        {
+            id: 0,
+            name: "Vlog神器 - DJI Pocket 3",
+            description: "记录生活每一刻，让你的vlog更加精彩！",
+            icon: "fas fa-video",
+            color: "#FFFFFF",
+            blessing: "用镜头记录美好，让生活更加精彩！"
+        },
+        {
+            id: 1,
+            name: "泡泡玛特盲盒",
+            description: "两瑞泡泡玛特盲盒，开启惊喜，迎接生活中的可爱与美好！",
+            icon: "fas fa-box-open",
+            color: "#0099FF",
+            blessing: "愿这份可爱带给你一整天的好心情！"
+        },
+        {
+            id: 2,
+            name: "幸运红包",
+            description: "现金红包1888元，愿好运常伴，财源滚滚！",
+            icon: "fas fa-money-bill-wave",
+            color: "#FF6600",
+            blessing: "财源广进，好运连连，生日快乐！"
+        },
+        {
+            id: 3,
+            name: "豪华晚餐",
+            description: "邀请朋友一起享受美食与美好时光！",
+            icon: "fas fa-utensils",
+            color: "#CC0000",
+            blessing: "唯有爱与美食，不可辜负"
+        },
+        {
+            id: 4,
+            name: "护肤品",
+            description: "顶级护肤品套装，让你每天容光焕发，美丽自信！",
+            icon: "fas fa-paint-brush",
+            color: "#003399",
+            blessing: "愿你每天都能展现最美的自己！"
+        },
+        {
+            id: 5,
+            name: "石化加油卡",
+            description: "价值2000元的石化油卡，让你的旅途无忧，一路顺风！",
+            icon: "fas fa-gas-pump",
+            color: "#66CCFF",
+            blessing: "一路顺风，旅途平安，生日快乐！"
+        }
+    ];
+
+    // DOM元素
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const lotteryScreen = document.getElementById('lottery-screen');
+    const startLotteryBtn = document.getElementById('start-lottery');
+    const spinBtn = document.getElementById('spin-btn');
+    const backBtn = document.getElementById('back-btn');
+    const wheel = document.getElementById('wheel');
+    const historyList = document.getElementById('history-list');
+    const prizeModal = document.getElementById('prize-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalShareBtn = document.getElementById('modal-share-btn');
+    const modalAgainBtn = document.getElementById('modal-again-btn');
+    const modalPrizeImage = document.getElementById('modal-prize-image');
+    const modalPrizeName = document.getElementById('modal-prize-name');
+    const modalPrizeDescription = document.getElementById('modal-prize-description');
+    const modalBlessing = document.getElementById('modal-blessing');
+
+    // 抽奖历史
+    let lotteryHistory = [];
+
+    // 初始化转盘
+    function initWheel() {
+        wheel.innerHTML = '';
+        const anglePerItem = 360 / gifts.length;
+
+        gifts.forEach((gift, index) => {
+            const item = document.createElement('div');
+            item.className = 'wheel-item';
+            item.style.transform = `rotate(${index * anglePerItem}deg)`;
+            item.style.backgroundColor = gift.color;
+
+            // 添加冰球条纹效果
+            if (index % 2 === 0) {
+                item.style.backgroundImage = `repeating-linear-gradient(
+                        45deg,
+                        transparent,
+                        transparent 10px,
+                        rgba(0, 0, 0, 0.05) 10px,
+                        rgba(0, 0, 0, 0.05) 20px
+                    )`;
+            }
+
+            const content = document.createElement('div');
+            content.className = 'wheel-item-content';
+            content.innerHTML = `
+                    <div class="wheel-item-icon">${gift.icon.startsWith('fas') ? `<i class="${gift.icon}"></i>` : gift.icon}</div>
+                    <div class="wheel-item-title">${gift.name.split(' - ')[0]}</div>
+                `;
+
+            item.appendChild(content);
+            wheel.appendChild(item);
+        });
+    }
+
+    // 创建彩色纸屑效果
+    function createConfetti() {
+        const colors = ['#0099FF', '#FF6600', '#CC0000', '#003399', '#FFFFFF'];
+        const confettiCount = 150;
+
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = Math.random() * 15 + 5 + 'px';
+            confetti.style.height = Math.random() * 15 + 5 + 'px';
+            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+
+            document.body.appendChild(confetti);
+
+            // 动画
+            const animationDuration = Math.random() * 3 + 2;
+            confetti.style.animation = `confetti ${animationDuration}s ease-out forwards`;
+
+            // 动画结束后移除元素
+            setTimeout(() => {
+                confetti.remove();
+            }, animationDuration * 1000);
+        }
+    }
+
+    // 更新历史记录
+    function updateHistory(gift) {
+        const historyItem = document.createElement('div');
+        historyItem.className = 'history-item';
+
+        const now = new Date();
+        const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+        historyItem.innerHTML = `
+                <div class="history-icon">
+                    <i class="${gift.icon}"></i>
+                </div>
+                <div class="history-info">
+                    <div class="history-name">${gift.name.split(' - ')[0]}</div>
+                    <div class="history-time">${timeString}</div>
+                </div>
+            `;
+
+        // 如果当前是空状态，先移除空状态提示
+        if (historyList.querySelector('.empty-history')) {
+            historyList.innerHTML = '';
+        }
+
+        // 添加新历史记录到顶部
+        historyList.insertBefore(historyItem, historyList.firstChild);
+
+        // 限制历史记录数量
+        if (historyList.children.length > 5) {
+            historyList.removeChild(historyList.lastChild);
+        }
+
+        // 保存到历史数组
+        lotteryHistory.unshift({
+            gift: gift.name,
+            time: timeString,
+            icon: gift.icon
+        });
+    }
+
+    // 显示奖品弹窗
+    function showPrizeModal(gift) {
+        modalPrizeImage.innerHTML = `<i class="${gift.icon}"></i>`;
+        modalPrizeName.textContent = gift.name;
+        modalPrizeDescription.textContent = gift.description;
+        modalBlessing.textContent = gift.blessing;
+
+        // 添加动画效果
+        modalPrizeImage.classList.add('prize-reveal');
+        modalPrizeImage.classList.add('winning-effect');
+
+        // 显示弹窗
+        prizeModal.classList.add('active');
+
+        // 创建庆祝效果
+        createConfetti();
+    }
+
+    // 关闭奖品弹窗
+    function closePrizeModal() {
+        prizeModal.classList.remove('active');
+        modalPrizeImage.classList.remove('prize-reveal');
+        modalPrizeImage.classList.remove('winning-effect');
+    }
+
+    // 抽奖逻辑
+    let isSpinning = false;
+    let currentRotation = 0;
+
+    function spinWheel() {
+        if (isSpinning) return;
+
+        isSpinning = true;
+        spinBtn.disabled = true;
+        spinBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 抽奖中...';
+
+        // 随机选择奖品
+        const selectedGiftIndex = Math.floor(Math.random() * gifts.length);
+        const selectedGift = gifts[selectedGiftIndex];
+
+        // 计算转盘需要旋转的角度
+        const anglePerItem = 360 / gifts.length;
+        // 确保指针指向所选奖品的中心
+        const targetAngle = 3600 - (selectedGiftIndex * anglePerItem) - (anglePerItem / 2);
+
+        // 应用旋转
+        wheel.style.transform = `rotate(${currentRotation + targetAngle}deg)`;
+        currentRotation += targetAngle;
+
+        // 等待转盘旋转完成后显示结果
+        setTimeout(() => {
+            // 更新历史记录
+            updateHistory(selectedGift);
+
+            // 显示奖品弹窗
+            showPrizeModal(selectedGift);
+
+            // 重置按钮状态
+            setTimeout(() => {
+                isSpinning = false;
+                spinBtn.disabled = false;
+                spinBtn.innerHTML = '<i class="fas fa-redo-alt"></i> 再次抽奖';
+            }, 1000);
+        }, 5000); // 5秒旋转时间
+    }
+
+    // 事件监听
+    startLotteryBtn.addEventListener('click', () => {
+        welcomeScreen.style.display = 'none';
+        lotteryScreen.style.display = 'block';
+        initWheel();
+    });
+
+    spinBtn.addEventListener('click', spinWheel);
+
+    backBtn.addEventListener('click', () => {
+        lotteryScreen.style.display = 'none';
+        welcomeScreen.style.display = 'block';
+
+        // 重置转盘
+        wheel.style.transform = 'rotate(0deg)';
+        currentRotation = 0;
+    });
+
+    // 弹窗关闭事件
+    modalClose.addEventListener('click', closePrizeModal);
+    modalCloseBtn.addEventListener('click', closePrizeModal);
+
+    // 分享按钮
+    modalShareBtn.addEventListener('click', () => {
+        alert("分享功能待开发，你可以截图分享给朋友们！");
+    });
+
+    // 再抽一次按钮
+    modalAgainBtn.addEventListener('click', () => {
+        closePrizeModal();
+        // 等待弹窗关闭后再开始抽奖
+        setTimeout(() => {
+            spinWheel();
+        }, 500);
+    });
+
+    // 点击弹窗外部关闭
+    prizeModal.addEventListener('click', (e) => {
+        if (e.target === prizeModal) {
+            closePrizeModal();
+        }
+    });
+
+    // 初始化页面
+    initWheel();
+
+    // 添加冰球主题装饰
+    document.addEventListener('DOMContentLoaded', () => {
+        // 在页面加载时添加一些冰球元素装饰
+        const hockeyPucks = document.createElement('div');
+        hockeyPucks.innerHTML = `
+                <div style="position: fixed; bottom: 20px; left: 5%; font-size: 2rem; color: #FF6600; z-index: -1;">
+                    <i class="fas fa-hockey-puck"></i>
+                </div>
+                <div style="position: fixed; top: 20px; right: 10%; font-size: 3rem; color: #0099FF; z-index: -1;">
+                    <i class="fas fa-hockey-puck"></i>
+                </div>
+                <div style="position: fixed; top: 40%; left: 3%; font-size: 1.5rem; color: #CC0000; z-index: -1;">
+                    <i class="fas fa-hockey-puck"></i>
+                </div>
+            `;
+        document.body.appendChild(hockeyPucks);
+    });
+</script>
+</body>
+</html>
